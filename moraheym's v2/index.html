@@ -1,0 +1,3148 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GROUPE MORAHEYM'S — Excellence & Innovation</title>
+
+<meta name="description"
+      content="GROUPE MORAHEYM'S — Un groupe tourné vers l'excellence, l'innovation et la création d'opportunités.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --black: #070908;
+    --black-soft: #0d110f;
+    --black-card: #111714;
+
+    --cream: #f4f0e6;
+    --cream-soft: #c9c5ba;
+
+    --gold: #c9a45d;
+    --gold-light: #e4c986;
+
+    --green: #183b2e;
+    --green-light: #2c604b;
+
+    --line: rgba(244,240,230,.12);
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   CURSEUR
+========================================================= */
+
+.cursor-dot {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    pointer-events: none;
+    z-index: 10001;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(201,164,93,.7);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+
+    transition:
+        width .3s ease,
+        height .3s ease,
+        background .3s ease;
+}
+
+.cursor-ring.active {
+    width: 65px;
+    height: 65px;
+    background: rgba(201,164,93,.08);
+}
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    z-index: 20000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity .9s ease,
+        visibility .9s ease;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    text-align: center;
+}
+
+.loader-logo {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    letter-spacing: .16em;
+}
+
+.loader-subtitle {
+    margin-top: 12px;
+    font-size: .6rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.loader-bar {
+    width: 220px;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+    margin: 35px auto 0;
+    overflow: hidden;
+}
+
+.loader-progress {
+    width: 0;
+    height: 100%;
+    background: var(--gold);
+    transition: width 1.2s ease;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5000;
+
+    transition:
+        background .4s ease,
+        border-color .4s ease;
+}
+
+.nav.scrolled {
+    background: rgba(7,9,8,.82);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    width: min(1450px, 92%);
+    min-height: 94px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    letter-spacing: .11em;
+}
+
+.logo-sub {
+    margin-top: 4px;
+    font-size: .48rem;
+    color: var(--gold);
+    letter-spacing: .32em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+
+    color: var(--cream-soft);
+
+    transition: color .3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+
+    transition: width .3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--cream);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =========================================================
+   ACTUALITÉS — PREMIER BOUTON
+========================================================= */
+
+.nav-news {
+    color: var(--gold) !important;
+    font-weight: 600;
+}
+
+.nav-news::before {
+    content: "";
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 10px var(--gold);
+
+    animation: newsPulse 2s ease-in-out infinite;
+}
+
+.nav-news::after {
+    background: var(--gold) !important;
+}
+
+@keyframes newsPulse {
+
+    0%, 100% {
+        opacity: .35;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+}
+
+.nav-cta {
+    border: 1px solid var(--gold);
+    padding: 12px 18px;
+    color: var(--gold) !important;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.menu-button {
+    display: none;
+    border: 0;
+    background: none;
+    color: var(--cream);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.container {
+    width: min(1450px, 92%);
+    margin: auto;
+}
+
+section {
+    position: relative;
+}
+
+.section {
+    padding: 140px 0;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: var(--gold);
+
+    font-size: .62rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+.section-label::before {
+    content: "";
+    width: 38px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.section-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 6.5rem);
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: -.045em;
+}
+
+.section-title em {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.section-description {
+    color: var(--cream-soft);
+    line-height: 1.9;
+    font-size: .95rem;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(55px);
+
+    transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(35,94,70,.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 88% 70%,
+            rgba(201,164,93,.10),
+            transparent 30%
+        ),
+        var(--black);
+}
+
+.hero-grid {
+    width: min(1450px,92%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    align-items: center;
+    gap: 30px;
+
+    padding-top: 100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 30px;
+
+    color: var(--gold);
+
+    font-size: .63rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+}
+
+.hero-kicker::before {
+    content: "";
+    width: 42px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.hero h1 {
+    max-width: 900px;
+
+    font-family: var(--serif);
+    font-size: clamp(4.2rem, 8.4vw, 9rem);
+    font-weight: 400;
+
+    line-height: .86;
+    letter-spacing: -.065em;
+}
+
+.hero h1 .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(244,240,230,.45);
+}
+
+.hero h1 em {
+    color: var(--gold);
+}
+
+.hero-text {
+    max-width: 620px;
+    margin: 38px 0;
+
+    color: var(--cream-soft);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    min-height: 53px;
+    padding: 0 24px;
+
+    font-size: .65rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+}
+
+.button-primary {
+    color: var(--black);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.button-primary:hover {
+    background: transparent;
+    color: var(--gold);
+}
+
+.button-outline {
+    border: 1px solid rgba(244,240,230,.3);
+    color: var(--cream);
+}
+
+.button-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.visual-core {
+    position: relative;
+
+    width: min(560px, 75vw);
+    aspect-ratio: 1;
+
+    transform-style: preserve-3d;
+
+    animation: coreFloat 8s ease-in-out infinite;
+}
+
+.core-glow {
+    position: absolute;
+    inset: 20%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,164,93,.8) 0%,
+            rgba(201,164,93,.25) 25%,
+            rgba(24,59,46,.25) 55%,
+            transparent 70%
+        );
+
+    filter: blur(15px);
+}
+
+.core-sphere {
+    position: absolute;
+
+    width: 43%;
+    aspect-ratio: 1;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(50px);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #f2d995 0%,
+            var(--gold) 25%,
+            #72541e 72%,
+            #221c0e 100%
+        );
+
+    box-shadow:
+        0 0 70px rgba(201,164,93,.22),
+        inset -30px -35px 55px rgba(0,0,0,.5);
+}
+
+.core-sphere::after {
+    content: "";
+    position: absolute;
+    inset: 12%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.3);
+}
+
+.orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(201,164,93,.48);
+    border-radius: 50%;
+
+    transform-style: preserve-3d;
+}
+
+.orbit-a {
+    width: 100%;
+    height: 38%;
+    transform: translate(-50%,-50%) rotate(25deg);
+}
+
+.orbit-b {
+    width: 88%;
+    height: 58%;
+    transform: translate(-50%,-50%) rotate(-42deg);
+    border-color: rgba(244,240,230,.18);
+}
+
+.orbit-c {
+    width: 62%;
+    height: 100%;
+    transform: translate(-50%,-50%) rotate(30deg);
+}
+
+.orbit-d {
+    width: 78%;
+    height: 78%;
+    transform: translate(-50%,-50%) rotateX(65deg);
+    border-color: rgba(201,164,93,.22);
+}
+
+.orbit-point {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    background: var(--gold);
+
+    box-shadow: 0 0 18px var(--gold);
+}
+
+.point-one {
+    top: 8%;
+    left: 25%;
+}
+
+.point-two {
+    right: 8%;
+    top: 47%;
+}
+
+.point-three {
+    left: 22%;
+    bottom: 8%;
+}
+
+.visual-label {
+    position: absolute;
+
+    padding: 14px 18px;
+
+    background: rgba(13,17,15,.72);
+    border: 1px solid var(--line);
+
+    backdrop-filter: blur(12px);
+
+    font-size: .57rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    color: var(--cream-soft);
+}
+
+.visual-label.one {
+    right: 0;
+    top: 18%;
+}
+
+.visual-label.two {
+    left: 2%;
+    bottom: 20%;
+}
+
+.visual-label strong {
+    display: block;
+    margin-top: 5px;
+    color: var(--gold);
+    font-size: .68rem;
+}
+
+@keyframes coreFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 4%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #777;
+
+    font-size: .55rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.hero-bottom span {
+    width: 45px;
+    height: 1px;
+    background: var(--gold);
+}
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    overflow: hidden;
+
+    background: var(--green);
+}
+
+.marquee-track {
+    width: max-content;
+
+    display: flex;
+    align-items: center;
+
+    animation: marquee 24s linear infinite;
+}
+
+.marquee-item {
+    padding: 24px 35px;
+
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 2rem);
+
+    white-space: nowrap;
+}
+
+.marquee-item span {
+    color: var(--gold);
+    margin: 0 30px;
+}
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    background: var(--cream);
+    color: var(--black);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.about .section-label {
+    color: var(--green);
+}
+
+.about .section-label::before {
+    background: var(--green);
+}
+
+.about-title {
+    margin-top: 25px;
+}
+
+.about-copy {
+    color: #555;
+    line-height: 1.9;
+}
+
+.about-copy + .about-copy {
+    margin-top: 22px;
+}
+
+.about-highlight {
+    margin-top: 40px;
+
+    padding: 28px 0 0;
+
+    border-top: 1px solid rgba(0,0,0,.15);
+
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    line-height: 1.3;
+}
+
+.about-highlight em {
+    color: var(--green);
+}
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.values {
+    background: var(--black-soft);
+}
+
+.values-header {
+    display: grid;
+    grid-template-columns: 1fr .65fr;
+
+    gap: 60px;
+
+    margin-bottom: 75px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+    border-left: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+}
+
+.value-card {
+    position: relative;
+
+    min-height: 330px;
+
+    padding: 35px;
+
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition:
+        background .5s ease,
+        transform .5s ease;
+}
+
+.value-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    filter: blur(55px);
+
+    opacity: 0;
+
+    transition: opacity .5s ease;
+}
+
+.value-card:hover {
+    background: rgba(255,255,255,.025);
+}
+
+.value-card:hover::before {
+    opacity: .7;
+}
+
+.value-number {
+    color: var(--gold);
+
+    font-size: .6rem;
+    letter-spacing: .18em;
+}
+
+.value-symbol {
+    width: 52px;
+    height: 52px;
+
+    margin: 40px 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(201,164,93,.45);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 1.1rem;
+}
+
+.value-card h3 {
+    font-family: var(--serif);
+
+    font-size: 1.8rem;
+    font-weight: 400;
+
+    margin-bottom: 14px;
+}
+
+.value-card p {
+    position: relative;
+    z-index: 2;
+
+    color: #858985;
+
+    font-size: .86rem;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   NUMBERS
+========================================================= */
+
+.numbers {
+    background: var(--green);
+}
+
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    margin-top: 65px;
+}
+
+.number {
+    padding: 30px;
+
+    border-right: 1px solid rgba(255,255,255,.17);
+}
+
+.number:first-child {
+    padding-left: 0;
+}
+
+.number:last-child {
+    border-right: 0;
+}
+
+.number-value {
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem,6vw,6rem);
+
+    color: var(--gold-light);
+
+    line-height: 1;
+}
+
+.number-label {
+    margin-top: 14px;
+
+    color: rgba(255,255,255,.62);
+
+    font-size: .62rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.vision {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201,164,93,.10),
+            transparent 35%
+        ),
+        var(--black);
+}
+
+.vision-inner {
+    max-width: 1250px;
+}
+
+.vision-title {
+    margin-top: 35px;
+}
+
+.vision-title span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.vision-description {
+    max-width: 680px;
+    margin: 40px auto 0;
+
+    color: var(--cream-soft);
+
+    line-height: 1.9;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-section {
+    background: var(--cream);
+    color: var(--black);
+}
+
+.timeline-header {
+    max-width: 750px;
+}
+
+.timeline-section .section-label {
+    color: var(--green);
+}
+
+.timeline-section .section-label::before {
+    background: var(--green);
+}
+
+.timeline {
+    position: relative;
+
+    margin-top: 80px;
+
+    border-top: 1px solid rgba(0,0,0,.18);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+
+    padding: 40px 0;
+
+    border-bottom: 1px solid rgba(0,0,0,.14);
+
+    transition: padding .4s ease;
+}
+
+.timeline-item:hover {
+    padding-left: 15px;
+}
+
+.timeline-year {
+    color: var(--green);
+
+    font-family: var(--serif);
+    font-size: 1.2rem;
+}
+
+.timeline-content h3 {
+    font-family: var(--serif);
+
+    font-size: 2rem;
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    max-width: 650px;
+
+    color: #626262;
+
+    font-size: .88rem;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects {
+    background: var(--black-soft);
+}
+
+.projects-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 40px;
+
+    margin-bottom: 70px;
+}
+
+.projects-header .section-description {
+    max-width: 420px;
+}
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: 1.25fr .75fr;
+
+    gap: 18px;
+}
+
+.project {
+    position: relative;
+
+    min-height: 430px;
+
+    padding: 35px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    border: 1px solid var(--line);
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.05)
+        ),
+        radial-gradient(
+            circle at 70% 25%,
+            rgba(201,164,93,.22),
+            transparent 30%
+        ),
+        var(--green);
+}
+
+.project:nth-child(2) {
+    min-height: 210px;
+}
+
+.project:nth-child(3) {
+    min-height: 210px;
+}
+
+.project::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 35%,
+            rgba(255,255,255,.04) 35%,
+            transparent 36%
+        );
+
+    background-size: 30px 30px;
+
+    opacity: .4;
+}
+
+.project-number {
+    position: absolute;
+
+    top: 30px;
+    left: 30px;
+
+    color: var(--gold);
+
+    font-size: .6rem;
+    letter-spacing: .2em;
+}
+
+.project h3 {
+    position: relative;
+    z-index: 2;
+
+    font-family: var(--serif);
+    font-size: clamp(2rem,3.5vw,3.4rem);
+    font-weight: 400;
+
+    max-width: 600px;
+}
+
+.project p {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 12px;
+
+    max-width: 600px;
+
+    color: rgba(255,255,255,.65);
+
+    line-height: 1.7;
+
+    font-size: .84rem;
+}
+
+.project-link {
+    position: absolute;
+
+    right: 30px;
+    top: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gold);
+
+    transition:
+        background .3s ease,
+        transform .3s ease;
+}
+
+.project:hover .project-link {
+    background: var(--gold);
+    color: var(--black);
+    transform: rotate(45deg);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    padding: 150px 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(201,164,93,.13),
+            transparent 30%
+        ),
+        var(--black);
+}
+
+.contact-box {
+    position: relative;
+
+    padding: clamp(45px,8vw,110px);
+
+    border: 1px solid var(--line);
+
+    overflow: hidden;
+}
+
+.contact-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -250px;
+    bottom: -300px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(201,164,93,.17);
+
+    box-shadow:
+        0 0 0 60px rgba(201,164,93,.025),
+        0 0 0 120px rgba(201,164,93,.02);
+}
+
+.contact-title {
+    max-width: 950px;
+    margin-top: 25px;
+}
+
+.contact-text {
+    max-width: 620px;
+
+    margin: 30px 0 35px;
+
+    color: var(--cream-soft);
+
+    line-height: 1.85;
+}
+
+.contact-details {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    margin-top: 50px;
+}
+
+.contact-detail {
+    padding-right: 30px;
+
+    border-right: 1px solid var(--line);
+}
+
+.contact-detail:last-child {
+    border-right: 0;
+}
+
+.contact-detail small {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--gold);
+
+    font-size: .55rem;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+.contact-detail span {
+    color: var(--cream-soft);
+    font-size: .82rem;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    background: #050706;
+
+    border-top: 1px solid var(--line);
+
+    padding: 75px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 65px;
+}
+
+.footer-logo {
+    font-family: var(--serif);
+
+    font-size: 2rem;
+    letter-spacing: .08em;
+}
+
+.footer-logo span {
+    color: var(--gold);
+}
+
+.footer-description {
+    max-width: 390px;
+
+    margin-top: 18px;
+
+    color: #707570;
+
+    font-size: .82rem;
+    line-height: 1.8;
+}
+
+.footer-heading {
+    margin-bottom: 20px;
+
+    color: var(--gold);
+
+    font-size: .58rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #9a9d99;
+
+    font-size: .78rem;
+
+    transition: color .25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--cream);
+}
+
+.footer-bottom {
+    padding-top: 25px;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #5e625f;
+
+    font-size: .58rem;
+    letter-spacing: .08em;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-links {
+        position: fixed;
+
+        top: 94px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 35px 4%;
+
+        background: rgba(7,9,8,.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 25px;
+
+        transform: translateY(-150%);
+
+        transition: transform .45s ease;
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        min-height: 500px;
+        order: -1;
+    }
+
+    .about-grid,
+    .values-header {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .numbers-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .number {
+        border-bottom: 1px solid rgba(255,255,255,.17);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project,
+    .project:nth-child(2),
+    .project:nth-child(3) {
+        min-height: 350px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+
+    .nav-inner {
+        min-height: 78px;
+    }
+
+    .nav-links {
+        top: 78px;
+    }
+
+    .section {
+        padding: 95px 0;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 130px 0 90px;
+    }
+
+    .hero-grid {
+        width: 90%;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.6rem, 16vw, 6rem);
+    }
+
+    .hero-text {
+        font-size: .9rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+    }
+
+    .visual-core {
+        width: 330px;
+    }
+
+    .visual-label {
+        font-size: .48rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .numbers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .number,
+    .number:first-child {
+        padding: 28px 0;
+        border-right: 0;
+    }
+
+    .timeline-item {
+        grid-template-columns: 75px 1fr;
+        gap: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .projects-header {
+        display: block;
+    }
+
+    .projects-header .section-description {
+        margin-top: 25px;
+    }
+
+    .project,
+    .project:nth-child(2),
+    .project:nth-child(3) {
+        min-height: 340px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+    }
+
+    .contact-detail {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 0 0 18px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     PRELOADER
+========================================================= -->
+
+<div class="preloader" id="preloader">
+
+    <div class="loader">
+
+        <div class="loader-logo">
+            MORAHEYM'S
+        </div>
+
+        <div class="loader-subtitle">
+            GROUPE
+        </div>
+
+        <div class="loader-bar">
+            <div class="loader-progress" id="loaderProgress"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CURSEUR -->
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav" id="nav">
+
+    <div class="nav-inner">
+
+        <a href="#accueil" class="logo">
+
+            <span class="logo-main">
+                MORAHEYM'S
+            </span>
+
+            <span class="logo-sub">
+                Groupe
+            </span>
+
+        </a>
+
+
+        <button class="menu-button" id="menuButton">
+            ☰
+        </button>
+
+
+        <div class="nav-links" id="navLinks">
+
+            <!-- PREMIER BOUTON : ACTUALITÉS -->
+
+            <a href="actualites.html"
+               class="nav-news">
+
+                Actualités
+
+            </a>
+
+            <a href="#groupe">
+                Le groupe
+            </a>
+
+            <a href="#expertise">
+                Expertise
+            </a>
+
+            <a href="#vision">
+                Vision
+            </a>
+
+            <a href="#projets">
+                Projets
+            </a>
+
+            <a href="#contact"
+               class="nav-cta">
+
+                Contact
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<main>
+
+<section class="hero" id="accueil">
+
+    <div class="hero-grid">
+
+        <div class="hero-content">
+
+            <div class="hero-kicker">
+                Groupe Moraheym's
+            </div>
+
+            <h1>
+
+                Pensons
+
+                <span class="outline">
+                    plus
+                </span>
+
+                loin.
+
+                <br>
+
+                Créons
+
+                <em>
+                    mieux.
+                </em>
+
+            </h1>
+
+            <p class="hero-text">
+
+                Un groupe porté par une ambition claire :
+                développer des projets, valoriser les talents
+                et créer des opportunités capables de transformer
+                durablement notre environnement.
+
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="actualites.html"
+                   class="button button-primary">
+
+                    Voir les actualités
+
+                    <span>↗</span>
+
+                </a>
+
+                <a href="#groupe"
+                   class="button button-outline">
+
+                    Découvrir le groupe
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="visual-core" id="visualCore">
+
+                <div class="core-glow"></div>
+
+                <div class="orbit orbit-a">
+                    <span class="orbit-point point-one"></span>
+                </div>
+
+                <div class="orbit orbit-b">
+                    <span class="orbit-point point-two"></span>
+                </div>
+
+                <div class="orbit orbit-c">
+                    <span class="orbit-point point-three"></span>
+                </div>
+
+                <div class="orbit orbit-d"></div>
+
+                <div class="core-sphere"></div>
+
+            </div>
+
+
+            <div class="visual-label one">
+
+                Notre approche
+
+                <strong>
+                    Vision + Action
+                </strong>
+
+            </div>
+
+
+            <div class="visual-label two">
+
+                Notre ambition
+
+                <strong>
+                    Créer de la valeur
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <span></span>
+
+        Découvrez notre univers
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MARQUEE
+========================================================= -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <div class="marquee-item">
+            Excellence
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Innovation
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Actualités
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Impact
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Excellence
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Innovation
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Actualités
+            <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            Impact
+            <span>✦</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     À PROPOS
+========================================================= -->
+
+<section class="about section" id="groupe">
+
+    <div class="container about-grid">
+
+        <div class="reveal">
+
+            <div class="section-label">
+                01 — Le groupe
+            </div>
+
+            <h2 class="section-title about-title">
+
+                Une ambition
+                <em>collective.</em>
+
+            </h2>
+
+        </div>
+
+
+        <div class="reveal">
+
+            <p class="about-copy">
+
+                Le <strong>GROUPE MORAHEYM'S</strong>
+                s'inscrit dans une dynamique de développement,
+                d'innovation et de création de valeur.
+
+            </p>
+
+            <p class="about-copy">
+
+                Notre approche repose sur une conviction :
+                les projets les plus solides naissent lorsque
+                les compétences, les idées et les ambitions
+                sont réunies autour d'une vision commune.
+
+            </p>
+
+            <div class="about-highlight">
+
+                « Transformer les idées en projets,
+                les projets en opportunités,
+                et les opportunités en <em>impact.</em> »
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERTISE
+========================================================= -->
+
+<section class="values section" id="expertise">
+
+    <div class="container">
+
+        <div class="values-header reveal">
+
+            <div>
+
+                <div class="section-label">
+                    02 — Nos expertises
+                </div>
+
+                <h2 class="section-title">
+
+                    Plusieurs forces.
+                    <br>
+
+                    <em>Une vision.</em>
+
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+
+                Le groupe développe un écosystème
+                capable de répondre à différents besoins
+                et d'accompagner les ambitions de demain.
+
+            </p>
+
+        </div>
+
+
+        <div class="values-grid">
+
+            <article class="value-card reveal">
+
+                <div class="value-number">
+                    01 / EXPERTISE
+                </div>
+
+                <div class="value-symbol">
+                    ✦
+                </div>
+
+                <h3>
+                    Formation
+                </h3>
+
+                <p>
+                    Développer les compétences, transmettre
+                    le savoir et préparer les talents aux
+                    opportunités professionnelles.
+                </p>
+
+            </article>
+
+
+            <article class="value-card reveal">
+
+                <div class="value-number">
+                    02 / EXPERTISE
+                </div>
+
+                <div class="value-symbol">
+                    ◇
+                </div>
+
+                <h3>
+                    Conseil
+                </h3>
+
+                <p>
+                    Apporter des solutions pertinentes
+                    aux organisations et aux porteurs
+                    de projets.
+                </p>
+
+            </article>
+
+
+            <article class="value-card reveal">
+
+                <div class="value-number">
+                    03 / EXPERTISE
+                </div>
+
+                <div class="value-symbol">
+                    ↗
+                </div>
+
+                <h3>
+                    Entrepreneuriat
+                </h3>
+
+                <p>
+                    Encourager les initiatives et accompagner
+                    les entrepreneurs dans la concrétisation
+                    de leurs ambitions.
+                </p>
+
+            </article>
+
+
+            <article class="value-card reveal">
+
+                <div class="value-number">
+                    04 / EXPERTISE
+                </div>
+
+                <div class="value-symbol">
+                    ◎
+                </div>
+
+                <h3>
+                    Innovation
+                </h3>
+
+                <p>
+                    Imaginer de nouvelles approches,
+                    intégrer les technologies et créer
+                    des solutions adaptées.
+                </p>
+
+            </article>
+
+
+            <article class="value-card reveal">
+
+                <div class="value-number">
+                    05 / EXPERTISE
+                </div>
+
+                <div class="value-symbol">
+                    ∞
+                </div>
+
+                <h3>
+                    Partenariats
+                </h3>
+
+                <p>
+                    Construire des collaborations durables
+                    avec des acteurs partageant les mêmes
+                    ambitions.
+                </p>
+
+            </article>
+
+
+            <article class="value-card reveal">
+
+                <div class="value-number">
+                    06 / EXPERTISE
+                </div>
+
+                <div class="value-symbol">
+                    +
+                </div>
+
+                <h3>
+                    Développement
+                </h3>
+
+                <p>
+                    Participer à la création de projets
+                    utiles, durables et créateurs
+                    de valeur.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CHIFFRES
+========================================================= -->
+
+<section class="numbers section">
+
+    <div class="container">
+
+        <div class="section-label"
+             style="color:var(--gold-light);">
+
+            03 — Notre dynamique
+
+        </div>
+
+
+        <div class="numbers-grid">
+
+            <div class="number reveal">
+
+                <div class="number-value"
+                     data-target="6">
+                    0
+                </div>
+
+                <div class="number-label">
+                    Pôles d'activités
+                </div>
+
+            </div>
+
+
+            <div class="number reveal">
+
+                <div class="number-value"
+                     data-target="100">
+                    0
+                </div>
+
+                <div class="number-label">
+                    Engagement
+                </div>
+
+            </div>
+
+
+            <div class="number reveal">
+
+                <div class="number-value"
+                     data-target="24">
+                    0
+                </div>
+
+                <div class="number-label">
+                    Vision à long terme
+                </div>
+
+            </div>
+
+
+            <div class="number reveal">
+
+                <div class="number-value">
+                    ∞
+                </div>
+
+                <div class="number-label">
+                    Opportunités à créer
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VISION
+========================================================= -->
+
+<section class="vision section" id="vision">
+
+    <div class="container vision-inner reveal">
+
+        <div class="section-label"
+             style="justify-content:center;">
+
+            04 — Notre vision
+
+        </div>
+
+        <h2 class="section-title vision-title">
+
+            Nous ne voulons pas seulement
+            <span>suivre l'avenir.</span>
+
+            <br>
+
+            Nous voulons contribuer
+            à le construire.
+
+        </h2>
+
+        <p class="section-description vision-description">
+
+            Notre vision consiste à créer un groupe capable
+            de fédérer les compétences, d'identifier les
+            opportunités et de transformer les ambitions
+            en réalisations concrètes.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TIMELINE
+========================================================= -->
+
+<section class="timeline-section section">
+
+    <div class="container">
+
+        <div class="timeline-header reveal">
+
+            <div class="section-label">
+                05 — Notre démarche
+            </div>
+
+            <h2 class="section-title"
+                style="margin-top:25px;">
+
+                De l'idée à
+                <em>l'impact.</em>
+
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    01
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>
+                        Comprendre
+                    </h3>
+
+                    <p>
+                        Identifier les besoins, les enjeux
+                        et les opportunités afin de construire
+                        une stratégie pertinente.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    02
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>
+                        Concevoir
+                    </h3>
+
+                    <p>
+                        Transformer les idées en solutions
+                        structurées, réalistes et adaptées
+                        aux objectifs du projet.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    03
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>
+                        Développer
+                    </h3>
+
+                    <p>
+                        Mobiliser les compétences et les
+                        ressources nécessaires pour donner
+                        vie aux projets.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    04
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>
+                        Transformer
+                    </h3>
+
+                    <p>
+                        Mesurer les résultats, faire évoluer
+                        les solutions et rechercher un impact
+                        durable.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJETS
+========================================================= -->
+
+<section class="projects section" id="projets">
+
+    <div class="container">
+
+        <div class="projects-header reveal">
+
+            <div>
+
+                <div class="section-label">
+                    06 — Nos projets
+                </div>
+
+                <h2 class="section-title"
+                    style="margin-top:25px;">
+
+                    Ce que nous
+                    <em>construisons.</em>
+
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+
+                Découvrez quelques-uns des univers
+                dans lesquels le GROUPE MORAHEYM'S
+                peut développer ses initiatives.
+
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+            <article class="project reveal">
+
+                <div class="project-number">
+                    01 / PROJET
+                </div>
+
+                <a href="#contact"
+                   class="project-link">
+                    ↗
+                </a>
+
+                <h3>
+                    Former les talents
+                    de demain.
+                </h3>
+
+                <p>
+                    Des initiatives destinées à développer
+                    les compétences et favoriser l'insertion
+                    professionnelle.
+                </p>
+
+            </article>
+
+
+            <article class="project reveal">
+
+                <div class="project-number">
+                    02 / PROJET
+                </div>
+
+                <a href="#contact"
+                   class="project-link">
+                    ↗
+                </a>
+
+                <h3>
+                    Accompagner
+                    l'entrepreneuriat.
+                </h3>
+
+                <p>
+                    Soutenir les porteurs d'idées
+                    et les entrepreneurs.
+                </p>
+
+            </article>
+
+
+            <article class="project reveal">
+
+                <div class="project-number">
+                    03 / PROJET
+                </div>
+
+                <a href="#contact"
+                   class="project-link">
+                    ↗
+                </a>
+
+                <h3>
+                    Créer des
+                    partenariats.
+                </h3>
+
+                <p>
+                    Construire des collaborations
+                    créatrices de valeur.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <div class="section-label">
+                07 — Parlons de votre projet
+            </div>
+
+            <h2 class="section-title contact-title">
+
+                Une idée ?
+
+                <br>
+
+                <em>Construisons-la ensemble.</em>
+
+            </h2>
+
+            <p class="contact-text">
+
+                Vous avez un projet, une idée ou une
+                opportunité de collaboration ?
+                Le GROUPE MORAHEYM'S est ouvert aux
+                échanges et aux nouvelles perspectives.
+
+            </p>
+
+            <a href="mailto:contact@moraheym.com"
+               class="button button-primary">
+
+                Prendre contact
+
+                <span>→</span>
+
+            </a>
+
+            <div class="contact-details">
+
+                <div class="contact-detail">
+
+                    <small>
+                        Email
+                    </small>
+
+                    <span>
+                        contact@moraheym.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <small>
+                        Téléphone
+                    </small>
+
+                    <span>
+                        +229 XX XX XX XX
+                    </span>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <small>
+                        Localisation
+                    </small>
+
+                    <span>
+                        Bénin
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-logo">
+
+                    GROUPE
+                    <span>
+                        MORAHEYM'S
+                    </span>
+
+                </div>
+
+                <p class="footer-description">
+
+                    Excellence, innovation et impact.
+                    Un groupe tourné vers la création
+                    d'opportunités et la construction
+                    d'un avenir durable.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-heading">
+                    Navigation
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="actualites.html">
+                        Actualités
+                    </a>
+
+                    <a href="#groupe">
+                        Le groupe
+                    </a>
+
+                    <a href="#expertise">
+                        Expertise
+                    </a>
+
+                    <a href="#vision">
+                        Vision
+                    </a>
+
+                    <a href="#projets">
+                        Projets
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-heading">
+                    Contact
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="mailto:contact@moraheym.com">
+                        Email
+                    </a>
+
+                    <a href="#contact">
+                        Nous contacter
+                    </a>
+
+                    <a href="#">
+                        Localisation
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-heading">
+                    Réseaux
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 GROUPE MORAHEYM'S — Tous droits réservés.
+            </span>
+
+            <span>
+                Excellence · Innovation · Impact
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+const preloader =
+    document.getElementById("preloader");
+
+const progress =
+    document.getElementById("loaderProgress");
+
+let progressValue = 0;
+
+const loadingInterval = setInterval(() => {
+
+    progressValue += Math.random() * 15;
+
+    if (progressValue > 100) {
+        progressValue = 100;
+    }
+
+    progress.style.width =
+        progressValue + "%";
+
+}, 120);
+
+
+window.addEventListener("load", () => {
+
+    progress.style.width = "100%";
+
+    setTimeout(() => {
+
+        clearInterval(loadingInterval);
+
+        preloader.classList.add("hide");
+
+    }, 1000);
+
+});
+
+
+/* =========================================================
+   NAVIGATION AU SCROLL
+========================================================= */
+
+const nav =
+    document.getElementById("nav");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        nav.classList.add("scrolled");
+
+    } else {
+
+        nav.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menuButton.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+
+    menuButton.innerHTML =
+        navLinks.classList.contains("open")
+            ? "✕"
+            : "☰";
+
+});
+
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+        menuButton.innerHTML = "☰";
+
+    });
+
+});
+
+
+/* =========================================================
+   CURSEUR
+========================================================= */
+
+const cursorDot =
+    document.querySelector(".cursor-dot");
+
+const cursorRing =
+    document.querySelector(".cursor-ring");
+
+
+window.addEventListener("mousemove", e => {
+
+    cursorDot.style.left =
+        e.clientX + "px";
+
+    cursorDot.style.top =
+        e.clientY + "px";
+
+    cursorRing.animate(
+        {
+            left: e.clientX + "px",
+            top: e.clientY + "px"
+        },
+        {
+            duration: 450,
+            fill: "forwards"
+        }
+    );
+
+});
+
+
+document
+.querySelectorAll(
+    "a,button,.value-card,.project"
+)
+.forEach(element => {
+
+    element.addEventListener(
+        "mouseenter",
+        () => {
+            cursorRing.classList.add("active");
+        }
+    );
+
+    element.addEventListener(
+        "mouseleave",
+        () => {
+            cursorRing.classList.remove("active");
+        }
+    );
+
+});
+
+
+/* =========================================================
+   REVEAL AU SCROLL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    revealObserver
+                        .unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   COMPTEURS
+========================================================= */
+
+const counters =
+    document.querySelectorAll(
+        ".number-value[data-target]"
+    );
+
+const counterObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting)
+                    return;
+
+                const element =
+                    entry.target;
+
+                const target =
+                    Number(
+                        element.dataset.target
+                    );
+
+                let current = 0;
+
+                const duration = 1400;
+
+                const startTime =
+                    performance.now();
+
+
+                function update(time) {
+
+                    const progress =
+                        Math.min(
+                            (time - startTime)
+                            / duration,
+                            1
+                        );
+
+                    const eased =
+                        1 -
+                        Math.pow(
+                            1 - progress,
+                            3
+                        );
+
+                    current =
+                        Math.floor(
+                            target * eased
+                        );
+
+                    element.textContent =
+                        current +
+                        (
+                            target === 100
+                            ? "%"
+                            : ""
+                        );
+
+
+                    if (progress < 1) {
+
+                        requestAnimationFrame(
+                            update
+                        );
+
+                    }
+
+                }
+
+                requestAnimationFrame(update);
+
+                counterObserver
+                    .unobserve(element);
+
+            });
+
+        },
+        {
+            threshold: .5
+        }
+    );
+
+
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+
+/* =========================================================
+   PARALLAXE HERO
+========================================================= */
+
+const visualCore =
+    document.getElementById("visualCore");
+
+window.addEventListener("scroll", () => {
+
+    const scroll =
+        window.scrollY;
+
+    if (scroll < window.innerHeight) {
+
+        visualCore.style.transform =
+            `translateY(${scroll * .06}px)`;
+
+    }
+
+});
+
+
+/* =========================================================
+   MOUVEMENT DU VISUEL AVEC LA SOURIS
+========================================================= */
+
+if (
+    window.matchMedia("(pointer:fine)")
+    .matches
+) {
+
+    window.addEventListener("mousemove", e => {
+
+        const x =
+            (
+                e.clientX /
+                window.innerWidth
+            ) - .5;
+
+        const y =
+            (
+                e.clientY /
+                window.innerHeight
+            ) - .5;
+
+        visualCore.style.transform =
+            `perspective(1000px)
+             rotateY(${x * 8}deg)
+             rotateX(${y * -8}deg)`;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
