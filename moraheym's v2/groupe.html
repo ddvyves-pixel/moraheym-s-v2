@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Groupe | GROUPE MORAHEYM'S</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Reprendre les mêmes balises style que index.html -->
+    <title>Le Groupe — GROUPE MORAHEYM'S</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="loader-bar">
+            <div class="loader-progress" id="loaderProgress"></div>
+        </div>
+    </div>
+
+    <!-- CURSEUR PERSONNALISÉ -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- NAVIGATION -->
     <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <span class="logo-gold">MORAHEYM'S</span>
-                <span class="logo-sub">GROUPE</span>
+        <nav class="nav container" id="nav">
+            <a href="index.html" class="brand">
+                GROUPE <span>MORAHEYM'S</span>
             </a>
-            <nav class="nav-links">
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Accueil</a>
                 <a href="le-groupe.html" class="nav-link active">Le Groupe</a>
                 <a href="expertise.html" class="nav-link">Expertise</a>
@@ -23,16 +34,184 @@
                 <a href="actualites.html" class="nav-link">Actualités</a>
                 <a href="contact.html" class="nav-link nav-btn">Contact</a>
             </nav>
-        </div>
+
+            <button class="menu-button" id="menuButton" aria-label="Menu">☰</button>
+        </nav>
     </header>
 
-    <main style="padding-top: 150px; min-height: 80vh;" class="container">
-        <h1 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 3rem; margin-bottom: 20px;">À Propos du Groupe</h1>
-        <p style="color: var(--text-dim); max-width: 700px; line-height: 1.8;">
-            Découvrez l'histoire, la vision stratégique et les valeurs fondamentales qui guident le Groupe MORAHEYM'S dans le développement de ses activités d'excellence.
-        </p>
+    <main>
+        <!-- HERO PAGE -->
+        <section class="page-hero section">
+            <div class="container">
+                <div class="section-label reveal">01 — Histoire &amp; Identité</div>
+                <h1 class="page-title reveal">
+                    Un groupe bâti sur <br>
+                    <span>l'ambition et l'excellence.</span>
+                </h1>
+                <p class="hero-description reveal">
+                    Le GROUPE MORAHEYM'S est une structure dynamique axée sur l'innovation, le conseil stratégique, la formation et le développement d'initiatives à fort impact social et économique.
+                </p>
+            </div>
+        </section>
+
+        <!-- MOT DU PRÉSIDENT / VALEURS -->
+        <section class="about-section section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content reveal">
+                        <div class="section-label">02 — Nos Fondations</div>
+                        <h2 class="section-title">
+                            Penser globalement, <br>
+                            <em>agir localement.</em>
+                        </h2>
+                        <p>
+                            Fondé avec l'ambition de répondre aux défis contemporains du monde des affaires et du développement, notre groupe unit des compétences plurielles au service de la transformation durable.
+                        </p>
+                        <p>
+                            Nous croyons fermement en l'émergence de projets novateurs et au renforcement des capacités humaines pour bâtir un écosystème robuste et tourné vers l'avenir.
+                        </p>
+                    </div>
+
+                    <div class="values-grid">
+                        <div class="value-card reveal">
+                            <h3>Excellence</h3>
+                            <p>Recherche constante de la qualité et du haut niveau d'exigence dans l'ensemble de nos pôles d'action.</p>
+                        </div>
+                        <div class="value-card reveal">
+                            <h3>Innovation</h3>
+                            <p>Adoption continue de solutions technologiques et méthodologies d'avant-garde.</p>
+                        </div>
+                        <div class="value-card reveal">
+                            <h3>Impact</h3>
+                            <p>Création de valeur concrète et mesurable pour nos partenaires, clients et communautés.</p>
+                        </div>
+                        <div class="value-card reveal">
+                            <h3>Intégrité</h3>
+                            <p>Une gouvernance éthique, transparente et axée sur des partenariats de confiance à long terme.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORGANIGRAMME / DÉMARCHE -->
+        <section class="timeline-section section">
+            <div class="container">
+                <div class="timeline-header reveal">
+                    <div class="section-label">03 — Notre Gouvernance</div>
+                    <h2 class="section-title">Une structure <em>agile &amp; moderne.</em></h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item reveal">
+                        <div class="timeline-year">Pôle 01</div>
+                        <div class="timeline-content">
+                            <h3>Direction Stratégique &amp; Conseil</h3>
+                            <p>Pilote l'orientation globale du groupe, valide les investissements et garantit le respect de la vision d'entreprise.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-year">Pôle 02</div>
+                        <div class="timeline-content">
+                            <h3>Opérations &amp; Déploiement Projets</h3>
+                            <p>Assure la gestion opérationnelle des projets, le suivi de performance et l'exécution sur le terrain.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-year">Pôle 03</div>
+                        <div class="timeline-content">
+                            <h3>Innovation &amp; Partenariats</h3>
+                            <p>Développe le réseau institutionnel et commercial tout en intégrant les nouvelles technologies dans nos offres.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Insérer le footer identique à index.html -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">GROUPE <span>MORAHEYM'S</span></div>
+                    <p class="footer-description">Excellence, innovation et impact.</p>
+                </div>
+                <div>
+                    <div class="footer-heading">Navigation</div>
+                    <div class="footer-links">
+                        <a href="index.html">Accueil</a>
+                        <a href="le-groupe.html">Le Groupe</a>
+                        <a href="expertise.html">Expertise</a>
+                        <a href="projets.html">Projets</a>
+                        <a href="actualites.html">Actualités</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-heading">Contact</div>
+                    <div class="footer-links">
+                        <a href="contact.html">Nous contacter</a>
+                        <a href="mailto:contact@moraheym.com">contact@moraheym.com</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-heading">Réseaux</div>
+                    <div class="footer-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 GROUPE MORAHEYM'S — Tous droits réservés.</span>
+                <span>Excellence · Innovation · Impact</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT JS -->
+    <script>
+        const preloader = document.getElementById("preloader");
+        const progress = document.getElementById("loaderProgress");
+        let progressValue = 0;
+        const loadingInterval = setInterval(() => {
+            progressValue += Math.random() * 15;
+            if (progressValue > 100) progressValue = 100;
+            progress.style.width = progressValue + "%";
+        }, 120);
+
+        window.addEventListener("load", () => {
+            progress.style.width = "100%";
+            setTimeout(() => {
+                clearInterval(loadingInterval);
+                preloader.classList.add("hide");
+            }, 700);
+        });
+
+        const nav = document.getElementById("nav");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) nav.classList.add("scrolled");
+            else nav.classList.remove("scrolled");
+        });
+
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+        menuButton.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+            menuButton.innerHTML = navLinks.classList.contains("open") ? "✕" : "☰";
+        });
+
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+    </script>
 </body>
 </html>
