@@ -32,7 +32,7 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 ::selection { background: var(--gold); color: var(--black); }
 
-/* Filigrane global du logo officiel au centre de la page */
+/* Filigrane global du logo officiel au centre de la page (Opacité augmentée à 0.18 pour une meilleure visibilité) */
 body::before {
     content: "";
     position: fixed;
@@ -69,7 +69,7 @@ body > * {
 .loader-progress { width: 0; height: 100%; background: var(--gold); transition: width 1.2s ease; }
 
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 15000; transition: background .4s ease, border-color .4s ease; }
-.nav.scrolled { background: rgba(7,9,8,.82); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
+.nav.scrolled { background: rgba(7,9,8,.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
 .nav-inner { width: min(1450px, 92%); min-height: 94px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; flex-direction: column; }
 .logo-main { font-family: var(--serif); font-size: 1.25rem; letter-spacing: .11em; }
