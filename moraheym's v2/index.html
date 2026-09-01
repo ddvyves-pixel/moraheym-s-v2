@@ -53,7 +53,7 @@ body::before {
 .nav.scrolled { background: rgba(7,9,8,.82); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
 .nav-inner { width: min(1450px, 92%); min-height: 104px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
 
-/* Logo de navigation agrandi et plus imposant */
+/* Logo de navigation */
 .brand-logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
 .logo-img { height: 68px; width: auto; object-fit: contain; transition: opacity .3s ease; display: block; }
 .logo-img:hover { opacity: 0.85; }
@@ -92,24 +92,24 @@ body::before {
 .button-outline { border: 1px solid rgba(244,240,230,.3); color: var(--cream); }
 .button-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-/* HERO avec Filigrane Géant en arrière-plan */
+/* HERO avec Filigrane ajusté (taille réduite et un peu plus visible) */
 .hero { min-height: 100svh; display: flex; align-items: center; overflow: hidden; position: relative; background: radial-gradient(circle at 75% 45%, rgba(35,94,70,.22), transparent 32%), radial-gradient(circle at 88% 70%, rgba(201,164,93,.10), transparent 30%), var(--black); }
 
-/* Style du grand filigrane géant */
+/* Filigrane optimisé : taille plus maîtrisée et opacité légèrement augmentée */
 .hero-watermark {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--serif);
-    font-size: clamp(8rem, 21vw, 24rem);
+    font-size: clamp(5rem, 12vw, 13rem);
     font-weight: 700;
     color: var(--cream);
-    opacity: 0.022;
+    opacity: 0.05;
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     user-select: none;
 }
 
@@ -187,7 +187,6 @@ body::before {
 
 <header class="nav" id="nav">
     <div class="nav-inner">
-        <!-- Logo agrandi dans la navbar -->
         <a href="index.html" class="brand-logo">
             <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
             <span id="logoFallback" class="brand-logo-fallback">GROUPE <span>MORAHEYM'S</span></span>
@@ -204,7 +203,7 @@ body::before {
     </div>
 </header>
 
-<!-- HERO avec grand filigrane en arrière-plan -->
+<!-- HERO avec filigrane ajusté -->
 <section class="hero">
     <div class="hero-watermark">MORAHEYM'S</div>
     <div class="hero-grid">
