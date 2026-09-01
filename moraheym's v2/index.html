@@ -53,10 +53,13 @@ body::before {
 .nav.scrolled { background: rgba(7,9,8,.82); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
 .nav-inner { width: min(1450px, 92%); min-height: 94px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
 
-/* Styles du logo dans la barre de navigation */
-.brand-logo { display: flex; align-items: center; height: 100%; }
-.logo-img { height: 42px; width: auto; object-fit: contain; transition: opacity .3s ease; }
+/* Styles du logo */
+.brand-logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
+.logo-img { height: 42px; width: auto; object-fit: contain; transition: opacity .3s ease; display: block; }
 .logo-img:hover { opacity: 0.85; }
+/* Style de secours si l'image ne charge pas */
+.brand-logo-fallback { font-family: var(--serif); font-size: 1.1rem; letter-spacing: .1em; color: var(--cream); display: none; }
+.brand-logo-fallback span { color: var(--gold); }
 
 .nav-links { display: flex; align-items: center; gap: 31px; }
 .nav-links a { position: relative; font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-soft); transition: color .3s ease; }
@@ -166,9 +169,10 @@ body::before {
 
 <header class="nav" id="nav">
     <div class="nav-inner">
-        <!-- Remplacement du texte par l'image du logo -->
+        <!-- Logo avec gestion d'erreur (si l'image ne charge pas, le texte s'affiche automatiquement) -->
         <a href="index.html" class="brand-logo">
-            <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S" class="logo-img">
+            <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+            <span id="logoFallback" class="brand-logo-fallback">GROUPE <span>MORAHEYM'S</span></span>
         </a>
         <button class="menu-button" id="menuButton">☰</button>
         <nav class="nav-links" id="navLinks">
@@ -241,7 +245,7 @@ body::before {
             <div class="preview-card reveal">
                 <div>
                     <div class="section-label">Ambition</div>
-                    <h3>Notre Vision</h3>
+                    ### Notre Vision
                     <p>Anticiper les transformations de demain et générer un impact durable à fort potentiel.</p>
                 </div>
                 <a href="vision.html" class="button button-outline">Voir notre trajectoire →</a>
