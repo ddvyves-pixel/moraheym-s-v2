@@ -32,10 +32,15 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 5000; transition: background .4s ease, border-color .4s ease; }
 .nav.scrolled { background: rgba(7,9,8,.82); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
-.nav-inner { width: min(1450px, 92%); min-height: 94px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
-.logo { display: flex; flex-direction: column; }
-.logo-main { font-family: var(--serif); font-size: 1.25rem; letter-spacing: .11em; }
-.logo-sub { margin-top: 4px; font-size: .48rem; color: var(--gold); letter-spacing: .32em; text-transform: uppercase; }
+.nav-inner { width: min(1450px, 92%); min-height: 104px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
+
+/* Logo de navigation agrandi */
+.brand-logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
+.logo-img { height: 68px; width: auto; object-fit: contain; transition: opacity .3s ease; display: block; }
+.logo-img:hover { opacity: 0.85; }
+.brand-logo-fallback { font-family: var(--serif); font-size: 1.4rem; letter-spacing: .1em; color: var(--cream); display: none; }
+.brand-logo-fallback span { color: var(--gold); }
+
 .nav-links { display: flex; align-items: center; gap: 31px; }
 .nav-links a { position: relative; font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-soft); transition: color .3s ease; }
 .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 0; height: 1px; background: var(--gold); transition: width .3s ease; }
@@ -59,7 +64,26 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .reveal { opacity: 0; transform: translateY(55px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
 .reveal.show { opacity: 1; transform: translateY(0); }
 
-.page-header { padding: 180px 0 80px; background: var(--black-soft); border-bottom: 1px solid var(--line); }
+/* Page Header avec filigrane */
+.page-header { padding: 180px 0 80px; background: var(--black-soft); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.page-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 12vw, 13rem);
+    font-weight: 700;
+    color: var(--cream);
+    opacity: 0.05;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: -0.03em;
+    user-select: none;
+}
+.page-header .container { position: relative; z-index: 1; }
+
 .about { background: var(--cream); color: var(--black); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
 .about .section-label { color: var(--green); }
@@ -81,7 +105,7 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .footer-bottom { padding-top: 25px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; color: #5e625f; font-size: .58rem; letter-spacing: .08em; }
 
 @media (max-width: 1050px) {
-    .nav-links { position: fixed; top: 94px; left: 0; width: 100%; padding: 35px 4%; background: rgba(7,9,8,.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; gap: 25px; transform: translateY(-150%); transition: transform .45s ease; }
+    .nav-links { position: fixed; top: 104px; left: 0; width: 100%; padding: 35px 4%; background: rgba(7,9,8,.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; gap: 25px; transform: translateY(-150%); transition: transform .45s ease; }
     .nav-links.open { transform: translateY(0); }
     .menu-button { display: block; }
     .about-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -104,9 +128,9 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 
 <header class="nav" id="nav">
     <div class="nav-inner">
-        <a href="index.html" class="logo">
-            <span class="logo-main">MORAHEYM'S</span>
-            <span class="logo-sub">Groupe</span>
+        <a href="index.html" class="brand-logo">
+            <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+            <span id="logoFallback" class="brand-logo-fallback">GROUPE <span>MORAHEYM'S</span></span>
         </a>
         <button class="menu-button" id="menuButton">☰</button>
         <nav class="nav-links" id="navLinks">
@@ -121,6 +145,7 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 </header>
 
 <div class="page-header">
+    <div class="page-watermark">MORAHEYM'S</div>
     <div class="container">
         <div class="section-label reveal">01 — À Propos</div>
         <h1 class="section-title reveal">Notre histoire & <em>structure.</em></h1>
