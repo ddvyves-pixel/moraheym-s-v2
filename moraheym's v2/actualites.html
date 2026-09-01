@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -311,6 +310,18 @@ body::before {
 
     display: flex;
 
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
     flex-direction: column;
 }
 
@@ -1890,13 +1901,17 @@ body::before {
         <a href="index.html"
            class="logo">
 
-            <span class="logo-main">
-                MORAHEYM'S
-            </span>
+            <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S">
 
-            <span class="logo-sub">
-                Groupe
-            </span>
+            <div class="logo-text">
+                <span class="logo-main">
+                    MORAHEYM'S
+                </span>
+
+                <span class="logo-sub">
+                    Groupe
+                </span>
+            </div>
 
         </a>
 
@@ -3146,4 +3161,3 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
-```
