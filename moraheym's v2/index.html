@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -267,8 +266,16 @@ body::before {
     width: 100%;
 }
 
+.nav-links a.active {
+    color: var(--cream);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
 /* =========================================================
-   ACTUALITÉS — PREMIER BOUTON
+   ACTUALITÉS — BOUTON NAVIGATION
 ========================================================= */
 
 .nav-news {
@@ -1715,14 +1722,14 @@ section {
 
 
 <!-- =========================================================
-     NAVIGATION
+     NAVIGATION SYNCHRONISÉE
 ========================================================= -->
 
 <header class="nav" id="nav">
 
     <div class="nav-inner">
 
-        <a href="#accueil" class="logo">
+        <a href="index.html" class="logo">
 
             <span class="logo-main">
                 MORAHEYM'S
@@ -1742,36 +1749,28 @@ section {
 
         <div class="nav-links" id="navLinks">
 
-            <!-- PREMIER BOUTON : ACTUALITÉS -->
-
-            <a href="actualites.html"
-               class="nav-news">
-
-                Actualités
-
+            <a href="index.html" class="active">
+                Accueil
             </a>
 
-            <a href="#groupe">
+            <a href="actualites.html" class="nav-news">
+                Actualités
+            </a>
+
+            <a href="le-groupe.html">
                 Le groupe
             </a>
 
-            <a href="#expertise">
+            <a href="expertise.html">
                 Expertise
             </a>
 
-            <a href="#vision">
-                Vision
-            </a>
-
-            <a href="#projets">
+            <a href="projets.html">
                 Projets
             </a>
 
-            <a href="#contact"
-               class="nav-cta">
-
+            <a href="contact.html" class="nav-cta">
                 Contact
-
             </a>
 
         </div>
@@ -1837,7 +1836,7 @@ section {
 
                 </a>
 
-                <a href="#groupe"
+                <a href="le-groupe.html"
                    class="button button-outline">
 
                     Découvrir le groupe
@@ -2496,7 +2495,7 @@ section {
                     01 / PROJET
                 </div>
 
-                <a href="#contact"
+                <a href="contact.html"
                    class="project-link">
                     ↗
                 </a>
@@ -2521,7 +2520,7 @@ section {
                     02 / PROJET
                 </div>
 
-                <a href="#contact"
+                <a href="contact.html"
                    class="project-link">
                     ↗
                 </a>
@@ -2545,7 +2544,7 @@ section {
                     03 / PROJET
                 </div>
 
-                <a href="#contact"
+                <a href="contact.html"
                    class="project-link">
                     ↗
                 </a>
@@ -2602,7 +2601,7 @@ section {
 
             </p>
 
-            <a href="mailto:contact@moraheym.com"
+            <a href="contact.html"
                class="button button-primary">
 
                 Prendre contact
@@ -2663,7 +2662,7 @@ section {
 
 
 <!-- =========================================================
-     FOOTER
+     FOOTER SYNCHRONISÉ
 ========================================================= -->
 
 <footer class="footer">
@@ -2703,24 +2702,28 @@ section {
 
                 <div class="footer-links">
 
+                    <a href="index.html">
+                        Accueil
+                    </a>
+
                     <a href="actualites.html">
                         Actualités
                     </a>
 
-                    <a href="#groupe">
+                    <a href="le-groupe.html">
                         Le groupe
                     </a>
 
-                    <a href="#expertise">
+                    <a href="expertise.html">
                         Expertise
                     </a>
 
-                    <a href="#vision">
-                        Vision
+                    <a href="projets.html">
+                        Projets
                     </a>
 
-                    <a href="#projets">
-                        Projets
+                    <a href="contact.html">
+                        Contact
                     </a>
 
                 </div>
@@ -2740,11 +2743,11 @@ section {
                         Email
                     </a>
 
-                    <a href="#contact">
+                    <a href="contact.html">
                         Nous contacter
                     </a>
 
-                    <a href="#">
+                    <a href="contact.html">
                         Localisation
                     </a>
 
@@ -3145,4 +3148,3 @@ if (
 
 </body>
 </html>
-```
