@@ -9,37 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-:root { 
-    --black: #070908; 
-    --black-soft: #0d110f; 
-    --black-card: #111714; 
-    --cream: #f4f0e6; 
-    --cream-soft: #c9c5ba; 
-    --gold: #c9a45d; 
-    --gold-light: #e4c986; 
-    --green: #183b2e; 
-    --green-light: #2c604b; 
-    --line: rgba(244,240,230,.12); 
-    --serif: "Playfair Display", Georgia, serif; 
-    --sans: "DM Sans", Arial, sans-serif; 
-}
-
-[data-theme="light"] {
-    --black: #f9f8f4;
-    --black-soft: #f0ebe1;
-    --black-card: #e8e2d5;
-    --cream: #121614;
-    --cream-soft: #4a524e;
-    --gold: #a6833d;
-    --gold-light: #8a6c2e;
-    --green: #235240;
-    --green-light: #183b2e;
-    --line: rgba(18,22,20,.15);
-}
-
+:root { --black: #070908; --black-soft: #0d110f; --black-card: #111714; --cream: #f4f0e6; --cream-soft: #c9c5ba; --gold: #c9a45d; --gold-light: #e4c986; --green: #183b2e; --green-light: #2c604b; --line: rgba(244,240,230,.12); --serif: "Playfair Display", Georgia, serif; --sans: "DM Sans", Arial, sans-serif; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--cream); font-family: var(--sans); overflow-x: hidden; transition: background .3s ease, color .3s ease; }
+body { background: var(--black); color: var(--cream); font-family: var(--sans); overflow-x: hidden; transition: background-color .35s ease, color .35s ease; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 ::selection { background: var(--gold); color: var(--black); }
@@ -58,16 +31,16 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .loader-progress { width: 0; height: 100%; background: var(--gold); transition: width 1.2s ease; }
 
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 5000; transition: background .4s ease, border-color .4s ease; }
-.nav.scrolled { background: var(--black-soft); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
+.nav.scrolled { background: rgba(7,9,8,.82); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
 .nav-inner { width: min(1450px, 92%); min-height: 104px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
 
+/* Logo de navigation agrandi */
 .brand-logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
 .logo-img { height: 88px; width: auto; object-fit: contain; transition: opacity .3s ease; display: block; }
 .logo-img:hover { opacity: 0.85; }
 .brand-logo-fallback { font-family: var(--serif); font-size: 1.4rem; letter-spacing: .1em; color: var(--cream); display: none; }
 .brand-logo-fallback span { color: var(--gold); }
 
-.nav-right-group { display: flex; align-items: center; gap: 25px; }
 .nav-links { display: flex; align-items: center; gap: 31px; }
 .nav-links a { position: relative; font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-soft); transition: color .3s ease; }
 .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 0; height: 1px; background: var(--gold); transition: width .3s ease; }
@@ -80,12 +53,109 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 @keyframes newsPulse { 0%, 100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.2); } }
 .nav-cta { border: 1px solid var(--gold); padding: 12px 18px; color: var(--gold) !important; }
 .nav-cta::after { display: none; }
-
-/* Bouton Thème */
-.theme-toggle { background: transparent; border: 1px solid var(--line); color: var(--cream); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .3s ease; font-size: .9rem; }
-.theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
-
 .menu-button { display: none; border: 0; background: none; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
+
+/* BOUTON THÈME */
+.theme-toggle {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    margin-left: 4px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--black-card);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: all .3s ease;
+    position: relative;
+    z-index: 20;
+}
+.theme-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: rotate(12deg) scale(1.05);
+}
+
+html[data-theme="light"] { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+
+html[data-theme="light"] body {
+    --black: #f5f2ea;
+    --black-soft: #ece8de;
+    --black-card: #ffffff;
+    --cream: #171a17;
+    --cream-soft: #59605a;
+    --gold: #9a762d;
+    --gold-light: #b28d3c;
+    --green: #dce8df;
+    --green-light: #bfd5c5;
+    --line: rgba(23,26,23,.13);
+    background: var(--black);
+    color: var(--cream);
+}
+
+html[data-theme="light"] .nav {
+    background: rgba(245,242,234,.88);
+}
+html[data-theme="light"] .nav.scrolled {
+    background: rgba(245,242,234,.90);
+}
+html[data-theme="light"] .nav-links {
+    background: rgba(245,242,234,.98);
+}
+html[data-theme="light"] .nav-links a {
+    color: #303630;
+}
+html[data-theme="light"] .nav-links a:hover {
+    color: var(--gold);
+}
+html[data-theme="light"] .nav-links a.active {
+    color: var(--gold);
+}
+html[data-theme="light"] .menu-button {
+    color: #171a17;
+}
+html[data-theme="light"] .theme-toggle {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+html[data-theme="light"] .timeline-section {
+    background: #e8e4da;
+    color: #171a17;
+}
+html[data-theme="light"] .timeline-section .section-label,
+html[data-theme="light"] .timeline-year {
+    color: var(--green-light);
+}
+html[data-theme="light"] .timeline-section .section-label::before {
+    background: var(--green-light);
+}
+html[data-theme="light"] .timeline {
+    border-top-color: rgba(23,26,23,.18);
+}
+html[data-theme="light"] .timeline-item {
+    border-bottom-color: rgba(23,26,23,.14);
+}
+html[data-theme="light"] .timeline-content p {
+    color: #62665f;
+}
+html[data-theme="light"] .footer {
+    background: #e8e4da;
+}
+html[data-theme="light"] .footer-description,
+html[data-theme="light"] .footer-links a,
+html[data-theme="light"] .footer-bottom {
+    color: #626860;
+}
+html[data-theme="light"] .loader-bar {
+    background: rgba(23,26,23,.12);
+}
 
 .container { width: min(1450px, 92%); margin: auto; }
 .section { padding: 140px 0; position: relative; }
@@ -96,8 +166,24 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .reveal { opacity: 0; transform: translateY(55px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
 .reveal.show { opacity: 1; transform: translateY(0); }
 
+/* Section Vision avec filigrane */
 .vision { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, rgba(201,164,93,.10), transparent 35%), var(--black); position: relative; overflow: hidden; }
-.vision-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--serif); font-size: clamp(5rem, 14vw, 16rem); font-weight: 700; color: var(--cream); opacity: 0.04; white-space: nowrap; pointer-events: none; z-index: 0; letter-spacing: -0.03em; user-select: none; }
+.vision-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 14vw, 16rem);
+    font-weight: 700;
+    color: var(--cream);
+    opacity: 0.04;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: -0.03em;
+    user-select: none;
+}
 .vision .container { position: relative; z-index: 1; }
 .vision-inner { max-width: 900px; }
 .vision-description { margin-top: 30px; color: var(--cream-soft); line-height: 1.9; font-size: 1.1rem; }
@@ -111,24 +197,45 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .timeline-content h3 { font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 10px; }
 .timeline-content p { color: #626262; font-size: .88rem; line-height: 1.75; }
 
-.footer { background: var(--black-soft); border-top: 1px solid var(--line); padding: 75px 0 30px; }
+.footer { background: #050706; border-top: 1px solid var(--line); padding: 75px 0 30px; }
 .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 65px; }
 .footer-logo { font-family: var(--serif); font-size: 2rem; letter-spacing: .08em; }
 .footer-logo span { color: var(--gold); }
-.footer-description { max-width: 390px; margin-top: 18px; color: var(--cream-soft); font-size: .82rem; line-height: 1.8; }
+.footer-description { max-width: 390px; margin-top: 18px; color: #707570; font-size: .82rem; line-height: 1.8; }
 .footer-heading { margin-bottom: 20px; color: var(--gold); font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; }
 .footer-links { display: flex; flex-direction: column; gap: 12px; }
-.footer-links a { color: var(--cream-soft); font-size: .78rem; transition: color .25s ease; }
+.footer-links a { color: #9a9d99; font-size: .78rem; transition: color .25s ease; }
 .footer-links a:hover { color: var(--cream); }
-.footer-bottom { padding-top: 25px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; color: var(--cream-soft); font-size: .58rem; letter-spacing: .08em; }
+.footer-bottom { padding-top: 25px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; color: #5e625f; font-size: .58rem; letter-spacing: .08em; }
 
 @media (max-width: 1050px) {
-    .nav-links { position: fixed; top: 104px; left: 0; width: 100%; padding: 35px 4%; background: var(--black-soft); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; gap: 25px; transform: translateY(-150%); transition: transform .45s ease; }
+    .nav-links { position: fixed; top: 104px; left: 0; width: 100%; padding: 35px 4%; background: rgba(7,9,8,.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; gap: 25px; transform: translateY(-150%); transition: transform .45s ease; }
+    html[data-theme="light"] .nav-links { background: rgba(245,242,234,.98); }
     .nav-links.open { transform: translateY(0); }
     .menu-button { display: block; }
+    .theme-toggle { margin-left: 0; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
 }
+
+@media (max-width: 600px) {
+    .theme-toggle { width: 40px; height: 40px; }
+}
 </style>
+
+<script>
+/* Restaure le thème avant l'affichage pour éviter le flash */
+(function () {
+    try {
+        var theme = localStorage.getItem("moraheyms-theme");
+        document.documentElement.setAttribute(
+            "data-theme",
+            theme === "light" ? "light" : "dark"
+        );
+    } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+})();
+</script>
 </head>
 <body>
 
@@ -149,10 +256,7 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
             <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
             <span id="logoFallback" class="brand-logo-fallback">GROUPE <span>MORAHEYM'S</span></span>
         </a>
-        <div class="nav-right-group">
-            <button class="theme-toggle" id="themeToggle" title="Changer de thème">☀️</button>
-            <button class="menu-button" id="menuButton">☰</button>
-        </div>
+        <button class="menu-button" id="menuButton">☰</button>
         <nav class="nav-links" id="navLinks">
             <a href="actualites.html" class="nav-news">Actualités</a>
             <a href="groupe.html">Le groupe</a>
@@ -160,6 +264,7 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
             <a href="vision.html" class="active">Vision</a>
             <a href="projets.html">Projets</a>
             <a href="contact.html" class="nav-cta">Contact</a>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le thème clair" title="Thème clair">☀</button>
         </nav>
     </div>
 </header>
@@ -223,25 +328,6 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 </footer>
 
 <script>
-const savedTheme = localStorage.getItem("moraheym_theme") || "dark";
-if (savedTheme === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-    document.getElementById("themeToggle").textContent = "🌙";
-}
-
-const themeToggle = document.getElementById("themeToggle");
-themeToggle.addEventListener("click", () => {
-    if (document.documentElement.getAttribute("data-theme") === "light") {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("moraheym_theme", "dark");
-        themeToggle.textContent = "☀️";
-    } else {
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("moraheym_theme", "light");
-        themeToggle.textContent = "🌙";
-    }
-});
-
 const preloader = document.getElementById("preloader");
 const progress = document.getElementById("loaderProgress");
 let progressValue = 0;
@@ -266,6 +352,37 @@ const navLinks = document.getElementById("navLinks");
 menuButton.addEventListener("click", () => {
     navLinks.classList.toggle("open");
     menuButton.innerHTML = navLinks.classList.contains("open") ? "✕" : "☰";
+});
+
+/* =========================================================
+   THÈME SOMBRE / CLAIR
+   Le choix est conservé et partagé avec les autres pages.
+========================================================= */
+const themeToggle = document.getElementById("themeToggle");
+const THEME_KEY = "moraheyms-theme";
+
+function updateThemeButton() {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    themeToggle.textContent = isLight ? "☾" : "☀";
+    themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Activer le thème sombre" : "Activer le thème clair"
+    );
+    themeToggle.setAttribute(
+        "title",
+        isLight ? "Passer au thème sombre" : "Passer au thème clair"
+    );
+}
+
+updateThemeButton();
+
+themeToggle.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem(THEME_KEY, next);
+    updateThemeButton();
 });
 
 const cursorDot = document.querySelector(".cursor-dot");
