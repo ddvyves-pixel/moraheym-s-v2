@@ -291,18 +291,45 @@ body::before {
 
 
 .nav-inner {
-
-    width: min(1450px,92%);
-
-    min-height: 94px;
-
+    width: min(1450px, 92%);
+    min-height: 104px;
     margin: auto;
-
     display: flex;
-
     align-items: center;
+}
 
-    justify-content: space-between;
+/* Le logo reste à gauche */
+.brand-logo {
+    margin-right: auto;
+}
+
+/* Navigation complètement à droite */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    margin-left: auto;
+}
+
+/* Bouton clair/sombre juste après Contact */
+.theme-toggle {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    margin-left: 22px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--black-card);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: all .3s ease;
+    position: relative;
+    z-index: 20;
 }
 
 
@@ -321,12 +348,10 @@ body::before {
 
 
 .nav-links {
-
     display: flex;
-
     align-items: center;
-
     gap: 31px;
+    margin-left: auto;
 }
 
 
