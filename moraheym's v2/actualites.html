@@ -20,48 +20,39 @@
 <style>
 
 /* =========================================================
-   VARIABLES (MODE SOMBRE PAR DÉFAUT)
+   VARIABLES & THÈMES
 ========================================================= */
 
 :root {
     --black: #070908;
     --black-soft: #0d110f;
     --black-card: #111714;
-
     --cream: #f4f0e6;
     --cream-soft: #c9c5ba;
-
     --gold: #c9a45d;
     --gold-light: #e4c986;
-
     --green: #183b2e;
     --green-light: #2c604b;
-
     --line: rgba(244,240,230,.12);
-
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
+    --text-muted: #8e938e;
+    --filter-bg: transparent;
+    --filter-border: rgba(0,0,0,.16);
 }
 
-/* =========================================================
-   VARIABLES (MODE CLAIR)
-========================================================= */
-
 [data-theme="light"] {
-    --black: #f9f6ef;
-    --black-soft: #f0ebe1;
-    --black-card: #ffffff;
-
-    --cream: #111714;
-    --cream-soft: #555d57;
-
-    --gold: #a67c33;
-    --gold-light: #8c6623;
-
-    --green: #183b2e;
-    --green-light: #2c604b;
-
-    --line: rgba(0,0,0,.12);
+    --black: #fcfbfa;
+    --black-soft: #f4f1eb;
+    --black-card: #eae5dc;
+    --cream: #121514;
+    --cream-soft: #555c58;
+    --gold: #9c7b38;
+    --gold-light: #785e27;
+    --green: #1e4d3c;
+    --green-light: #183b2e;
+    --line: rgba(18,21,20,.12);
+    --text-muted: #5e635f;
 }
 
 
@@ -89,7 +80,7 @@ body {
 
     overflow-x: hidden;
     
-    transition: background 0.4s ease, color 0.4s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -304,8 +295,7 @@ body::before {
 
 .nav.scrolled {
 
-    background: var(--black);
-    opacity: 0.92;
+    background: var(--black-soft);
 
     backdrop-filter: blur(20px);
 
@@ -477,30 +467,28 @@ body::before {
 }
 
 
-/* =========================================================
-   BOUTON DE CHANGEMENT DE THÈME
-========================================================= */
+/* BOUTON THÈME CLAIR/SOMBRE */
 
 .theme-toggle {
     background: transparent;
     border: 1px solid var(--line);
-    color: var(--cream);
+    color: var(--gold);
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .theme-toggle:hover {
+    background: var(--gold);
+    color: var(--black);
     border-color: var(--gold);
-    color: var(--gold);
-    transform: scale(1.05);
 }
 
 
@@ -676,13 +664,13 @@ body::before {
 
 .filters {
 
-    background: var(--cream);
+    background: var(--black-soft);
 
-    color: var(--black);
+    color: var(--cream);
 
     padding: 28px 0;
 
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid var(--line);
 }
 
 
@@ -706,7 +694,7 @@ body::before {
 
     text-transform: uppercase;
 
-    color: #777;
+    color: var(--text-muted);
 }
 
 
@@ -722,9 +710,11 @@ body::before {
 
 .filter {
 
-    border: 1px solid rgba(0,0,0,.16);
+    border: 1px solid var(--line);
 
     background: transparent;
+    
+    color: var(--cream);
 
     padding: 10px 16px;
 
@@ -745,7 +735,7 @@ body::before {
 
     background: var(--green);
 
-    color: var(--cream);
+    color: #f4f0e6;
 
     border-color: var(--green);
 }
@@ -759,9 +749,9 @@ body::before {
 
     padding: 130px 0;
 
-    background: var(--cream);
+    background: var(--black-soft);
 
-    color: var(--black);
+    color: var(--cream);
 }
 
 
@@ -792,6 +782,8 @@ body::before {
     color: var(--cream);
 
     overflow: hidden;
+    
+    border: 1px solid var(--line);
 }
 
 
@@ -1004,7 +996,7 @@ body::before {
 
     margin-top: 25px;
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .88rem;
 
@@ -1054,7 +1046,7 @@ body::before {
 
     padding: 135px 0 150px;
 
-    background: var(--black-soft);
+    background: var(--black);
 }
 
 
@@ -1100,7 +1092,7 @@ body::before {
 
     max-width: 420px;
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .85rem;
 
@@ -1326,7 +1318,7 @@ body::before {
 
 .news-meta {
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .55rem;
 
@@ -1354,7 +1346,7 @@ body::before {
 
     margin-top: 14px;
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .78rem;
 
@@ -1391,6 +1383,8 @@ body::before {
     padding: 120px 0;
 
     background: var(--green);
+    
+    color: #f4f0e6;
 }
 
 
@@ -1464,7 +1458,7 @@ body::before {
 
     background: transparent;
 
-    color: var(--cream);
+    color: #f4f0e6;
 
     font-family: var(--sans);
 
@@ -1544,7 +1538,7 @@ body::before {
 
     margin-top: 18px;
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .82rem;
 
@@ -1578,7 +1572,7 @@ body::before {
 
 .footer-links a {
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .78rem;
 
@@ -1604,7 +1598,7 @@ body::before {
 
     gap: 20px;
 
-    color: var(--cream-soft);
+    color: var(--text-muted);
 
     font-size: .58rem;
 
@@ -1656,8 +1650,7 @@ body::before {
 
         padding: 35px 4%;
 
-        background: var(--black);
-        opacity: 0.98;
+        background: var(--black-soft);
 
         backdrop-filter: blur(20px);
 
@@ -1927,21 +1920,8 @@ body::before {
         </a>
 
 
-        <div style="display: flex; align-items: center;">
-            <nav class="nav-links" id="navLinks">
-                <a href="actualites.html" class="nav-news">Actualités</a>
-                <a href="groupe.html">Le groupe</a>
-                <a href="expertise.html">Expertise</a>
-                <a href="vision.html">Vision</a>
-                <a href="projets.html">Projets</a>
-                <a href="contact.html" class="nav-cta">Contact</a>
-            </nav>
-
-            <!-- BOUTON DE CHANGEMENT DE THÈME -->
-            <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
-                🌙
-            </button>
-
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="theme-toggle" id="themeToggle" title="Changer le thème">🌙</button>
             <button
                 class="menu-button"
                 id="menuButton">
@@ -1951,6 +1931,15 @@ body::before {
             </button>
         </div>
 
+
+        <nav class="nav-links" id="navLinks">
+            <a href="actualites.html" class="nav-news">Actualités</a>
+            <a href="groupe.html">Le groupe</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="vision.html">Vision</a>
+            <a href="projets.html">Projets</a>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </nav>
     </div>
 
 </header>
@@ -2706,19 +2695,19 @@ body::before {
                         Actualités
                     </a>
 
-                    <a href="index.html#groupe">
+                    <a href="groupe.html">
                         Le groupe
                     </a>
 
-                    <a href="index.html#expertise">
+                    <a href="expertise.html">
                         Expertise
                     </a>
 
-                    <a href="index.html#vision">
+                    <a href="vision.html">
                         Vision
                     </a>
 
-                    <a href="index.html#projets">
+                    <a href="projets.html">
                         Projets
                     </a>
 
@@ -2736,7 +2725,7 @@ body::before {
 
                 <div class="footer-links">
 
-                    <a href="index.html#contact">
+                    <a href="contact.html">
                         Nous contacter
                     </a>
 
@@ -2812,27 +2801,26 @@ body::before {
 
 
 /* =========================================================
-   GESTION DU THÈME (CLAIR / SOMBRE)
+   GESTION DU THÈME CLAIR / SOMBRE
 ========================================================= */
 
 const themeToggle = document.getElementById("themeToggle");
-const userTheme = localStorage.getItem("moraheym_theme");
+const currentTheme = localStorage.getItem("theme") || "dark";
 
-if (userTheme) {
-    document.documentElement.setAttribute("data-theme", userTheme);
-    themeToggle.textContent = userTheme === "light" ? "☀️" : "🌙";
+if (currentTheme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+    themeToggle.textContent = "☀️";
 }
 
 themeToggle.addEventListener("click", () => {
-    let currentTheme = document.documentElement.getAttribute("data-theme");
-    
-    if (currentTheme === "light") {
+    let theme = document.documentElement.getAttribute("data-theme");
+    if (theme === "light") {
         document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("moraheym_theme", "dark");
+        localStorage.setItem("theme", "dark");
         themeToggle.textContent = "🌙";
     } else {
         document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("moraheym_theme", "light");
+        localStorage.setItem("theme", "light");
         themeToggle.textContent = "☀️";
     }
 });
