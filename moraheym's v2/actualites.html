@@ -20,11 +20,10 @@
 <style>
 
 /* =========================================================
-   VARIABLES
+   VARIABLES (MODE SOMBRE PAR DÉFAUT)
 ========================================================= */
 
 :root {
-
     --black: #070908;
     --black-soft: #0d110f;
     --black-card: #111714;
@@ -42,6 +41,27 @@
 
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
+}
+
+/* =========================================================
+   VARIABLES (MODE CLAIR)
+========================================================= */
+
+[data-theme="light"] {
+    --black: #f9f6ef;
+    --black-soft: #f0ebe1;
+    --black-card: #ffffff;
+
+    --cream: #111714;
+    --cream-soft: #555d57;
+
+    --gold: #a67c33;
+    --gold-light: #8c6623;
+
+    --green: #183b2e;
+    --green-light: #2c604b;
+
+    --line: rgba(0,0,0,.12);
 }
 
 
@@ -68,6 +88,8 @@ body {
     font-family: var(--sans);
 
     overflow-x: hidden;
+    
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
 a {
@@ -282,7 +304,8 @@ body::before {
 
 .nav.scrolled {
 
-    background: rgba(7,9,8,.88);
+    background: var(--black);
+    opacity: 0.92;
 
     backdrop-filter: blur(20px);
 
@@ -451,6 +474,33 @@ body::before {
 .nav-cta::after {
 
     display: none;
+}
+
+
+/* =========================================================
+   BOUTON DE CHANGEMENT DE THÈME
+========================================================= */
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--cream);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.theme-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: scale(1.05);
 }
 
 
@@ -954,7 +1004,7 @@ body::before {
 
     margin-top: 25px;
 
-    color: #8e938e;
+    color: var(--cream-soft);
 
     font-size: .88rem;
 
@@ -1050,7 +1100,7 @@ body::before {
 
     max-width: 420px;
 
-    color: #818681;
+    color: var(--cream-soft);
 
     font-size: .85rem;
 
@@ -1276,7 +1326,7 @@ body::before {
 
 .news-meta {
 
-    color: #727771;
+    color: var(--cream-soft);
 
     font-size: .55rem;
 
@@ -1304,7 +1354,7 @@ body::before {
 
     margin-top: 14px;
 
-    color: #7e837e;
+    color: var(--cream-soft);
 
     font-size: .78rem;
 
@@ -1452,7 +1502,7 @@ body::before {
 
 .footer {
 
-    background: #050706;
+    background: var(--black-soft);
 
     border-top: 1px solid var(--line);
 
@@ -1494,7 +1544,7 @@ body::before {
 
     margin-top: 18px;
 
-    color: #707570;
+    color: var(--cream-soft);
 
     font-size: .82rem;
 
@@ -1528,7 +1578,7 @@ body::before {
 
 .footer-links a {
 
-    color: #9a9d99;
+    color: var(--cream-soft);
 
     font-size: .78rem;
 
@@ -1554,7 +1604,7 @@ body::before {
 
     gap: 20px;
 
-    color: #5e625f;
+    color: var(--cream-soft);
 
     font-size: .58rem;
 
@@ -1606,7 +1656,8 @@ body::before {
 
         padding: 35px 4%;
 
-        background: rgba(7,9,8,.98);
+        background: var(--black);
+        opacity: 0.98;
 
         backdrop-filter: blur(20px);
 
@@ -1876,23 +1927,30 @@ body::before {
         </a>
 
 
-        <button
-            class="menu-button"
-            id="menuButton">
+        <div style="display: flex; align-items: center;">
+            <nav class="nav-links" id="navLinks">
+                <a href="actualites.html" class="nav-news">Actualités</a>
+                <a href="groupe.html">Le groupe</a>
+                <a href="expertise.html">Expertise</a>
+                <a href="vision.html">Vision</a>
+                <a href="projets.html">Projets</a>
+                <a href="contact.html" class="nav-cta">Contact</a>
+            </nav>
 
-            ☰
+            <!-- BOUTON DE CHANGEMENT DE THÈME -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                🌙
+            </button>
 
-        </button>
+            <button
+                class="menu-button"
+                id="menuButton">
 
+                ☰
 
-        <nav class="nav-links" id="navLinks">
-    <a href="actualites.html" class="nav-news">Actualités</a>
-    <a href="groupe.html">Le groupe</a>
-    <a href="expertise.html">Expertise</a>
-    <a href="vision.html">Vision</a>
-    <a href="projets.html">Projets</a>
-    <a href="contact.html" class="nav-cta">Contact</a>
-</nav>
+            </button>
+        </div>
+
     </div>
 
 </header>
@@ -2751,6 +2809,33 @@ body::before {
 ========================================================= -->
 
 <script>
+
+
+/* =========================================================
+   GESTION DU THÈME (CLAIR / SOMBRE)
+========================================================= */
+
+const themeToggle = document.getElementById("themeToggle");
+const userTheme = localStorage.getItem("moraheym_theme");
+
+if (userTheme) {
+    document.documentElement.setAttribute("data-theme", userTheme);
+    themeToggle.textContent = userTheme === "light" ? "☀️" : "🌙";
+}
+
+themeToggle.addEventListener("click", () => {
+    let currentTheme = document.documentElement.getAttribute("data-theme");
+    
+    if (currentTheme === "light") {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("moraheym_theme", "dark");
+        themeToggle.textContent = "🌙";
+    } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("moraheym_theme", "light");
+        themeToggle.textContent = "☀️";
+    }
+});
 
 
 /* =========================================================
