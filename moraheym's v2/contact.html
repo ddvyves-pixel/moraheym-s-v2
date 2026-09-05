@@ -34,7 +34,6 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .nav.scrolled { background: rgba(7,9,8,.82); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
 .nav-inner { width: min(1450px, 92%); min-height: 104px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
 
-/* Logo de navigation agrandi */
 .brand-logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
 .logo-img { height: 88px; width: auto; object-fit: contain; transition: opacity .3s ease; display: block; }
 .logo-img:hover { opacity: 0.85; }
@@ -56,7 +55,6 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .menu-button { display: none; border: 0; background: none; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
 
 .container { width: min(1450px, 92%); margin: auto; }
-.section { padding: 140px 0; position: relative; }
 .section-label { display: flex; align-items: center; gap: 14px; color: var(--gold); font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; }
 .section-label::before { content: ""; width: 38px; height: 1px; background: var(--gold); }
 .section-title { font-family: var(--serif); font-size: clamp(3rem, 6vw, 6.5rem); font-weight: 400; line-height: .98; letter-spacing: -.045em; }
@@ -64,7 +62,6 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .reveal { opacity: 0; transform: translateY(55px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
 .reveal.show { opacity: 1; transform: translateY(0); }
 
-/* Section Contact avec filigrane discret */
 .contact { padding: 160px 0 120px; background: radial-gradient(circle at 75% 20%, rgba(201,164,93,.13), transparent 30%), var(--black); position: relative; overflow: hidden; }
 .contact-watermark {
     position: absolute;
@@ -244,3 +241,6 @@ document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
+```[cite: 15]
+
+*(Source : Code généré sur la base de la structure standard du site GROUPE MORAHEYM'S[cite: 15]).*
