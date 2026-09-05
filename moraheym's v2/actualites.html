@@ -20,39 +20,28 @@
 <style>
 
 /* =========================================================
-   VARIABLES & THÈMES
+   VARIABLES
 ========================================================= */
 
 :root {
+
     --black: #070908;
     --black-soft: #0d110f;
     --black-card: #111714;
+
     --cream: #f4f0e6;
     --cream-soft: #c9c5ba;
+
     --gold: #c9a45d;
     --gold-light: #e4c986;
+
     --green: #183b2e;
     --green-light: #2c604b;
+
     --line: rgba(244,240,230,.12);
+
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
-    --text-muted: #8e938e;
-    --filter-bg: transparent;
-    --filter-border: rgba(0,0,0,.16);
-}
-
-[data-theme="light"] {
-    --black: #fcfbfa;
-    --black-soft: #f4f1eb;
-    --black-card: #eae5dc;
-    --cream: #121514;
-    --cream-soft: #555c58;
-    --gold: #9c7b38;
-    --gold-light: #785e27;
-    --green: #1e4d3c;
-    --green-light: #183b2e;
-    --line: rgba(18,21,20,.12);
-    --text-muted: #5e635f;
 }
 
 
@@ -79,8 +68,6 @@ body {
     font-family: var(--sans);
 
     overflow-x: hidden;
-    
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -295,7 +282,7 @@ body::before {
 
 .nav.scrolled {
 
-    background: var(--black-soft);
+    background: rgba(7,9,8,.88);
 
     backdrop-filter: blur(20px);
 
@@ -464,31 +451,6 @@ body::before {
 .nav-cta::after {
 
     display: none;
-}
-
-
-/* BOUTON THÈME CLAIR/SOMBRE */
-
-.theme-toggle {
-    background: transparent;
-    border: 1px solid var(--line);
-    color: var(--gold);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    margin-left: 10px;
-}
-
-.theme-toggle:hover {
-    background: var(--gold);
-    color: var(--black);
-    border-color: var(--gold);
 }
 
 
@@ -664,13 +626,13 @@ body::before {
 
 .filters {
 
-    background: var(--black-soft);
+    background: var(--cream);
 
-    color: var(--cream);
+    color: var(--black);
 
     padding: 28px 0;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 
@@ -694,7 +656,7 @@ body::before {
 
     text-transform: uppercase;
 
-    color: var(--text-muted);
+    color: #777;
 }
 
 
@@ -710,11 +672,9 @@ body::before {
 
 .filter {
 
-    border: 1px solid var(--line);
+    border: 1px solid rgba(0,0,0,.16);
 
     background: transparent;
-    
-    color: var(--cream);
 
     padding: 10px 16px;
 
@@ -735,7 +695,7 @@ body::before {
 
     background: var(--green);
 
-    color: #f4f0e6;
+    color: var(--cream);
 
     border-color: var(--green);
 }
@@ -749,9 +709,9 @@ body::before {
 
     padding: 130px 0;
 
-    background: var(--black-soft);
+    background: var(--cream);
 
-    color: var(--cream);
+    color: var(--black);
 }
 
 
@@ -782,8 +742,6 @@ body::before {
     color: var(--cream);
 
     overflow: hidden;
-    
-    border: 1px solid var(--line);
 }
 
 
@@ -996,7 +954,7 @@ body::before {
 
     margin-top: 25px;
 
-    color: var(--text-muted);
+    color: #8e938e;
 
     font-size: .88rem;
 
@@ -1046,7 +1004,7 @@ body::before {
 
     padding: 135px 0 150px;
 
-    background: var(--black);
+    background: var(--black-soft);
 }
 
 
@@ -1092,7 +1050,7 @@ body::before {
 
     max-width: 420px;
 
-    color: var(--text-muted);
+    color: #818681;
 
     font-size: .85rem;
 
@@ -1318,7 +1276,7 @@ body::before {
 
 .news-meta {
 
-    color: var(--text-muted);
+    color: #727771;
 
     font-size: .55rem;
 
@@ -1346,7 +1304,7 @@ body::before {
 
     margin-top: 14px;
 
-    color: var(--text-muted);
+    color: #7e837e;
 
     font-size: .78rem;
 
@@ -1383,8 +1341,6 @@ body::before {
     padding: 120px 0;
 
     background: var(--green);
-    
-    color: #f4f0e6;
 }
 
 
@@ -1458,7 +1414,7 @@ body::before {
 
     background: transparent;
 
-    color: #f4f0e6;
+    color: var(--cream);
 
     font-family: var(--sans);
 
@@ -1496,7 +1452,7 @@ body::before {
 
 .footer {
 
-    background: var(--black-soft);
+    background: #050706;
 
     border-top: 1px solid var(--line);
 
@@ -1538,7 +1494,7 @@ body::before {
 
     margin-top: 18px;
 
-    color: var(--text-muted);
+    color: #707570;
 
     font-size: .82rem;
 
@@ -1572,7 +1528,7 @@ body::before {
 
 .footer-links a {
 
-    color: var(--text-muted);
+    color: #9a9d99;
 
     font-size: .78rem;
 
@@ -1598,7 +1554,7 @@ body::before {
 
     gap: 20px;
 
-    color: var(--text-muted);
+    color: #5e625f;
 
     font-size: .58rem;
 
@@ -1650,7 +1606,7 @@ body::before {
 
         padding: 35px 4%;
 
-        background: var(--black-soft);
+        background: rgba(7,9,8,.98);
 
         backdrop-filter: blur(20px);
 
@@ -1860,8 +1816,123 @@ body::before {
 
 }
 
+
+/* =========================================================
+   THEME CLAIR / SOMBRE — AJOUT
+========================================================= */
+html { color-scheme: dark; }
+body { transition: background-color .35s ease, color .35s ease; }
+
+.theme-toggle {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    margin-left: 18px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--black-card);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: all .3s ease;
+    position: relative;
+    z-index: 20;
+}
+.theme-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: rotate(12deg) scale(1.05);
+}
+.theme-toggle .theme-icon {
+    display: block;
+    transition: transform .3s ease;
+}
+
+html[data-theme="light"] { color-scheme: light; }
+html[data-theme="light"] body {
+    --black: #f5f2ea;
+    --black-soft: #ece8de;
+    --black-card: #ffffff;
+    --cream: #171a17;
+    --cream-soft: #59605a;
+    --gold: #9a762d;
+    --gold-light: #b28d3c;
+    --green: #dce8df;
+    --green-light: #bfd5c5;
+    --line: rgba(23,26,23,.13);
+    background: var(--black);
+    color: var(--cream);
+}
+html[data-theme="light"] .theme-toggle {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+html[data-theme="light"] .nav {
+    background: rgba(245,242,234,.88);
+    border-bottom-color: rgba(23,26,23,.10);
+}
+html[data-theme="light"] .nav.scrolled {
+    background: rgba(245,242,234,.90);
+}
+html[data-theme="light"] .nav-links { background: rgba(245,242,234,.98); }
+html[data-theme="light"] .nav-links a { color: #303630; }
+html[data-theme="light"] .nav-links a:hover { color: var(--gold); }
+html[data-theme="light"] .nav-links .active { color: var(--gold) !important; }
+html[data-theme="light"] .menu-button { color: #171a17; }
+html[data-theme="light"] .footer { background: #e8e4da; }
+html[data-theme="light"] .preview-card,
+html[data-theme="light"] .value-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .contact-box,
+html[data-theme="light"] .timeline-content {
+    background: rgba(255,255,255,.72);
+}
+html[data-theme="light"] .marquee {
+    background: #171a17;
+    color: #f5f2ea;
+}
+html[data-theme="light"] .newsletter { background: #e8e4da; }
+html[data-theme="light"] .latest { background: #f5f2ea; }
+html[data-theme="light"] .featured-content,
+html[data-theme="light"] .news-content { background: #fff; }
+html[data-theme="light"] .news-image { filter: brightness(1.06) saturate(.9); }
+html[data-theme="light"] .page-header,
+html[data-theme="light"] .hero,
+html[data-theme="light"] .section,
+html[data-theme="light"] .vision,
+html[data-theme="light"] .timeline-section,
+html[data-theme="light"] .contact {
+    background-color: var(--black);
+}
+html[data-theme="light"] .footer-description,
+html[data-theme="light"] .footer-links a,
+html[data-theme="light"] .footer-bottom { color: #626860; }
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+html[data-theme="light"] .preloader { background: #f5f2ea; color: #171a17; }
+
+@media (max-width: 1050px) {
+    .theme-toggle { margin-left: auto; margin-right: 14px; }
+}
+@media (max-width: 600px) {
+    .theme-toggle { width: 40px; height: 40px; margin-left: auto; margin-right: 10px; }
+}
+
 </style>
 
+<script>
+(function(){try{var t=localStorage.getItem("moraheyms-theme");document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark");}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();
+</script>
 </head>
 
 
@@ -1920,26 +1991,23 @@ body::before {
         </a>
 
 
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <button class="theme-toggle" id="themeToggle" title="Changer le thème">🌙</button>
-            <button
-                class="menu-button"
-                id="menuButton">
+        <button
+            class="menu-button"
+            id="menuButton">
 
-                ☰
+            ☰
 
-            </button>
-        </div>
+        </button>
 
 
         <nav class="nav-links" id="navLinks">
-            <a href="actualites.html" class="nav-news">Actualités</a>
-            <a href="groupe.html">Le groupe</a>
-            <a href="expertise.html">Expertise</a>
-            <a href="vision.html">Vision</a>
-            <a href="projets.html">Projets</a>
-            <a href="contact.html" class="nav-cta">Contact</a>
-        </nav>
+    <a href="actualites.html" class="nav-news">Actualités</a>
+    <a href="groupe.html">Le groupe</a>
+    <a href="expertise.html">Expertise</a>
+    <a href="vision.html">Vision</a>
+    <a href="projets.html">Projets</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+</nav>
     </div>
 
 </header>
@@ -2695,19 +2763,19 @@ body::before {
                         Actualités
                     </a>
 
-                    <a href="groupe.html">
+                    <a href="index.html#groupe">
                         Le groupe
                     </a>
 
-                    <a href="expertise.html">
+                    <a href="index.html#expertise">
                         Expertise
                     </a>
 
-                    <a href="vision.html">
+                    <a href="index.html#vision">
                         Vision
                     </a>
 
-                    <a href="projets.html">
+                    <a href="index.html#projets">
                         Projets
                     </a>
 
@@ -2725,7 +2793,7 @@ body::before {
 
                 <div class="footer-links">
 
-                    <a href="contact.html">
+                    <a href="index.html#contact">
                         Nous contacter
                     </a>
 
@@ -2798,32 +2866,45 @@ body::before {
 ========================================================= -->
 
 <script>
-
-
 /* =========================================================
-   GESTION DU THÈME CLAIR / SOMBRE
+   THEME TOGGLE — partagé par toutes les pages
 ========================================================= */
+(function () {
+    const KEY = "moraheyms-theme";
+    const root = document.documentElement;
+    const saved = localStorage.getItem(KEY);
+    root.setAttribute("data-theme", saved === "light" ? "light" : "dark");
 
-const themeToggle = document.getElementById("themeToggle");
-const currentTheme = localStorage.getItem("theme") || "dark";
-
-if (currentTheme === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-    themeToggle.textContent = "☀️";
-}
-
-themeToggle.addEventListener("click", () => {
-    let theme = document.documentElement.getAttribute("data-theme");
-    if (theme === "light") {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("theme", "dark");
-        themeToggle.textContent = "🌙";
-    } else {
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("theme", "light");
-        themeToggle.textContent = "☀️";
+    function updateThemeButton() {
+        const button = document.getElementById("themeToggle");
+        if (!button) return;
+        const isLight = root.getAttribute("data-theme") === "light";
+        button.setAttribute("aria-label", isLight ? "Activer le thème sombre" : "Activer le thème clair");
+        button.setAttribute("title", isLight ? "Thème sombre" : "Thème clair");
+        button.innerHTML = '<span class="theme-icon" aria-hidden="true">' + (isLight ? "☀" : "☾") + '</span>';
     }
-});
+
+    window.addEventListener("DOMContentLoaded", function () {
+        const navInner = document.querySelector(".nav-inner");
+        if (!navInner || document.getElementById("themeToggle")) return;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.id = "themeToggle";
+        button.className = "theme-toggle";
+        navInner.appendChild(button);
+        updateThemeButton();
+
+        button.addEventListener("click", function () {
+            const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            localStorage.setItem(KEY, next);
+            updateThemeButton();
+        });
+    });
+})();
+
+
 
 
 /* =========================================================
