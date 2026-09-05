@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -291,45 +292,18 @@ body::before {
 
 
 .nav-inner {
-    width: min(1450px, 92%);
-    min-height: 104px;
+
+    width: min(1450px,92%);
+
+    min-height: 94px;
+
     margin: auto;
+
     display: flex;
-    align-items: center;
-}
 
-/* Le logo reste à gauche */
-.brand-logo {
-    margin-right: auto;
-}
-
-/* Navigation complètement à droite */
-.nav-links {
-    display: flex;
     align-items: center;
-    gap: 31px;
-    margin-left: auto;
-}
 
-/* Bouton clair/sombre juste après Contact */
-.theme-toggle {
-    flex: 0 0 auto;
-    width: 44px;
-    height: 44px;
-    margin-left: 22px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: var(--black-card);
-    color: var(--cream);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.05rem;
-    line-height: 1;
-    transition: all .3s ease;
-    position: relative;
-    z-index: 20;
+    justify-content: space-between;
 }
 
 
@@ -337,21 +311,41 @@ body::before {
 
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 }
 
-.logo img {
-    height: 88px;
-    width: auto;
-    object-fit: contain;
+
+.logo-main {
+
+    font-family: var(--serif);
+
+    font-size: 1.25rem;
+
+    letter-spacing: .11em;
+}
+
+
+.logo-sub {
+
+    margin-top: 4px;
+
+    font-size: .48rem;
+
+    color: var(--gold);
+
+    letter-spacing: .32em;
+
+    text-transform: uppercase;
 }
 
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
+
     gap: 31px;
-    margin-left: auto;
 }
 
 
@@ -1842,122 +1836,20 @@ body::before {
 }
 
 
-/* =========================================================
-   THEME CLAIR / SOMBRE — AJOUT
-========================================================= */
-html { color-scheme: dark; }
-body { transition: background-color .35s ease, color .35s ease; }
-
-.theme-toggle {
-    flex: 0 0 auto;
-    width: 44px;
-    height: 44px;
-    margin-left: 18px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: var(--black-card);
-    color: var(--cream);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.05rem;
-    line-height: 1;
-    transition: all .3s ease;
-    position: relative;
-    z-index: 20;
-}
-.theme-toggle:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    transform: rotate(12deg) scale(1.05);
-}
-.theme-toggle .theme-icon {
-    display: block;
-    transition: transform .3s ease;
-}
-
-html[data-theme="light"] { color-scheme: light; }
-html[data-theme="light"] body {
-    --black: #f5f2ea;
-    --black-soft: #ece8de;
-    --black-card: #ffffff;
-    --cream: #171a17;
-    --cream-soft: #59605a;
-    --gold: #9a762d;
-    --gold-light: #b28d3c;
-    --green: #dce8df;
-    --green-light: #bfd5c5;
-    --line: rgba(23,26,23,.13);
-    background: var(--black);
-    color: var(--cream);
-}
-html[data-theme="light"] .theme-toggle {
-    background: #fff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
-html[data-theme="light"] .nav {
-    background: rgba(245,242,234,.88);
-    border-bottom-color: rgba(23,26,23,.10);
-}
-html[data-theme="light"] .nav.scrolled {
-    background: rgba(245,242,234,.90);
-}
-html[data-theme="light"] .nav-links { background: rgba(245,242,234,.98); }
-html[data-theme="light"] .nav-links a { color: #303630; }
-html[data-theme="light"] .nav-links a:hover { color: var(--gold); }
-html[data-theme="light"] .nav-links .active { color: var(--gold) !important; }
-html[data-theme="light"] .menu-button { color: #171a17; }
-html[data-theme="light"] .footer { background: #e8e4da; }
-html[data-theme="light"] .preview-card,
-html[data-theme="light"] .value-card,
-html[data-theme="light"] .project-card,
-html[data-theme="light"] .contact-box,
-html[data-theme="light"] .timeline-content {
-    background: rgba(255,255,255,.72);
-}
-html[data-theme="light"] .marquee {
-    background: #171a17;
-    color: #f5f2ea;
-}
-html[data-theme="light"] .newsletter { background: #e8e4da; }
-html[data-theme="light"] .latest { background: #f5f2ea; }
-html[data-theme="light"] .featured-content,
-html[data-theme="light"] .news-content { background: #fff; }
-html[data-theme="light"] .news-image { filter: brightness(1.06) saturate(.9); }
-html[data-theme="light"] .page-header,
-html[data-theme="light"] .hero,
-html[data-theme="light"] .section,
-html[data-theme="light"] .vision,
-html[data-theme="light"] .timeline-section,
-html[data-theme="light"] .contact {
-    background-color: var(--black);
-}
-html[data-theme="light"] .footer-description,
-html[data-theme="light"] .footer-links a,
-html[data-theme="light"] .footer-bottom { color: #626860; }
-html[data-theme="light"] input,
-html[data-theme="light"] textarea,
-html[data-theme="light"] select {
-    background: #fff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
-html[data-theme="light"] .preloader { background: #f5f2ea; color: #171a17; }
-
-@media (max-width: 1050px) {
-    .theme-toggle { margin-left: auto; margin-right: 14px; }
-}
-@media (max-width: 600px) {
-    .theme-toggle { width: 40px; height: 40px; margin-left: auto; margin-right: 10px; }
-}
-
+/* ===== NAVIGATION UNIFIEE MORAHEYMS ===== */
+.nav-inner{width:min(1450px,92%);min-height:104px;margin:auto;display:flex;align-items:center;}
+.brand-logo{display:flex;align-items:center;height:100%;text-decoration:none;flex:0 0 auto;margin-right:auto;}
+.logo-img{height:88px;width:auto;object-fit:contain;display:block;}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:31px;margin-left:auto;}
+.nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-left:18px;flex:0 0 auto;}
+.theme-toggle{flex:0 0 44px;width:44px;height:44px;margin:0;border:1px solid var(--line);border-radius:50%;background:var(--black-card);color:var(--cream);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.05rem;line-height:1;transition:all .3s ease;position:relative;z-index:20;}
+.menu-button{display:none;width:44px;height:44px;flex:0 0 44px;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--cream);font-size:1.35rem;line-height:1;cursor:pointer;}
+@media (max-width:1050px){.nav-links{position:fixed;top:104px;left:0;width:100%;padding:35px 4%;background:rgba(7,9,8,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:25px;margin-left:0;transform:translateY(-150%);transition:transform .45s ease;}.nav-links.open{transform:translateY(0);}.nav-actions{margin-left:auto;gap:10px;}.menu-button{display:inline-flex;}}
+@media (max-width:650px){.nav-inner{min-height:78px;}.nav-links{top:78px;}.theme-toggle,.menu-button{width:40px;height:40px;flex-basis:40px;}.nav-actions{gap:8px;}}
+html[data-theme="light"] .menu-button{color:#171a17;}
+html[data-theme="light"] .nav-links{background:rgba(245,242,234,.98);}
 </style>
 
-<script>
-(function(){try{var t=localStorage.getItem("moraheyms-theme");document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark");}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();
-</script>
 </head>
 
 
@@ -2004,37 +1896,23 @@ html[data-theme="light"] .preloader { background: #f5f2ea; color: #171a17; }
 ========================================================= -->
 
 <header class="nav" id="nav">
-
     <div class="nav-inner">
-
-
-        <a href="index.html"
-           class="logo">
-
-            <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S">
-
+        <a href="index.html" class="brand-logo">
+            <img src="logo-moraheyms.png" alt="GROUPE MORAHEYM'S" class="logo-img">
         </a>
-
-
-        <button
-            class="menu-button"
-            id="menuButton">
-
-            ☰
-
-        </button>
-
-
         <nav class="nav-links" id="navLinks">
-    <a href="actualites.html" class="nav-news">Actualités</a>
-    <a href="groupe.html">Le groupe</a>
-    <a href="expertise.html">Expertise</a>
-    <a href="vision.html">Vision</a>
-    <a href="projets.html">Projets</a>
-    <a href="contact.html" class="nav-cta">Contact</a>
-</nav>
+            <a href="actualites.html" class="nav-news active">Actualités</a>
+            <a href="groupe.html" class="">Le groupe</a>
+            <a href="expertise.html" class="">Expertise</a>
+            <a href="vision.html" class="">Vision</a>
+            <a href="projets.html" class="">Projets</a>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le thème clair" title="Thème clair">☀</button>
+            <button class="menu-button" id="menuButton" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+        </div>
     </div>
-
 </header>
 
 
@@ -2891,45 +2769,6 @@ html[data-theme="light"] .preloader { background: #f5f2ea; color: #171a17; }
 ========================================================= -->
 
 <script>
-/* =========================================================
-   THEME TOGGLE — partagé par toutes les pages
-========================================================= */
-(function () {
-    const KEY = "moraheyms-theme";
-    const root = document.documentElement;
-    const saved = localStorage.getItem(KEY);
-    root.setAttribute("data-theme", saved === "light" ? "light" : "dark");
-
-    function updateThemeButton() {
-        const button = document.getElementById("themeToggle");
-        if (!button) return;
-        const isLight = root.getAttribute("data-theme") === "light";
-        button.setAttribute("aria-label", isLight ? "Activer le thème sombre" : "Activer le thème clair");
-        button.setAttribute("title", isLight ? "Thème sombre" : "Thème clair");
-        button.innerHTML = '<span class="theme-icon" aria-hidden="true">' + (isLight ? "☀" : "☾") + '</span>';
-    }
-
-    window.addEventListener("DOMContentLoaded", function () {
-        const navInner = document.querySelector(".nav-inner");
-        if (!navInner || document.getElementById("themeToggle")) return;
-
-        const button = document.createElement("button");
-        button.type = "button";
-        button.id = "themeToggle";
-        button.className = "theme-toggle";
-        navInner.appendChild(button);
-        updateThemeButton();
-
-        button.addEventListener("click", function () {
-            const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-            root.setAttribute("data-theme", next);
-            localStorage.setItem(KEY, next);
-            updateThemeButton();
-        });
-    });
-})();
-
-
 
 
 /* =========================================================
@@ -3300,3 +3139,4 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+```
