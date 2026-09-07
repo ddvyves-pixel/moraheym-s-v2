@@ -1946,11 +1946,58 @@ html[data-theme="light"] select {
 }
 html[data-theme="light"] .preloader { background: #f5f2ea; color: #171a17; }
 
+/* =========================================================
+   THÈME DANS LE MENU BURGER SUR TABLETTE / MOBILE
+========================================================= */
 @media (max-width: 1050px) {
-    .theme-toggle { margin-left: auto; margin-right: 14px; }
+    .nav-inner {
+        justify-content: space-between;
+    }
+
+    .menu-button {
+        display: block;
+        margin-left: auto;
+        position: relative;
+        z-index: 30;
+    }
+
+    .nav-links .theme-toggle {
+        display: none;
+        margin: 0;
+        width: 44px;
+        height: 44px;
+        align-self: flex-start;
+    }
+
+    .nav-links.open .theme-toggle {
+        display: inline-flex;
+    }
 }
+
 @media (max-width: 600px) {
-    .theme-toggle { width: 40px; height: 40px; margin-left: auto; margin-right: 10px; }
+    .nav-inner {
+        width: 94%;
+    }
+
+    .menu-button {
+        margin-left: auto;
+        font-size: 1.45rem;
+    }
+
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
 }
 
 </style>
@@ -2893,45 +2940,115 @@ html[data-theme="light"] .preloader { background: #f5f2ea; color: #171a17; }
 <script>
 /* =========================================================
    THEME TOGGLE — partagé par toutes les pages
+   Desktop : bouton à droite de la navigation
+   Mobile : bouton placé dans le menu burger, sous Contact
 ========================================================= */
 (function () {
     const KEY = "moraheyms-theme";
     const root = document.documentElement;
-    const saved = localStorage.getItem(KEY);
-    root.setAttribute("data-theme", saved === "light" ? "light" : "dark");
+
+    try {
+        const saved = localStorage.getItem(KEY);
+        root.setAttribute("data-theme", saved === "light" ? "light" : "dark");
+    } catch (e) {
+        root.setAttribute("data-theme", "dark");
+    }
 
     function updateThemeButton() {
         const button = document.getElementById("themeToggle");
         if (!button) return;
+
         const isLight = root.getAttribute("data-theme") === "light";
-        button.setAttribute("aria-label", isLight ? "Activer le thème sombre" : "Activer le thème clair");
-        button.setAttribute("title", isLight ? "Thème sombre" : "Thème clair");
-        button.innerHTML = '<span class="theme-icon" aria-hidden="true">' + (isLight ? "☀" : "☾") + '</span>';
+
+        button.setAttribute(
+            "aria-label",
+            isLight ? "Activer le thème sombre" : "Activer le thème clair"
+        );
+
+        button.setAttribute(
+            "title",
+            isLight ? "Thème sombre" : "Thème clair"
+        );
+
+        button.innerHTML =
+            '<span class="theme-icon" aria-hidden="true">' +
+            (isLight ? "☀" : "☾") +
+            '</span>';
+    }
+
+    function positionThemeButton() {
+        const button = document.getElementById("themeToggle");
+        const navLinks = document.getElementById("navLinks");
+        const navInner = document.querySelector(".nav-inner");
+        const menuButton = document.getElementById("menuButton");
+        const contactLink = navLinks
+            ? navLinks.querySelector('a[href="contact.html"]')
+            : null;
+
+        if (!button || !navLinks || !navInner) return;
+
+        if (window.innerWidth <= 1050) {
+            // Mobile/tablette : le bouton est dans le menu,
+            // immédiatement après Contact.
+            if (contactLink && button.parentElement !== navLinks) {
+                contactLink.insertAdjacentElement("afterend", button);
+            } else if (
+                contactLink &&
+                button.previousElementSibling !== contactLink
+            ) {
+                contactLink.insertAdjacentElement("afterend", button);
+            }
+        } else {
+            // Desktop : retour à droite, juste avant le burger.
+            if (button.parentElement !== navInner) {
+                navInner.appendChild(button);
+            }
+
+            if (menuButton) {
+                navInner.insertBefore(button, menuButton);
+            }
+        }
+
+        updateThemeButton();
     }
 
     window.addEventListener("DOMContentLoaded", function () {
         const navInner = document.querySelector(".nav-inner");
-        if (!navInner || document.getElementById("themeToggle")) return;
+        if (!navInner) return;
 
-        const button = document.createElement("button");
-        button.type = "button";
-        button.id = "themeToggle";
-        button.className = "theme-toggle";
-        navInner.appendChild(button);
-        updateThemeButton();
+        let button = document.getElementById("themeToggle");
 
-        button.addEventListener("click", function () {
-            const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-            root.setAttribute("data-theme", next);
-            localStorage.setItem(KEY, next);
-            updateThemeButton();
-        });
+        if (!button) {
+            button = document.createElement("button");
+            button.type = "button";
+            button.id = "themeToggle";
+            button.className = "theme-toggle";
+            button.innerHTML =
+                '<span class="theme-icon" aria-hidden="true">☾</span>';
+
+            navInner.appendChild(button);
+
+            button.addEventListener("click", function () {
+                const next =
+                    root.getAttribute("data-theme") === "light"
+                        ? "dark"
+                        : "light";
+
+                root.setAttribute("data-theme", next);
+
+                try {
+                    localStorage.setItem(KEY, next);
+                } catch (e) {}
+
+                updateThemeButton();
+            });
+        }
+
+        positionThemeButton();
     });
+
+    window.addEventListener("resize", positionThemeButton);
 })();
-
-
-
-
 /* =========================================================
    PRELOADER
 ========================================================= */
