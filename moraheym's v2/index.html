@@ -837,20 +837,26 @@ body::before {
         transform: translateY(0);
     }
 
-    /* Groupe des boutons toujours à droite */
+    /* Groupe des boutons : hamburger seul, complètement à droite */
     .nav-actions {
         margin-left: auto;
-        gap: 10px;
+        gap: 0;
+        flex-shrink: 0;
     }
 
-    /* Hamburger visible */
+    /* Hamburger visible et collé à l'extrême droite */
     .menu-button {
         display: inline-flex;
+        margin-left: auto;
     }
 
-    /* Bouton thème reste dans le groupe à droite */
-    .theme-toggle {
-        margin: 0;
+    /* Le bouton thème sera déplacé dans le menu mobile, après Contact */
+    .nav-links .theme-toggle {
+        display: none;
+    }
+
+    .nav-links.open .theme-toggle {
+        display: inline-flex;
     }
 
     .hero-grid {
@@ -906,22 +912,31 @@ body::before {
         font-size: .7rem;
     }
 
-    /* BOUTONS À L'EXTRÊME DROITE */
+    /* HAMBURGER COMPLÈTEMENT À DROITE */
     .nav-actions {
         margin-left: auto;
-        gap: 8px;
+        gap: 0;
+        justify-content: flex-end;
+        flex-shrink: 0;
     }
 
     .menu-button {
         width: 40px;
         height: 40px;
+        margin-left: auto;
         font-size: 1.4rem;
     }
 
-    .theme-toggle {
+    /* Bouton thème à l'intérieur du menu, sous Contact */
+    .nav-links .theme-toggle {
         width: 40px;
         height: 40px;
         margin: 0;
+        align-self: flex-start;
+    }
+
+    .nav-links.open .theme-toggle {
+        display: inline-flex;
     }
 
     .footer-grid {
@@ -949,11 +964,15 @@ body::before {
     }
 
     .nav-actions {
-        gap: 5px;
+        gap: 0;
     }
 
-    .menu-button,
-    .theme-toggle {
+    .menu-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .nav-links .theme-toggle {
         width: 38px;
         height: 38px;
     }
@@ -1557,7 +1576,6 @@ html[data-theme="light"] .preloader {
         saved === "light" ? "light" : "dark"
     );
 
-
     function updateThemeButton() {
 
         const button = document.getElementById("themeToggle");
@@ -1587,44 +1605,83 @@ html[data-theme="light"] .preloader {
             '</span>';
     }
 
+    /*
+     * Sur ordinateur :
+     *   logo | liens | bouton thème | hamburger
+     *
+     * Sur mobile :
+     *   logo | hamburger
+     * et le bouton thème est déplacé dans le menu,
+     * juste après le bouton Contact.
+     */
+    function positionThemeButton() {
+
+        const button = document.getElementById("themeToggle");
+        const navActions = document.querySelector(".nav-actions");
+        const navLinks = document.getElementById("navLinks");
+        const menuButton = document.getElementById("menuButton");
+        const contactLink = navLinks
+            ? navLinks.querySelector('a[href="contact.html"]')
+            : null;
+
+        if (!button || !navActions || !navLinks || !menuButton) return;
+
+        if (window.innerWidth <= 1050) {
+
+            // Mobile/tablette : thème dans le menu, juste après Contact.
+            if (contactLink && button.parentElement !== navLinks) {
+                contactLink.insertAdjacentElement("afterend", button);
+            }
+
+        } else {
+
+            // Desktop : thème dans le groupe d'actions à droite.
+            if (button.parentElement !== navActions) {
+                navActions.insertBefore(button, menuButton);
+            }
+        }
+
+        updateThemeButton();
+    }
 
     window.addEventListener("DOMContentLoaded", function () {
-
-        /*
-         * IMPORTANT :
-         * Le bouton thème est maintenant placé
-         * dans .nav-actions et non directement
-         * dans .nav-inner.
-         */
 
         const navActions =
             document.querySelector(".nav-actions");
 
-        if (!navActions) return;
+        const navLinks =
+            document.getElementById("navLinks");
 
-        if (document.getElementById("themeToggle")) return;
+        const menuButton =
+            document.getElementById("menuButton");
 
+        if (!navActions || !navLinks || !menuButton) return;
 
-        const button =
-            document.createElement("button");
+        let button = document.getElementById("themeToggle");
 
-        button.type = "button";
-        button.id = "themeToggle";
-        button.className = "theme-toggle";
+        if (!button) {
+            button = document.createElement("button");
+            button.type = "button";
+            button.id = "themeToggle";
+            button.className = "theme-toggle";
+        }
 
+        // Sur mobile, le bouton sera déplacé après Contact.
+        // Sur desktop, il revient avant le hamburger.
+        if (window.innerWidth <= 1050) {
+            const contactLink =
+                navLinks.querySelector('a[href="contact.html"]');
 
-        /*
-         * On insère le bouton thème AVANT
-         * le hamburger.
-         */
-        navActions.insertBefore(
-            button,
-            document.getElementById("menuButton")
-        );
-
+            if (contactLink) {
+                contactLink.insertAdjacentElement("afterend", button);
+            } else {
+                navLinks.appendChild(button);
+            }
+        } else {
+            navActions.insertBefore(button, menuButton);
+        }
 
         updateThemeButton();
-
 
         button.addEventListener("click", function () {
 
@@ -1643,6 +1700,7 @@ html[data-theme="light"] .preloader {
 
         });
 
+        window.addEventListener("resize", positionThemeButton);
     });
 
 })();
