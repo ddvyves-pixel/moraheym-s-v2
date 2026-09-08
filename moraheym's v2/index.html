@@ -1,512 +1,413 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GROUPE MORAHEYM'S — Excellence & Innovation</title>
-<meta name="description" content="GROUPE MORAHEYM'S — Un groupe tourné vers l'excellence, l'innovation et la création d'opportunités.">
+
+<title>GROUPE MORAHEYM'S — Immobilier, Construction & Éducation</title>
+
+<meta name="description" content="GROUPE MORAHEYM'S — Promotion immobilière, construction, développement d'infrastructures, éducation, recherche et développement des compétences en Afrique.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --black: #070908;
-    --black-soft: #0d110f;
-    --black-card: #111714;
-    --cream: #f4f0e6;
-    --cream-soft: #c9c5ba;
-    --gold: #c9a45d;
-    --gold-light: #e4c986;
-    --green: #183b2e;
-    --green-light: #2c604b;
-    --line: rgba(244,240,230,.12);
-    --serif: "Playfair Display", Georgia, serif;
-    --sans: "DM Sans", Arial, sans-serif;
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --black:#070908;
+    --black-soft:#0d110f;
+    --black-card:#111714;
+
+    --cream:#f4f0e6;
+    --cream-soft:#c9c5ba;
+
+    --gold:#c9a45d;
+    --gold-light:#e4c986;
+
+    --green:#183b2e;
+    --green-light:#2c604b;
+
+    --line:rgba(244,240,230,.12);
+
+    --nav-bg:rgba(7,9,8,.72);
+
+    --shadow:rgba(0,0,0,.35);
+
+    --transition:all .45s cubic-bezier(.16,1,.3,1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+[data-theme="light"]{
+    --black:#f4f0e6;
+    --black-soft:#ebe6da;
+    --black-card:#fffdf8;
 
-html {
-    scroll-behavior: smooth;
-}
+    --cream:#101511;
+    --cream-soft:#555b54;
 
-body {
-    background: var(--black);
-    color: var(--cream);
-    font-family: var(--sans);
-    overflow-x: hidden;
-}
+    --gold:#9b742f;
+    --gold-light:#b58b3f;
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+    --green:#183b2e;
+    --green-light:#2c604b;
 
-button {
-    font: inherit;
-}
+    --line:rgba(16,21,17,.12);
 
-::selection {
-    background: var(--gold);
-    color: var(--black);
-}
+    --nav-bg:rgba(244,240,230,.82);
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9998;
-    opacity: .035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-}
-
-.cursor-dot {
-    position: fixed;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    pointer-events: none;
-    z-index: 10001;
-    transform: translate(-50%, -50%);
-}
-
-.cursor-ring {
-    position: fixed;
-    width: 38px;
-    height: 38px;
-    border: 1px solid rgba(201,164,93,.7);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: width .3s ease, height .3s ease, background .3s ease;
-}
-
-.cursor-ring.active {
-    width: 65px;
-    height: 65px;
-    background: rgba(201,164,93,.08);
-}
-
-.preloader {
-    position: fixed;
-    inset: 0;
-    background: var(--black);
-    z-index: 20000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity .9s ease, visibility .9s ease;
-}
-
-.preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader {
-    text-align: center;
-}
-
-.loader-logo {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 5vw, 4rem);
-    letter-spacing: .16em;
-}
-
-.loader-subtitle {
-    margin-top: 12px;
-    font-size: .6rem;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    color: var(--gold);
-}
-
-.loader-bar {
-    width: 220px;
-    height: 1px;
-    background: rgba(255,255,255,.1);
-    margin: 35px auto 0;
-    overflow: hidden;
-}
-
-.loader-progress {
-    width: 0;
-    height: 100%;
-    background: var(--gold);
-    transition: width 1.2s ease;
+    --shadow:rgba(0,0,0,.10);
 }
 
 
 /* =========================================================
-   NAVIGATION DESKTOP
+   RESET
 ========================================================= */
 
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 5000;
-    transition: background .4s ease, border-color .4s ease;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.nav.scrolled {
-    background: rgba(7,9,8,.82);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--line);
+html{
+    scroll-behavior:smooth;
 }
 
-.nav-inner {
-    width: min(1450px, 92%);
-    min-height: 104px;
-    margin: auto;
-    display: flex;
-    align-items: center;
+body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+    transition:background .5s ease,color .5s ease;
 }
 
-/* LOGO À GAUCHE */
-.brand-logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    text-decoration: none;
-    margin-right: auto;
-    flex-shrink: 0;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-.logo-img {
-    height: 88px;
-    width: auto;
-    object-fit: contain;
-    transition: opacity .3s ease;
-    display: block;
-}
-
-.logo-img:hover {
-    opacity: 0.85;
-}
-
-.brand-logo-fallback {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    letter-spacing: .1em;
-    color: var(--cream);
-    display: none;
-}
-
-.brand-logo-fallback span {
-    color: var(--gold);
+button{
+    font:inherit;
 }
 
 
-/* LIENS À DROITE */
-.nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 31px;
-    margin-left: auto;
+/* =========================================================
+   GRAIN
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9998;
+
+    opacity:.035;
+
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
 }
 
-.nav-links a {
-    position: relative;
-    font-size: .65rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--cream-soft);
-    transition: color .3s ease;
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor-dot{
+    position:fixed;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--gold-light);
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
 }
 
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0;
-    height: 1px;
-    background: var(--gold);
-    transition: width .3s ease;
+.cursor-ring{
+    position:fixed;
+    width:38px;
+    height:38px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    transition:width .25s ease,height .25s ease;
 }
 
-.nav-links a:hover {
-    color: var(--cream);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a.active {
-    color: var(--gold);
-}
-
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.nav-news {
-    color: var(--gold) !important;
-    font-weight: 600;
-}
-
-.nav-news::before {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 10px var(--gold);
-    animation: newsPulse 2s ease-in-out infinite;
-}
-
-@keyframes newsPulse {
-    0%, 100% {
-        opacity: .35;
-        transform: scale(.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
+@media(max-width:768px){
+    .cursor-dot,
+    .cursor-ring{
+        display:none;
     }
 }
 
-.nav-cta {
-    border: 1px solid var(--gold);
-    padding: 12px 18px;
-    color: var(--gold) !important;
-}
-
-.nav-cta::after {
-    display: none;
-}
-
 
 /* =========================================================
-   GROUPE DES BOUTONS À DROITE
+   PRELOADER
 ========================================================= */
 
-.nav-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-left: 20px;
-    flex-shrink: 0;
+#preloader{
+    position:fixed;
+    inset:0;
+    z-index:10001;
+
+    background:var(--black);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:opacity .8s ease,visibility .8s ease;
 }
 
-
-/* HAMBURGER */
-.menu-button {
-    display: none;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--cream);
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    line-height: 1;
-    cursor: pointer;
+#preloader.hidden{
+    opacity:0;
+    visibility:hidden;
 }
 
-
-/* BOUTON THÈME */
-.theme-toggle {
-    flex: 0 0 auto;
-    width: 44px;
-    height: 44px;
-    margin: 0;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: var(--black-card);
-    color: var(--cream);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.05rem;
-    line-height: 1;
-    transition: all .3s ease;
-    position: relative;
-    z-index: 20;
+.loader-inner{
+    width:min(420px,80vw);
+    text-align:center;
 }
 
-.theme-toggle:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    transform: rotate(12deg) scale(1.05);
+.loader-logo{
+    width:190px;
+    max-width:70%;
+    height:auto;
+    object-fit:contain;
+    margin-bottom:35px;
 }
 
-.theme-toggle .theme-icon {
-    display: block;
-    transition: transform .3s ease;
-}
-
-
-/* =========================================================
-   POSITION DU BOUTON THÈME
-   PC : bouton dans la barre de navigation
-   MOBILE : bouton dans le menu burger, sous Contact
-========================================================= */
-.theme-mobile{
+.loader-fallback{
     display:none;
+    font-family:"Playfair Display",serif;
+    font-size:24px;
+    letter-spacing:4px;
+    margin-bottom:35px;
 }
 
-.theme-desktop{
-    display:inline-flex;
+.loader-line{
+    height:1px;
+    background:var(--line);
+    position:relative;
+    overflow:hidden;
 }
 
-@media (max-width:1050px){
-    .theme-desktop{
-        display:none;
-    }
-
-    .nav-links .theme-mobile{
-        display:none;
-    }
-
-    .nav-links.open .theme-mobile{
-        display:inline-flex;
-        width:44px;
-        height:44px;
-        margin-top:4px;
-        align-self:flex-start;
-    }
+.loader-progress{
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:0;
+    background:var(--gold);
 }
 
-@media (max-width:650px){
-    .nav-links.open .theme-mobile{
-        width:40px;
-        height:40px;
-    }
+.loader-text{
+    margin-top:15px;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--cream-soft);
 }
 
-@media (max-width:400px){
-    .nav-links.open .theme-mobile{
-        width:38px;
-        height:38px;
-    }
-}
 
 /* =========================================================
-   CONTENU
+   NAVIGATION
 ========================================================= */
 
-.container {
-    width: min(1450px, 92%);
-    margin: auto;
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9000;
+
+    padding:25px 5vw;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    transition:var(--transition);
 }
 
-.section {
-    padding: 140px 0;
-    position: relative;
+nav.scrolled{
+    background:var(--nav-bg);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+    padding-top:17px;
+    padding-bottom:17px;
 }
 
-.section-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    color: var(--gold);
-    font-size: .62rem;
-    letter-spacing: .24em;
-    text-transform: uppercase;
+.logo-link{
+    display:flex;
+    align-items:center;
 }
 
-.section-label::before {
-    content: "";
-    width: 38px;
-    height: 1px;
-    background: var(--gold);
+.logo-img{
+    width:165px;
+    max-height:48px;
+    object-fit:contain;
 }
 
-.section-title {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 6vw, 6.5rem);
-    font-weight: 400;
-    line-height: .98;
-    letter-spacing: -.045em;
+.logo-fallback{
+    display:none;
+
+    font-family:"Playfair Display",serif;
+    font-size:18px;
+    letter-spacing:3px;
 }
 
-.section-title em {
-    color: var(--gold);
-    font-style: italic;
+
+/* =========================================================
+   NAVIGATION DROITE
+========================================================= */
+
+.nav-right{
+    display:flex;
+    align-items:center;
 }
 
-.section-description {
-    color: var(--cream-soft);
-    line-height: 1.9;
-    font-size: .95rem;
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:27px;
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(55px);
+.nav-links a{
+    position:relative;
+
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+
+    color:var(--cream-soft);
+
+    transition:color .3s ease;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:1px;
+
+    background:var(--gold);
+
+    transition:width .35s ease;
+}
+
+.nav-links a:hover{
+    color:var(--cream);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+
+/* =========================================================
+   ACTIONS NAVIGATION
+========================================================= */
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-left:25px;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle{
+    width:44px;
+    height:44px;
+
+    border:1px solid var(--line);
+    border-radius:50%;
+
+    background:transparent;
+
+    color:var(--gold-light);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-size:18px;
+    line-height:1;
+
     transition:
-        opacity 1s cubic-bezier(.16,1,.3,1),
-        transform 1s cubic-bezier(.16,1,.3,1);
+        background .35s ease,
+        border-color .35s ease,
+        color .35s ease,
+        transform .35s ease;
 }
 
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
+.theme-toggle:hover{
+    border-color:var(--gold);
+    background:rgba(201,164,93,.08);
+    color:var(--gold-light);
+    transform:rotate(12deg);
 }
 
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    min-height: 53px;
-    padding: 0 24px;
-    font-size: .65rem;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    font-weight: 600;
+
+/* =========================================================
+   MENU BURGER
+========================================================= */
+
+.menu-button{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid var(--line);
+    border-radius:50%;
+
+    background:transparent;
+
+    color:var(--cream);
+
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-size:22px;
+    line-height:1;
+
     transition:
-        transform .3s ease,
-        background .3s ease,
-        color .3s ease,
-        border-color .3s ease;
+        background .35s ease,
+        border-color .35s ease,
+        color .35s ease,
+        transform .35s ease;
 }
 
-.button:hover {
-    transform: translateY(-4px);
+.menu-button:hover{
+    border-color:var(--gold);
+    color:var(--gold-light);
+    background:rgba(201,164,93,.08);
 }
 
-.button-primary {
-    color: var(--black);
-    background: var(--gold);
-    border: 1px solid var(--gold);
-}
-
-.button-primary:hover {
-    background: transparent;
-    color: var(--gold);
-}
-
-.button-outline {
-    border: 1px solid rgba(244,240,230,.3);
-    color: var(--cream);
-}
-
-.button-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+.menu-button.active{
+    border-color:var(--gold);
+    color:var(--gold-light);
 }
 
 
@@ -514,179 +415,249 @@ body::before {
    HERO
 ========================================================= */
 
-.hero {
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    background:
-        radial-gradient(circle at 75% 45%, rgba(35,94,70,.22), transparent 32%),
-        radial-gradient(circle at 88% 70%, rgba(201,164,93,.10), transparent 30%),
-        var(--black);
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:150px 8vw 100px;
+
+    overflow:hidden;
 }
 
-.hero-watermark {
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--serif);
-    font-size: clamp(5rem, 12vw, 13rem);
-    font-weight: 700;
-    color: var(--cream);
-    opacity: 0.05;
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 0;
-    letter-spacing: -0.03em;
-    user-select: none;
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    right:-170px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:radial-gradient(
+        circle,
+        rgba(201,164,93,.14),
+        rgba(201,164,93,0) 68%
+    );
+
+    pointer-events:none;
 }
 
-.hero-grid {
-    width: min(1450px,92%);
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1.05fr .95fr;
-    align-items: center;
-    gap: 30px;
-    padding-top: 100px;
-    position: relative;
-    z-index: 1;
+.hero-content{
+    width:min(760px,100%);
+    position:relative;
+    z-index:2;
 }
 
-.hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 30px;
-    color: var(--gold);
-    font-size: .63rem;
-    letter-spacing: .28em;
-    text-transform: uppercase;
+.hero-kicker{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:30px;
+
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+
+    color:var(--gold-light);
 }
 
-.hero-kicker::before {
-    content: "";
-    width: 42px;
-    height: 1px;
-    background: var(--gold);
+.hero-kicker::before{
+    content:"";
+    width:42px;
+    height:1px;
+    background:var(--gold);
 }
 
-.hero h1 {
-    max-width: 900px;
-    font-family: var(--serif);
-    font-size: clamp(4.2rem, 8.4vw, 9rem);
-    font-weight: 400;
-    line-height: .86;
-    letter-spacing: -.065em;
+.hero h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(55px,8vw,115px);
+
+    line-height:.94;
+    font-weight:500;
+    letter-spacing:-4px;
+
+    max-width:900px;
+
+    margin-bottom:38px;
 }
 
-.hero h1 .outline {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(244,240,230,.45);
+.hero h1 .gold{
+    color:var(--gold-light);
 }
 
-.hero h1 em {
-    color: var(--gold);
+.hero-description{
+    max-width:610px;
+
+    font-size:17px;
+    line-height:1.8;
+
+    color:var(--cream-soft);
+
+    margin-bottom:45px;
 }
 
-.hero-text {
-    max-width: 620px;
-    margin: 38px 0;
-    color: var(--cream-soft);
-    font-size: 1rem;
-    line-height: 1.9;
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:52px;
+
+    padding:0 27px;
+
+    border:1px solid var(--gold);
+
+    font-size:11px;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+
+    transition:var(--transition);
 }
 
-.hero-visual {
-    min-height: 650px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.btn-primary{
+    background:var(--gold);
+    color:#111;
 }
 
-.visual-core {
-    position: relative;
-    width: min(560px, 75vw);
-    aspect-ratio: 1;
-    transform-style: preserve-3d;
-    animation: coreFloat 8s ease-in-out infinite;
+.btn-primary:hover{
+    background:var(--gold-light);
+    transform:translateY(-3px);
 }
 
-.core-glow {
-    position: absolute;
-    inset: 20%;
-    border-radius: 50%;
+.btn-secondary{
+    color:var(--cream);
+    border-color:var(--line);
+}
+
+.btn-secondary:hover{
+    border-color:var(--gold);
+    color:var(--gold-light);
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual{
+    position:absolute;
+
+    right:7vw;
+    top:50%;
+
+    width:min(470px,35vw);
+    aspect-ratio:1;
+
+    transform:translateY(-50%);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    pointer-events:none;
+}
+
+.hero-orbit{
+    position:absolute;
+
+    border:1px solid rgba(201,164,93,.25);
+    border-radius:50%;
+
+    animation:orbit 14s linear infinite;
+}
+
+.hero-orbit:nth-child(1){
+    width:100%;
+    height:42%;
+    transform:rotate(-25deg);
+}
+
+.hero-orbit:nth-child(2){
+    width:80%;
+    height:80%;
+    transform:rotate(45deg);
+    animation-duration:19s;
+}
+
+.hero-orbit:nth-child(3){
+    width:52%;
+    height:100%;
+    transform:rotate(65deg);
+    animation-duration:23s;
+}
+
+.hero-sphere{
+    width:42%;
+    aspect-ratio:1;
+
+    border-radius:50%;
+
     background:
         radial-gradient(
-            circle,
-            rgba(201,164,93,.8) 0%,
-            rgba(201,164,93,.25) 25%,
-            rgba(24,59,46,.25) 55%,
-            transparent 70%
+            circle at 35% 30%,
+            #f1dba5 0%,
+            #c9a45d 22%,
+            #8e6a31 55%,
+            #322715 100%
         );
-    filter: blur(15px);
-}
 
-.core-sphere {
-    position: absolute;
-    width: 43%;
-    aspect-ratio: 1;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%) translateZ(50px);
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            circle at 32% 25%,
-            #f2d995 0%,
-            var(--gold) 25%,
-            #72541e 72%,
-            #221c0e 100%
-        );
     box-shadow:
-        0 0 70px rgba(201,164,93,.22),
-        inset -30px -35px 55px rgba(0,0,0,.5);
+        0 0 70px rgba(201,164,93,.28),
+        inset -25px -20px 50px rgba(0,0,0,.4);
+
+    animation:float 5s ease-in-out infinite;
 }
 
-.orbit {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border: 1px solid rgba(201,164,93,.48);
-    border-radius: 50%;
-    transform-style: preserve-3d;
-}
-
-.orbit-a {
-    width: 100%;
-    height: 38%;
-    transform: translate(-50%,-50%) rotate(25deg);
-}
-
-.orbit-b {
-    width: 88%;
-    height: 58%;
-    transform: translate(-50%,-50%) rotate(-42deg);
-    border-color: rgba(244,240,230,.18);
-}
-
-@keyframes coreFloat {
-    0%,100% {
-        transform: translateY(0) rotate(0deg);
+@keyframes orbit{
+    from{
+        transform:rotate(0deg);
     }
-
-    50% {
-        transform: translateY(-20px) rotate(2deg);
+    to{
+        transform:rotate(360deg);
     }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-16px);
+    }
+}
+
+.hero-watermark{
+    position:absolute;
+
+    right:7vw;
+    bottom:30px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(50px,9vw,145px);
+
+    color:rgba(244,240,230,.025);
+
+    letter-spacing:-6px;
+
+    pointer-events:none;
 }
 
 
@@ -694,82 +665,435 @@ body::before {
    MARQUEE
 ========================================================= */
 
-.marquee {
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-    background: var(--green);
+.marquee{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    padding:18px 0;
 }
 
-.marquee-track {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    animation: marquee 24s linear infinite;
+.marquee-track{
+    display:inline-flex;
+    gap:50px;
+
+    animation:marquee 25s linear infinite;
 }
 
-.marquee-item {
-    padding: 24px 35px;
-    font-family: var(--serif);
-    font-size: clamp(1.3rem, 2vw, 2rem);
-    white-space: nowrap;
+.marquee span{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+
+    color:var(--cream-soft);
 }
 
-.marquee-item span {
-    color: var(--gold);
-    margin: 0 30px;
+.marquee .dot{
+    color:var(--gold);
 }
 
-@keyframes marquee {
-    from {
-        transform: translateX(0);
+@keyframes marquee{
+    from{
+        transform:translateX(0);
     }
-
-    to {
-        transform: translateX(-50%);
+    to{
+        transform:translateX(-50%);
     }
 }
 
 
 /* =========================================================
-   APERÇUS
+   SECTION DOMAINS
 ========================================================= */
 
-.preview-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 50px;
+.domains{
+    padding:150px 8vw;
+
+    position:relative;
 }
 
-.preview-card {
-    background: var(--black-card);
-    border: 1px solid var(--line);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition:
-        transform .4s ease,
-        border-color .4s ease;
+.section-label{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:28px;
+
+    color:var(--gold);
+
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
 }
 
-.preview-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
+.section-label::before{
+    content:"";
+    width:40px;
+    height:1px;
+    background:var(--gold);
 }
 
-.preview-card h3 {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    margin: 15px 0;
+.section-heading{
+    max-width:800px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(40px,5vw,72px);
+
+    line-height:1.05;
+    font-weight:500;
+
+    margin-bottom:75px;
 }
 
-.preview-card p {
-    color: #858985;
-    font-size: .88rem;
-    line-height: 1.8;
-    margin-bottom: 25px;
+.section-heading span{
+    color:var(--gold-light);
+}
+
+.domain-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+}
+
+.domain-card{
+    min-height:350px;
+
+    padding:38px 30px;
+
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    position:relative;
+
+    transition:var(--transition);
+}
+
+.domain-card:hover{
+    background:var(--black-card);
+    transform:translateY(-6px);
+}
+
+.domain-number{
+    color:var(--gold);
+
+    font-size:11px;
+    letter-spacing:2px;
+
+    margin-bottom:65px;
+}
+
+.domain-icon{
+    font-size:30px;
+
+    margin-bottom:27px;
+}
+
+.domain-card h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:26px;
+    font-weight:500;
+
+    margin-bottom:18px;
+}
+
+.domain-card p{
+    color:var(--cream-soft);
+
+    font-size:14px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FEATURE PROJECT
+========================================================= */
+
+.project-highlight{
+    padding:120px 8vw 150px;
+
+    background:var(--black-soft);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.project-highlight::after{
+    content:"AUUI";
+
+    position:absolute;
+
+    right:-20px;
+    bottom:-90px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:300px;
+
+    color:rgba(201,164,93,.035);
+
+    pointer-events:none;
+}
+
+.project-inner{
+    max-width:1250px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:90px;
+
+    align-items:center;
+}
+
+.project-content{
+    position:relative;
+    z-index:2;
+}
+
+.project-label{
+    color:var(--gold);
+
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.project-title{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(40px,5vw,72px);
+
+    line-height:1.05;
+    font-weight:500;
+
+    margin-bottom:30px;
+}
+
+.project-title span{
+    color:var(--gold-light);
+}
+
+.project-text{
+    color:var(--cream-soft);
+
+    font-size:16px;
+    line-height:1.8;
+
+    max-width:600px;
+
+    margin-bottom:35px;
+}
+
+.project-visual{
+    min-height:420px;
+
+    border:1px solid var(--line);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201,164,93,.10),
+            transparent 60%
+        );
+}
+
+.project-visual::before,
+.project-visual::after{
+    content:"";
+
+    position:absolute;
+
+    border:1px solid rgba(201,164,93,.20);
+
+    border-radius:50%;
+}
+
+.project-visual::before{
+    width:280px;
+    height:280px;
+
+    animation:orbit 18s linear infinite;
+}
+
+.project-visual::after{
+    width:180px;
+    height:180px;
+
+    animation:orbit 12s linear infinite reverse;
+}
+
+.auui-mark{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+}
+
+.auui-mark strong{
+    display:block;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:70px;
+    font-weight:500;
+
+    color:var(--gold-light);
+}
+
+.auui-mark small{
+    display:block;
+
+    margin-top:12px;
+
+    max-width:280px;
+
+    font-size:10px;
+    line-height:1.6;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    color:var(--cream-soft);
+}
+
+
+/* =========================================================
+   APPROACH
+========================================================= */
+
+.approach{
+    padding:150px 8vw;
+}
+
+.approach-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:100px;
+}
+
+.approach-intro h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(42px,5vw,68px);
+
+    line-height:1.05;
+    font-weight:500;
+}
+
+.approach-intro h2 span{
+    color:var(--gold-light);
+}
+
+.approach-text{
+    padding-top:15px;
+}
+
+.approach-text p{
+    color:var(--cream-soft);
+
+    font-size:16px;
+    line-height:1.9;
+
+    margin-bottom:25px;
+}
+
+.approach-list{
+    margin-top:35px;
+
+    border-top:1px solid var(--line);
+}
+
+.approach-item{
+    padding:20px 0;
+
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.approach-item span:first-child{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.approach-item span:last-child{
+    font-size:14px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    padding:120px 8vw;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            var(--black-soft)
+        );
+
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.cta-label{
+    color:var(--gold-light);
+
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+
+    margin-bottom:25px;
+}
+
+.cta h2{
+    max-width:850px;
+    margin:0 auto 35px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(45px,6vw,80px);
+
+    line-height:1.05;
+    font-weight:500;
+}
+
+.cta p{
+    max-width:650px;
+
+    margin:0 auto 40px;
+
+    color:var(--cream-soft);
+
+    line-height:1.8;
 }
 
 
@@ -777,556 +1101,577 @@ body::before {
    FOOTER
 ========================================================= */
 
-.footer {
-    background: #050706;
-    border-top: 1px solid var(--line);
-    padding: 75px 0 30px;
+footer{
+    padding:80px 8vw 30px;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    gap: 50px;
-    padding-bottom: 65px;
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr 1fr;
+
+    gap:70px;
+
+    padding-bottom:70px;
+
+    border-bottom:1px solid var(--line);
 }
 
-.footer-logo {
-    font-family: var(--serif);
-    font-size: 2rem;
-    letter-spacing: .08em;
+.footer-logo{
+    width:180px;
+    margin-bottom:25px;
 }
 
-.footer-logo span {
-    color: var(--gold);
+.footer-description{
+    max-width:380px;
+
+    color:var(--cream-soft);
+
+    font-size:14px;
+    line-height:1.8;
 }
 
-.footer-description {
-    max-width: 390px;
-    margin-top: 18px;
-    color: #707570;
-    font-size: .82rem;
-    line-height: 1.8;
+.footer-column h4{
+    font-size:10px;
+
+    text-transform:uppercase;
+    letter-spacing:2px;
+
+    color:var(--gold);
+
+    margin-bottom:25px;
 }
 
-.footer-heading {
-    margin-bottom: 20px;
-    color: var(--gold);
-    font-size: .58rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
+.footer-column a{
+    display:block;
+
+    width:max-content;
+
+    color:var(--cream-soft);
+
+    font-size:14px;
+
+    margin-bottom:14px;
+
+    transition:color .3s ease;
 }
 
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.footer-column a:hover{
+    color:var(--gold-light);
 }
 
-.footer-links a {
-    color: #9a9d99;
-    font-size: .78rem;
-    transition: color .25s ease;
+.footer-bottom{
+    padding-top:25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:var(--cream-soft);
+
+    font-size:10px;
+    letter-spacing:1px;
 }
 
-.footer-links a:hover {
-    color: var(--cream);
-}
-
-.footer-bottom {
-    padding-top: 25px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    color: #5e625f;
-    font-size: .58rem;
-    letter-spacing: .08em;
-}
-
-
-/* =========================================================
-   RESPONSIVE TABLETTE
-========================================================= */
-
-@media (max-width: 1050px) {
-
-    .nav-inner {
-        width: 92%;
-        min-height: 104px;
-    }
-
-    /* Les liens deviennent le menu déroulant */
-    .nav-links {
-        position: fixed;
-        top: 104px;
-        left: 0;
-        width: 100%;
-        padding: 35px 4%;
-        background: rgba(7,9,8,.98);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--line);
-
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-
-        gap: 25px;
-        margin: 0;
-
-        transform: translateY(-150%);
-        transition: transform .45s ease;
-    }
-
-    .nav-links.open {
-        transform: translateY(0);
-    }
-
-    /* Groupe des boutons : hamburger seul, complètement à droite */
-    .nav-actions {
-        margin-left: auto;
-        gap: 0;
-        flex-shrink: 0;
-    }
-
-    /* Hamburger visible et collé à l'extrême droite */
-    .menu-button {
-        display: inline-flex;
-        margin-left: auto;
-    }
-
-    /* Le bouton thème sera déplacé dans le menu mobile, après Contact */
-    .nav-links .theme-toggle {
-        display: none;
-    }
-
-    .nav-links.open .theme-toggle {
-        display: inline-flex;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-visual {
-        min-height: 400px;
-    }
-
-    .preview-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+.footer-bottom span:last-child{
+    color:var(--gold);
 }
 
 
 /* =========================================================
-   MOBILE
+   REVEAL
 ========================================================= */
 
-@media (max-width: 650px) {
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
 
-    .cursor-dot,
-    .cursor-ring {
-        display: none;
-    }
-
-    .nav-inner {
-        width: 92%;
-        min-height: 90px;
-    }
-
-    .logo-img {
-        height: 68px;
-    }
-
-    .brand-logo {
-        margin-right: auto;
-    }
-
-    /* MENU MOBILE SOUS LA BARRE */
-    .nav-links {
-        top: 90px;
-        padding: 30px 6%;
-        gap: 24px;
-    }
-
-    .nav-links a {
-        font-size: .7rem;
-    }
-
-    /* HAMBURGER COMPLÈTEMENT À DROITE */
-    .nav-actions {
-        margin-left: auto;
-        gap: 0;
-        justify-content: flex-end;
-        flex-shrink: 0;
-    }
-
-    .menu-button {
-        width: 40px;
-        height: 40px;
-        margin-left: auto;
-        font-size: 1.4rem;
-    }
-
-    /* Bouton thème à l'intérieur du menu, sous Contact */
-    .nav-links .theme-toggle {
-        width: 40px;
-        height: 40px;
-        margin: 0;
-        align-self: flex-start;
-    }
-
-    .nav-links.open .theme-toggle {
-        display: inline-flex;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-    }
-}
-
-
-/* =========================================================
-   TRÈS PETITS ÉCRANS
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .nav-inner {
-        width: 94%;
-    }
-
-    .logo-img {
-        height: 62px;
-    }
-
-    .nav-actions {
-        gap: 0;
-    }
-
-    .menu-button {
-        width: 38px;
-        height: 38px;
-    }
-
-    .nav-links .theme-toggle {
-        width: 38px;
-        height: 38px;
-    }
-
-    .hero h1 {
-        font-size: clamp(3.2rem, 15vw, 5rem);
-    }
-}
-
-
-/* =========================================================
-   THEME CLAIR / SOMBRE
-========================================================= */
-
-html {
-    color-scheme: dark;
-}
-
-body {
     transition:
-        background-color .35s ease,
-        color .35s ease;
+        opacity .9s ease,
+        transform .9s cubic-bezier(.16,1,.3,1);
 }
 
-html[data-theme="light"] {
-    color-scheme: light;
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
-html[data-theme="light"] body {
-    --black: #f5f2ea;
-    --black-soft: #ece8de;
-    --black-card: #ffffff;
-    --cream: #171a17;
-    --cream-soft: #59605a;
-    --gold: #9a762d;
-    --gold-light: #b28d3c;
-    --green: #dce8df;
-    --green-light: #bfd5c5;
-    --line: rgba(23,26,23,.13);
 
-    background: var(--black);
-    color: var(--cream);
-}
+/* =========================================================
+   RESPONSIVE 1050
+========================================================= */
 
-html[data-theme="light"] .theme-toggle {
-    background: #fff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
+@media(max-width:1050px){
 
-html[data-theme="light"] .nav {
-    background: rgba(245,242,234,.88);
-    border-bottom-color: rgba(23,26,23,.10);
-}
-
-html[data-theme="light"] .nav.scrolled {
-    background: rgba(245,242,234,.90);
-}
-
-html[data-theme="light"] .nav-links {
-    background: rgba(245,242,234,.98);
-}
-
-html[data-theme="light"] .nav-links a {
-    color: #303630;
-}
-
-html[data-theme="light"] .nav-links a:hover {
-    color: var(--gold);
-}
-
-html[data-theme="light"] .nav-links .active {
-    color: var(--gold) !important;
-}
-
-html[data-theme="light"] .menu-button {
-    color: #171a17;
-}
-
-html[data-theme="light"] .footer {
-    background: #e8e4da;
-}
-
-html[data-theme="light"] .preview-card,
-html[data-theme="light"] .value-card,
-html[data-theme="light"] .project-card,
-html[data-theme="light"] .contact-box,
-html[data-theme="light"] .timeline-content {
-    background: rgba(255,255,255,.72);
-}
-
-html[data-theme="light"] .marquee {
-    background: #171a17;
-    color: #f5f2ea;
-}
-
-html[data-theme="light"] .newsletter {
-    background: #e8e4da;
-}
-
-html[data-theme="light"] .latest {
-    background: #f5f2ea;
-}
-
-html[data-theme="light"] .featured-content,
-html[data-theme="light"] .news-content {
-    background: #fff;
-}
-
-html[data-theme="light"] .news-image {
-    filter: brightness(1.06) saturate(.9);
-}
-
-html[data-theme="light"] .page-header,
-html[data-theme="light"] .hero,
-html[data-theme="light"] .section,
-html[data-theme="light"] .vision,
-html[data-theme="light"] .timeline-section,
-html[data-theme="light"] .contact {
-    background-color: var(--black);
-}
-
-html[data-theme="light"] .footer-description,
-html[data-theme="light"] .footer-links a,
-html[data-theme="light"] .footer-bottom {
-    color: #626860;
-}
-
-html[data-theme="light"] input,
-html[data-theme="light"] textarea,
-html[data-theme="light"] select {
-    background: #fff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
-
-html[data-theme="light"] .preloader {
-    background: #f5f2ea;
-    color: #171a17;
-}
-</style>
-
-<script>
-(function(){
-    try {
-        var t = localStorage.getItem("moraheyms-theme");
-        document.documentElement.setAttribute(
-            "data-theme",
-            t === "light" ? "light" : "dark"
-        );
-    } catch(e) {
-        document.documentElement.setAttribute("data-theme","dark");
+    .nav-links{
+        gap:17px;
     }
-})();
-</script>
 
+    .nav-links a{
+        font-size:10px;
+    }
+
+    .nav-actions{
+        margin-left:18px;
+    }
+
+    .hero{
+        padding-left:7vw;
+        padding-right:7vw;
+    }
+
+    .hero-visual{
+        opacity:.55;
+        right:-80px;
+    }
+
+    .domain-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project-inner{
+        gap:50px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid > div:first-child{
+        grid-column:1/-1;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE 768
+========================================================= */
+
+@media(max-width:768px){
+
+    nav{
+        padding:20px 6vw;
+    }
+
+    nav.scrolled{
+        padding:15px 6vw;
+    }
+
+    .logo-img{
+        width:140px;
+    }
+
+
+    /* -------------------------------
+       ACTIONS MOBILE
+    ------------------------------- */
+
+    .nav-actions{
+        margin-left:auto;
+        gap:8px;
+    }
+
+    .theme-toggle{
+        width:44px;
+        height:44px;
+        display:flex;
+    }
+
+    .menu-button{
+        display:flex;
+    }
+
+
+    /* -------------------------------
+       MENU MOBILE
+    ------------------------------- */
+
+    .nav-links{
+        position:fixed;
+
+        top:104px;
+        right:25px;
+
+        width:min(390px,calc(100vw - 50px));
+
+        height:auto;
+        max-height:calc(100vh - 130px);
+
+        padding:32px 30px;
+
+        background:var(--black-soft);
+
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-start;
+
+        gap:25px;
+
+        border:1px solid var(--line);
+
+        box-shadow:
+            0 25px 70px rgba(0,0,0,.25);
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-20px);
+
+        transition:
+            opacity .4s ease,
+            visibility .4s ease,
+            transform .4s cubic-bezier(.16,1,.3,1);
+
+        overflow-y:auto;
+    }
+
+    nav.open .nav-links{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+    }
+
+    .nav-links a{
+        font-size:13px;
+        letter-spacing:1.4px;
+    }
+
+    .nav-links a::after{
+        bottom:-6px;
+    }
+
+
+    /* -------------------------------
+       HERO
+    ------------------------------- */
+
+    .hero{
+        min-height:100svh;
+
+        padding:150px 6vw 100px;
+    }
+
+    .hero h1{
+        font-size:clamp(52px,15vw,85px);
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-visual{
+        width:420px;
+        max-width:90vw;
+
+        right:-170px;
+        top:62%;
+
+        opacity:.25;
+    }
+
+    .hero-watermark{
+        right:6vw;
+        bottom:25px;
+    }
+
+    .domains,
+    .project-highlight,
+    .approach{
+        padding:100px 6vw;
+    }
+
+    .section-heading{
+        margin-bottom:50px;
+    }
+
+    .domain-grid{
+        grid-template-columns:1fr;
+    }
+
+    .domain-card{
+        min-height:280px;
+    }
+
+    .project-inner{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .project-visual{
+        min-height:350px;
+    }
+
+    .approach-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .cta{
+        padding:100px 6vw;
+    }
+
+    footer{
+        padding:65px 6vw 25px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE 650
+========================================================= */
+
+@media(max-width:650px){
+
+    .nav-links{
+        top:78px;
+        right:6vw;
+
+        width:88vw;
+
+        padding:30px 25px;
+
+        gap:23px;
+    }
+
+    .theme-toggle,
+    .menu-button{
+        width:42px;
+        height:42px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE 400
+========================================================= */
+
+@media(max-width:400px){
+
+    nav{
+        padding-left:5vw;
+        padding-right:5vw;
+    }
+
+    .logo-img{
+        width:125px;
+    }
+
+    .nav-actions{
+        gap:5px;
+    }
+
+    .theme-toggle,
+    .menu-button{
+        width:40px;
+        height:40px;
+    }
+
+    .hero{
+        padding-top:135px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .domain-card{
+        padding:30px 25px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid > div:first-child{
+        grid-column:auto;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-<div class="preloader" id="preloader">
-    <div class="loader">
-        <div class="loader-logo">MORAHEYM'S</div>
-        <div class="loader-subtitle">Groupe</div>
-        <div class="loader-bar">
-            <div class="loader-progress" id="loaderProgress"></div>
+<!-- =======================================================
+     PRELOADER
+======================================================= -->
+
+<div id="preloader">
+
+    <div class="loader-inner">
+
+        <img
+            src="logo-moraheyms.png"
+            alt="GROUPE MORAHEYM'S"
+            class="loader-logo"
+            onerror="this.style.display='none';document.querySelector('.loader-fallback').style.display='block';"
+        >
+
+        <div class="loader-fallback">
+            MORAHEYM'S
         </div>
+
+        <div class="loader-line">
+            <div class="loader-progress"></div>
+        </div>
+
+        <div class="loader-text">
+            Préparation du groupe…
+        </div>
+
     </div>
+
 </div>
+
+
+<!-- =======================================================
+     CURSOR
+======================================================= -->
 
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
-<!-- =========================================================
+
+<!-- =======================================================
      NAVIGATION
-========================================================= -->
+======================================================= -->
 
-<header class="nav" id="nav">
+<nav id="mainNav">
 
-```
-<div class="nav-inner">
+    <a href="index.html" class="logo-link">
 
-    <!-- LOGO À GAUCHE -->
-    <a href="index.html" class="brand-logo">
         <img
             src="logo-moraheyms.png"
             alt="GROUPE MORAHEYM'S"
             class="logo-img"
-            onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';"
+            onerror="this.style.display='none';document.querySelector('.logo-fallback').style.display='block';"
         >
 
-        <span id="logoFallback" class="brand-logo-fallback">
-            GROUPE <span>MORAHEYM'S</span>
+        <span class="logo-fallback">
+            MORAHEYM'S
         </span>
+
     </a>
 
 
-    <!-- LIENS -->
-    <nav class="nav-links" id="navLinks">
+    <div class="nav-right">
 
-        <a href="actualites.html" class="nav-news">
-            Actualités
-        </a>
+        <div class="nav-links">
 
-        <a href="groupe.html">
-            Le groupe
-        </a>
+            <a href="actualites.html">
+                Actualités
+            </a>
 
-        <a href="expertise.html">
-            Expertise
-        </a>
+            <a href="groupe.html">
+                Le groupe
+            </a>
 
-        <a href="vision.html">
-            Vision
-        </a>
+            <a href="expertise.html">
+                Expertise
+            </a>
 
-        <a href="projets.html">
-            Projets
-        </a>
+            <a href="vision.html">
+                Vision
+            </a>
 
-        <a href="contact.html" class="nav-cta">
-            Contact
-        </a>
+            <a href="projets.html">
+                Projets
+            </a>
 
-        <!-- BOUTON THÈME : MOBILE UNIQUEMENT -->
-        <button
-            class="theme-toggle theme-mobile"
-            id="themeToggleMobile"
-            type="button"
-            aria-label="Activer le thème clair"
-            title="Thème clair"
-        >
-            ☀
-        </button>
+            <a href="contact.html">
+                Contact
+            </a>
 
-    </nav>
+        </div>
 
 
-    <!-- ACTIONS À DROITE -->
-    <div class="nav-actions">
+        <!-- ACTIONS : THÈME + BURGER -->
 
-        <!-- BOUTON THÈME : DESKTOP UNIQUEMENT -->
-        <button
-            class="theme-toggle theme-desktop"
-            id="themeToggle"
-            type="button"
-            aria-label="Activer le thème clair"
-            title="Thème clair"
-        >
-            ☀
-        </button>
+        <div class="nav-actions">
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Passer au thème clair"
+                title="Changer de thème"
+                type="button"
+            >
+                ☀
+            </button>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                title="Ouvrir le menu"
+                type="button"
+            >
+                ☰
+            </button>
+
+        </div>
 
     </div>
 
-</div>
-```
+</nav>
 
-</header>
 
-<!-- =========================================================
+<!-- =======================================================
      HERO
-========================================================= -->
+======================================================= -->
 
-<section class="hero">
-
-```
-<div class="hero-watermark">
-    MORAHEYM'S
-</div>
-
-<div class="hero-grid">
+<header class="hero">
 
     <div class="hero-content reveal">
 
         <div class="hero-kicker">
-            Excellence · Innovation · Impact
+            Immobilier · Construction · Éducation
         </div>
 
         <h1>
-            Bâtir l'avenir
-            <br>
-            <span class="outline">avec</span>
-            <em>vision.</em>
+            Construire<br>
+            <span class="gold">l’Afrique</span><br>
+            de demain.
         </h1>
 
-        <p class="hero-text">
-            Le GROUPE MORAHEYM'S s'engage dans la création
-            d'opportunités stratégiques, l'accompagnement de
-            projets ambitieux et le développement de solutions d'avenir.
+        <p class="hero-description">
+            MORAHEYM’S développe des projets immobiliers,
+            des infrastructures et des initiatives dans
+            l’éducation, la recherche et le développement
+            des compétences afin de contribuer durablement
+            au développement de l’Afrique.
         </p>
 
-        <div class="hero-actions">
+        <div class="hero-buttons">
 
-            <a href="groupe.html" class="button button-primary">
+            <a href="groupe.html" class="btn btn-primary">
                 Découvrir le groupe
             </a>
 
-            <a href="contact.html" class="button button-outline">
-                Prendre contact
+            <a href="projets.html" class="btn btn-secondary">
+                Nos projets
             </a>
 
         </div>
@@ -1334,267 +1679,462 @@ html[data-theme="light"] .preloader {
     </div>
 
 
-    <div class="hero-visual reveal">
+    <div class="hero-visual" aria-hidden="true">
 
-        <div class="visual-core">
+        <div class="hero-orbit"></div>
+        <div class="hero-orbit"></div>
+        <div class="hero-orbit"></div>
 
-            <div class="core-glow"></div>
-
-            <div class="core-sphere"></div>
-
-            <div class="orbit orbit-a"></div>
-
-            <div class="orbit orbit-b"></div>
-
-        </div>
+        <div class="hero-sphere"></div>
 
     </div>
 
-</div>
-```
 
-</section>
+    <div class="hero-watermark">
+        MORAHEYM’S
+    </div>
 
-<!-- =========================================================
+</header>
+
+
+<!-- =======================================================
      MARQUEE
-========================================================= -->
+======================================================= -->
 
 <div class="marquee">
 
-```
-<div class="marquee-track">
+    <div class="marquee-track">
 
-    <div class="marquee-item">
-        GROUPE MORAHEYM'S
-        <span>—</span>
-        EXCELLENCE
-        <span>—</span>
-        INNOVATION
-        <span>—</span>
-        IMPACT
-        <span>—</span>
-    </div>
+        <span>IMMOBILIER</span>
+        <span class="dot">✦</span>
 
-    <div class="marquee-item">
-        GROUPE MORAHEYM'S
-        <span>—</span>
-        EXCELLENCE
-        <span>—</span>
-        INNOVATION
-        <span>—</span>
-        IMPACT
-        <span>—</span>
+        <span>CONSTRUCTION</span>
+        <span class="dot">✦</span>
+
+        <span>INFRASTRUCTURES</span>
+        <span class="dot">✦</span>
+
+        <span>ÉDUCATION</span>
+        <span class="dot">✦</span>
+
+        <span>RECHERCHE</span>
+        <span class="dot">✦</span>
+
+        <span>COMPÉTENCES</span>
+        <span class="dot">✦</span>
+
+        <span>PARTENARIATS PANAFRICAINS</span>
+        <span class="dot">✦</span>
+
+        <span>IMMOBILIER</span>
+        <span class="dot">✦</span>
+
+        <span>CONSTRUCTION</span>
+        <span class="dot">✦</span>
+
+        <span>INFRASTRUCTURES</span>
+        <span class="dot">✦</span>
+
+        <span>ÉDUCATION</span>
+        <span class="dot">✦</span>
+
+        <span>RECHERCHE</span>
+        <span class="dot">✦</span>
+
+        <span>COMPÉTENCES</span>
+        <span class="dot">✦</span>
+
+        <span>PARTENARIATS PANAFRICAINS</span>
+        <span class="dot">✦</span>
+
     </div>
 
 </div>
-```
 
-</div>
 
-<!-- =========================================================
-     SECTION APERÇUS
-========================================================= -->
+<!-- =======================================================
+     DOMAINES D'INTERVENTION
+======================================================= -->
 
-<section class="section">
-
-```
-<div class="container">
+<section class="domains">
 
     <div class="section-label reveal">
-        01 — Nos piliers
+        01 — Nos domaines d’intervention
     </div>
 
-    <h2 class="section-title reveal">
-        Un écosystème <em>ambitieux.</em>
+    <h2 class="section-heading reveal">
+        Des secteurs complémentaires au service du
+        <span>développement africain.</span>
     </h2>
 
 
-    <div class="preview-grid">
+    <div class="domain-grid">
 
 
-        <div class="preview-card reveal">
+        <article class="domain-card reveal">
 
-            <div>
-
-                <div class="section-label">
-                    Histoire & Valeurs
-                </div>
-
-                <h3>
-                    Le Groupe
-                </h3>
-
-                <p>
-                    Découvrez notre identité, notre structure et les
-                    fondements qui guident notre stratégie globale.
-                </p>
-
+            <div class="domain-number">
+                01
             </div>
 
-            <a href="groupe.html" class="button button-outline">
-                En savoir plus →
+            <div class="domain-icon">
+                🏗️
+            </div>
+
+            <h3>
+                Immobilier & Construction
+            </h3>
+
+            <p>
+                Promotion immobilière, développement de
+                projets et accompagnement d’initiatives
+                de construction répondant aux besoins
+                des territoires africains.
+            </p>
+
+        </article>
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                02
+            </div>
+
+            <div class="domain-icon">
+                🏢
+            </div>
+
+            <h3>
+                Infrastructures
+            </h3>
+
+            <p>
+                Développement d’infrastructures structurantes
+                destinées à accompagner la croissance
+                économique, sociale et institutionnelle
+                en Afrique de l’Ouest.
+            </p>
+
+        </article>
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                03
+            </div>
+
+            <div class="domain-icon">
+                🎓
+            </div>
+
+            <h3>
+                Éducation & Enseignement supérieur
+            </h3>
+
+            <p>
+                Développement de projets éducatifs et
+                universitaires à dimension internationale
+                et panafricaine, notamment à travers
+                le projet MORAHEYMS – AUUI.
+            </p>
+
+        </article>
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                04
+            </div>
+
+            <div class="domain-icon">
+                🔬
+            </div>
+
+            <h3>
+                Recherche & Compétences
+            </h3>
+
+            <p>
+                Appui aux chercheurs et aux étudiants,
+                soutien aux projets académiques,
+                renforcement des capacités et développement
+                des compétences.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROJET AUUI
+======================================================= -->
+
+<section class="project-highlight">
+
+    <div class="project-inner">
+
+
+        <div class="project-content reveal">
+
+            <div class="project-label">
+                02 — Projet panafricain
+            </div>
+
+            <h2 class="project-title">
+                MORAHEYMS
+                <span>– AUUI</span>
+            </h2>
+
+            <p class="project-text">
+                Le Projet Panafricain de Développement Immobilier
+                et d’Éducation Internationale MORAHEYMS – AUUI
+                constitue une initiative articulant développement
+                immobilier, infrastructures et éducation
+                internationale.
+            </p>
+
+            <p class="project-text">
+                À travers ce programme, MORAHEYM’S souhaite
+                développer des partenariats stratégiques avec
+                les institutions et les acteurs de l’enseignement
+                supérieur, tout en favorisant l’appui technique
+                et financier aux étudiants, chercheurs et projets
+                académiques.
+            </p>
+
+            <a href="projets.html" class="btn btn-secondary">
+                Découvrir le projet
             </a>
 
         </div>
 
 
-        <div class="preview-card reveal">
+        <div class="project-visual reveal">
 
-            <div>
+            <div class="auui-mark">
 
-                <div class="section-label">
-                    Savoir-faire
-                </div>
+                <strong>AUUI</strong>
 
-                <h3>
-                    Notre Expertise
-                </h3>
-
-                <p>
-                    Une maîtrise approfondie de nos domaines d'intervention
-                    au service de projets stratégiques.
-                </p>
+                <small>
+                    African Union University International
+                </small>
 
             </div>
-
-            <a href="expertise.html" class="button button-outline">
-                Explorer nos métiers →
-            </a>
-
-        </div>
-
-
-        <div class="preview-card reveal">
-
-            <div>
-
-                <div class="section-label">
-                    Ambition
-                </div>
-
-                <h3>
-                    Notre Vision
-                </h3>
-
-                <p>
-                    Anticiper les transformations de demain et générer
-                    un impact durable à fort potentiel.
-                </p>
-
-            </div>
-
-            <a href="vision.html" class="button button-outline">
-                Voir notre trajectoire →
-            </a>
 
         </div>
 
 
     </div>
 
-</div>
-```
+</section>
+
+
+<!-- =======================================================
+     APPROCHE
+======================================================= -->
+
+<section class="approach">
+
+    <div class="approach-grid">
+
+
+        <div class="approach-intro reveal">
+
+            <div class="section-label">
+                03 — Notre approche
+            </div>
+
+            <h2>
+                Relier les projets,
+                les <span>compétences</span>
+                et les institutions.
+            </h2>
+
+        </div>
+
+
+        <div class="approach-text reveal">
+
+            <p>
+                MORAHEYM’S inscrit son action dans une
+                dynamique de coopération et de développement
+                panafricain.
+            </p>
+
+            <p>
+                Notre ambition est de créer des passerelles
+                entre les projets immobiliers, les infrastructures,
+                les universités, les chercheurs, les investisseurs
+                et les institutions afin de faire émerger des
+                initiatives porteuses d’impact.
+            </p>
+
+
+            <div class="approach-list">
+
+                <div class="approach-item">
+
+                    <span>01</span>
+
+                    <span>
+                        Développement de projets en Afrique de l’Ouest
+                    </span>
+
+                </div>
+
+
+                <div class="approach-item">
+
+                    <span>02</span>
+
+                    <span>
+                        Partenariats institutionnels et universitaires
+                    </span>
+
+                </div>
+
+
+                <div class="approach-item">
+
+                    <span>03</span>
+
+                    <span>
+                        Appui aux chercheurs et projets académiques
+                    </span>
+
+                </div>
+
+
+                <div class="approach-item">
+
+                    <span>04</span>
+
+                    <span>
+                        Renforcement des capacités et développement des compétences
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
-<!-- =========================================================
+
+<!-- =======================================================
+     CTA
+======================================================= -->
+
+<section class="cta">
+
+    <div class="cta-label reveal">
+        04 — Construisons ensemble
+    </div>
+
+    <h2 class="reveal">
+        Des projets qui créent
+        des opportunités pour l’Afrique.
+    </h2>
+
+    <p class="reveal">
+        Vous êtes une institution, une université, un investisseur,
+        un chercheur ou un porteur de projet ?
+        Échangeons autour des opportunités de collaboration
+        et de développement.
+    </p>
+
+    <a href="contact.html" class="btn btn-primary reveal">
+        Prendre contact
+    </a>
+
+</section>
+
+
+<!-- =======================================================
      FOOTER
-========================================================= -->
+======================================================= -->
 
-<footer class="footer">
-
-```
-<div class="container">
+<footer>
 
     <div class="footer-grid">
 
 
         <div>
 
-            <div class="footer-logo">
-                GROUPE <span>MORAHEYM'S</span>
-            </div>
+            <img
+                src="logo-moraheyms.png"
+                alt="GROUPE MORAHEYM'S"
+                class="footer-logo"
+            >
 
             <p class="footer-description">
-                Excellence, innovation et impact.
-                Un groupe tourné vers la création d'opportunités
-                et la construction d'un avenir durable.
+                MORAHEYM’S œuvre dans la promotion immobilière,
+                la construction, le développement d’infrastructures,
+                l’éducation, la recherche et le développement
+                des compétences, avec une ambition panafricaine.
             </p>
 
         </div>
 
 
-        <div>
+        <div class="footer-column">
 
-            <div class="footer-heading">
+            <h4>
                 Navigation
-            </div>
+            </h4>
 
-            <div class="footer-links">
+            <a href="index.html">
+                Accueil
+            </a>
 
-                <a href="actualites.html">
-                    Actualités
-                </a>
+            <a href="groupe.html">
+                Le groupe
+            </a>
 
-                <a href="groupe.html">
-                    Le groupe
-                </a>
+            <a href="expertise.html">
+                Expertise
+            </a>
 
-                <a href="expertise.html">
-                    Expertise
-                </a>
+            <a href="vision.html">
+                Vision
+            </a>
 
-                <a href="vision.html">
-                    Vision
-                </a>
+            <a href="projets.html">
+                Projets
+            </a>
 
-                <a href="projets.html">
-                    Projets
-                </a>
-
-            </div>
+            <a href="actualites.html">
+                Actualités
+            </a>
 
         </div>
 
 
-        <div>
+        <div class="footer-column">
 
-            <div class="footer-heading">
+            <h4>
                 Contact
-            </div>
+            </h4>
 
-            <div class="footer-links">
+            <a href="mailto:moraheyms@gmail.com">
+                moraheyms@gmail.com
+            </a>
 
-                <a href="contact.html">
-                    Nous contacter
-                </a>
-
-                <a href="mailto:contact@moraheym.com">
-                    Email
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <div class="footer-heading">
-                Réseaux
-            </div>
-
-            <div class="footer-links">
-
-                <a href="#">
-                    LinkedIn
-                </a>
-
-                <a href="#">
-                    Twitter / X
-                </a>
-
-            </div>
+            <a href="contact.html">
+                Nous contacter →
+            </a>
 
         </div>
 
@@ -1605,74 +2145,111 @@ html[data-theme="light"] .preloader {
     <div class="footer-bottom">
 
         <span>
-            © 2026 GROUPE MORAHEYM'S — Tous droits réservés.
+            © 2026 GROUPE MORAHEYM’S — Tous droits réservés.
         </span>
 
         <span>
-            Excellence · Innovation · Impact
+            Immobilier · Éducation · Impact panafricain
         </span>
 
     </div>
 
-</div>
-```
-
 </footer>
+
 
 <script>
 
 /* =========================================================
-   THÈME SOMBRE / CLAIR
-   PC : bouton dans la barre
-   MOBILE : bouton dans le menu burger
+   THEME CLAIR / SOMBRE
 ========================================================= */
-(function () {
-    const KEY = "moraheyms-theme";
-    const root = document.documentElement;
 
-    try {
-        const saved = localStorage.getItem(KEY);
-        root.setAttribute("data-theme", saved === "light" ? "light" : "dark");
-    } catch (e) {
-        root.setAttribute("data-theme", "dark");
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const savedTheme =
+    localStorage.getItem("moraheyms-theme");
+
+if(savedTheme){
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme
+    );
+
+}
+
+
+/* Mettre à jour l'icône */
+
+function updateThemeButton(){
+
+    const currentTheme =
+        document.documentElement.getAttribute("data-theme");
+
+    if(currentTheme === "light"){
+
+        themeToggle.textContent = "☾";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Passer au thème sombre"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Passer au thème sombre"
+        );
+
+    }else{
+
+        themeToggle.textContent = "☀";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Passer au thème clair"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Passer au thème clair"
+        );
+
     }
 
-    function updateThemeButtons() {
-        const buttons = [
-            document.getElementById("themeToggle"),
-            document.getElementById("themeToggleMobile")
-        ];
+}
 
-        const isLight = root.getAttribute("data-theme") === "light";
-        const icon = isLight ? "☾" : "☀";
-        const label = isLight ? "Activer le thème sombre" : "Activer le thème clair";
-        const title = isLight ? "Thème sombre" : "Thème clair";
 
-        buttons.forEach(button => {
-            if (!button) return;
-            button.textContent = icon;
-            button.setAttribute("aria-label", label);
-            button.setAttribute("title", title);
-        });
-    }
+/* Initialisation */
 
-    function changeTheme() {
-        const current = root.getAttribute("data-theme");
-        const next = current === "light" ? "dark" : "light";
-        root.setAttribute("data-theme", next);
+updateThemeButton();
 
-        try {
-            localStorage.setItem(KEY, next);
-        } catch (e) {}
 
-        updateThemeButtons();
-    }
+/* Changement de thème */
 
-    updateThemeButtons();
+themeToggle.addEventListener("click",()=>{
 
-    document.getElementById("themeToggle")?.addEventListener("click", changeTheme);
-    document.getElementById("themeToggleMobile")?.addEventListener("click", changeTheme);
-})();
+    const currentTheme =
+        document.documentElement.getAttribute("data-theme");
+
+    const nextTheme =
+        currentTheme === "light"
+            ? "dark"
+            : "light";
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        nextTheme
+    );
+
+    localStorage.setItem(
+        "moraheyms-theme",
+        nextTheme
+    );
+
+    updateThemeButton();
+
+});
+
 
 /* =========================================================
    PRELOADER
@@ -1682,54 +2259,49 @@ const preloader =
     document.getElementById("preloader");
 
 const progress =
-    document.getElementById("loaderProgress");
+    document.querySelector(".loader-progress");
 
 let progressValue = 0;
 
-const loadingInterval =
-    setInterval(() => {
+const progressInterval =
+    setInterval(()=>{
 
-        progressValue += Math.random() * 15;
+        progressValue += Math.random()*8;
 
-        if (progressValue > 100) {
+        if(progressValue >= 100){
+
             progressValue = 100;
+
+            clearInterval(progressInterval);
+
+            setTimeout(()=>{
+
+                preloader.classList.add("hidden");
+
+            },350);
+
         }
 
         progress.style.width =
             progressValue + "%";
 
-    }, 120);
-
-
-window.addEventListener("load", () => {
-
-    progress.style.width = "100%";
-
-    setTimeout(() => {
-
-        clearInterval(loadingInterval);
-
-        preloader.classList.add("hide");
-
-    }, 900);
-
-});
+    },90);
 
 
 /* =========================================================
-   NAVIGATION AU SCROLL
+   NAVIGATION SCROLL
 ========================================================= */
 
 const nav =
-    document.getElementById("nav");
+    document.getElementById("mainNav");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if (window.scrollY > 50) {
+    if(window.scrollY > 40){
 
         nav.classList.add("scrolled");
 
-    } else {
+    }else{
 
         nav.classList.remove("scrolled");
 
@@ -1739,22 +2311,24 @@ window.addEventListener("scroll", () => {
 
 
 /* =========================================================
-   MENU MOBILE
+   MENU BURGER
 ========================================================= */
 
 const menuButton =
     document.getElementById("menuButton");
 
-const navLinks =
-    document.getElementById("navLinks");
 
-
-menuButton.addEventListener("click", () => {
+menuButton.addEventListener("click",()=>{
 
     const isOpen =
-        navLinks.classList.toggle("open");
+        nav.classList.toggle("open");
 
-    menuButton.innerHTML =
+    menuButton.classList.toggle(
+        "active",
+        isOpen
+    );
+
+    menuButton.textContent =
         isOpen ? "✕" : "☰";
 
     menuButton.setAttribute(
@@ -1769,20 +2343,28 @@ menuButton.addEventListener("click", () => {
             : "Ouvrir le menu"
     );
 
+    menuButton.setAttribute(
+        "title",
+        isOpen
+            ? "Fermer le menu"
+            : "Ouvrir le menu"
+    );
+
 });
 
 
-/* =========================================================
-   FERMER LE MENU APRÈS UN CLIC
-========================================================= */
+/* Fermer le menu lorsqu'un lien est cliqué */
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+document.querySelectorAll(".nav-links a")
+.forEach(link=>{
 
-    link.addEventListener("click", () => {
+    link.addEventListener("click",()=>{
 
-        navLinks.classList.remove("open");
+        nav.classList.remove("open");
 
-        menuButton.innerHTML = "☰";
+        menuButton.classList.remove("active");
+
+        menuButton.textContent = "☰";
 
         menuButton.setAttribute(
             "aria-expanded",
@@ -1794,13 +2376,40 @@ document.querySelectorAll(".nav-links a").forEach(link => {
             "Ouvrir le menu"
         );
 
+        menuButton.setAttribute(
+            "title",
+            "Ouvrir le menu"
+        );
+
     });
 
 });
 
 
+/* Fermer le menu si on repasse sur ordinateur */
+
+window.addEventListener("resize",()=>{
+
+    if(window.innerWidth > 768){
+
+        nav.classList.remove("open");
+
+        menuButton.classList.remove("active");
+
+        menuButton.textContent = "☰";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+
 /* =========================================================
-   CURSEUR PERSONNALISÉ
+   CURSOR
 ========================================================= */
 
 const cursorDot =
@@ -1809,81 +2418,124 @@ const cursorDot =
 const cursorRing =
     document.querySelector(".cursor-ring");
 
+let mouseX = 0;
+let mouseY = 0;
 
-if (window.matchMedia("(pointer:fine)").matches) {
+let ringX = 0;
+let ringY = 0;
 
-    window.addEventListener("mousemove", e => {
+window.addEventListener("mousemove",(e)=>{
 
-        cursorDot.style.left =
-            e.clientX + "px";
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-        cursorDot.style.top =
-            e.clientY + "px";
+    cursorDot.style.left =
+        mouseX + "px";
 
+    cursorDot.style.top =
+        mouseY + "px";
 
-        cursorRing.animate(
-            {
-                left: e.clientX + "px",
-                top: e.clientY + "px"
-            },
-            {
-                duration: 450,
-                fill: "forwards"
-            }
-        );
-
-    });
+});
 
 
-    document.querySelectorAll("a, button").forEach(el => {
+function animateCursor(){
 
-        el.addEventListener(
-            "mouseenter",
-            () => cursorRing.classList.add("active")
-        );
+    ringX += (mouseX-ringX)*.12;
+    ringY += (mouseY-ringY)*.12;
 
-        el.addEventListener(
-            "mouseleave",
-            () => cursorRing.classList.remove("active")
-        );
+    cursorRing.style.left =
+        ringX + "px";
 
-    });
+    cursorRing.style.top =
+        ringY + "px";
+
+    requestAnimationFrame(animateCursor);
 
 }
 
+animateCursor();
+
 
 /* =========================================================
-   ANIMATIONS REVEAL
+   CURSOR HOVER
 ========================================================= */
 
-const revealObserver =
+document.querySelectorAll("a,button")
+.forEach(element=>{
+
+    element.addEventListener("mouseenter",()=>{
+
+        cursorRing.style.width="55px";
+        cursorRing.style.height="55px";
+
+    });
+
+    element.addEventListener("mouseleave",()=>{
+
+        cursorRing.style.width="38px";
+        cursorRing.style.height="38px";
+
+    });
+
+});
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const observer =
     new IntersectionObserver(
-        entries => {
 
-            entries.forEach(entry => {
+        entries=>{
 
-                if (entry.isIntersecting) {
+            entries.forEach(entry=>{
 
-                    entry.target.classList.add("show");
+                if(entry.isIntersecting){
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
 
                 }
 
             });
 
         },
+
         {
-            threshold: .1
+            threshold:.12
         }
+
     );
 
 
-document.querySelectorAll(".reveal").forEach(el => {
+revealElements.forEach(element=>{
 
-    revealObserver.observe(el);
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   HERO PARALLAX
+========================================================= */
+
+const heroVisual =
+    document.querySelector(".hero-visual");
+
+window.addEventListener("scroll",()=>{
+
+    if(!heroVisual) return;
+
+    const scroll =
+        window.scrollY;
+
+    heroVisual.style.transform =
+        `translateY(calc(-50% + ${scroll * .08}px))`;
 
 });
 
