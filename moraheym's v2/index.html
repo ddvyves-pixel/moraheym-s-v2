@@ -185,6 +185,7 @@ body::before{
 }
 
 .loader-fallback{
+    display:none;
     font-family:"Playfair Display",serif;
     font-size:24px;
     letter-spacing:4px;
@@ -263,10 +264,14 @@ nav.scrolled{
     letter-spacing:3px;
 }
 
+
+/* =========================================================
+   NAVIGATION DROITE
+========================================================= */
+
 .nav-right{
     display:flex;
     align-items:center;
-    gap:35px;
 }
 
 .nav-links{
@@ -312,83 +317,97 @@ nav.scrolled{
 
 
 /* =========================================================
-   THEME TOGGLE
+   ACTIONS NAVIGATION
 ========================================================= */
 
-.theme-toggle{
-    width:42px;
-    height:23px;
-
-    border:1px solid var(--line);
-    border-radius:50px;
-
-    background:transparent;
-
-    position:relative;
-    cursor:pointer;
-
+.nav-actions{
     display:flex;
     align-items:center;
-
-    padding:2px;
-}
-
-.theme-toggle span{
-    width:17px;
-    height:17px;
-
-    border-radius:50%;
-
-    background:var(--gold);
-
-    transition:transform .4s ease;
-}
-
-[data-theme="light"] .theme-toggle span{
-    transform:translateX(18px);
+    gap:10px;
+    margin-left:25px;
 }
 
 
 /* =========================================================
-   MOBILE TOGGLE
+   THEME TOGGLE
 ========================================================= */
 
-.mobile-toggle{
-    display:none;
+.theme-toggle{
+    width:44px;
+    height:44px;
 
-    width:35px;
-    height:35px;
+    border:1px solid var(--line);
+    border-radius:50%;
 
-    background:none;
-    border:none;
+    background:transparent;
+
+    color:var(--gold-light);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     cursor:pointer;
 
-    flex-direction:column;
-    align-items:flex-end;
+    font-size:18px;
+    line-height:1;
+
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        color .35s ease,
+        transform .35s ease;
+}
+
+.theme-toggle:hover{
+    border-color:var(--gold);
+    background:rgba(201,164,93,.08);
+    color:var(--gold-light);
+    transform:rotate(12deg);
+}
+
+
+/* =========================================================
+   MENU BURGER
+========================================================= */
+
+.menu-button{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid var(--line);
+    border-radius:50%;
+
+    background:transparent;
+
+    color:var(--cream);
+
+    align-items:center;
     justify-content:center;
-    gap:6px;
+
+    cursor:pointer;
+
+    font-size:22px;
+    line-height:1;
+
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        color .35s ease,
+        transform .35s ease;
 }
 
-.mobile-toggle span{
-    display:block;
-    width:25px;
-    height:1px;
-    background:var(--cream);
-    transition:var(--transition);
+.menu-button:hover{
+    border-color:var(--gold);
+    color:var(--gold-light);
+    background:rgba(201,164,93,.08);
 }
 
-.mobile-toggle span:last-child{
-    width:17px;
-}
-
-nav.open .mobile-toggle span:first-child{
-    transform:rotate(45deg) translate(5px,5px);
-}
-
-nav.open .mobile-toggle span:last-child{
-    width:25px;
-    transform:rotate(-45deg) translate(5px,-5px);
+.menu-button.active{
+    border-color:var(--gold);
+    color:var(--gold-light);
 }
 
 
@@ -607,8 +626,12 @@ nav.open .mobile-toggle span:last-child{
 }
 
 @keyframes orbit{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 @keyframes float{
@@ -829,6 +852,11 @@ nav.open .mobile-toggle span:last-child{
     gap:90px;
 
     align-items:center;
+}
+
+.project-content{
+    position:relative;
+    z-index:2;
 }
 
 .project-label{
@@ -1185,6 +1213,10 @@ footer{
         font-size:10px;
     }
 
+    .nav-actions{
+        margin-left:18px;
+    }
+
     .hero{
         padding-left:7vw;
         padding-right:7vw;
@@ -1231,20 +1263,43 @@ footer{
         width:140px;
     }
 
-    .nav-right{
-        gap:15px;
+
+    /* -------------------------------
+       ACTIONS MOBILE
+    ------------------------------- */
+
+    .nav-actions{
+        margin-left:auto;
+        gap:8px;
     }
+
+    .theme-toggle{
+        width:44px;
+        height:44px;
+        display:flex;
+    }
+
+    .menu-button{
+        display:flex;
+    }
+
+
+    /* -------------------------------
+       MENU MOBILE
+    ------------------------------- */
 
     .nav-links{
         position:fixed;
 
-        top:0;
-        right:-100%;
+        top:104px;
+        right:25px;
 
-        width:min(390px,88vw);
-        height:100vh;
+        width:min(390px,calc(100vw - 50px));
 
-        padding:100px 40px 40px;
+        height:auto;
+        max-height:calc(100vh - 130px);
+
+        padding:32px 30px;
 
         background:var(--black-soft);
 
@@ -1253,41 +1308,45 @@ footer{
         align-items:flex-start;
         justify-content:flex-start;
 
-        gap:28px;
+        gap:25px;
 
-        border-left:1px solid var(--line);
+        border:1px solid var(--line);
 
-        transition:right .5s cubic-bezier(.16,1,.3,1);
+        box-shadow:
+            0 25px 70px rgba(0,0,0,.25);
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-20px);
+
+        transition:
+            opacity .4s ease,
+            visibility .4s ease,
+            transform .4s cubic-bezier(.16,1,.3,1);
+
+        overflow-y:auto;
     }
 
     nav.open .nav-links{
-        right:0;
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
     }
 
     .nav-links a{
         font-size:13px;
+        letter-spacing:1.4px;
     }
 
-    .mobile-toggle{
-        display:flex;
-        position:relative;
-        z-index:2;
+    .nav-links a::after{
+        bottom:-6px;
     }
 
-    .theme-toggle{
-        display:none;
-    }
 
-    nav.open .theme-toggle{
-        display:flex;
-
-        position:fixed;
-
-        right:70px;
-        top:21px;
-
-        z-index:100;
-    }
+    /* -------------------------------
+       HERO
+    ------------------------------- */
 
     .hero{
         min-height:100svh;
@@ -1362,10 +1421,55 @@ footer{
 
 
 /* =========================================================
+   RESPONSIVE 650
+========================================================= */
+
+@media(max-width:650px){
+
+    .nav-links{
+        top:78px;
+        right:6vw;
+
+        width:88vw;
+
+        padding:30px 25px;
+
+        gap:23px;
+    }
+
+    .theme-toggle,
+    .menu-button{
+        width:42px;
+        height:42px;
+    }
+
+}
+
+
+/* =========================================================
    RESPONSIVE 400
 ========================================================= */
 
 @media(max-width:400px){
+
+    nav{
+        padding-left:5vw;
+        padding-right:5vw;
+    }
+
+    .logo-img{
+        width:125px;
+    }
+
+    .nav-actions{
+        gap:5px;
+    }
+
+    .theme-toggle,
+    .menu-button{
+        width:40px;
+        height:40px;
+    }
 
     .hero{
         padding-top:135px;
@@ -1474,38 +1578,60 @@ footer{
 
         <div class="nav-links">
 
-            <a href="actualites.html">Actualités</a>
+            <a href="actualites.html">
+                Actualités
+            </a>
 
-            <a href="groupe.html">Le groupe</a>
+            <a href="groupe.html">
+                Le groupe
+            </a>
 
-            <a href="expertise.html">Expertise</a>
+            <a href="expertise.html">
+                Expertise
+            </a>
 
-            <a href="vision.html">Vision</a>
+            <a href="vision.html">
+                Vision
+            </a>
 
-            <a href="projets.html">Projets</a>
+            <a href="projets.html">
+                Projets
+            </a>
 
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">
+                Contact
+            </a>
 
         </div>
 
 
-        <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Changer de thème"
-        >
-            <span></span>
-        </button>
+        <!-- ACTIONS : THÈME + BURGER -->
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Passer au thème clair"
+                title="Changer de thème"
+                type="button"
+            >
+                ☀
+            </button>
 
 
-        <button
-            class="mobile-toggle"
-            id="mobileToggle"
-            aria-label="Ouvrir le menu"
-        >
-            <span></span>
-            <span></span>
-        </button>
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                title="Ouvrir le menu"
+                type="button"
+            >
+                ☰
+            </button>
+
+        </div>
 
     </div>
 
@@ -2034,28 +2160,93 @@ footer{
 <script>
 
 /* =========================================================
-   THEME
+   THEME CLAIR / SOMBRE
 ========================================================= */
 
-const themeToggle = document.getElementById("themeToggle");
+const themeToggle =
+    document.getElementById("themeToggle");
 
-const savedTheme = localStorage.getItem("moraheyms-theme");
+const savedTheme =
+    localStorage.getItem("moraheyms-theme");
 
 if(savedTheme){
-    document.documentElement.setAttribute("data-theme", savedTheme);
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme
+    );
+
 }
+
+
+/* Mettre à jour l'icône */
+
+function updateThemeButton(){
+
+    const currentTheme =
+        document.documentElement.getAttribute("data-theme");
+
+    if(currentTheme === "light"){
+
+        themeToggle.textContent = "☾";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Passer au thème sombre"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Passer au thème sombre"
+        );
+
+    }else{
+
+        themeToggle.textContent = "☀";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Passer au thème clair"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Passer au thème clair"
+        );
+
+    }
+
+}
+
+
+/* Initialisation */
+
+updateThemeButton();
+
+
+/* Changement de thème */
 
 themeToggle.addEventListener("click",()=>{
 
-    const current =
+    const currentTheme =
         document.documentElement.getAttribute("data-theme");
 
-    const next =
-        current === "light" ? "dark" : "light";
+    const nextTheme =
+        currentTheme === "light"
+            ? "dark"
+            : "light";
 
-    document.documentElement.setAttribute("data-theme",next);
+    document.documentElement.setAttribute(
+        "data-theme",
+        nextTheme
+    );
 
-    localStorage.setItem("moraheyms-theme",next);
+    localStorage.setItem(
+        "moraheyms-theme",
+        nextTheme
+    );
+
+    updateThemeButton();
 
 });
 
@@ -2120,18 +2311,49 @@ window.addEventListener("scroll",()=>{
 
 
 /* =========================================================
-   MOBILE MENU
+   MENU BURGER
 ========================================================= */
 
-const mobileToggle =
-    document.getElementById("mobileToggle");
+const menuButton =
+    document.getElementById("menuButton");
 
-mobileToggle.addEventListener("click",()=>{
 
-    nav.classList.toggle("open");
+menuButton.addEventListener("click",()=>{
+
+    const isOpen =
+        nav.classList.toggle("open");
+
+    menuButton.classList.toggle(
+        "active",
+        isOpen
+    );
+
+    menuButton.textContent =
+        isOpen ? "✕" : "☰";
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+    );
+
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Fermer le menu"
+            : "Ouvrir le menu"
+    );
+
+    menuButton.setAttribute(
+        "title",
+        isOpen
+            ? "Fermer le menu"
+            : "Ouvrir le menu"
+    );
 
 });
 
+
+/* Fermer le menu lorsqu'un lien est cliqué */
 
 document.querySelectorAll(".nav-links a")
 .forEach(link=>{
@@ -2140,7 +2362,48 @@ document.querySelectorAll(".nav-links a")
 
         nav.classList.remove("open");
 
+        menuButton.classList.remove("active");
+
+        menuButton.textContent = "☰";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+        );
+
+        menuButton.setAttribute(
+            "title",
+            "Ouvrir le menu"
+        );
+
     });
+
+});
+
+
+/* Fermer le menu si on repasse sur ordinateur */
+
+window.addEventListener("resize",()=>{
+
+    if(window.innerWidth > 768){
+
+        nav.classList.remove("open");
+
+        menuButton.classList.remove("active");
+
+        menuButton.textContent = "☰";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
 
 });
 
@@ -2275,39 +2538,6 @@ window.addEventListener("scroll",()=>{
         `translateY(calc(-50% + ${scroll * .08}px))`;
 
 });
-
-
-/* =========================================================
-   THEME POSITION MOBILE
-========================================================= */
-
-function updateThemePosition(){
-
-    if(window.innerWidth <= 768 && nav.classList.contains("open")){
-
-        themeToggle.style.display="flex";
-
-    }else if(window.innerWidth <= 768){
-
-        themeToggle.style.display="none";
-
-    }else{
-
-        themeToggle.style.display="flex";
-
-        themeToggle.style.position="relative";
-        themeToggle.style.right="";
-        themeToggle.style.top="";
-    }
-
-}
-
-window.addEventListener("resize",updateThemePosition);
-
-mobileToggle.addEventListener(
-    "click",
-    updateThemePosition
-);
 
 </script>
 
