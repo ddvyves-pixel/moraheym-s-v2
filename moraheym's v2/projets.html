@@ -3,12 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Projets — GROUPE MORAHEYM'S</title>
-<meta name="description" content="Découvrez nos réalisations et nos projets phares.">
+
+<meta
+    name="description"
+    content="Découvrez les projets et initiatives de MORAHEYM'S dans l'immobilier, les infrastructures, l'éducation, la recherche et le développement des compétences."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
@@ -44,7 +53,9 @@ body {
     color: var(--cream);
     font-family: var(--sans);
     overflow-x: hidden;
-    transition: background-color .35s ease, color .35s ease;
+    transition:
+        background-color .35s ease,
+        color .35s ease;
 }
 
 a {
@@ -61,6 +72,10 @@ button {
     color: var(--black);
 }
 
+/* =========================
+   GRAIN
+========================= */
+
 body::before {
     content: "";
     position: fixed;
@@ -68,8 +83,14 @@ body::before {
     pointer-events: none;
     z-index: 9998;
     opacity: .035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
+
+/* =========================
+   CURSEUR
+========================= */
 
 .cursor-dot {
     position: fixed;
@@ -91,6 +112,7 @@ body::before {
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
+
     transition:
         width .3s ease,
         height .3s ease,
@@ -112,9 +134,11 @@ body::before {
     inset: 0;
     background: var(--black);
     z-index: 20000;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     transition:
         opacity .9s ease,
         visibility .9s ease;
@@ -168,6 +192,7 @@ body::before {
     left: 0;
     width: 100%;
     z-index: 5000;
+
     transition:
         background .4s ease,
         border-color .4s ease;
@@ -183,6 +208,7 @@ body::before {
     width: min(1450px, 92%);
     min-height: 104px;
     margin: auto;
+
     display: flex;
     align-items: center;
 }
@@ -196,8 +222,6 @@ body::before {
     text-decoration: none;
     margin-right: auto;
 }
-
-/* Logo */
 
 .logo-img {
     height: 88px;
@@ -238,6 +262,7 @@ body::before {
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--cream-soft);
+
     transition: color .3s ease;
 }
 
@@ -249,6 +274,7 @@ body::before {
     width: 0;
     height: 1px;
     background: var(--gold);
+
     transition: width .3s ease;
 }
 
@@ -284,10 +310,12 @@ body::before {
     border-radius: 50%;
     background: var(--gold);
     box-shadow: 0 0 10px var(--gold);
+
     animation: newsPulse 2s ease-in-out infinite;
 }
 
 @keyframes newsPulse {
+
     0%, 100% {
         opacity: .35;
         transform: scale(.8);
@@ -333,17 +361,23 @@ body::before {
     width: 44px;
     height: 44px;
     margin-left: 22px;
+
     border: 1px solid var(--line);
     border-radius: 50%;
+
     background: var(--black-card);
     color: var(--cream);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
     font-size: 1.05rem;
     line-height: 1;
+
     transition: all .3s ease;
+
     position: relative;
     z-index: 20;
 }
@@ -351,6 +385,7 @@ body::before {
 .theme-toggle:hover {
     border-color: var(--gold);
     color: var(--gold);
+
     transform:
         rotate(12deg)
         scale(1.05);
@@ -379,6 +414,7 @@ body::before {
     display: flex;
     align-items: center;
     gap: 14px;
+
     color: var(--gold);
     font-size: .62rem;
     letter-spacing: .24em;
@@ -408,6 +444,7 @@ body::before {
 .reveal {
     opacity: 0;
     transform: translateY(55px);
+
     transition:
         opacity 1s cubic-bezier(.16,1,.3,1),
         transform 1s cubic-bezier(.16,1,.3,1);
@@ -424,8 +461,10 @@ body::before {
 
 .page-header {
     padding: 180px 0 80px;
+
     background: var(--black-soft);
     border-bottom: 1px solid var(--line);
+
     position: relative;
     overflow: hidden;
 }
@@ -434,15 +473,20 @@ body::before {
     position: absolute;
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
+
     font-family: var(--serif);
     font-size: clamp(5rem, 12vw, 13rem);
     font-weight: 700;
+
     color: var(--cream);
     opacity: .05;
+
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
+
     letter-spacing: -.03em;
     user-select: none;
 }
@@ -450,6 +494,24 @@ body::before {
 .page-header .container {
     position: relative;
     z-index: 1;
+}
+
+/* =========================
+   INTRO PROJETS
+========================= */
+
+.projects-intro {
+    max-width: 850px;
+    margin-bottom: 55px;
+}
+
+.projects-intro p {
+    margin-top: 25px;
+    max-width: 760px;
+
+    color: var(--cream-soft);
+    font-size: 1rem;
+    line-height: 1.9;
 }
 
 /* =========================
@@ -465,42 +527,283 @@ body::before {
 
 .project {
     position: relative;
-    min-height: 380px;
+    min-height: 430px;
+
     padding: 35px;
+
     overflow: hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
     border: 1px solid var(--line);
+
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,.85),
-            rgba(0,0,0,.05)
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.08)
         ),
         var(--green);
+
+    transition:
+        transform .45s ease,
+        border-color .45s ease;
+}
+
+.project::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(201,164,93,.16),
+            transparent 35%
+        );
+
+    pointer-events: none;
+}
+
+.project:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,164,93,.45);
 }
 
 .project-number {
     position: absolute;
     top: 30px;
     left: 30px;
+
     color: var(--gold);
     font-size: .6rem;
     letter-spacing: .2em;
 }
 
+.project-status {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(201,164,93,.35);
+
+    color: var(--gold-light);
+
+    font-size: .55rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
 .project h3 {
     font-family: var(--serif);
-    font-size: 2.2rem;
+    font-size: 2.15rem;
     font-weight: 400;
+    line-height: 1.15;
 }
 
 .project p {
-    margin-top: 12px;
-    color: rgba(255,255,255,.65);
-    line-height: 1.7;
+    margin-top: 14px;
+
+    color: rgba(255,255,255,.68);
+
+    line-height: 1.75;
     font-size: .84rem;
+
+    max-width: 580px;
+}
+
+/* =========================
+   AUUI FEATURE
+========================= */
+
+.auui-section {
+    background: var(--black-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.auui-layout {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.auui-label {
+    color: var(--gold);
+    font-size: .62rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+.auui-title {
+    margin-top: 20px;
+
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.04em;
+}
+
+.auui-title span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.auui-text {
+    margin-top: 28px;
+
+    max-width: 720px;
+
+    color: var(--cream-soft);
+    font-size: .92rem;
+    line-height: 1.9;
+}
+
+.auui-text strong {
+    color: var(--cream);
+    font-weight: 500;
+}
+
+.auui-card {
+    min-height: 390px;
+
+    padding: 40px;
+
+    border: 1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,59,46,.9),
+            rgba(17,23,20,.98)
+        );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.auui-card::after {
+    content: "AUUI";
+
+    position: absolute;
+    right: -20px;
+    bottom: -35px;
+
+    font-family: var(--serif);
+    font-size: 9rem;
+    font-weight: 600;
+
+    color: var(--gold);
+    opacity: .07;
+
+    pointer-events: none;
+}
+
+.auui-card-label {
+    color: var(--gold);
+
+    font-size: .58rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.auui-card h3 {
+    margin-top: 25px;
+
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+
+    max-width: 420px;
+}
+
+.auui-card p {
+    margin-top: 18px;
+
+    color: rgba(255,255,255,.64);
+
+    font-size: .8rem;
+    line-height: 1.8;
+
+    max-width: 430px;
+}
+
+/* =========================
+   AXES
+========================= */
+
+.axes-section {
+    padding-top: 120px;
+}
+
+.axes-header {
+    max-width: 700px;
+}
+
+.axes-header p {
+    margin-top: 22px;
+
+    color: var(--cream-soft);
+    line-height: 1.8;
+    font-size: .9rem;
+}
+
+.axes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 50px;
+}
+
+.axis {
+    padding: 35px 30px;
+
+    border: 1px solid var(--line);
+    background: var(--black-card);
+
+    min-height: 240px;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
+}
+
+.axis:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201,164,93,.4);
+}
+
+.axis-number {
+    color: var(--gold);
+    font-size: .58rem;
+    letter-spacing: .2em;
+}
+
+.axis h3 {
+    margin-top: 35px;
+
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.axis p {
+    margin-top: 14px;
+
+    color: var(--cream-soft);
+
+    font-size: .78rem;
+    line-height: 1.75;
 }
 
 /* =========================
@@ -517,6 +820,7 @@ body::before {
     display: grid;
     grid-template-columns: 1.8fr 1fr 1fr 1fr;
     gap: 50px;
+
     padding-bottom: 65px;
 }
 
@@ -533,14 +837,18 @@ body::before {
 .footer-description {
     max-width: 390px;
     margin-top: 18px;
+
     color: #707570;
+
     font-size: .82rem;
     line-height: 1.8;
 }
 
 .footer-heading {
     margin-bottom: 20px;
+
     color: var(--gold);
+
     font-size: .58rem;
     letter-spacing: .2em;
     text-transform: uppercase;
@@ -554,7 +862,9 @@ body::before {
 
 .footer-links a {
     color: #9a9d99;
+
     font-size: .78rem;
+
     transition: color .25s ease;
 }
 
@@ -564,11 +874,15 @@ body::before {
 
 .footer-bottom {
     padding-top: 25px;
+
     border-top: 1px solid var(--line);
+
     display: flex;
     justify-content: space-between;
     gap: 20px;
+
     color: #5e625f;
+
     font-size: .58rem;
     letter-spacing: .08em;
 }
@@ -636,6 +950,22 @@ html[data-theme="light"] .footer {
     background: #e8e4da;
 }
 
+html[data-theme="light"] .footer-description,
+html[data-theme="light"] .footer-links a,
+html[data-theme="light"] .footer-bottom {
+    color: #626860;
+}
+
+html[data-theme="light"] .page-header,
+html[data-theme="light"] .section,
+html[data-theme="light"] .axes-section {
+    background-color: var(--black);
+}
+
+html[data-theme="light"] .auui-section {
+    background: var(--black-soft);
+}
+
 html[data-theme="light"] .project {
     background:
         linear-gradient(
@@ -646,18 +976,21 @@ html[data-theme="light"] .project {
         var(--green);
 }
 
-html[data-theme="light"] .footer-description,
-html[data-theme="light"] .footer-links a,
-html[data-theme="light"] .footer-bottom {
-    color: #626860;
+html[data-theme="light"] .project p {
+    color: rgba(23,26,23,.7);
 }
 
-html[data-theme="light"] .page-header {
-    background-color: var(--black);
+html[data-theme="light"] .auui-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(220,232,223,.95),
+            rgba(255,255,255,.98)
+        );
 }
 
-html[data-theme="light"] .section {
-    background-color: var(--black);
+html[data-theme="light"] .auui-card p {
+    color: #59605a;
 }
 
 html[data-theme="light"] .preloader {
@@ -675,21 +1008,18 @@ html[data-theme="light"] .preloader {
         width: 92%;
     }
 
-    /* Burger complètement à droite */
-
     .menu-button {
         display: block;
         margin-left: auto;
         order: 3;
     }
 
-    /* Menu burger */
-
     .nav-links {
         position: fixed;
         top: 104px;
         left: 0;
         width: 100%;
+
         padding: 35px 4% 40px;
 
         background: rgba(7,9,8,.98);
@@ -712,11 +1042,10 @@ html[data-theme="light"] .preloader {
         transform: translateY(0);
     }
 
-    /* Le bouton thème passe sous Contact */
-
     .nav-links .theme-toggle {
         display: inline-flex;
         margin: 3px 0 0 0;
+
         width: 42px;
         height: 42px;
     }
@@ -725,12 +1054,44 @@ html[data-theme="light"] .preloader {
         grid-template-columns: 1fr;
     }
 
+    .auui-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .axes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
 
     html[data-theme="light"] .nav-links {
         background: rgba(245,242,234,.98);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .section-title {
+        font-size: clamp(2.8rem, 10vw, 4.5rem);
+    }
+
+    .projects-intro {
+        margin-bottom: 30px;
+    }
+
+    .project {
+        min-height: 390px;
+    }
+
+    .auui-card {
+        min-height: 340px;
+    }
+
+    .axes-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -770,6 +1131,33 @@ html[data-theme="light"] .preloader {
         padding: 100px 0;
     }
 
+    .project {
+        min-height: 420px;
+        padding: 28px;
+    }
+
+    .project h3 {
+        font-size: 1.8rem;
+    }
+
+    .project-number {
+        top: 25px;
+        left: 25px;
+    }
+
+    .project-status {
+        top: 25px;
+        right: 25px;
+    }
+
+    .auui-title {
+        font-size: 2.8rem;
+    }
+
+    .auui-card {
+        padding: 30px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -777,6 +1165,20 @@ html[data-theme="light"] .preloader {
 
     .footer-bottom {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .project-status {
+        position: static;
+        display: inline-block;
+        width: fit-content;
+        margin-bottom: auto;
+    }
+
+    .project h3 {
+        margin-top: 40px;
     }
 }
 
@@ -791,6 +1193,7 @@ html[data-theme="light"] .preloader {
 </style>
 
 <!-- Application immédiate du thème -->
+
 <script>
 (function () {
 
@@ -822,7 +1225,9 @@ html[data-theme="light"] .preloader {
 
 <body>
 
-<!-- PRELOADER -->
+<!-- =========================
+     PRELOADER
+========================= -->
 
 <div class="preloader" id="preloader">
 
@@ -833,7 +1238,7 @@ html[data-theme="light"] .preloader {
         </div>
 
         <div class="loader-subtitle">
-            Projets
+            Projets & initiatives
         </div>
 
         <div class="loader-bar">
@@ -849,12 +1254,16 @@ html[data-theme="light"] .preloader {
 
 </div>
 
-<!-- CURSEUR -->
+<!-- =========================
+     CURSEUR
+========================= -->
 
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <header class="nav" id="nav">
 
@@ -945,36 +1354,63 @@ html[data-theme="light"] .preloader {
 
 </header>
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <div class="page-header">
 
     <div class="page-watermark">
-        MORAHEYM'S
+        PROJETS
     </div>
 
     <div class="container">
 
         <div class="section-label reveal">
-            04 — Réalisations
+            05 — Projets & initiatives
         </div>
 
         <h1 class="section-title reveal">
-            Des initiatives
-            <em>marquantes.</em>
+            Des projets pour
+            <em>transformer.</em>
         </h1>
 
     </div>
 
 </div>
 
-<!-- PROJETS -->
+<!-- =========================
+     INTRODUCTION
+========================= -->
 
 <section class="section">
 
     <div class="container">
 
+        <div class="projects-intro reveal">
+
+            <div class="section-label">
+                Notre dynamique
+            </div>
+
+            <p>
+                MORAHEYM’S développe et accompagne des initiatives
+                à l’intersection de l’immobilier, des infrastructures,
+                de l’éducation, de la recherche et du développement
+                des compétences. Notre approche privilégie des projets
+                capables de contribuer durablement au développement
+                des territoires et au renforcement des capacités.
+            </p>
+
+        </div>
+
+        <!-- =========================
+             PROJETS
+        ========================= -->
+
         <div class="projects-grid">
+
+            <!-- PROJET 01 -->
 
             <div class="project reveal">
 
@@ -982,17 +1418,26 @@ html[data-theme="light"] .preloader {
                     PROJET — 01
                 </div>
 
+                <div class="project-status">
+                    Initiative panafricaine
+                </div>
+
                 <h3>
-                    Plateforme Digitale Intégrée
+                    MORAHEYMS — AUUI
                 </h3>
 
                 <p>
-                    Création d'un écosystème numérique
-                    complet pour l'optimisation des flux
-                    de communication interne et externe.
+                    Projet Panafricain de Développement Immobilier
+                    et d’Éducation Internationale MORAHEYMS — AUUI.
+                    Cette initiative vise à articuler développement
+                    immobilier, infrastructures et éducation
+                    internationale, notamment à travers des
+                    partenariats dans l’enseignement supérieur.
                 </p>
 
             </div>
+
+            <!-- PROJET 02 -->
 
             <div class="project reveal">
 
@@ -1000,14 +1445,72 @@ html[data-theme="light"] .preloader {
                     PROJET — 02
                 </div>
 
+                <div class="project-status">
+                    Axe stratégique
+                </div>
+
                 <h3>
-                    Développement Partenarial
+                    Immobilier & Infrastructures
                 </h3>
 
                 <p>
-                    Mise en place d'alliances stratégiques
-                    multisectorielles favorisant
-                    l'innovation ouverte et l'investissement.
+                    MORAHEYM’S inscrit son action dans la promotion
+                    immobilière et le développement d’infrastructures
+                    en Afrique de l’Ouest, avec l’ambition de contribuer
+                    à des projets structurants et adaptés aux besoins
+                    des territoires.
+                </p>
+
+            </div>
+
+            <!-- PROJET 03 -->
+
+            <div class="project reveal">
+
+                <div class="project-number">
+                    PROJET — 03
+                </div>
+
+                <div class="project-status">
+                    Éducation & recherche
+                </div>
+
+                <h3>
+                    Soutien aux projets académiques
+                </h3>
+
+                <p>
+                    À travers ses initiatives, MORAHEYM’S souhaite
+                    contribuer au soutien technique et financier
+                    de projets académiques, de travaux de recherche
+                    et d’actions favorisant le développement
+                    des compétences.
+                </p>
+
+            </div>
+
+            <!-- PROJET 04 -->
+
+            <div class="project reveal">
+
+                <div class="project-number">
+                    PROJET — 04
+                </div>
+
+                <div class="project-status">
+                    Réseau panafricain
+                </div>
+
+                <h3>
+                    Coopération & réseau de chercheurs
+                </h3>
+
+                <p>
+                    Le groupe s’appuie sur une dynamique panafricaine
+                    réunissant des chercheurs qualifiés de différentes
+                    nationalités afin de favoriser les échanges,
+                    les collaborations universitaires et la mise
+                    en relation autour de projets académiques.
                 </p>
 
             </div>
@@ -1018,13 +1521,179 @@ html[data-theme="light"] .preloader {
 
 </section>
 
-<!-- FOOTER -->
+<!-- =========================
+     AUUI
+========================= -->
+
+<section class="section auui-section">
+
+    <div class="container">
+
+        <div class="auui-layout">
+
+            <div class="reveal">
+
+                <div class="auui-label">
+                    Projet panafricain structurant
+                </div>
+
+                <h2 class="auui-title">
+                    MORAHEYMS —
+                    <span>AUUI</span>
+                </h2>
+
+                <p class="auui-text">
+                    Le <strong>Projet Panafricain de Développement
+                    Immobilier et d’Éducation Internationale
+                    MORAHEYMS — AUUI</strong> constitue une initiative
+                    majeure portée par le groupe.
+                </p>
+
+                <p class="auui-text">
+                    Il vise à créer des synergies entre le développement
+                    immobilier, les infrastructures et l’éducation
+                    internationale, tout en favorisant les partenariats
+                    avec les institutions d’enseignement supérieur,
+                    les chercheurs et les acteurs du développement.
+                </p>
+
+            </div>
+
+            <div class="auui-card reveal">
+
+                <div>
+
+                    <div class="auui-card-label">
+                        Une ambition panafricaine
+                    </div>
+
+                    <h3>
+                        Relier les infrastructures,
+                        le savoir et les compétences.
+                    </h3>
+
+                    <p>
+                        L’initiative AUUI s’inscrit dans une démarche
+                        de coopération et vise notamment à apporter
+                        un appui technique et financier aux étudiants,
+                        chercheurs et projets académiques.
+                    </p>
+
+                </div>
+
+                <div class="auui-card-label">
+                    MORAHEYM’S · AUUI
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CHAMPS D'ACTION
+========================= -->
+
+<section class="section axes-section">
+
+    <div class="container">
+
+        <div class="axes-header reveal">
+
+            <div class="section-label">
+                Nos champs d’action
+            </div>
+
+            <p>
+                Nos projets s’inscrivent dans plusieurs domaines
+                complémentaires afin de favoriser une approche
+                intégrée du développement.
+            </p>
+
+        </div>
+
+        <div class="axes-grid">
+
+            <!-- AXE 01 -->
+
+            <div class="axis reveal">
+
+                <div class="axis-number">
+                    01 — IMMOBILIER
+                </div>
+
+                <h3>
+                    Promotion immobilière
+                </h3>
+
+                <p>
+                    Développement et promotion de projets immobiliers
+                    participant à la transformation durable des
+                    territoires.
+                </p>
+
+            </div>
+
+            <!-- AXE 02 -->
+
+            <div class="axis reveal">
+
+                <div class="axis-number">
+                    02 — INFRASTRUCTURES
+                </div>
+
+                <h3>
+                    Développement des infrastructures
+                </h3>
+
+                <p>
+                    Contribution à des projets d’infrastructures
+                    répondant aux besoins de développement en
+                    Afrique de l’Ouest.
+                </p>
+
+            </div>
+
+            <!-- AXE 03 -->
+
+            <div class="axis reveal">
+
+                <div class="axis-number">
+                    03 — ÉDUCATION
+                </div>
+
+                <h3>
+                    Éducation & compétences
+                </h3>
+
+                <p>
+                    Soutien aux initiatives liées à l’enseignement
+                    supérieur, à la recherche, au renforcement
+                    des capacités et au développement des compétences.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer class="footer">
 
     <div class="container">
 
         <div class="footer-grid">
+
+            <!-- DESCRIPTION -->
 
             <div>
 
@@ -1034,10 +1703,15 @@ html[data-theme="light"] .preloader {
                 </div>
 
                 <p class="footer-description">
-                    Excellence, innovation et impact.
+                    MORAHEYM’S développe des projets immobiliers,
+                    des infrastructures et des initiatives dans
+                    l’éducation, la recherche et le développement
+                    des compétences en Afrique.
                 </p>
 
             </div>
+
+            <!-- NAVIGATION -->
 
             <div>
 
@@ -1067,9 +1741,45 @@ html[data-theme="light"] .preloader {
                         Projets
                     </a>
 
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
                 </div>
 
             </div>
+
+            <!-- DOMAINES -->
+
+            <div>
+
+                <div class="footer-heading">
+                    Nos domaines
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="expertise.html">
+                        Immobilier & Construction
+                    </a>
+
+                    <a href="expertise.html">
+                        Infrastructures
+                    </a>
+
+                    <a href="expertise.html">
+                        Éducation & Recherche
+                    </a>
+
+                    <a href="expertise.html">
+                        Développement des compétences
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT -->
 
             <div>
 
@@ -1083,20 +1793,12 @@ html[data-theme="light"] .preloader {
                         Nous contacter
                     </a>
 
-                </div>
+                    <a href="mailto:moraheyms@gmail.com">
+                        moraheyms@gmail.com
+                    </a>
 
-            </div>
-
-            <div>
-
-                <div class="footer-heading">
-                    Réseaux
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="#">
-                        LinkedIn
+                    <a href="projets.html">
+                        Découvrir nos projets
                     </a>
 
                 </div>
@@ -1113,7 +1815,8 @@ html[data-theme="light"] .preloader {
             </span>
 
             <span>
-                Excellence · Innovation · Impact
+                Immobilier · Infrastructures ·
+                Éducation · Recherche
             </span>
 
         </div>
@@ -1126,7 +1829,6 @@ html[data-theme="light"] .preloader {
 
 /* =========================================================
    THEME TOGGLE
-   Partagé par toutes les pages
 ========================================================= */
 
 (function () {
@@ -1171,16 +1873,6 @@ html[data-theme="light"] .preloader {
             (isLight ? "☀" : "☾") +
             "</span>";
     }
-
-    /*
-       Position du bouton :
-
-       PC :
-       nav-inner → après Contact
-
-       Tablette/mobile :
-       nav-links → sous Contact
-    */
 
     function positionThemeButton() {
 
@@ -1447,7 +2139,7 @@ menuButton.addEventListener(
 );
 
 
-/* Fermer le menu après clic sur un lien */
+/* Fermer le menu après clic */
 
 document
     .querySelectorAll(
