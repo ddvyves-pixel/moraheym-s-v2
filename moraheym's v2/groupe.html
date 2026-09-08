@@ -3,30 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Le Groupe — GROUPE MORAHEYM'S</title>
-<meta name="description" content="Découvrez l'histoire, la structure et la mission du GROUPE MORAHEYM'S.">
+
+<meta name="description" content="Découvrez GROUPE MORAHEYM'S, ses activités dans l'immobilier, la construction, les infrastructures, l'éducation, la recherche et le développement des compétences en Afrique.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
 
 <style>
 
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root {
+
     --black: #070908;
     --black-soft: #0d110f;
     --black-card: #111714;
+
     --cream: #f4f0e6;
     --cream-soft: #c9c5ba;
+
     --gold: #c9a45d;
     --gold-light: #e4c986;
+
     --green: #183b2e;
     --green-light: #2c604b;
+
     --line: rgba(244,240,230,.12);
 
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -40,11 +58,17 @@ html {
 }
 
 body {
+
     background: var(--black);
     color: var(--cream);
+
     font-family: var(--sans);
+
     overflow-x: hidden;
-    transition: background-color .35s ease, color .35s ease;
+
+    transition:
+        background-color .35s ease,
+        color .35s ease;
 }
 
 a {
@@ -57,6 +81,7 @@ button {
 }
 
 ::selection {
+
     background: var(--gold);
     color: var(--black);
 }
@@ -67,14 +92,21 @@ button {
 ========================================================= */
 
 body::before {
+
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
+
     z-index: 9998;
+
     opacity: .035;
 
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
 
@@ -83,36 +115,60 @@ body::before {
 ========================================================= */
 
 .cursor-dot {
+
     position: fixed;
+
     width: 7px;
     height: 7px;
+
     border-radius: 50%;
+
     background: var(--gold);
+
     pointer-events: none;
+
     z-index: 10001;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%, -50%);
 }
 
+
 .cursor-ring {
+
     position: fixed;
+
     width: 38px;
     height: 38px;
-    border: 1px solid rgba(201,164,93,.7);
+
+    border:
+        1px solid
+        rgba(201,164,93,.7);
+
     border-radius: 50%;
+
     pointer-events: none;
+
     z-index: 10000;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%, -50%);
 
     transition:
+
         width .3s ease,
         height .3s ease,
         background .3s ease;
 }
 
+
 .cursor-ring.active {
+
     width: 65px;
     height: 65px;
-    background: rgba(201,164,93,.08);
+
+    background:
+        rgba(201,164,93,.08);
 }
 
 
@@ -121,56 +177,92 @@ body::before {
 ========================================================= */
 
 .preloader {
+
     position: fixed;
+
     inset: 0;
+
     background: var(--black);
+
     z-index: 20000;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     transition:
+
         opacity .9s ease,
         visibility .9s ease;
 }
 
+
 .preloader.hide {
+
     opacity: 0;
+
     visibility: hidden;
 }
 
+
 .loader {
+
     text-align: center;
 }
 
+
 .loader-logo {
+
     font-family: var(--serif);
-    font-size: clamp(2rem, 5vw, 4rem);
+
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
     letter-spacing: .16em;
 }
 
+
 .loader-subtitle {
+
     margin-top: 12px;
+
     font-size: .6rem;
+
     letter-spacing: .35em;
+
     text-transform: uppercase;
+
     color: var(--gold);
 }
 
+
 .loader-bar {
+
     width: 220px;
+
     height: 1px;
-    background: rgba(255,255,255,.1);
-    margin: 35px auto 0;
+
+    background:
+        rgba(255,255,255,.1);
+
+    margin:
+        35px auto 0;
+
     overflow: hidden;
 }
 
+
 .loader-progress {
+
     width: 0;
+
     height: 100%;
+
     background: var(--gold);
-    transition: width 1.2s ease;
+
+    transition:
+        width 1.2s ease;
 }
 
 
@@ -179,29 +271,47 @@ body::before {
 ========================================================= */
 
 .nav {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     z-index: 5000;
 
     transition:
+
         background .4s ease,
         border-color .4s ease;
 }
 
+
 .nav.scrolled {
-    background: rgba(7,9,8,.82);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--line);
+
+    background:
+        rgba(7,9,8,.82);
+
+    backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid var(--line);
 }
 
+
 .nav-inner {
-    width: min(1450px, 92%);
+
+    width:
+        min(1450px, 92%);
+
     min-height: 104px;
+
     margin: auto;
 
     display: flex;
+
     align-items: center;
 }
 
@@ -211,94 +321,134 @@ body::before {
 ========================================================= */
 
 .brand-logo {
+
     display: flex;
+
     align-items: center;
+
     height: 100%;
+
     text-decoration: none;
 
-    /* Logo complètement à gauche */
     margin-right: auto;
 }
 
+
 .logo-img {
+
     height: 88px;
+
     width: auto;
+
     object-fit: contain;
+
     display: block;
 
-    transition: opacity .3s ease;
+    transition:
+        opacity .3s ease;
 }
 
+
 .logo-img:hover {
+
     opacity: .85;
 }
 
+
 .brand-logo-fallback {
+
     font-family: var(--serif);
+
     font-size: 1.4rem;
+
     letter-spacing: .1em;
+
     color: var(--cream);
+
     display: none;
 }
 
+
 .brand-logo-fallback span {
+
     color: var(--gold);
 }
 
 
 /* =========================================================
-   NAVIGATION — COMPLÈTEMENT À DROITE
+   NAVIGATION — DROITE
 ========================================================= */
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
+
     gap: 31px;
 
-    /* pousse tous les boutons vers la droite */
     margin-left: auto;
 }
 
+
 .nav-links a {
+
     position: relative;
 
     font-size: .65rem;
+
     letter-spacing: .14em;
+
     text-transform: uppercase;
 
     color: var(--cream-soft);
 
-    transition: color .3s ease;
+    transition:
+        color .3s ease;
 }
 
+
 .nav-links a::after {
+
     content: "";
 
     position: absolute;
+
     left: 0;
+
     bottom: -8px;
 
     width: 0;
+
     height: 1px;
 
     background: var(--gold);
 
-    transition: width .3s ease;
+    transition:
+        width .3s ease;
 }
 
+
 .nav-links a:hover {
+
     color: var(--cream);
 }
 
+
 .nav-links a:hover::after {
+
     width: 100%;
 }
 
+
 .nav-links a.active {
+
     color: var(--gold);
 }
 
+
 .nav-links a.active::after {
+
     width: 100%;
 }
 
@@ -308,11 +458,15 @@ body::before {
 ========================================================= */
 
 .nav-news {
+
     color: var(--gold) !important;
+
     font-weight: 600;
 }
 
+
 .nav-news::before {
+
     content: "";
 
     display: inline-block;
@@ -325,21 +479,31 @@ body::before {
     border-radius: 50%;
 
     background: var(--gold);
-    box-shadow: 0 0 10px var(--gold);
 
-    animation: newsPulse 2s ease-in-out infinite;
+    box-shadow:
+        0 0 10px var(--gold);
+
+    animation:
+        newsPulse 2s ease-in-out infinite;
 }
+
 
 @keyframes newsPulse {
 
     0%, 100% {
+
         opacity: .35;
-        transform: scale(.8);
+
+        transform:
+            scale(.8);
     }
 
     50% {
+
         opacity: 1;
-        transform: scale(1.2);
+
+        transform:
+            scale(1.2);
     }
 }
 
@@ -349,25 +513,34 @@ body::before {
 ========================================================= */
 
 .nav-cta {
-    border: 1px solid var(--gold);
-    padding: 12px 18px;
 
-    color: var(--gold) !important;
+    border:
+        1px solid var(--gold);
+
+    padding:
+        12px 18px;
+
+    color:
+        var(--gold) !important;
 }
 
+
 .nav-cta::after {
+
     display: none;
 }
 
 
 /* =========================================================
-   BOUTON BURGER
+   BURGER
 ========================================================= */
 
 .menu-button {
+
     display: none;
 
     border: 0;
+
     background: none;
 
     color: var(--cream);
@@ -389,6 +562,7 @@ body::before {
 ========================================================= */
 
 .theme-toggle {
+
     flex: 0 0 auto;
 
     width: 44px;
@@ -396,39 +570,57 @@ body::before {
 
     margin-left: 22px;
 
-    border: 1px solid var(--line);
+    border:
+        1px solid var(--line);
+
     border-radius: 50%;
 
-    background: var(--black-card);
-    color: var(--cream);
+    background:
+        var(--black-card);
+
+    color:
+        var(--cream);
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
 
     font-size: 1.05rem;
+
     line-height: 1;
 
-    transition: all .3s ease;
+    transition:
+        all .3s ease;
 
     position: relative;
+
     z-index: 20;
 }
 
+
 .theme-toggle:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+
+    border-color:
+        var(--gold);
+
+    color:
+        var(--gold);
 
     transform:
         rotate(12deg)
         scale(1.05);
 }
 
+
 .theme-toggle .theme-icon {
+
     display: block;
-    transition: transform .3s ease;
+
+    transition:
+        transform .3s ease;
 }
 
 
@@ -437,40 +629,60 @@ body::before {
 ========================================================= */
 
 .container {
-    width: min(1450px, 92%);
+
+    width:
+        min(1450px, 92%);
+
     margin: auto;
 }
 
+
 .section {
-    padding: 140px 0;
+
+    padding:
+        140px 0;
+
     position: relative;
 }
 
+
 .section-label {
+
     display: flex;
+
     align-items: center;
+
     gap: 14px;
 
     color: var(--gold);
 
     font-size: .62rem;
+
     letter-spacing: .24em;
+
     text-transform: uppercase;
 }
 
+
 .section-label::before {
+
     content: "";
 
     width: 38px;
+
     height: 1px;
 
     background: var(--gold);
 }
 
-.section-title {
-    font-family: var(--serif);
 
-    font-size: clamp(3rem, 6vw, 6.5rem);
+.section-title {
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(3rem, 6vw, 6.5rem);
 
     font-weight: 400;
 
@@ -479,57 +691,83 @@ body::before {
     letter-spacing: -.045em;
 }
 
+
 .section-title em {
-    color: var(--gold);
+
+    color:
+        var(--gold);
+
     font-style: italic;
 }
 
+
 .reveal {
+
     opacity: 0;
 
-    transform: translateY(55px);
+    transform:
+        translateY(55px);
 
     transition:
-        opacity 1s cubic-bezier(.16,1,.3,1),
-        transform 1s cubic-bezier(.16,1,.3,1);
+
+        opacity 1s
+        cubic-bezier(.16,1,.3,1),
+
+        transform 1s
+        cubic-bezier(.16,1,.3,1);
 }
 
+
 .reveal.show {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 
 /* =========================================================
-   PAGE HEADER
+   HEADER
 ========================================================= */
 
 .page-header {
-    padding: 180px 0 80px;
 
-    background: var(--black-soft);
+    padding:
+        180px 0 80px;
 
-    border-bottom: 1px solid var(--line);
+    background:
+        var(--black-soft);
+
+    border-bottom:
+        1px solid var(--line);
 
     position: relative;
+
     overflow: hidden;
 }
 
+
 .page-watermark {
+
     position: absolute;
 
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-    font-family: var(--serif);
+    font-family:
+        var(--serif);
 
-    font-size: clamp(5rem, 12vw, 13rem);
+    font-size:
+        clamp(5rem, 12vw, 13rem);
 
     font-weight: 700;
 
-    color: var(--cream);
+    color:
+        var(--cream);
 
     opacity: .05;
 
@@ -544,65 +782,503 @@ body::before {
     user-select: none;
 }
 
+
 .page-header .container {
+
     position: relative;
+
     z-index: 1;
 }
 
 
 /* =========================================================
-   SECTION À PROPOS
+   SECTION PRÉSENTATION
 ========================================================= */
 
 .about {
-    background: var(--cream);
-    color: var(--black);
+
+    background:
+        var(--cream);
+
+    color:
+        var(--black);
 }
 
+
 .about-grid {
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 100px;
 
     align-items: center;
 }
 
+
 .about .section-label {
-    color: var(--green);
+
+    color:
+        var(--green);
 }
+
 
 .about .section-label::before {
-    background: var(--green);
+
+    background:
+        var(--green);
 }
+
 
 .about-copy {
-    color: #555;
 
-    line-height: 1.9;
+    color:
+        #555;
+
+    line-height:
+        1.9;
 }
+
 
 .about-copy + .about-copy {
-    margin-top: 22px;
+
+    margin-top:
+        22px;
 }
+
 
 .about-highlight {
-    margin-top: 40px;
 
-    padding: 28px 0 0;
+    margin-top:
+        40px;
 
-    border-top: 1px solid rgba(0,0,0,.15);
+    padding:
+        28px 0 0;
 
-    font-family: var(--serif);
+    border-top:
+        1px solid rgba(0,0,0,.15);
 
-    font-size: 1.55rem;
+    font-family:
+        var(--serif);
 
-    line-height: 1.3;
+    font-size:
+        1.55rem;
+
+    line-height:
+        1.3;
 }
 
+
 .about-highlight em {
-    color: var(--green);
+
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   AXES DU GROUPE
+========================================================= */
+
+.axes {
+
+    background:
+        var(--black);
+}
+
+
+.axes-intro {
+
+    max-width:
+        760px;
+
+    margin-top:
+        28px;
+
+    color:
+        var(--cream-soft);
+
+    line-height:
+        1.9;
+
+    font-size:
+        1rem;
+}
+
+
+.axes-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        22px;
+
+    margin-top:
+        75px;
+}
+
+
+.axis-card {
+
+    background:
+        var(--black-card);
+
+    border:
+        1px solid var(--line);
+
+    padding:
+        45px 35px;
+
+    min-height:
+        310px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
+}
+
+
+.axis-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(201,164,93,.45);
+}
+
+
+.axis-number {
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        3rem;
+
+    color:
+        rgba(201,164,93,.35);
+
+    line-height:
+        1;
+}
+
+
+.axis-card h3 {
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        1.65rem;
+
+    font-weight:
+        400;
+
+    margin-top:
+        35px;
+
+    color:
+        var(--cream);
+}
+
+
+.axis-card p {
+
+    margin-top:
+        18px;
+
+    color:
+        var(--cream-soft);
+
+    font-size:
+        .86rem;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   PROJET AUUI
+========================================================= */
+
+.auui {
+
+    background:
+        var(--green);
+
+    color:
+        var(--cream);
+}
+
+
+.auui-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap:
+        80px;
+
+    align-items:
+        center;
+}
+
+
+.auui .section-label {
+
+    color:
+        var(--gold-light);
+}
+
+
+.auui .section-label::before {
+
+    background:
+        var(--gold-light);
+}
+
+
+.auui-title {
+
+    margin-top:
+        25px;
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(2.8rem, 5vw, 5.5rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -.04em;
+}
+
+
+.auui-title span {
+
+    color:
+        var(--gold-light);
+
+    font-style:
+        italic;
+}
+
+
+.auui-copy {
+
+    margin-top:
+        30px;
+
+    color:
+        rgba(244,240,230,.78);
+
+    line-height:
+        1.9;
+
+    max-width:
+        720px;
+}
+
+
+.auui-card {
+
+    border:
+        1px solid rgba(244,240,230,.18);
+
+    padding:
+        40px;
+
+    background:
+        rgba(0,0,0,.12);
+}
+
+
+.auui-card-label {
+
+    color:
+        var(--gold-light);
+
+    font-size:
+        .58rem;
+
+    letter-spacing:
+        .2em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.auui-card h3 {
+
+    margin-top:
+        18px;
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        1.8rem;
+
+    font-weight:
+        400;
+}
+
+
+.auui-card p {
+
+    margin-top:
+        18px;
+
+    color:
+        rgba(244,240,230,.72);
+
+    font-size:
+        .84rem;
+
+    line-height:
+        1.85;
+}
+
+
+/* =========================================================
+   RAYONNEMENT
+========================================================= */
+
+.network {
+
+    background:
+        var(--cream);
+
+    color:
+        var(--black);
+}
+
+
+.network-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        100px;
+
+    align-items:
+        center;
+}
+
+
+.network .section-label {
+
+    color:
+        var(--green);
+}
+
+
+.network .section-label::before {
+
+    background:
+        var(--green);
+}
+
+
+.network-copy {
+
+    color:
+        #555;
+
+    line-height:
+        1.9;
+}
+
+
+.network-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        20px;
+}
+
+
+.network-item {
+
+    padding:
+        25px 0;
+
+    border-bottom:
+        1px solid rgba(0,0,0,.14);
+}
+
+
+.network-item:first-child {
+
+    border-top:
+        1px solid rgba(0,0,0,.14);
+}
+
+
+.network-item strong {
+
+    display:
+        block;
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        1.25rem;
+
+    font-weight:
+        400;
+
+    color:
+        var(--green);
+}
+
+
+.network-item span {
+
+    display:
+        block;
+
+    margin-top:
+        8px;
+
+    color:
+        #666;
+
+    font-size:
+        .82rem;
+
+    line-height:
+        1.7;
 }
 
 
@@ -611,186 +1287,274 @@ body::before {
 ========================================================= */
 
 .footer {
-    background: #050706;
 
-    border-top: 1px solid var(--line);
+    background:
+        #050706;
 
-    padding: 75px 0 30px;
+    border-top:
+        1px solid var(--line);
+
+    padding:
+        75px 0 30px;
 }
 
+
 .footer-grid {
-    display: grid;
+
+    display:
+        grid;
 
     grid-template-columns:
         1.8fr 1fr 1fr 1fr;
 
-    gap: 50px;
+    gap:
+        50px;
 
-    padding-bottom: 65px;
+    padding-bottom:
+        65px;
 }
+
 
 .footer-logo {
-    font-family: var(--serif);
 
-    font-size: 2rem;
+    font-family:
+        var(--serif);
 
-    letter-spacing: .08em;
+    font-size:
+        2rem;
+
+    letter-spacing:
+        .08em;
 }
+
 
 .footer-logo span {
-    color: var(--gold);
+
+    color:
+        var(--gold);
 }
+
 
 .footer-description {
-    max-width: 390px;
 
-    margin-top: 18px;
+    max-width:
+        390px;
 
-    color: #707570;
+    margin-top:
+        18px;
 
-    font-size: .82rem;
+    color:
+        #707570;
 
-    line-height: 1.8;
+    font-size:
+        .82rem;
+
+    line-height:
+        1.8;
 }
+
 
 .footer-heading {
-    margin-bottom: 20px;
 
-    color: var(--gold);
+    margin-bottom:
+        20px;
 
-    font-size: .58rem;
+    color:
+        var(--gold);
 
-    letter-spacing: .2em;
+    font-size:
+        .58rem;
 
-    text-transform: uppercase;
+    letter-spacing:
+        .2em;
+
+    text-transform:
+        uppercase;
 }
+
 
 .footer-links {
-    display: flex;
 
-    flex-direction: column;
+    display:
+        flex;
 
-    gap: 12px;
+    flex-direction:
+        column;
+
+    gap:
+        12px;
 }
+
 
 .footer-links a {
-    color: #9a9d99;
 
-    font-size: .78rem;
+    color:
+        #9a9d99;
 
-    transition: color .25s ease;
+    font-size:
+        .78rem;
+
+    transition:
+        color .25s ease;
 }
+
 
 .footer-links a:hover {
-    color: var(--cream);
+
+    color:
+        var(--cream);
 }
 
+
 .footer-bottom {
-    padding-top: 25px;
 
-    border-top: 1px solid var(--line);
+    padding-top:
+        25px;
 
-    display: flex;
+    border-top:
+        1px solid var(--line);
 
-    justify-content: space-between;
+    display:
+        flex;
 
-    gap: 20px;
+    justify-content:
+        space-between;
 
-    color: #5e625f;
+    gap:
+        20px;
 
-    font-size: .58rem;
+    color:
+        #5e625f;
 
-    letter-spacing: .08em;
+    font-size:
+        .58rem;
+
+    letter-spacing:
+        .08em;
 }
 
 
 /* =========================================================
-   RESPONSIVE TABLETTE / MOBILE
+   TABLETTE
 ========================================================= */
 
 @media (max-width: 1050px) {
 
     .nav-inner {
-        width: 92%;
+
+        width:
+            92%;
     }
 
-
-    /* Burger complètement à droite */
 
     .menu-button {
-        display: block;
 
-        margin-left: auto;
+        display:
+            block;
 
-        order: 3;
+        margin-left:
+            auto;
+
+        order:
+            3;
     }
 
-
-    /*
-       MENU BURGER
-       Le bouton thème sera déplacé
-       automatiquement à l'intérieur.
-    */
 
     .nav-links {
-        position: fixed;
 
-        top: 104px;
-        left: 0;
+        position:
+            fixed;
 
-        width: 100%;
+        top:
+            104px;
 
-        padding: 35px 4% 40px;
+        left:
+            0;
 
-        background: rgba(7,9,8,.98);
+        width:
+            100%;
 
-        backdrop-filter: blur(20px);
+        padding:
+            35px 4% 40px;
 
-        border-bottom: 1px solid var(--line);
+        background:
+            rgba(7,9,8,.98);
 
-        display: flex;
+        backdrop-filter:
+            blur(20px);
 
-        flex-direction: column;
+        border-bottom:
+            1px solid var(--line);
 
-        align-items: flex-start;
+        display:
+            flex;
 
-        gap: 25px;
+        flex-direction:
+            column;
 
-        transform: translateY(-150%);
+        align-items:
+            flex-start;
 
-        transition: transform .45s ease;
+        gap:
+            25px;
 
-        margin-left: 0;
+        transform:
+            translateY(-150%);
+
+        transition:
+            transform .45s ease;
+
+        margin-left:
+            0;
     }
+
 
     .nav-links.open {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
-
-    /*
-       BOUTON THÈME
-       Placé sous Contact.
-    */
 
     .nav-links .theme-toggle {
-        display: inline-flex;
 
-        margin: 3px 0 0 0;
+        display:
+            inline-flex;
 
-        width: 42px;
-        height: 42px;
+        margin:
+            3px 0 0 0;
+
+        width:
+            42px;
+
+        height:
+            42px;
     }
 
 
-    .about-grid {
-        grid-template-columns: 1fr;
+    .about-grid,
+    .network-grid,
+    .auui-grid {
 
-        gap: 50px;
+        grid-template-columns:
+            1fr;
+
+        gap:
+            50px;
     }
+
+
+    .axes-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
 
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns:
+            1fr 1fr;
     }
 }
 
@@ -800,192 +1564,305 @@ body::before {
 ========================================================= */
 
 html[data-theme="light"] {
-    color-scheme: light;
+
+    color-scheme:
+        light;
 }
+
 
 html[data-theme="light"] body {
 
-    --black: #f5f2ea;
-    --black-soft: #ece8de;
-    --black-card: #ffffff;
+    --black:
+        #f5f2ea;
 
-    --cream: #171a17;
-    --cream-soft: #59605a;
+    --black-soft:
+        #ece8de;
 
-    --gold: #9a762d;
-    --gold-light: #b28d3c;
+    --black-card:
+        #ffffff;
 
-    --green: #dce8df;
-    --green-light: #bfd5c5;
+    --cream:
+        #171a17;
 
-    --line: rgba(23,26,23,.13);
+    --cream-soft:
+        #59605a;
 
-    background: var(--black);
-    color: var(--cream);
+    --gold:
+        #9a762d;
+
+    --gold-light:
+        #b28d3c;
+
+    --green:
+        #dce8df;
+
+    --green-light:
+        #bfd5c5;
+
+    --line:
+        rgba(23,26,23,.13);
+
+    background:
+        var(--black);
+
+    color:
+        var(--cream);
 }
+
 
 html[data-theme="light"] .theme-toggle {
-    background: #fff;
 
-    color: #171a17;
+    background:
+        #fff;
 
-    border-color: rgba(23,26,23,.18);
-}
-
-html[data-theme="light"] .nav {
-    background: rgba(245,242,234,.88);
-
-    border-bottom-color:
-        rgba(23,26,23,.10);
-}
-
-html[data-theme="light"] .nav.scrolled {
-    background: rgba(245,242,234,.90);
-}
-
-html[data-theme="light"] .nav-links {
-    background: rgba(245,242,234,.98);
-}
-
-html[data-theme="light"] .nav-links a {
-    color: #303630;
-}
-
-html[data-theme="light"] .nav-links a:hover {
-    color: var(--gold);
-}
-
-html[data-theme="light"] .nav-links .active {
-    color: var(--gold) !important;
-}
-
-html[data-theme="light"] .menu-button {
-    color: #171a17;
-}
-
-html[data-theme="light"] .footer {
-    background: #e8e4da;
-}
-
-html[data-theme="light"] .preview-card,
-html[data-theme="light"] .value-card,
-html[data-theme="light"] .project-card,
-html[data-theme="light"] .contact-box,
-html[data-theme="light"] .timeline-content {
-    background: rgba(255,255,255,.72);
-}
-
-html[data-theme="light"] .marquee {
-    background: #171a17;
-
-    color: #f5f2ea;
-}
-
-html[data-theme="light"] .newsletter {
-    background: #e8e4da;
-}
-
-html[data-theme="light"] .latest {
-    background: #f5f2ea;
-}
-
-html[data-theme="light"] .featured-content,
-html[data-theme="light"] .news-content {
-    background: #fff;
-}
-
-html[data-theme="light"] .news-image {
-    filter:
-        brightness(1.06)
-        saturate(.9);
-}
-
-html[data-theme="light"] .page-header,
-html[data-theme="light"] .hero,
-html[data-theme="light"] .section,
-html[data-theme="light"] .vision,
-html[data-theme="light"] .timeline-section,
-html[data-theme="light"] .contact {
-    background-color: var(--black);
-}
-
-html[data-theme="light"] .footer-description,
-html[data-theme="light"] .footer-links a,
-html[data-theme="light"] .footer-bottom {
-    color: #626860;
-}
-
-html[data-theme="light"] input,
-html[data-theme="light"] textarea,
-html[data-theme="light"] select {
-    background: #fff;
-
-    color: #171a17;
+    color:
+        #171a17;
 
     border-color:
         rgba(23,26,23,.18);
 }
 
+
+html[data-theme="light"] .nav {
+
+    background:
+        rgba(245,242,234,.88);
+
+    border-bottom-color:
+        rgba(23,26,23,.10);
+}
+
+
+html[data-theme="light"] .nav.scrolled {
+
+    background:
+        rgba(245,242,234,.90);
+}
+
+
+html[data-theme="light"] .nav-links {
+
+    background:
+        rgba(245,242,234,.98);
+}
+
+
+html[data-theme="light"] .nav-links a {
+
+    color:
+        #303630;
+}
+
+
+html[data-theme="light"] .nav-links a:hover {
+
+    color:
+        var(--gold);
+}
+
+
+html[data-theme="light"] .nav-links .active {
+
+    color:
+        var(--gold) !important;
+}
+
+
+html[data-theme="light"] .menu-button {
+
+    color:
+        #171a17;
+}
+
+
+html[data-theme="light"] .footer {
+
+    background:
+        #e8e4da;
+}
+
+
+html[data-theme="light"] .footer-description,
+html[data-theme="light"] .footer-links a,
+html[data-theme="light"] .footer-bottom {
+
+    color:
+        #626860;
+}
+
+
 html[data-theme="light"] .preloader {
-    background: #f5f2ea;
-    color: #171a17;
+
+    background:
+        #f5f2ea;
+
+    color:
+        #171a17;
+}
+
+
+html[data-theme="light"] .axes {
+
+    background:
+        #f5f2ea;
+}
+
+
+html[data-theme="light"] .axis-card {
+
+    background:
+        #ffffff;
+
+    border-color:
+        rgba(23,26,23,.12);
+}
+
+
+html[data-theme="light"] .axis-card h3 {
+
+    color:
+        #171a17;
+}
+
+
+html[data-theme="light"] .axis-card p {
+
+    color:
+        #626860;
+}
+
+
+html[data-theme="light"] .auui {
+
+    background:
+        #183b2e;
+
+    color:
+        #f4f0e6;
+}
+
+
+html[data-theme="light"] .network {
+
+    background:
+        #f5f2ea;
 }
 
 
 /* =========================================================
-   PETITS ÉCRANS
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
 
     .nav-inner {
-        width: 92%;
 
-        min-height: 90px;
+        width:
+            92%;
+
+        min-height:
+            90px;
     }
+
 
     .logo-img {
-        height: 70px;
+
+        height:
+            70px;
     }
 
+
     .nav-links {
-        top: 90px;
+
+        top:
+            90px;
 
         padding:
             30px 6% 35px;
 
-        gap: 22px;
+        gap:
+            22px;
     }
+
 
     .nav-links .theme-toggle {
-        margin-top: 3px;
 
-        width: 40px;
-        height: 40px;
+        margin-top:
+            3px;
+
+        width:
+            40px;
+
+        height:
+            40px;
     }
+
 
     .menu-button {
-        font-size: 1.45rem;
 
-        padding-right: 0;
+        font-size:
+            1.45rem;
+
+        padding-right:
+            0;
     }
+
 
     .page-header {
-        padding-top: 150px;
+
+        padding-top:
+            150px;
     }
+
 
     .section {
-        padding: 100px 0;
+
+        padding:
+            100px 0;
     }
+
+
+    .axes-grid {
+
+        grid-template-columns:
+            1fr;
+
+        margin-top:
+            50px;
+    }
+
+
+    .axis-card {
+
+        min-height:
+            auto;
+
+        padding:
+            35px 28px;
+    }
+
+
+    .auui-card {
+
+        padding:
+            30px 25px;
+    }
+
 
     .footer-grid {
-        grid-template-columns: 1fr;
 
-        gap: 40px;
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
     }
 
+
     .footer-bottom {
-        flex-direction: column;
+
+        flex-direction:
+            column;
     }
 }
 
@@ -998,7 +1875,9 @@ html[data-theme="light"] .preloader {
 
     .cursor-dot,
     .cursor-ring {
-        display: none;
+
+        display:
+            none;
     }
 }
 
@@ -1010,21 +1889,28 @@ html[data-theme="light"] .preloader {
 ========================================================= -->
 
 <script>
+
 (function () {
 
     try {
 
         const saved =
-            localStorage.getItem("moraheyms-theme");
+            localStorage.getItem(
+                "moraheyms-theme"
+            );
 
         document.documentElement.setAttribute(
+
             "data-theme",
+
             saved === "light"
                 ? "light"
                 : "dark"
         );
 
-    } catch (e) {
+    }
+
+    catch (e) {
 
         document.documentElement.setAttribute(
             "data-theme",
@@ -1034,6 +1920,7 @@ html[data-theme="light"] .preloader {
     }
 
 })();
+
 </script>
 
 </head>
@@ -1046,7 +1933,10 @@ html[data-theme="light"] .preloader {
      PRELOADER
 ========================================================= -->
 
-<div class="preloader" id="preloader">
+<div
+    class="preloader"
+    id="preloader"
+>
 
     <div class="loader">
 
@@ -1062,8 +1952,8 @@ html[data-theme="light"] .preloader {
 
             <div
                 class="loader-progress"
-                id="loaderProgress">
-            </div>
+                id="loaderProgress"
+            ></div>
 
         </div>
 
@@ -1077,6 +1967,7 @@ html[data-theme="light"] .preloader {
 ========================================================= -->
 
 <div class="cursor-dot"></div>
+
 <div class="cursor-ring"></div>
 
 
@@ -1084,7 +1975,10 @@ html[data-theme="light"] .preloader {
      NAVIGATION
 ========================================================= -->
 
-<header class="nav" id="nav">
+<header
+    class="nav"
+    id="nav"
+>
 
     <div class="nav-inner">
 
@@ -1111,7 +2005,8 @@ html[data-theme="light"] .preloader {
                 id="logoFallback"
                 class="brand-logo-fallback"
             >
-                GROUPE <span>MORAHEYM'S</span>
+                GROUPE
+                <span>MORAHEYM'S</span>
             </span>
 
         </a>
@@ -1190,12 +2085,13 @@ html[data-theme="light"] .preloader {
     <div class="container">
 
         <div class="section-label reveal">
-            01 — À Propos
+            01 — Le Groupe
         </div>
 
         <h1 class="section-title reveal">
-            Notre histoire &amp;
-            <em>structure.</em>
+            Construire,
+            <em>développer</em>
+            et transmettre.
         </h1>
 
     </div>
@@ -1204,7 +2100,7 @@ html[data-theme="light"] .preloader {
 
 
 <!-- =========================================================
-     SECTION À PROPOS
+     PRÉSENTATION DU GROUPE
 ========================================================= -->
 
 <section class="section about">
@@ -1226,8 +2122,8 @@ html[data-theme="light"] .preloader {
                     clamp(2.5rem, 4vw, 4.5rem);
                 "
             >
-                Un groupe tourné vers
-                l'excellence.
+                Un groupe au service
+                du développement.
             </h2>
 
         </div>
@@ -1236,24 +2132,378 @@ html[data-theme="light"] .preloader {
         <div class="reveal">
 
             <p class="about-copy">
-                Le GROUPE MORAHEYM'S incarne une
-                vision moderne des affaires où
-                chaque projet est pensé pour créer
-                une valeur économique et sociale
-                mesurable.
+
+                Le GROUPE MORAHEYM'S, à travers
+                ses activités de conseil et de
+                construction, se positionne autour
+                de la promotion immobilière, du
+                développement d'infrastructures
+                et du renforcement des capacités
+                en Afrique de l'Ouest.
+
             </p>
+
 
             <p class="about-copy">
-                Implanté au cœur d'initiatives
-                stratégiques, le groupe rassemble
-                des compétences variées autour
-                de valeurs fortes d'intégrité et
-                de dépassement de soi.
+
+                Le groupe développe également
+                une approche panafricaine dans
+                laquelle l'immobilier, les
+                infrastructures, l'éducation,
+                la recherche et le développement
+                des compétences peuvent se
+                compléter pour accompagner
+                durablement les territoires
+                et les acteurs qui les font vivre.
+
             </p>
 
+
             <div class="about-highlight">
-                "Construire des fondations solides
-                pour les projets de demain."
+
+                « Développer des projets utiles,
+                renforcer les compétences et
+                contribuer aux dynamiques
+                panafricaines de développement. »
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DOMAINES D'INTERVENTION
+========================================================= -->
+
+<section class="section axes">
+
+    <div class="container">
+
+        <div class="section-label reveal">
+            02 — Nos activités
+        </div>
+
+        <h2
+            class="section-title reveal"
+            style="
+                margin-top:25px;
+                max-width:900px;
+            "
+        >
+            Trois axes pour une
+            <em>même ambition.</em>
+        </h2>
+
+
+        <p class="axes-intro reveal">
+
+            MORAHEYM'S articule plusieurs
+            domaines complémentaires afin
+            de contribuer au développement
+            économique, territorial et humain
+            en Afrique.
+
+        </p>
+
+
+        <div class="axes-grid">
+
+
+            <!-- AXE 01 -->
+
+            <article class="axis-card reveal">
+
+                <div class="axis-number">
+                    01
+                </div>
+
+                <h3>
+                    Immobilier &amp;
+                    Construction
+                </h3>
+
+                <p>
+
+                    Promotion immobilière,
+                    développement de projets
+                    et activités liées à la
+                    construction, avec une
+                    attention portée à la
+                    transformation durable
+                    des territoires.
+
+                </p>
+
+            </article>
+
+
+            <!-- AXE 02 -->
+
+            <article class="axis-card reveal">
+
+                <div class="axis-number">
+                    02
+                </div>
+
+                <h3>
+                    Infrastructures
+                </h3>
+
+                <p>
+
+                    Développement d'initiatives
+                    et de projets d'infrastructures
+                    destinés à accompagner les
+                    besoins de développement
+                    des territoires en Afrique
+                    de l'Ouest.
+
+                </p>
+
+            </article>
+
+
+            <!-- AXE 03 -->
+
+            <article class="axis-card reveal">
+
+                <div class="axis-number">
+                    03
+                </div>
+
+                <h3>
+                    Éducation, Recherche
+                    &amp; Compétences
+                </h3>
+
+                <p>
+
+                    Appui aux initiatives
+                    d'enseignement supérieur,
+                    aux projets académiques,
+                    aux activités de recherche
+                    et au développement des
+                    compétences et du capital
+                    humain.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJET MORAHEYMS — AUUI
+========================================================= -->
+
+<section class="section auui">
+
+    <div class="container auui-grid">
+
+
+        <div class="reveal">
+
+            <div class="section-label">
+                Projet panafricain
+            </div>
+
+            <h2 class="auui-title">
+
+                MORAHEYMS —
+                <span>AUUI</span>
+
+            </h2>
+
+            <p class="auui-copy">
+
+                Le « Projet Panafricain de
+                Développement Immobilier et
+                d'Éducation Internationale
+                MORAHEYMS – AUUI » constitue
+                une initiative structurante
+                portée dans une perspective
+                panafricaine.
+
+            </p>
+
+            <p class="auui-copy">
+
+                Le projet vise à articuler
+                développement immobilier,
+                infrastructures et éducation
+                internationale, notamment
+                à travers des partenariats
+                avec des institutions
+                d'enseignement supérieur.
+
+            </p>
+
+        </div>
+
+
+        <div class="reveal">
+
+            <div class="auui-card">
+
+                <div class="auui-card-label">
+                    Une initiative en développement
+                </div>
+
+                <h3>
+                    Éducation &amp;
+                    coopération panafricaine
+                </h3>
+
+                <p>
+
+                    À travers AUUI, MORAHEYM'S
+                    souhaite contribuer au soutien
+                    technique et financier de projets
+                    académiques, de travaux de
+                    recherche et du développement
+                    des compétences des étudiants
+                    et chercheurs.
+
+                </p>
+
+                <p>
+
+                    L'initiative s'appuie également
+                    sur un réseau panafricain de
+                    chercheurs de différentes
+                    nationalités afin de favoriser
+                    les échanges et les collaborations
+                    avec les acteurs universitaires.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RÉSEAU & COOPÉRATION
+========================================================= -->
+
+<section class="section network">
+
+    <div class="container network-grid">
+
+
+        <div class="reveal">
+
+            <div class="section-label">
+                03 — Rayonnement
+            </div>
+
+            <h2
+                class="section-title"
+                style="
+                    margin-top:25px;
+                    font-size:
+                    clamp(2.5rem, 4vw, 4.5rem);
+                "
+            >
+                Une dynamique
+                <em>panafricaine.</em>
+            </h2>
+
+            <p
+                class="network-copy"
+                style="
+                    margin-top:30px;
+                "
+            >
+
+                La démarche de MORAHEYM'S
+                repose sur la recherche de
+                coopérations entre acteurs
+                publics, privés, institutionnels
+                et universitaires.
+
+            </p>
+
+        </div>
+
+
+        <div class="network-list reveal">
+
+
+            <div class="network-item">
+
+                <strong>
+                    Partenariats institutionnels
+                </strong>
+
+                <span>
+                    Développer des coopérations
+                    avec les institutions et les
+                    acteurs engagés dans le
+                    développement des territoires.
+                </span>
+
+            </div>
+
+
+            <div class="network-item">
+
+                <strong>
+                    Coopération universitaire
+                </strong>
+
+                <span>
+                    Favoriser les liens avec les
+                    établissements d'enseignement
+                    supérieur et les acteurs de
+                    la recherche.
+                </span>
+
+            </div>
+
+
+            <div class="network-item">
+
+                <strong>
+                    Réseau de chercheurs
+                </strong>
+
+                <span>
+                    Mobiliser un réseau de
+                    chercheurs de différentes
+                    nationalités autour des
+                    projets et initiatives
+                    académiques.
+                </span>
+
+            </div>
+
+
+            <div class="network-item">
+
+                <strong>
+                    Développement des compétences
+                </strong>
+
+                <span>
+                    Contribuer au renforcement
+                    des capacités et à la valorisation
+                    du capital humain africain.
+                </span>
+
             </div>
 
         </div>
@@ -1274,19 +2524,32 @@ html[data-theme="light"] .preloader {
         <div class="footer-grid">
 
 
+            <!-- IDENTITÉ -->
+
             <div>
 
                 <div class="footer-logo">
+
                     GROUPE
                     <span>MORAHEYM'S</span>
+
                 </div>
 
                 <p class="footer-description">
-                    Excellence, innovation et impact.
+
+                    MORAHEYM'S développe des
+                    projets immobiliers, des
+                    infrastructures et des
+                    initiatives dans l'éducation,
+                    la recherche et le développement
+                    des compétences en Afrique.
+
                 </p>
 
             </div>
 
+
+            <!-- NAVIGATION -->
 
             <div>
 
@@ -1316,10 +2579,47 @@ html[data-theme="light"] .preloader {
                         Projets
                     </a>
 
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
                 </div>
 
             </div>
 
+
+            <!-- DOMAINES -->
+
+            <div>
+
+                <div class="footer-heading">
+                    Nos domaines
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="expertise.html">
+                        Immobilier &amp; Construction
+                    </a>
+
+                    <a href="expertise.html">
+                        Infrastructures
+                    </a>
+
+                    <a href="expertise.html">
+                        Éducation &amp; Recherche
+                    </a>
+
+                    <a href="expertise.html">
+                        Développement des compétences
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
 
             <div>
 
@@ -1333,21 +2633,12 @@ html[data-theme="light"] .preloader {
                         Nous contacter
                     </a>
 
-                </div>
+                    <a href="mailto:moraheyms@gmail.com">
+                        moraheyms@gmail.com
+                    </a>
 
-            </div>
-
-
-            <div>
-
-                <div class="footer-heading">
-                    Réseaux
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="#">
-                        LinkedIn
+                    <a href="projets.html">
+                        Découvrir nos projets
                     </a>
 
                 </div>
@@ -1360,12 +2651,17 @@ html[data-theme="light"] .preloader {
         <div class="footer-bottom">
 
             <span>
+
                 © 2026 GROUPE MORAHEYM'S —
                 Tous droits réservés.
+
             </span>
 
             <span>
-                Excellence · Innovation · Impact
+
+                Immobilier · Infrastructures ·
+                Éducation · Recherche
+
             </span>
 
         </div>
@@ -1384,13 +2680,12 @@ html[data-theme="light"] .preloader {
 
 /* =========================================================
    THEME TOGGLE
-   PC  → à droite de Contact
-   MOBILE → sous Contact dans le burger
 ========================================================= */
 
 (function () {
 
-    const KEY = "moraheyms-theme";
+    const KEY =
+        "moraheyms-theme";
 
     const root =
         document.documentElement;
@@ -1413,6 +2708,7 @@ html[data-theme="light"] .preloader {
 
 
         button.setAttribute(
+
             "aria-label",
 
             isLight
@@ -1422,6 +2718,7 @@ html[data-theme="light"] .preloader {
 
 
         button.setAttribute(
+
             "title",
 
             isLight
@@ -1431,16 +2728,19 @@ html[data-theme="light"] .preloader {
 
 
         button.innerHTML =
+
             '<span class="theme-icon" aria-hidden="true">' +
-            (isLight ? "☀" : "☾") +
+
+            (
+                isLight
+                    ? "☀"
+                    : "☾"
+            ) +
+
             "</span>";
 
     }
 
-
-    /*
-       Position du bouton thème.
-    */
 
     function positionThemeButton() {
 
@@ -1465,32 +2765,26 @@ html[data-theme="light"] .preloader {
             !navLinks ||
             !button
         ) {
+
             return;
         }
 
 
-        /*
-           TABLETTE / MOBILE
-           Le bouton est placé
-           sous Contact.
-        */
+        if (
+            window.innerWidth <= 1050
+        ) {
 
-        if (window.innerWidth <= 1050) {
-
-            navLinks.appendChild(button);
+            navLinks.appendChild(
+                button
+            );
 
         }
 
-
-        /*
-           PC
-           Le bouton est placé après
-           toute la navigation.
-        */
-
         else {
 
-            navInner.appendChild(button);
+            navInner.appendChild(
+                button
+            );
 
         }
 
@@ -1501,9 +2795,10 @@ html[data-theme="light"] .preloader {
 
 
     window.addEventListener(
-        "DOMContentLoaded",
-        function () {
 
+        "DOMContentLoaded",
+
+        function () {
 
             const navInner =
                 document.querySelector(
@@ -1512,13 +2807,10 @@ html[data-theme="light"] .preloader {
 
 
             if (!navInner) {
+
                 return;
             }
 
-
-            /*
-               Création du bouton.
-            */
 
             if (
                 !document.getElementById(
@@ -1532,7 +2824,8 @@ html[data-theme="light"] .preloader {
                     );
 
 
-                button.type = "button";
+                button.type =
+                    "button";
 
                 button.id =
                     "themeToggle";
@@ -1549,20 +2842,20 @@ html[data-theme="light"] .preloader {
                 updateThemeButton();
 
 
-                /*
-                   Changement de thème.
-                */
-
                 button.addEventListener(
+
                     "click",
+
                     function () {
 
-
                         const next =
+
                             root.getAttribute(
                                 "data-theme"
                             ) === "light"
+
                                 ? "dark"
+
                                 : "light";
 
 
@@ -1579,7 +2872,9 @@ html[data-theme="light"] .preloader {
                                 next
                             );
 
-                        } catch (e) {}
+                        }
+
+                        catch (e) {}
 
 
                         updateThemeButton();
@@ -1590,17 +2885,8 @@ html[data-theme="light"] .preloader {
             }
 
 
-            /*
-               Position initiale.
-            */
-
             positionThemeButton();
 
-
-            /*
-               Repositionnement si
-               la fenêtre change de taille.
-            */
 
             window.addEventListener(
                 "resize",
@@ -1634,6 +2920,7 @@ let progressValue = 0;
 
 const loadingInterval =
     setInterval(
+
         () => {
 
             progressValue +=
@@ -1643,7 +2930,9 @@ const loadingInterval =
             if (
                 progressValue > 100
             ) {
+
                 progressValue = 100;
+
             }
 
 
@@ -1651,12 +2940,15 @@ const loadingInterval =
                 progressValue + "%";
 
         },
+
         120
     );
 
 
 window.addEventListener(
+
     "load",
+
     () => {
 
         progress.style.width =
@@ -1664,6 +2956,7 @@ window.addEventListener(
 
 
         setTimeout(
+
             () => {
 
                 clearInterval(
@@ -1675,6 +2968,7 @@ window.addEventListener(
                 );
 
             },
+
             900
         );
 
@@ -1694,7 +2988,9 @@ const nav =
 
 
 window.addEventListener(
+
     "scroll",
+
     () => {
 
         if (
@@ -1736,9 +3032,10 @@ const navLinks =
 
 
 menuButton.addEventListener(
-    "click",
-    () => {
 
+    "click",
+
+    () => {
 
         const isOpen =
             navLinks.classList.toggle(
@@ -1753,7 +3050,9 @@ menuButton.addEventListener(
 
 
         menuButton.setAttribute(
+
             "aria-expanded",
+
             isOpen
                 ? "true"
                 : "false"
@@ -1761,6 +3060,7 @@ menuButton.addEventListener(
 
 
         menuButton.setAttribute(
+
             "aria-label",
 
             isOpen
@@ -1774,7 +3074,7 @@ menuButton.addEventListener(
 
 
 /* =========================================================
-   FERMER LE BURGER APRÈS UN CLIC
+   FERMER LE BURGER
 ========================================================= */
 
 document
@@ -1782,10 +3082,13 @@ document
         ".nav-links a"
     )
     .forEach(
+
         link => {
 
             link.addEventListener(
+
                 "click",
+
                 () => {
 
                     navLinks.classList.remove(
@@ -1804,7 +3107,9 @@ document
 
 
                     menuButton.setAttribute(
+
                         "aria-label",
+
                         "Ouvrir le menu"
                     );
 
@@ -1832,16 +3137,18 @@ const cursorRing =
 
 
 if (
+
     window.matchMedia(
         "(pointer:fine)"
     ).matches
+
 ) {
 
-
     window.addEventListener(
-        "mousemove",
-        e => {
 
+        "mousemove",
+
+        e => {
 
             cursorDot.style.left =
                 e.clientX + "px";
@@ -1852,17 +3159,25 @@ if (
 
 
             cursorRing.animate(
+
                 {
+
                     left:
                         e.clientX + "px",
 
                     top:
                         e.clientY + "px"
-                },
-                {
-                    duration: 450,
 
-                    fill: "forwards"
+                },
+
+                {
+
+                    duration:
+                        450,
+
+                    fill:
+                        "forwards"
+
                 }
             );
 
@@ -1875,11 +3190,13 @@ if (
             "a, button"
         )
         .forEach(
+
             el => {
 
-
                 el.addEventListener(
+
                     "mouseenter",
+
                     () => {
 
                         cursorRing.classList.add(
@@ -1891,7 +3208,9 @@ if (
 
 
                 el.addEventListener(
+
                     "mouseleave",
+
                     () => {
 
                         cursorRing.classList.remove(
@@ -1914,17 +3233,16 @@ if (
 
 const revealObserver =
     new IntersectionObserver(
+
         entries => {
 
-
             entries.forEach(
-                entry => {
 
+                entry => {
 
                     if (
                         entry.isIntersecting
                     ) {
-
 
                         entry.target.classList.add(
                             "show"
@@ -1941,9 +3259,11 @@ const revealObserver =
             );
 
         },
+
         {
             threshold: .1
         }
+
     );
 
 
@@ -1952,6 +3272,7 @@ document
         ".reveal"
     )
     .forEach(
+
         el => {
 
             revealObserver.observe(
