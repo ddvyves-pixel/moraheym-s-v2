@@ -3732,99 +3732,109 @@ html[data-theme="light"] .preloader {
 
     function positionThemeButton() {
 
-        const button =
-            document.getElementById(
-                "themeToggle"
-            );
+    const button =
+        document.getElementById(
+            "themeToggle"
+        );
+
+    const navLinks =
+        document.getElementById(
+            "navLinks"
+        );
+
+    const navInner =
+        document.querySelector(
+            ".nav-inner"
+        );
+
+    const contactLink =
+        navLinks
+            ? navLinks.querySelector(
+                'a[href="contact.html"]'
+            )
+            : null;
+
+    if (
+        !button ||
+        !navLinks ||
+        !navInner
+    ) return;
 
 
-        const navLinks =
-            document.getElementById(
-                "navLinks"
-            );
+    /* =====================================================
+       MOBILE / TABLETTE
+       Le bouton reste dans le menu,
+       juste après "Contact"
+    ===================================================== */
 
-
-        const navInner =
-            document.querySelector(
-                ".nav-inner"
-            );
-
-
-        const menuButton =
-            document.getElementById(
-                "menuButton"
-            );
-
-
-        const contactLink =
-            navLinks
-                ? navLinks.querySelector(
-                    'a[href="contact.html"]'
-                )
-                : null;
-
+    if (
+        window.innerWidth <= 1050
+    ) {
 
         if (
-            !button ||
-            !navLinks ||
-            !navInner
-        ) return;
-
-
-        if (
-            window.innerWidth <= 1050
+            contactLink &&
+            button.parentElement !== navLinks
         ) {
 
-            if (
-                contactLink &&
-                button.parentElement !== navLinks
-            ) {
+            contactLink.insertAdjacentElement(
+                "afterend",
+                button
+            );
 
-                contactLink.insertAdjacentElement(
-                    "afterend",
-                    button
-                );
+        } else if (
+            contactLink &&
+            button.previousElementSibling !== contactLink
+        ) {
 
-            } else if (
-                contactLink &&
-                button.previousElementSibling !== contactLink
-            ) {
-
-                contactLink.insertAdjacentElement(
-                    "afterend",
-                    button
-                );
-
-            }
-
-        } else {
-
-            if (
-                button.parentElement !== navInner
-            ) {
-
-                navInner.appendChild(
-                    button
-                );
-
-            }
-
-
-            if (menuButton) {
-
-                navInner.insertBefore(
-                    button,
-                    menuButton
-                );
-
-            }
+            contactLink.insertAdjacentElement(
+                "afterend",
+                button
+            );
 
         }
 
+    }
 
-        updateThemeButton();
+
+    /* =====================================================
+       PC
+       Le bouton est placé complètement à droite,
+       après "Contact"
+    ===================================================== */
+
+    else {
+
+        /*
+         * On remet le bouton directement dans
+         * .nav-inner et surtout APRÈS .nav-links.
+         *
+         * .nav-links possède margin-left:auto,
+         * donc la navigation reste collée à droite
+         * et le bouton vient juste après Contact.
+         */
+
+        if (
+            button.parentElement !== navInner
+        ) {
+
+            navInner.appendChild(
+                button
+            );
+
+        } else {
+
+            navInner.appendChild(
+                button
+            );
+
+        }
 
     }
+
+
+    updateThemeButton();
+
+}
 
 
     window.addEventListener(
