@@ -23,6 +23,13 @@
     --green: #183b2e;
     --green-light: #2c604b;
     --line: rgba(244,240,230,.12);
+
+    /* Variables dédiées aux fonds clairs */
+    --light-text: #171a17;
+    --light-text-soft: #59605a;
+    --light-bg: #f5f2ea;
+    --light-card: #ffffff;
+
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
 }
@@ -101,6 +108,7 @@ body::before {
     position: fixed;
     inset: 0;
     background: var(--black);
+    color: var(--cream);
     z-index: 20000;
     display: flex;
     align-items: center;
@@ -175,6 +183,7 @@ body::before {
 }
 
 /* LOGO À GAUCHE */
+
 .brand-logo {
     display: flex;
     align-items: center;
@@ -210,6 +219,7 @@ body::before {
 
 
 /* LIENS À DROITE */
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -309,6 +319,7 @@ body::before {
 
 
 /* HAMBURGER */
+
 .menu-button {
     display: none;
     width: 44px;
@@ -326,6 +337,7 @@ body::before {
 
 
 /* BOUTON THÈME */
+
 .theme-toggle {
     flex: 0 0 auto;
     width: 44px;
@@ -542,10 +554,11 @@ body::before {
     -webkit-text-stroke: 1px rgba(244,240,230,.45);
 }
 
-/* Correction du mot "l'Afrique" en thème clair */
+/* CONTRASTE : "l'Afrique" en thème clair */
+
 html[data-theme="light"] .hero h1 .outline {
     color: transparent;
-    -webkit-text-stroke: 1px rgba(23,26,23,.45);
+    -webkit-text-stroke: 1.4px #171a17;
 }
 
 .hero h1 em {
@@ -755,9 +768,13 @@ html[data-theme="light"] .hero h1 .outline {
     min-height: 310px;
     padding: 34px 30px;
     background: var(--black-card);
+    color: var(--cream);
     border: 1px solid var(--line);
     overflow: hidden;
-    transition: transform .4s ease, border-color .4s ease, background .4s ease;
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
 }
 
 .domain-card::before {
@@ -798,6 +815,7 @@ html[data-theme="light"] .hero h1 .outline {
     font-family: var(--serif);
     font-size: 1.55rem;
     font-weight: 400;
+    color: inherit;
 }
 
 .domain-card p {
@@ -808,6 +826,12 @@ html[data-theme="light"] .hero h1 .outline {
 
 html[data-theme="light"] .domain-card {
     background: rgba(255,255,255,.72);
+    color: #171a17;
+    border-color: rgba(23,26,23,.13);
+}
+
+html[data-theme="light"] .domain-card p {
+    color: #59605a;
 }
 
 @media (max-width: 1050px) {
@@ -833,6 +857,7 @@ html[data-theme="light"] .domain-card {
 
 .footer {
     background: #050706;
+    color: var(--cream);
     border-top: 1px solid var(--line);
     padding: 75px 0 30px;
 }
@@ -909,7 +934,6 @@ html[data-theme="light"] .domain-card {
         min-height: 104px;
     }
 
-    /* Les liens deviennent le menu déroulant */
     .nav-links {
         position: fixed;
         top: 104px;
@@ -936,20 +960,17 @@ html[data-theme="light"] .domain-card {
         transform: translateY(0);
     }
 
-    /* Groupe des boutons : hamburger seul, complètement à droite */
     .nav-actions {
         margin-left: auto;
         gap: 0;
         flex-shrink: 0;
     }
 
-    /* Hamburger visible et collé à l'extrême droite */
     .menu-button {
         display: inline-flex;
         margin-left: auto;
     }
 
-    /* Le bouton thème sera déplacé dans le menu mobile, après Contact */
     .nav-links .theme-toggle {
         display: none;
     }
@@ -1000,7 +1021,6 @@ html[data-theme="light"] .domain-card {
         margin-right: auto;
     }
 
-    /* MENU MOBILE SOUS LA BARRE */
     .nav-links {
         top: 90px;
         padding: 30px 6%;
@@ -1011,7 +1031,6 @@ html[data-theme="light"] .domain-card {
         font-size: .7rem;
     }
 
-    /* HAMBURGER COMPLÈTEMENT À DROITE */
     .nav-actions {
         margin-left: auto;
         gap: 0;
@@ -1026,7 +1045,6 @@ html[data-theme="light"] .domain-card {
         font-size: 1.4rem;
     }
 
-    /* Bouton thème à l'intérieur du menu, sous Contact */
     .nav-links .theme-toggle {
         width: 40px;
         height: 40px;
@@ -1153,6 +1171,7 @@ html[data-theme="light"] .menu-button {
 
 html[data-theme="light"] .footer {
     background: #e8e4da;
+    color: #171a17;
 }
 
 html[data-theme="light"] .preview-card,
@@ -1212,18 +1231,147 @@ html[data-theme="light"] .preloader {
     background: #f5f2ea;
     color: #171a17;
 }
+
+
+/* =========================================================
+   CORRECTION GLOBALE DU CONTRASTE — THÈME CLAIR
+========================================================= */
+
+/*
+   Toute section utilisant un fond clair doit utiliser
+   un texte sombre. Cela évite que des éléments héritant
+   de --black ou --cream deviennent invisibles.
+*/
+
+html[data-theme="light"] .section,
+html[data-theme="light"] .hero,
+html[data-theme="light"] .page-header,
+html[data-theme="light"] .vision,
+html[data-theme="light"] .contact {
+    color: #171a17;
+}
+
+html[data-theme="light"] .section-title,
+html[data-theme="light"] .section h2,
+html[data-theme="light"] .section h3 {
+    color: #171a17;
+}
+
+html[data-theme="light"] .section-description,
+html[data-theme="light"] .section p {
+    color: #59605a;
+}
+
+html[data-theme="light"] .section-title em {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .hero h1 {
+    color: #171a17;
+}
+
+html[data-theme="light"] .hero h1 em {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .hero-text {
+    color: #59605a;
+}
+
+html[data-theme="light"] .hero-kicker,
+html[data-theme="light"] .section-label {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .button-outline {
+    border-color: rgba(23,26,23,.35);
+    color: #171a17;
+}
+
+html[data-theme="light"] .button-outline:hover {
+    border-color: #9a762d;
+    color: #9a762d;
+}
+
+/* Cartes claires */
+
+html[data-theme="light"] .preview-card,
+html[data-theme="light"] .value-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .contact-box,
+html[data-theme="light"] .timeline-content {
+    color: #171a17;
+}
+
+html[data-theme="light"] .preview-card h3,
+html[data-theme="light"] .value-card h3,
+html[data-theme="light"] .project-card h3,
+html[data-theme="light"] .contact-box h3,
+html[data-theme="light"] .timeline-content h3 {
+    color: #171a17;
+}
+
+html[data-theme="light"] .preview-card p,
+html[data-theme="light"] .value-card p,
+html[data-theme="light"] .project-card p,
+html[data-theme="light"] .contact-box p,
+html[data-theme="light"] .timeline-content p {
+    color: #59605a;
+}
+
+/* Footer clair */
+
+html[data-theme="light"] .footer {
+    color: #171a17;
+}
+
+html[data-theme="light"] .footer-logo {
+    color: #171a17;
+}
+
+html[data-theme="light"] .footer-logo span {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .footer-heading {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .footer-links a {
+    color: #4f554f;
+}
+
+html[data-theme="light"] .footer-links a:hover {
+    color: #171a17;
+}
+
+html[data-theme="light"] .footer-bottom {
+    color: #626860;
+}
+
+
+/* =========================================================
+   FIN DES CORRECTIONS DE CONTRASTE
+========================================================= */
 </style>
 
 <script>
 (function(){
     try {
         var t = localStorage.getItem("moraheyms-theme");
+
         document.documentElement.setAttribute(
             "data-theme",
             t === "light" ? "light" : "dark"
         );
+
     } catch(e) {
-        document.documentElement.setAttribute("data-theme","dark");
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            "dark"
+        );
+
     }
 })();
 </script>
@@ -1233,17 +1381,34 @@ html[data-theme="light"] .preloader {
 <body>
 
 <div class="preloader" id="preloader">
+
     <div class="loader">
-        <div class="loader-logo">MORAHEYM'S</div>
-        <div class="loader-subtitle">Groupe</div>
-        <div class="loader-bar">
-            <div class="loader-progress" id="loaderProgress"></div>
+
+        <div class="loader-logo">
+            MORAHEYM'S
         </div>
+
+        <div class="loader-subtitle">
+            Groupe
+        </div>
+
+        <div class="loader-bar">
+
+            <div
+                class="loader-progress"
+                id="loaderProgress"
+            ></div>
+
+        </div>
+
     </div>
+
 </div>
+
 
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
+
 
 <!-- =========================================================
      NAVIGATION
@@ -1253,8 +1418,11 @@ html[data-theme="light"] .preloader {
 
 <div class="nav-inner">
 
-    <!-- LOGO À GAUCHE -->
-    <a href="index.html" class="brand-logo">
+    <a
+        href="index.html"
+        class="brand-logo"
+    >
+
         <img
             src="logo-moraheyms.png"
             alt="GROUPE MORAHEYM'S"
@@ -1262,16 +1430,25 @@ html[data-theme="light"] .preloader {
             onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';"
         >
 
-        <span id="logoFallback" class="brand-logo-fallback">
+        <span
+            id="logoFallback"
+            class="brand-logo-fallback"
+        >
             GROUPE <span>MORAHEYM'S</span>
         </span>
+
     </a>
 
 
-    <!-- LIENS -->
-    <nav class="nav-links" id="navLinks">
+    <nav
+        class="nav-links"
+        id="navLinks"
+    >
 
-        <a href="actualites.html" class="nav-news">
+        <a
+            href="actualites.html"
+            class="nav-news"
+        >
             Actualités
         </a>
 
@@ -1291,17 +1468,17 @@ html[data-theme="light"] .preloader {
             Projets
         </a>
 
-        <a href="contact.html" class="nav-cta">
+        <a
+            href="contact.html"
+            class="nav-cta"
+        >
             Contact
         </a>
 
     </nav>
 
 
-    <!-- ACTIONS À DROITE -->
     <div class="nav-actions">
-
-        <!-- Le bouton thème sera inséré ici par JavaScript -->
 
         <button
             class="menu-button"
@@ -1318,6 +1495,7 @@ html[data-theme="light"] .preloader {
 </div>
 
 </header>
+
 
 <!-- =========================================================
      HERO
@@ -1340,24 +1518,38 @@ html[data-theme="light"] .preloader {
         <h1>
             Construire
             <br>
-            <span class="outline">l'Afrique</span>
-            <em>de demain.</em>
+
+            <span class="outline">
+                l'Afrique
+            </span>
+
+            <em>
+                de demain.
+            </em>
         </h1>
 
         <p class="hero-text">
+
             Le GROUPE MORAHEYM'S développe des projets immobiliers,
             des infrastructures et des initiatives d'éducation internationale
             pour contribuer au développement durable et au renforcement
             des compétences en Afrique.
+
         </p>
 
         <div class="hero-actions">
 
-            <a href="groupe.html" class="button button-primary">
+            <a
+                href="groupe.html"
+                class="button button-primary"
+            >
                 Découvrir le groupe
             </a>
 
-            <a href="contact.html" class="button button-outline">
+            <a
+                href="contact.html"
+                class="button button-outline"
+            >
                 Prendre contact
             </a>
 
@@ -1386,6 +1578,7 @@ html[data-theme="light"] .preloader {
 
 </section>
 
+
 <!-- =========================================================
      MARQUEE
 ========================================================= -->
@@ -1395,103 +1588,193 @@ html[data-theme="light"] .preloader {
 <div class="marquee-track">
 
     <div class="marquee-item">
+
         GROUPE MORAHEYM'S
+
         <span>—</span>
+
         IMMOBILIER
+
         <span>—</span>
+
         INFRASTRUCTURES
+
         <span>—</span>
+
         ÉDUCATION
+
         <span>—</span>
+
         DÉVELOPPEMENT PANAFRICAIN
+
         <span>—</span>
+
     </div>
+
 
     <div class="marquee-item">
+
         GROUPE MORAHEYM'S
+
         <span>—</span>
+
         IMMOBILIER
+
         <span>—</span>
+
         INFRASTRUCTURES
+
         <span>—</span>
+
         ÉDUCATION
+
         <span>—</span>
+
         DÉVELOPPEMENT PANAFRICAIN
+
         <span>—</span>
+
     </div>
 
 </div>
 
 </div>
+
 
 <!-- =========================================================
      SECTION APERÇUS
 ========================================================= -->
 
 <section class="section">
-    <div class="container">
 
-        <div class="section-label reveal">
-            01 — Nos domaines d'intervention
-        </div>
+<div class="container">
 
-        <h2 class="section-title reveal">
-            Des projets au service du <em>développement.</em>
-        </h2>
+    <div class="section-label reveal">
+        01 — Nos domaines d'intervention
+    </div>
 
-        <p class="section-description domains-intro reveal">
-            MORAHEYM'S intervient à la croisée de l'immobilier, des infrastructures,
-            de l'éducation internationale et du développement des compétences.
-            Notre ambition est de créer des projets structurants et des partenariats
-            capables de produire un impact durable à l'échelle africaine.
-        </p>
 
-        <div class="domains-grid">
+    <h2 class="section-title reveal">
 
-            <article class="domain-card reveal">
-                <div class="domain-number">01 / IMMOBILIER</div>
-                <div class="domain-icon">◆</div>
-                <h3>Promotion immobilière</h3>
-                <p>
-                    Développer des projets immobiliers structurants et contribuer
-                    à l'émergence de solutions adaptées aux besoins des territoires.
-                </p>
-            </article>
+        Des projets au service du
+        <em>développement.</em>
 
-            <article class="domain-card reveal">
-                <div class="domain-number">02 / INFRASTRUCTURES</div>
-                <div class="domain-icon">◇</div>
-                <h3>Construction & infrastructures</h3>
-                <p>
-                    Accompagner la conception et le développement d'infrastructures
-                    destinées à soutenir la croissance et la modernisation en Afrique.
-                </p>
-            </article>
+    </h2>
 
-            <article class="domain-card reveal">
-                <div class="domain-number">03 / ÉDUCATION</div>
-                <div class="domain-icon">✦</div>
-                <h3>Éducation internationale</h3>
-                <p>
-                    Porter des initiatives panafricaines dans l'enseignement supérieur
-                    et favoriser les collaborations entre institutions académiques.
-                </p>
-            </article>
 
-            <article class="domain-card reveal">
-                <div class="domain-number">04 / COMPÉTENCES</div>
-                <div class="domain-icon">✧</div>
-                <h3>Recherche & capacités</h3>
-                <p>
-                    Soutenir les étudiants et chercheurs à travers l'appui aux projets
-                    académiques, à la recherche et au développement des compétences.
-                </p>
-            </article>
+    <p class="section-description domains-intro reveal">
 
-        </div>
+        MORAHEYM'S intervient à la croisée de l'immobilier,
+        des infrastructures, de l'éducation internationale et
+        du développement des compétences.
+
+        Notre ambition est de créer des projets structurants
+        et des partenariats capables de produire un impact
+        durable à l'échelle africaine.
+
+    </p>
+
+
+    <div class="domains-grid">
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                01 / IMMOBILIER
+            </div>
+
+            <div class="domain-icon">
+                ◆
+            </div>
+
+            <h3>
+                Promotion immobilière
+            </h3>
+
+            <p>
+                Développer des projets immobiliers structurants
+                et contribuer à l'émergence de solutions adaptées
+                aux besoins des territoires.
+            </p>
+
+        </article>
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                02 / INFRASTRUCTURES
+            </div>
+
+            <div class="domain-icon">
+                ◇
+            </div>
+
+            <h3>
+                Construction & infrastructures
+            </h3>
+
+            <p>
+                Accompagner la conception et le développement
+                d'infrastructures destinées à soutenir la croissance
+                et la modernisation en Afrique.
+            </p>
+
+        </article>
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                03 / ÉDUCATION
+            </div>
+
+            <div class="domain-icon">
+                ✦
+            </div>
+
+            <h3>
+                Éducation internationale
+            </h3>
+
+            <p>
+                Porter des initiatives panafricaines dans
+                l'enseignement supérieur et favoriser les
+                collaborations entre institutions académiques.
+            </p>
+
+        </article>
+
+
+        <article class="domain-card reveal">
+
+            <div class="domain-number">
+                04 / COMPÉTENCES
+            </div>
+
+            <div class="domain-icon">
+                ✧
+            </div>
+
+            <h3>
+                Recherche & capacités
+            </h3>
+
+            <p>
+                Soutenir les étudiants et chercheurs à travers
+                l'appui aux projets académiques, à la recherche
+                et au développement des compétences.
+            </p>
+
+        </article>
 
     </div>
+
+</div>
+
 </section>
+
 
 <!-- =========================================================
      FOOTER
@@ -1507,13 +1790,22 @@ html[data-theme="light"] .preloader {
         <div>
 
             <div class="footer-logo">
-                GROUPE <span>MORAHEYM'S</span>
+
+                GROUPE
+                <span>
+                    MORAHEYM'S
+                </span>
+
             </div>
 
+
             <p class="footer-description">
-                Promotion immobilière, construction, infrastructures
-                et éducation internationale au service du développement
-                et des compétences en Afrique.
+
+                Promotion immobilière, construction,
+                infrastructures et éducation internationale
+                au service du développement et des compétences
+                en Afrique.
+
             </p>
 
         </div>
@@ -1524,6 +1816,7 @@ html[data-theme="light"] .preloader {
             <div class="footer-heading">
                 Navigation
             </div>
+
 
             <div class="footer-links">
 
@@ -1558,6 +1851,7 @@ html[data-theme="light"] .preloader {
                 Contact
             </div>
 
+
             <div class="footer-links">
 
                 <a href="contact.html">
@@ -1578,6 +1872,7 @@ html[data-theme="light"] .preloader {
             <div class="footer-heading">
                 Réseaux
             </div>
+
 
             <div class="footer-links">
 
@@ -1613,6 +1908,7 @@ html[data-theme="light"] .preloader {
 
 </footer>
 
+
 <script>
 
 /* =========================================================
@@ -1635,14 +1931,17 @@ html[data-theme="light"] .preloader {
         saved === "light" ? "light" : "dark"
     );
 
+
     function updateThemeButton() {
 
-        const button = document.getElementById("themeToggle");
+        const button =
+            document.getElementById("themeToggle");
 
         if (!button) return;
 
         const isLight =
             root.getAttribute("data-theme") === "light";
+
 
         button.setAttribute(
             "aria-label",
@@ -1651,6 +1950,7 @@ html[data-theme="light"] .preloader {
                 : "Activer le thème clair"
         );
 
+
         button.setAttribute(
             "title",
             isLight
@@ -1658,52 +1958,19 @@ html[data-theme="light"] .preloader {
                 : "Thème clair"
         );
 
+
         button.innerHTML =
             '<span class="theme-icon" aria-hidden="true">' +
             (isLight ? "☀" : "☾") +
             '</span>';
+
     }
 
-    /*
-     * Sur ordinateur :
-     *   logo | liens | bouton thème | hamburger
-     *
-     * Sur mobile :
-     *   logo | hamburger
-     * et le bouton thème est déplacé dans le menu,
-     * juste après le bouton Contact.
-     */
+
     function positionThemeButton() {
 
-        const button = document.getElementById("themeToggle");
-        const navActions = document.querySelector(".nav-actions");
-        const navLinks = document.getElementById("navLinks");
-        const menuButton = document.getElementById("menuButton");
-        const contactLink = navLinks
-            ? navLinks.querySelector('a[href="contact.html"]')
-            : null;
-
-        if (!button || !navActions || !navLinks || !menuButton) return;
-
-        if (window.innerWidth <= 1050) {
-
-            // Mobile/tablette : thème dans le menu, juste après Contact.
-            if (contactLink && button.parentElement !== navLinks) {
-                contactLink.insertAdjacentElement("afterend", button);
-            }
-
-        } else {
-
-            // Desktop : thème dans le groupe d'actions à droite.
-            if (button.parentElement !== navActions) {
-                navActions.insertBefore(button, menuButton);
-            }
-        }
-
-        updateThemeButton();
-    }
-
-    window.addEventListener("DOMContentLoaded", function () {
+        const button =
+            document.getElementById("themeToggle");
 
         const navActions =
             document.querySelector(".nav-actions");
@@ -1714,53 +1981,183 @@ html[data-theme="light"] .preloader {
         const menuButton =
             document.getElementById("menuButton");
 
-        if (!navActions || !navLinks || !menuButton) return;
+        const contactLink =
+            navLinks
+                ? navLinks.querySelector(
+                    'a[href="contact.html"]'
+                )
+                : null;
 
-        let button = document.getElementById("themeToggle");
 
-        if (!button) {
-            button = document.createElement("button");
-            button.type = "button";
-            button.id = "themeToggle";
-            button.className = "theme-toggle";
-        }
+        if (
+            !button ||
+            !navActions ||
+            !navLinks ||
+            !menuButton
+        ) return;
 
-        // Sur mobile, le bouton sera déplacé après Contact.
-        // Sur desktop, il revient avant le hamburger.
+
         if (window.innerWidth <= 1050) {
-            const contactLink =
-                navLinks.querySelector('a[href="contact.html"]');
 
-            if (contactLink) {
-                contactLink.insertAdjacentElement("afterend", button);
-            } else {
-                navLinks.appendChild(button);
+            if (
+                contactLink &&
+                button.parentElement !== navLinks
+            ) {
+
+                contactLink.insertAdjacentElement(
+                    "afterend",
+                    button
+                );
+
             }
+
         } else {
-            navActions.insertBefore(button, menuButton);
+
+            if (
+                button.parentElement !== navActions
+            ) {
+
+                navActions.insertBefore(
+                    button,
+                    menuButton
+                );
+
+            }
+
         }
+
 
         updateThemeButton();
 
-        button.addEventListener("click", function () {
+    }
 
-            const next =
-                root.getAttribute("data-theme") === "light"
-                    ? "dark"
-                    : "light";
 
-            root.setAttribute("data-theme", next);
+    window.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
-            try {
-                localStorage.setItem(KEY, next);
-            } catch (e) {}
+            const navActions =
+                document.querySelector(
+                    ".nav-actions"
+                );
+
+            const navLinks =
+                document.getElementById(
+                    "navLinks"
+                );
+
+            const menuButton =
+                document.getElementById(
+                    "menuButton"
+                );
+
+
+            if (
+                !navActions ||
+                !navLinks ||
+                !menuButton
+            ) return;
+
+
+            let button =
+                document.getElementById(
+                    "themeToggle"
+                );
+
+
+            if (!button) {
+
+                button =
+                    document.createElement(
+                        "button"
+                    );
+
+                button.type = "button";
+
+                button.id =
+                    "themeToggle";
+
+                button.className =
+                    "theme-toggle";
+
+            }
+
+
+            if (window.innerWidth <= 1050) {
+
+                const contactLink =
+                    navLinks.querySelector(
+                        'a[href="contact.html"]'
+                    );
+
+
+                if (contactLink) {
+
+                    contactLink.insertAdjacentElement(
+                        "afterend",
+                        button
+                    );
+
+                } else {
+
+                    navLinks.appendChild(button);
+
+                }
+
+            } else {
+
+                navActions.insertBefore(
+                    button,
+                    menuButton
+                );
+
+            }
+
 
             updateThemeButton();
 
-        });
 
-        window.addEventListener("resize", positionThemeButton);
-    });
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const next =
+                        root.getAttribute(
+                            "data-theme"
+                        ) === "light"
+                            ? "dark"
+                            : "light";
+
+
+                    root.setAttribute(
+                        "data-theme",
+                        next
+                    );
+
+
+                    try {
+
+                        localStorage.setItem(
+                            KEY,
+                            next
+                        );
+
+                    } catch (e) {}
+
+
+                    updateThemeButton();
+
+                }
+            );
+
+
+            window.addEventListener(
+                "resize",
+                positionThemeButton
+            );
+
+        }
+    );
 
 })();
 
@@ -1777,34 +2174,53 @@ const progress =
 
 let progressValue = 0;
 
+
 const loadingInterval =
-    setInterval(() => {
+    setInterval(
+        () => {
 
-        progressValue += Math.random() * 15;
+            progressValue +=
+                Math.random() * 15;
 
-        if (progressValue > 100) {
-            progressValue = 100;
-        }
+
+            if (progressValue > 100) {
+                progressValue = 100;
+            }
+
+
+            progress.style.width =
+                progressValue + "%";
+
+        },
+        120
+    );
+
+
+window.addEventListener(
+    "load",
+    () => {
 
         progress.style.width =
-            progressValue + "%";
-
-    }, 120);
+            "100%";
 
 
-window.addEventListener("load", () => {
+        setTimeout(
+            () => {
 
-    progress.style.width = "100%";
+                clearInterval(
+                    loadingInterval
+                );
 
-    setTimeout(() => {
+                preloader.classList.add(
+                    "hide"
+                );
 
-        clearInterval(loadingInterval);
+            },
+            900
+        );
 
-        preloader.classList.add("hide");
-
-    }, 900);
-
-});
+    }
+);
 
 
 /* =========================================================
@@ -1814,19 +2230,27 @@ window.addEventListener("load", () => {
 const nav =
     document.getElementById("nav");
 
-window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
+window.addEventListener(
+    "scroll",
+    () => {
 
-        nav.classList.add("scrolled");
+        if (window.scrollY > 50) {
 
-    } else {
+            nav.classList.add(
+                "scrolled"
+            );
 
-        nav.classList.remove("scrolled");
+        } else {
+
+            nav.classList.remove(
+                "scrolled"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================================
@@ -1834,60 +2258,89 @@ window.addEventListener("scroll", () => {
 ========================================================= */
 
 const menuButton =
-    document.getElementById("menuButton");
+    document.getElementById(
+        "menuButton"
+    );
 
 const navLinks =
-    document.getElementById("navLinks");
-
-
-menuButton.addEventListener("click", () => {
-
-    const isOpen =
-        navLinks.classList.toggle("open");
-
-    menuButton.innerHTML =
-        isOpen ? "✕" : "☰";
-
-    menuButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
+    document.getElementById(
+        "navLinks"
     );
 
-    menuButton.setAttribute(
-        "aria-label",
-        isOpen
-            ? "Fermer le menu"
-            : "Ouvrir le menu"
-    );
 
-});
+menuButton.addEventListener(
+    "click",
+    () => {
+
+        const isOpen =
+            navLinks.classList.toggle(
+                "open"
+            );
+
+
+        menuButton.innerHTML =
+            isOpen ? "✕" : "☰";
+
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen
+                ? "true"
+                : "false"
+        );
+
+
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Fermer le menu"
+                : "Ouvrir le menu"
+        );
+
+    }
+);
 
 
 /* =========================================================
    FERMER LE MENU APRÈS UN CLIC
 ========================================================= */
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+document
+    .querySelectorAll(
+        ".nav-links a"
+    )
+    .forEach(
+        link => {
 
-    link.addEventListener("click", () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-        navLinks.classList.remove("open");
+                    navLinks.classList.remove(
+                        "open"
+                    );
 
-        menuButton.innerHTML = "☰";
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+                    menuButton.innerHTML =
+                        "☰";
 
-        menuButton.setAttribute(
-            "aria-label",
-            "Ouvrir le menu"
-        );
 
-    });
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-});
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Ouvrir le menu"
+                    );
+
+                }
+            );
+
+        }
+    );
 
 
 /* =========================================================
@@ -1895,50 +2348,77 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 ========================================================= */
 
 const cursorDot =
-    document.querySelector(".cursor-dot");
+    document.querySelector(
+        ".cursor-dot"
+    );
 
 const cursorRing =
-    document.querySelector(".cursor-ring");
+    document.querySelector(
+        ".cursor-ring"
+    );
 
 
-if (window.matchMedia("(pointer:fine)").matches) {
+if (
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+) {
 
-    window.addEventListener("mousemove", e => {
+    window.addEventListener(
+        "mousemove",
+        e => {
 
-        cursorDot.style.left =
-            e.clientX + "px";
+            cursorDot.style.left =
+                e.clientX + "px";
 
-        cursorDot.style.top =
-            e.clientY + "px";
+            cursorDot.style.top =
+                e.clientY + "px";
 
 
-        cursorRing.animate(
-            {
-                left: e.clientX + "px",
-                top: e.clientY + "px"
-            },
-            {
-                duration: 450,
-                fill: "forwards"
+            cursorRing.animate(
+                {
+                    left:
+                        e.clientX + "px",
+
+                    top:
+                        e.clientY + "px"
+                },
+                {
+                    duration: 450,
+                    fill: "forwards"
+                }
+            );
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(
+            "a, button"
+        )
+        .forEach(
+            el => {
+
+                el.addEventListener(
+                    "mouseenter",
+                    () =>
+                        cursorRing.classList.add(
+                            "active"
+                        )
+                );
+
+
+                el.addEventListener(
+                    "mouseleave",
+                    () =>
+                        cursorRing.classList.remove(
+                            "active"
+                        )
+                );
+
             }
         );
-
-    });
-
-
-    document.querySelectorAll("a, button").forEach(el => {
-
-        el.addEventListener(
-            "mouseenter",
-            () => cursorRing.classList.add("active")
-        );
-
-        el.addEventListener(
-            "mouseleave",
-            () => cursorRing.classList.remove("active")
-        );
-
-    });
 
 }
 
@@ -1951,19 +2431,26 @@ const revealObserver =
     new IntersectionObserver(
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                    entry.target.classList.add("show");
+                        entry.target.classList.add(
+                            "show"
+                        );
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
 
                 }
-
-            });
+            );
 
         },
         {
@@ -1972,11 +2459,19 @@ const revealObserver =
     );
 
 
-document.querySelectorAll(".reveal").forEach(el => {
+document
+    .querySelectorAll(
+        ".reveal"
+    )
+    .forEach(
+        el => {
 
-    revealObserver.observe(el);
+            revealObserver.observe(
+                el
+            );
 
-});
+        }
+    );
 
 </script>
 
