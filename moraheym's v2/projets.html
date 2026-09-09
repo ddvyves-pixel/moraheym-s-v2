@@ -888,7 +888,7 @@ body::before {
 }
 
 /* =========================
-   THEME CLAIR
+   THEME CLAIR — CONTRASTE GLOBAL
 ========================= */
 
 html[data-theme="light"] {
@@ -899,23 +899,40 @@ html[data-theme="light"] body {
     --black: #f5f2ea;
     --black-soft: #ece8de;
     --black-card: #ffffff;
+
     --cream: #171a17;
     --cream-soft: #59605a;
+
     --gold: #9a762d;
     --gold-light: #b28d3c;
+
     --green: #dce8df;
     --green-light: #bfd5c5;
+
     --line: rgba(23,26,23,.13);
 
-    background: var(--black);
-    color: var(--cream);
+    background: #f5f2ea;
+    color: #171a17;
 }
 
+/* =========================
+   BOUTON THÈME
+========================= */
+
 html[data-theme="light"] .theme-toggle {
-    background: #fff;
+    background: #ffffff;
     color: #171a17;
     border-color: rgba(23,26,23,.18);
 }
+
+html[data-theme="light"] .theme-toggle:hover {
+    color: #9a762d;
+    border-color: #9a762d;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
 html[data-theme="light"] .nav {
     background: rgba(245,242,234,.88);
@@ -923,7 +940,8 @@ html[data-theme="light"] .nav {
 }
 
 html[data-theme="light"] .nav.scrolled {
-    background: rgba(245,242,234,.90);
+    background: rgba(245,242,234,.94);
+    border-bottom-color: rgba(23,26,23,.13);
 }
 
 html[data-theme="light"] .nav-links {
@@ -935,49 +953,169 @@ html[data-theme="light"] .nav-links a {
 }
 
 html[data-theme="light"] .nav-links a:hover {
-    color: var(--gold);
+    color: #171a17;
 }
 
-html[data-theme="light"] .nav-links .active {
-    color: var(--gold) !important;
+html[data-theme="light"] .nav-links a.active {
+    color: #9a762d !important;
+}
+
+html[data-theme="light"] .nav-news {
+    color: #9a762d !important;
+}
+
+html[data-theme="light"] .nav-news::before {
+    background: #9a762d;
+    box-shadow: 0 0 10px rgba(154,118,45,.45);
+}
+
+html[data-theme="light"] .nav-cta {
+    color: #9a762d !important;
+    border-color: #9a762d;
 }
 
 html[data-theme="light"] .menu-button {
     color: #171a17;
 }
 
-html[data-theme="light"] .footer {
-    background: #e8e4da;
+html[data-theme="light"] .brand-logo-fallback {
+    color: #171a17;
 }
 
-html[data-theme="light"] .footer-description,
-html[data-theme="light"] .footer-links a,
-html[data-theme="light"] .footer-bottom {
-    color: #626860;
+html[data-theme="light"] .brand-logo-fallback span {
+    color: #9a762d;
 }
 
-html[data-theme="light"] .page-header,
-html[data-theme="light"] .section,
-html[data-theme="light"] .axes-section {
-    background-color: var(--black);
+/* =========================
+   HEADER
+========================= */
+
+html[data-theme="light"] .page-header {
+    background: #ece8de;
+    color: #171a17;
+    border-bottom-color: rgba(23,26,23,.13);
 }
 
-html[data-theme="light"] .auui-section {
-    background: var(--black-soft);
+html[data-theme="light"] .page-watermark {
+    color: #171a17;
+    opacity: .035;
 }
+
+/* =========================
+   TEXTES GÉNÉRAUX
+========================= */
+
+html[data-theme="light"] .section {
+    background: #f5f2ea;
+    color: #171a17;
+}
+
+html[data-theme="light"] .section-title {
+    color: #171a17;
+}
+
+html[data-theme="light"] .section-title em {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .section-label {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .section-label::before {
+    background: #9a762d;
+}
+
+/* =========================
+   INTRODUCTION PROJETS
+========================= */
+
+html[data-theme="light"] .projects-intro {
+    color: #171a17;
+}
+
+html[data-theme="light"] .projects-intro p {
+    color: #59605a;
+}
+
+/* =========================
+   CARTES PROJETS
+========================= */
 
 html[data-theme="light"] .project {
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,.22),
-            rgba(255,255,255,.05)
+            rgba(255,255,255,.96),
+            rgba(255,255,255,.82)
         ),
-        var(--green);
+        #dce8df;
+
+    color: #171a17;
+    border-color: rgba(23,26,23,.13);
+}
+
+html[data-theme="light"] .project:hover {
+    border-color: rgba(154,118,45,.55);
+}
+
+html[data-theme="light"] .project-number {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .project-status {
+    color: #9a762d;
+    border-color: rgba(154,118,45,.40);
+    background: rgba(255,255,255,.55);
+}
+
+html[data-theme="light"] .project h3 {
+    color: #171a17;
 }
 
 html[data-theme="light"] .project p {
-    color: rgba(23,26,23,.7);
+    color: #59605a;
+}
+
+html[data-theme="light"] .project::before {
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(154,118,45,.12),
+            transparent 35%
+        );
+}
+
+/* =========================
+   SECTION AUUI
+========================= */
+
+html[data-theme="light"] .auui-section {
+    background: #ece8de;
+    color: #171a17;
+
+    border-top-color: rgba(23,26,23,.13);
+    border-bottom-color: rgba(23,26,23,.13);
+}
+
+html[data-theme="light"] .auui-label {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .auui-title {
+    color: #171a17;
+}
+
+html[data-theme="light"] .auui-title span {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .auui-text {
+    color: #59605a;
+}
+
+html[data-theme="light"] .auui-text strong {
+    color: #171a17;
 }
 
 html[data-theme="light"] .auui-card {
@@ -987,15 +1125,154 @@ html[data-theme="light"] .auui-card {
             rgba(220,232,223,.95),
             rgba(255,255,255,.98)
         );
+
+    color: #171a17;
+    border-color: rgba(23,26,23,.13);
+}
+
+html[data-theme="light"] .auui-card::after {
+    color: #9a762d;
+    opacity: .08;
+}
+
+html[data-theme="light"] .auui-card-label {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .auui-card h3 {
+    color: #171a17;
 }
 
 html[data-theme="light"] .auui-card p {
     color: #59605a;
 }
 
+/* =========================
+   CHAMPS D'ACTION
+========================= */
+
+html[data-theme="light"] .axes-section {
+    background: #f5f2ea;
+    color: #171a17;
+}
+
+html[data-theme="light"] .axes-header {
+    color: #171a17;
+}
+
+html[data-theme="light"] .axes-header p {
+    color: #59605a;
+}
+
+html[data-theme="light"] .axis {
+    background: #ffffff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.13);
+}
+
+html[data-theme="light"] .axis:hover {
+    border-color: rgba(154,118,45,.50);
+}
+
+html[data-theme="light"] .axis-number {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .axis h3 {
+    color: #171a17;
+}
+
+html[data-theme="light"] .axis p {
+    color: #59605a;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+html[data-theme="light"] .footer {
+    background: #e8e4da;
+    color: #171a17;
+    border-top-color: rgba(23,26,23,.13);
+}
+
+html[data-theme="light"] .footer-logo {
+    color: #171a17;
+}
+
+html[data-theme="light"] .footer-logo span {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .footer-description {
+    color: #59605a;
+}
+
+html[data-theme="light"] .footer-heading {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .footer-links a {
+    color: #4f554f;
+}
+
+html[data-theme="light"] .footer-links a:hover {
+    color: #171a17;
+}
+
+html[data-theme="light"] .footer-bottom {
+    color: #626860;
+    border-top-color: rgba(23,26,23,.13);
+}
+
+/* =========================
+   PRELOADER
+========================= */
+
 html[data-theme="light"] .preloader {
     background: #f5f2ea;
     color: #171a17;
+}
+
+html[data-theme="light"] .loader-logo {
+    color: #171a17;
+}
+
+html[data-theme="light"] .loader-subtitle {
+    color: #9a762d;
+}
+
+html[data-theme="light"] .loader-bar {
+    background: rgba(23,26,23,.10);
+}
+
+html[data-theme="light"] .loader-progress {
+    background: #9a762d;
+}
+
+/* =========================
+   CURSEUR
+========================= */
+
+html[data-theme="light"] .cursor-dot {
+    background: #9a762d;
+}
+
+html[data-theme="light"] .cursor-ring {
+    border-color: rgba(154,118,45,.65);
+}
+
+html[data-theme="light"] .cursor-ring.active {
+    background: rgba(154,118,45,.08);
+}
+
+/* =========================
+   SÉLECTION
+========================= */
+
+html[data-theme="light"] ::selection {
+    background: #9a762d;
+    color: #ffffff;
 }
 
 /* =========================
