@@ -1419,7 +1419,7 @@ body::before {
 
 
 /* =========================================================
-   THÈME CLAIR
+   THÈME CLAIR — CONTRASTE GLOBAL
 ========================================================= */
 
 html[data-theme="light"] {
@@ -1428,6 +1428,10 @@ html[data-theme="light"] {
 
 }
 
+
+/* =========================================================
+   CORPS
+========================================================= */
 
 html[data-theme="light"] body {
 
@@ -1453,25 +1457,46 @@ html[data-theme="light"] body {
         rgba(23,26,23,.13);
 
     background:
-        var(--black);
+        #f5f2ea;
 
     color:
-        var(--cream);
+        #171a17;
 
 }
 
 
+/* =========================================================
+   BOUTON THÈME
+========================================================= */
+
 html[data-theme="light"] .theme-toggle {
 
-    background: #fff;
+    background:
+        #ffffff;
 
-    color: #171a17;
+    color:
+        #171a17;
 
     border-color:
         rgba(23,26,23,.18);
 
 }
 
+
+html[data-theme="light"] .theme-toggle:hover {
+
+    color:
+        #9a762d;
+
+    border-color:
+        #9a762d;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 html[data-theme="light"] .nav {
 
@@ -1487,7 +1512,10 @@ html[data-theme="light"] .nav {
 html[data-theme="light"] .nav.scrolled {
 
     background:
-        rgba(245,242,234,.90);
+        rgba(245,242,234,.94);
+
+    border-bottom-color:
+        rgba(23,26,23,.13);
 
 }
 
@@ -1502,35 +1530,185 @@ html[data-theme="light"] .nav-links {
 
 html[data-theme="light"] .nav-links a {
 
-    color: #303630;
+    color:
+        #303630;
 
 }
 
 
 html[data-theme="light"] .nav-links a:hover {
 
-    color: var(--gold);
+    color:
+        #171a17;
 
 }
 
 
-html[data-theme="light"] .nav-links .active {
+html[data-theme="light"] .nav-links a.active {
 
-    color: var(--gold) !important;
+    color:
+        #9a762d !important;
+
+}
+
+
+html[data-theme="light"] .nav-news {
+
+    color:
+        #9a762d !important;
+
+}
+
+
+html[data-theme="light"] .nav-news::before {
+
+    background:
+        #9a762d;
+
+    box-shadow:
+        0 0 10px rgba(154,118,45,.45);
+
+}
+
+
+html[data-theme="light"] .nav-cta {
+
+    color:
+        #9a762d !important;
+
+    border-color:
+        #9a762d;
 
 }
 
 
 html[data-theme="light"] .menu-button {
 
-    color: #171a17;
+    color:
+        #171a17;
 
 }
 
 
-html[data-theme="light"] .footer {
+/* =========================================================
+   LOGO FALLBACK
+========================================================= */
 
-    background: #e8e4da;
+html[data-theme="light"] .brand-logo-fallback {
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .brand-logo-fallback span {
+
+    color:
+        #9a762d;
+
+}
+
+
+/* =========================================================
+   HEADER DE PAGE
+========================================================= */
+
+html[data-theme="light"] .page-header {
+
+    background:
+        #f5f2ea;
+
+    color:
+        #171a17;
+
+    border-bottom-color:
+        rgba(23,26,23,.13);
+
+}
+
+
+/* =========================================================
+   FILIGRANE EXPERTISE
+========================================================= */
+
+html[data-theme="light"] .page-watermark {
+
+    color:
+        #171a17;
+
+    opacity:
+        .035;
+
+}
+
+
+/* =========================================================
+   ÉTIQUETTES
+========================================================= */
+
+html[data-theme="light"] .section-label {
+
+    color:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .section-label::before {
+
+    background:
+        #9a762d;
+
+}
+
+
+/* =========================================================
+   TITRES
+========================================================= */
+
+html[data-theme="light"] .section-title {
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .section-title em {
+
+    color:
+        #9a762d;
+
+}
+
+
+/* =========================================================
+   SECTIONS PRINCIPALES
+========================================================= */
+
+html[data-theme="light"] .section {
+
+    background:
+        #f5f2ea;
+
+    color:
+        #171a17;
+
+}
+
+
+/* =========================================================
+   GRILLE DES DOMAINES
+========================================================= */
+
+html[data-theme="light"] .values-grid {
+
+    border-left-color:
+        rgba(23,26,23,.13);
+
+    border-top-color:
+        rgba(23,26,23,.13);
 
 }
 
@@ -1538,23 +1716,166 @@ html[data-theme="light"] .footer {
 html[data-theme="light"] .value-card {
 
     background:
-        rgba(255,255,255,.72);
+        rgba(255,255,255,.78);
+
+    color:
+        #171a17;
+
+    border-right-color:
+        rgba(23,26,23,.13);
+
+    border-bottom-color:
+        rgba(23,26,23,.13);
 
 }
 
+
+html[data-theme="light"] .value-card:hover {
+
+    background:
+        rgba(255,255,255,.96);
+
+}
+
+
+html[data-theme="light"] .value-number {
+
+    color:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .value-card h3 {
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .value-card p {
+
+    color:
+        #59605a;
+
+}
+
+
+/* =========================================================
+   SECTION AUUI
+========================================================= */
 
 html[data-theme="light"] .auui-section {
 
     background:
         #ece8de;
 
+    color:
+        #171a17;
+
+    border-top-color:
+        rgba(23,26,23,.13);
+
+    border-bottom-color:
+        rgba(23,26,23,.13);
+
 }
 
+
+html[data-theme="light"] .auui-label {
+
+    color:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .auui-title {
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .auui-title em {
+
+    color:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .auui-text {
+
+    color:
+        #59605a;
+
+}
+
+
+/* =========================================================
+   BLOC AUUI
+========================================================= */
 
 html[data-theme="light"] .auui-box {
 
     background:
-        rgba(255,255,255,.6);
+        rgba(255,255,255,.78);
+
+    color:
+        #171a17;
+
+    border-color:
+        rgba(23,26,23,.13);
+
+}
+
+
+html[data-theme="light"] .auui-box::before {
+
+    color:
+        #9a762d;
+
+    opacity:
+        .10;
+
+}
+
+
+html[data-theme="light"] .auui-box h3 {
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .auui-box h3 em {
+
+    color:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .auui-box p {
+
+    color:
+        #59605a;
+
+}
+
+
+/* =========================================================
+   DOMAINES COMPLÉMENTAIRES
+========================================================= */
+
+html[data-theme="light"] .scope {
+
+    border-top-color:
+        rgba(23,26,23,.13);
 
 }
 
@@ -1562,150 +1883,207 @@ html[data-theme="light"] .auui-box {
 html[data-theme="light"] .scope-item {
 
     background:
-        rgba(255,255,255,.35);
+        rgba(255,255,255,.45);
+
+    color:
+        #171a17;
+
+    border-right-color:
+        rgba(23,26,23,.13);
+
+    border-bottom-color:
+        rgba(23,26,23,.13);
 
 }
 
 
-html[data-theme="light"] .page-header,
-html[data-theme="light"] .section {
+html[data-theme="light"] .scope-number {
 
-    background-color:
-        var(--black);
-
-}
-
-
-html[data-theme="light"] .footer-description,
-html[data-theme="light"] .footer-links a,
-html[data-theme="light"] .footer-bottom {
-
-    color: #626860;
+    color:
+        #9a762d;
 
 }
 
 
-html[data-theme="light"] .preloader {
+html[data-theme="light"] .scope-item h4 {
 
-    background: #f5f2ea;
+    color:
+        #171a17;
 
-    color: #171a17;
+}
+
+
+html[data-theme="light"] .scope-item p {
+
+    color:
+        #59605a;
 
 }
 
 
 /* =========================================================
-   PETITS ÉCRANS
+   FOOTER
 ========================================================= */
 
-@media (max-width: 600px) {
+html[data-theme="light"] .footer {
 
-    .nav-inner {
+    background:
+        #e8e4da;
 
-        width: 92%;
+    color:
+        #171a17;
 
-        min-height: 90px;
+    border-top-color:
+        rgba(23,26,23,.13);
 
-    }
-
-
-    .logo-img {
-
-        height: 70px;
-
-    }
+}
 
 
-    .nav-links {
+html[data-theme="light"] .footer-logo {
 
-        top: 90px;
+    color:
+        #171a17;
 
-        padding:
-            30px 6% 35px;
-
-        gap: 22px;
-
-    }
+}
 
 
-    .nav-links .theme-toggle {
+html[data-theme="light"] .footer-logo span {
 
-        margin-top: 3px;
+    color:
+        #9a762d;
 
-        width: 40px;
-
-        height: 40px;
-
-    }
+}
 
 
-    .menu-button {
+html[data-theme="light"] .footer-description {
 
-        font-size: 1.45rem;
+    color:
+        #59605a;
 
-        padding-right: 0;
-
-    }
-
-
-    .page-header {
-
-        padding-top: 150px;
-
-    }
+}
 
 
-    .section {
+html[data-theme="light"] .footer-heading {
 
-        padding: 100px 0;
+    color:
+        #9a762d;
 
-    }
-
-
-    .value-card {
-
-        min-height: auto;
-
-        padding: 30px;
-
-    }
+}
 
 
-    .auui-box {
+html[data-theme="light"] .footer-links a {
 
-        padding: 30px;
+    color:
+        #4f554f;
 
-    }
-
-
-    .scope {
-
-        grid-template-columns: 1fr;
-
-    }
+}
 
 
-    .scope-item {
+html[data-theme="light"] .footer-links a:hover {
 
-        border-right: 0;
+    color:
+        #171a17;
 
-    }
-
-
-    .footer-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-    }
+}
 
 
-    .footer-bottom {
+html[data-theme="light"] .footer-bottom {
 
-        flex-direction: column;
+    color:
+        #626860;
 
-    }
+    border-top-color:
+        rgba(23,26,23,.13);
+
+}
+
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+html[data-theme="light"] .preloader {
+
+    background:
+        #f5f2ea;
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .loader-logo {
+
+    color:
+        #171a17;
+
+}
+
+
+html[data-theme="light"] .loader-subtitle {
+
+    color:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .loader-bar {
+
+    background:
+        rgba(23,26,23,.10);
+
+}
+
+
+html[data-theme="light"] .loader-progress {
+
+    background:
+        #9a762d;
+
+}
+
+
+/* =========================================================
+   CURSEUR
+========================================================= */
+
+html[data-theme="light"] .cursor-dot {
+
+    background:
+        #9a762d;
+
+}
+
+
+html[data-theme="light"] .cursor-ring {
+
+    border-color:
+        rgba(154,118,45,.65);
+
+}
+
+
+html[data-theme="light"] .cursor-ring.active {
+
+    background:
+        rgba(154,118,45,.08);
+
+}
+
+
+/* =========================================================
+   SÉLECTION DE TEXTE
+========================================================= */
+
+html[data-theme="light"] ::selection {
+
+    background:
+        #9a762d;
+
+    color:
+        #ffffff;
 
 }
 
