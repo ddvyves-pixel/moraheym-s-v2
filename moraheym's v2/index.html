@@ -542,6 +542,12 @@ body::before {
     -webkit-text-stroke: 1px rgba(244,240,230,.45);
 }
 
+/* Correction du mot "l'Afrique" en thème clair */
+html[data-theme="light"] .hero h1 .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(23,26,23,.45);
+}
+
 .hero h1 em {
     color: var(--gold);
 }
