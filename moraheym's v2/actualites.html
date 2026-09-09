@@ -2072,7 +2072,54 @@ html[data-theme="light"] .preloader {
 
     color: #171a17;
 }
+/* =========================================================
+   CORRECTION GLOBALE DU CONTRASTE — MODE CLAIR
+   ========================================================= */
 
+/* Toutes les sections ayant un fond clair doivent
+   utiliser une couleur de texte sombre */
+html[data-theme="light"] .vision-axes,
+html[data-theme="light"] .timeline-section,
+html[data-theme="light"] .about,
+html[data-theme="light"] .network,
+html[data-theme="light"] .expertise,
+html[data-theme="light"] .projects,
+html[data-theme="light"] .actualites,
+html[data-theme="light"] .contact,
+html[data-theme="light"] .section-light {
+    color: #171a17;
+}
+
+/* Les titres héritent automatiquement du texte sombre */
+html[data-theme="light"] .vision-axes .section-title,
+html[data-theme="light"] .timeline-section .section-title,
+html[data-theme="light"] .about .section-title,
+html[data-theme="light"] .network .section-title,
+html[data-theme="light"] .expertise .section-title,
+html[data-theme="light"] .projects .section-title,
+html[data-theme="light"] .actualites .section-title,
+html[data-theme="light"] .contact .section-title,
+html[data-theme="light"] .section-light .section-title {
+    color: #171a17;
+}
+
+/* Les éléments <em> des titres gardent la couleur or */
+html[data-theme="light"] .section-title em {
+    color: var(--gold);
+}
+
+/* Paragraphes : gris foncé lisible */
+html[data-theme="light"] .vision-axes p,
+html[data-theme="light"] .timeline-section p,
+html[data-theme="light"] .about p,
+html[data-theme="light"] .network p,
+html[data-theme="light"] .expertise p,
+html[data-theme="light"] .projects p,
+html[data-theme="light"] .actualites p,
+html[data-theme="light"] .contact p,
+html[data-theme="light"] .section-light p {
+    color: #62665f;
+}
 
 /* =========================================================
    THÈME DANS LE MENU BURGER
