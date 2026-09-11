@@ -2114,36 +2114,24 @@ html[data-theme="light"] ::selection {
 
 
 <script>
-
-/* =========================================================
-   APPLICATION IMMÉDIATE DU THÈME
-========================================================= */
-
-(function () {
+(function(){
+    const KEY = "moraheyms-theme";
 
     try {
-
-        const saved =
-            localStorage.getItem("moraheyms-theme");
+        const savedTheme = localStorage.getItem(KEY);
 
         document.documentElement.setAttribute(
             "data-theme",
-            saved === "light"
-                ? "light"
-                : "dark"
+            savedTheme === "dark" ? "dark" : "light"
         );
 
-    } catch (e) {
-
+    } catch(e) {
         document.documentElement.setAttribute(
             "data-theme",
-            "dark"
+            "light"
         );
-
     }
-
 })();
-
 </script>
 
 </head>

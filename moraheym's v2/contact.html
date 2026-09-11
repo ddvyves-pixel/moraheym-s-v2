@@ -1565,37 +1565,24 @@ html[data-theme="light"] ::selection {
 
 
 <script>
-
-/* =========================================================
-   THÈME INITIAL
-========================================================= */
-
 (function(){
+    const KEY = "moraheyms-theme";
 
     try {
-
-        var t =
-            localStorage.getItem(
-                "moraheyms-theme"
-            );
+        const savedTheme = localStorage.getItem(KEY);
 
         document.documentElement.setAttribute(
             "data-theme",
-            t === "light"
-                ? "light"
-                : "dark"
+            savedTheme === "dark" ? "dark" : "light"
         );
 
     } catch(e) {
-
         document.documentElement.setAttribute(
             "data-theme",
-            "dark"
+            "light"
         );
     }
-
 })();
-
 </script>
 
 </head>

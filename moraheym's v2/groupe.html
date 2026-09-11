@@ -1990,38 +1990,24 @@ html[data-theme="light"] ::selection {
 ========================================================= -->
 
 <script>
-
-(function () {
+(function(){
+    const KEY = "moraheyms-theme";
 
     try {
-
-        const saved =
-            localStorage.getItem(
-                "moraheyms-theme"
-            );
-
-        document.documentElement.setAttribute(
-
-            "data-theme",
-
-            saved === "light"
-                ? "light"
-                : "dark"
-        );
-
-    }
-
-    catch (e) {
+        const savedTheme = localStorage.getItem(KEY);
 
         document.documentElement.setAttribute(
             "data-theme",
-            "dark"
+            savedTheme === "dark" ? "dark" : "light"
         );
 
+    } catch(e) {
+        document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+        );
     }
-
 })();
-
 </script>
 
 </head>
