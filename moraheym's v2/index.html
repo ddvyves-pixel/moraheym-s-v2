@@ -622,50 +622,32 @@ html[data-theme="light"] .hero h1 .outline {
 
 .core-sphere {
     position: absolute;
-
     width: 43%;
     aspect-ratio: 1;
-
     left: 50%;
     top: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        translateZ(50px);
+    transform: translate(-50%, -50%) translateZ(50px);
 
     border-radius: 50%;
-
-    /* Plus aucun fond doré */
-    background: #111714;
-
     overflow: hidden;
-
-    transform-style: preserve-3d;
-
-    /*
-       La sphère reste fixe.
-       C'est la carte du monde qui défile,
-       comme la surface réelle de la Terre.
-    */
-
     isolation: isolate;
+
+    background: #111714;
 
     box-shadow:
         0 0 70px rgba(201,164,93,.22),
         inset -30px -35px 55px rgba(0,0,0,.55);
 
-    will-change: transform;
+    transform-style: preserve-3d;
 }
 
 
-
 /* =========================================================
-   CARTE DU MONDE
+   CARTE DU MONDE — ROTATION CONTINUE
 ========================================================= */
 
 .core-sphere .globe-map {
     position: absolute;
-
     inset: 0;
 
     width: 100%;
@@ -673,35 +655,23 @@ html[data-theme="light"] .hero h1 .outline {
 
     border-radius: 50%;
 
-    background-image:
-        url("globe-map.png");
-
+    background-image: url("globe-map.png");
     background-repeat: repeat-x;
 
     /*
-       Deux exemplaires de la carte permettent
-       une rotation continue sans apparition
-       d'une zone vide.
+       L'image contient toute la Terre :
+       200% permet de faire défiler la carte
+       sans coupure visible.
     */
     background-size: 200% 100%;
-
-    /*
-       Position de départ de la Terre.
-    */
     background-position: 0% center;
 
     opacity: 1;
 
-    transform:
-        translateZ(1px)
-        scale(1.05);
+    transform: scale(1.05);
 
     z-index: 2;
 
-    /*
-       Aspect naturel de la carte.
-       Pas de transformation dorée.
-    */
     filter:
         saturate(.95)
         contrast(1.08)
@@ -709,39 +679,33 @@ html[data-theme="light"] .hero h1 .outline {
 
     pointer-events: none;
 
-    /*
-       Rotation continue et régulière.
-       Une vitesse lente donne un effet
-       proche d'une vraie Terre.
-    */
     animation:
-        globeMapRotation 28s linear infinite;
+        globeMapRotation
+        30s
+        linear
+        infinite;
 
-    will-change:
-        background-position;
+    will-change: background-position;
 }
 
 
-
 /* =========================================================
-   REFLET DE LUMIÈRE
+   LUMIÈRE DU GLOBE
 ========================================================= */
 
 .core-sphere::before {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 28% 22%,
-            rgba(255,255,255,.30) 0%,
-            rgba(255,255,255,.11) 17%,
-            transparent 42%
+            circle at 30% 25%,
+            rgba(255,255,255,.18),
+            transparent 38%
         );
 
     z-index: 4;
@@ -752,38 +716,29 @@ html[data-theme="light"] .hero h1 .outline {
 }
 
 
-
 /* =========================================================
-   OMBRE / VOLUME DE LA TERRE
+   OMBRE DU GLOBE
 ========================================================= */
 
 .core-sphere::after {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 72% 74%,
-            rgba(0,0,0,.72) 0%,
-            rgba(0,0,0,.38) 32%,
-            rgba(0,0,0,.10) 58%,
-            transparent 78%
+            circle at 68% 70%,
+            transparent 35%,
+            rgba(0,0,0,.48) 100%
         );
-
-    box-shadow:
-        inset -25px -25px 40px rgba(0,0,0,.42),
-        inset 10px 10px 25px rgba(255,255,255,.07);
 
     z-index: 5;
 
     pointer-events: none;
 }
-
 
 
 /* =========================================================
@@ -792,42 +747,36 @@ html[data-theme="light"] .hero h1 .outline {
 
 @keyframes globeMapRotation {
 
-    0% {
+    from {
         background-position: 0% center;
     }
 
-    100% {
+    to {
         background-position: 100% center;
     }
 
 }
 
 
-
 /* =========================================================
-   OPTIMISATION
+   PERFORMANCE
 ========================================================= */
 
 .core-sphere,
 .core-sphere .globe-map {
-    will-change:
-        transform,
-        background-position;
+    will-change: transform, background-position;
 }
 
 
-
 /* =========================================================
-   RÉDUCTION DES ANIMATIONS
+   ACCESSIBILITÉ
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
     .core-sphere .globe-map {
         animation: none;
-
-        background-position:
-            50% center;
+        background-position: 50% center;
     }
 
 }
