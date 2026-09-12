@@ -663,63 +663,27 @@ html[data-theme="light"] .hero h1 .outline {
 
     animation:
         globeMapRotation
-        45s
+        30s
         linear
         infinite;
 
     will-change: background-position;
 }
 
-
 /* =========================================================
-   ROTATION CONTINUE DU GLOBE
+   ROTATION CONTINUE DU GLOBE — VITESSE CONSTANTE
 ========================================================= */
 
 @keyframes globeMapRotation {
 
-    0% {
+    from {
         background-position: 0% center;
     }
 
-    15% {
-        background-position: 18% center;
-    }
-
-    27% {
-        background-position: 32% center;
-    }
-
-    /* Arrivée sur l'Afrique */
-    38% {
-        background-position: 42% center;
-    }
-
-    /* Passage lent autour de l'Afrique */
-    48% {
-        background-position: 44% center;
-    }
-
-    58% {
-        background-position: 46% center;
-    }
-
-    68% {
-        background-position: 50% center;
-    }
-
-    /* Reprise progressive de la rotation */
-    78% {
-        background-position: 62% center;
-    }
-
-    89% {
-        background-position: 80% center;
-    }
-
-    /* Fin de rotation */
-    100% {
+    to {
         background-position: 100% center;
     }
+
 }
 
 /* =========================================================
