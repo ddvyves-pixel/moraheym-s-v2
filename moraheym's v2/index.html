@@ -621,46 +621,29 @@ html[data-theme="light"] .hero h1 .outline {
 
     background-image: url("globe-map.png");
     background-repeat: repeat-x;
-
-    /*
-       On agrandit légèrement la carte.
-       Cela donne un effet "loupe" plus marqué
-       sur le continent visible.
-    */
-    background-size: 225% 112%;
-
+    background-size: 200% 100%;
     background-position: 0% center;
 
     opacity: 1;
 
-    /*
-       Zoom général du globe.
-       L'Afrique paraîtra davantage mise en avant.
-    */
-    transform: scale(1.10);
-
-    transform-origin: center center;
+    transform: scale(1.05);
 
     z-index: 2;
 
     filter:
-        saturate(1.08)
-        contrast(1.12)
-        brightness(.94);
+        saturate(.95)
+        contrast(1.08)
+        brightness(.92);
 
     pointer-events: none;
 
-    /*
-       Rotation plus lente :
-       42 secondes au lieu de 30.
-    */
     animation:
         globeMapRotation
-        42s
+        30s
         linear
         infinite;
 
-    will-change: background-position, transform;
+    will-change: background-position;
 }
 
 
