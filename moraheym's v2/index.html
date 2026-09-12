@@ -610,205 +610,98 @@ html[data-theme="light"] .hero h1 .outline {
     filter: blur(15px);
 }
 
-/* =========================================================
-   GLOBE MORAHEYM'S
-   Globe doré + rotation de la carte du monde
-========================================================= */
-
-/* =========================================================
-   GLOBE MORAHEYM'S — TERRE EN ROTATION CONTINUE
-   Carte du monde visible en permanence
-========================================================= */
-
-.core-sphere .globe-map {
+.core-sphere {
     position: absolute;
-    inset: 0;
+    width: 43%;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) translateZ(50px);
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #f2d995 0%,
+            var(--gold) 25%,
+            #72541e 72%,
+            #221c0e 100%
+        );
+    box-shadow:
+        0 0 70px rgba(201,164,93,.22),
+        inset -30px -35px 55px rgba(0,0,0,.5);
+}
 
+.orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(201,164,93,.48);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.orbit-a {
     width: 100%;
-    height: 100%;
+    height: 38%;
+    transform: translate(-50%,-50%) rotate(25deg);
+}
 
-    border-radius: 50%;
+.orbit-b {
+    width: 88%;
+    height: 58%;
+    transform: translate(-50%,-50%) rotate(-42deg);
+    border-color: rgba(244,240,230,.18);
+}
 
-    background-image: url("globe-map.png");
-    background-repeat: repeat-x;
+@keyframes coreFloat {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
 
-    /*
-       On agrandit légèrement la carte.
-       Cela donne un effet "loupe" plus marqué
-       sur le continent visible.
-    */
-    background-size: 225% 112%;
-
-    background-position: 0% center;
-
-    opacity: 1;
-
-    /*
-       Zoom général du globe.
-       L'Afrique paraîtra davantage mise en avant.
-    */
-    transform: scale(1.10);
-
-    transform-origin: center center;
-
-    z-index: 2;
-
-    filter:
-        saturate(1.08)
-        contrast(1.12)
-        brightness(.94);
-
-    pointer-events: none;
-
-    /*
-       Rotation plus lente :
-       42 secondes au lieu de 30.
-    */
-    animation:
-        globeMapRotation
-        42s
-        linear
-        infinite;
-
-    will-change: background-position, transform;
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
 }
 
 
 /* =========================================================
-   LUMIÈRE DU GLOBE
+   MARQUEE
 ========================================================= */
 
-.core-sphere::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            rgba(255,255,255,.18),
-            transparent 38%
-        );
-
-    z-index: 4;
-
-    pointer-events: none;
-
-    mix-blend-mode: screen;
+.marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--green);
 }
 
-
-/* =========================================================
-   OMBRE DU GLOBE
-========================================================= */
-
-.core-sphere::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 68% 70%,
-            transparent 35%,
-            rgba(0,0,0,.48) 100%
-        );
-
-    z-index: 5;
-
-    pointer-events: none;
+.marquee-track {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    animation: marquee 24s linear infinite;
 }
 
-
-/* =========================================================
-   ROTATION DE LA TERRE
-========================================================= */
-
-@keyframes globeMapRotation {
-
-    /*
-       Départ
-    */
-    0% {
-        background-position: 0% center;
-        transform: scale(1.10);
-    }
-
-    /*
-       L'Afrique arrive progressivement
-    */
-    22% {
-        background-position: 22% center;
-        transform: scale(1.14);
-    }
-
-    /*
-       AFRIQUE AU PREMIER PLAN
-       On ralentit visuellement le passage
-       en conservant la même position pendant
-       une longue partie de l'animation.
-    */
-    38% {
-        background-position: 38% center;
-        transform: scale(1.20);
-    }
-
-    55% {
-        background-position: 42% center;
-        transform: scale(1.20);
-    }
-
-    65% {
-        background-position: 46% center;
-        transform: scale(1.18);
-    }
-
-    /*
-       L'Afrique commence à quitter le centre
-    */
-    78% {
-        background-position: 68% center;
-        transform: scale(1.12);
-    }
-
-    /*
-       Fin du tour
-    */
-    100% {
-        background-position: 100% center;
-        transform: scale(1.10);
-    }
-
+.marquee-item {
+    padding: 24px 35px;
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    white-space: nowrap;
 }
 
-
-/* =========================================================
-   PERFORMANCE
-========================================================= */
-
-.core-sphere,
-.core-sphere .globe-map {
-    will-change: transform, background-position;
+.marquee-item span {
+    color: var(--gold);
+    margin: 0 30px;
 }
 
-
-/* =========================================================
-   ACCESSIBILITÉ
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .core-sphere .globe-map {
-        animation: none;
-        background-position: 50% center;
+@keyframes marquee {
+    from {
+        transform: translateX(0);
     }
 
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 
@@ -1800,11 +1693,7 @@ html[data-theme="light"] .footer-bottom {
 
             <div class="core-glow"></div>
 
-            <div class="core-sphere">
-
-              <div class="globe-map"></div>
-
-            </div>
+            <div class="core-sphere"></div>
 
             <div class="orbit orbit-a"></div>
 
@@ -2872,96 +2761,6 @@ document
 
         }
     );
-
-    /* =========================================================
-   GLOBE MORAHEYM'S
-   Gestion de l'interaction avec le globe
-========================================================= */
-
-(function () {
-
-    const globe =
-        document.querySelector(".core-sphere");
-
-    const globeMap =
-        document.querySelector(".globe-map");
-
-    if (!globe || !globeMap) return;
-
-
-    /* -----------------------------------------------------
-       PAUSE AU SURVOL
-    ----------------------------------------------------- */
-
-    globe.addEventListener(
-        "mouseenter",
-        function () {
-
-            globe.style.animationPlayState =
-                "paused";
-
-            globeMap.style.animationPlayState =
-                "paused";
-
-        }
-    );
-
-
-    globe.addEventListener(
-        "mouseleave",
-        function () {
-
-            globe.style.animationPlayState =
-                "running";
-
-            globeMap.style.animationPlayState =
-                "running";
-
-        }
-    );
-
-
-    /* -----------------------------------------------------
-       ACCESSIBILITÉ
-    ----------------------------------------------------- */
-
-    const reducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        );
-
-
-    function updateMotion() {
-
-        if (reducedMotion.matches) {
-
-            globe.style.animation =
-                "none";
-
-            globeMap.style.animation =
-                "none";
-
-            globeMap.style.opacity =
-                "1";
-
-            globeMap.style.backgroundPosition =
-                "100% center";
-
-        }
-
-    }
-
-
-    updateMotion();
-
-
-    reducedMotion.addEventListener(
-        "change",
-        updateMotion
-    );
-
-
-})();
 
 </script>
 
