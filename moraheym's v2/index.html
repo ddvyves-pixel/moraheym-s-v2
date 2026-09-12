@@ -632,9 +632,8 @@ html[data-theme="light"] .hero h1 .outline {
 }
 
 
-```css
 /* =========================================================
-   CARTE DU MONDE — ROTATION AVEC FOCUS SUR L'AFRIQUE
+   CARTE DU MONDE — ROTATION CONTINUE
 ========================================================= */
 
 .core-sphere .globe-map {
@@ -650,121 +649,34 @@ html[data-theme="light"] .hero h1 .outline {
     background-repeat: repeat-x;
 
     /*
-       On agrandit fortement la carte.
-       L'effet donne l'impression que le globe
-       est davantage visualisé à la loupe.
+       L'image contient toute la Terre :
+       200% permet de faire défiler la carte
+       sans coupure visible.
     */
-    background-size: 250% 125%;
-
-    /*
-       Position initiale légèrement décalée
-       afin de mieux placer l'Afrique.
-    */
-    background-position: 8% center;
+    background-size: 200% 100%;
+    background-position: 0% center;
 
     opacity: 1;
 
-    /*
-       Zoom supplémentaire de la carte à l'intérieur
-       de la sphère.
-    */
-    transform: scale(1.22);
-
-    transform-origin: center center;
+    transform: scale(1.05);
 
     z-index: 2;
 
     filter:
-        saturate(1.05)
+        saturate(.95)
         contrast(1.08)
-        brightness(1);
+        brightness(.92);
 
     pointer-events: none;
 
-    /*
-       Rotation lente.
-       L'animation utilise plusieurs étapes pour
-       ralentir volontairement lorsque l'Afrique
-       arrive au centre.
-    */
     animation:
         globeMapRotation
-        40s
+        30s
         linear
         infinite;
 
     will-change: background-position;
 }
-
-
-/* =========================================================
-   ROTATION DE LA TERRE — AFRIQUE PLUS LONGTEMPS
-========================================================= */
-
-@keyframes globeMapRotation {
-
-    /*
-       Début du tour
-    */
-    0% {
-        background-position: 8% center;
-    }
-
-    /*
-       Première partie du monde
-    */
-    20% {
-        background-position: 28% center;
-    }
-
-    /*
-       On ralentit progressivement
-    */
-    32% {
-        background-position: 38% center;
-    }
-
-    /*
-       AFRIQUE :
-       très peu de déplacement entre ces étapes.
-       Elle reste donc beaucoup plus longtemps visible.
-    */
-    40% {
-        background-position: 43% center;
-    }
-
-    48% {
-        background-position: 45% center;
-    }
-
-    56% {
-        background-position: 47% center;
-    }
-
-    64% {
-        background-position: 50% center;
-    }
-
-    /*
-       L'Afrique commence à quitter le centre.
-    */
-    72% {
-        background-position: 60% center;
-    }
-
-    /*
-       Accélération sur le reste du monde.
-    */
-    84% {
-        background-position: 78% center;
-    }
-
-    100% {
-        background-position: 108% center;
-    }
-}
-```
-
 
 
 /* =========================================================
