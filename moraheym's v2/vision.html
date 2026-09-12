@@ -1078,6 +1078,338 @@ body::before {
 
 
 /* =========================================================
+   PARTENAIRES STRATÉGIQUES
+   ========================================================= */
+
+.partners-section {
+
+    background:
+        var(--black-soft);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+.partners-section::before {
+
+    content:
+        "PARTNERS";
+
+    position:
+        absolute;
+
+    right:
+        -40px;
+
+    top:
+        80px;
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(7rem, 20vw, 22rem);
+
+    color:
+        var(--cream);
+
+    opacity:
+        .018;
+
+    pointer-events:
+        none;
+
+    white-space:
+        nowrap;
+}
+
+.partners-intro {
+
+    max-width:
+        800px;
+
+    margin-top:
+        25px;
+
+    color:
+        var(--cream-soft);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.9;
+}
+
+.partners-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        1px;
+
+    margin-top:
+        65px;
+
+    background:
+        var(--line);
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+.partner-card {
+
+    background:
+        var(--black-soft);
+
+    padding:
+        45px 40px;
+
+    min-height:
+        310px;
+
+    position:
+        relative;
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
+}
+
+.partner-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    background:
+        var(--black-card);
+}
+
+.partner-number {
+
+    color:
+        var(--gold);
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        1rem;
+
+    margin-bottom:
+        35px;
+}
+
+.partner-type {
+
+    color:
+        var(--gold);
+
+    font-size:
+        .58rem;
+
+    letter-spacing:
+        .2em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        15px;
+}
+
+.partner-card h3 {
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(1.7rem, 3vw, 2.5rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        1.12;
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--cream);
+}
+
+.partner-card p {
+
+    color:
+        var(--cream-soft);
+
+    font-size:
+        .84rem;
+
+    line-height:
+        1.8;
+
+    max-width:
+        650px;
+}
+
+.partner-tag {
+
+    display:
+        inline-block;
+
+    margin-top:
+        25px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid var(--line);
+
+    color:
+        var(--cream-soft);
+
+    font-size:
+        .55rem;
+
+    letter-spacing:
+        .13em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================================
+   PARTENAIRES — THÈME CLAIR
+   ========================================================= */
+
+html[data-theme="light"] .partners-section {
+
+    background:
+        #ece8de;
+
+    color:
+        #171a17;
+}
+
+html[data-theme="light"] .partners-section::before {
+
+    color:
+        #171a17;
+
+    opacity:
+        .025;
+}
+
+html[data-theme="light"] .partners-intro {
+
+    color:
+        #59605a;
+}
+
+html[data-theme="light"] .partners-grid {
+
+    background:
+        rgba(23,26,23,.14);
+}
+
+html[data-theme="light"] .partner-card {
+
+    background:
+        #ece8de;
+
+    color:
+        #171a17;
+}
+
+html[data-theme="light"] .partner-card:hover {
+
+    background:
+        #e2ded4;
+}
+
+html[data-theme="light"] .partner-number {
+
+    color:
+        #315d48;
+}
+
+html[data-theme="light"] .partner-type {
+
+    color:
+        #9a762d;
+}
+
+html[data-theme="light"] .partner-card h3 {
+
+    color:
+        #171a17;
+}
+
+html[data-theme="light"] .partner-card p {
+
+    color:
+        #59605a;
+}
+
+html[data-theme="light"] .partner-tag {
+
+    border-color:
+        rgba(23,26,23,.14);
+
+    color:
+        #59605a;
+}
+
+
+/* =========================================================
+   RESPONSIVE — PARTENAIRES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .partners-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .partner-card {
+
+        min-height:
+            auto;
+
+        padding:
+            40px 30px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .partner-card {
+
+        padding:
+            35px 25px;
+    }
+
+}
+
+/* =========================================================
    CAP & DEPLOIEMENT
    ========================================================= */
 
@@ -2435,6 +2767,250 @@ html[data-theme="light"] ::selection {
 
 </section>
 
+<!-- =========================================================
+     NOS PARTENAIRES STRATÉGIQUES
+     ========================================================= -->
+
+<section class="section partners-section">
+
+    <div class="container">
+
+        <div class="section-label reveal">
+            Écosystème & coopération
+        </div>
+
+        <h2
+            class="section-title reveal"
+            style="margin-top:20px;"
+        >
+            Des partenaires pour
+            <em>aller plus loin.</em>
+        </h2>
+
+        <p class="partners-intro reveal">
+
+            La vision de MORAHEYM’S repose également sur la capacité
+            à construire des alliances solides avec des entreprises,
+            institutions académiques et acteurs financiers.
+
+            <br><br>
+
+            Ces partenariats permettent de réunir des expertises
+            complémentaires autour de projets immobiliers,
+            d’infrastructures, d’éducation, de recherche,
+            de financement et de développement des compétences.
+
+        </p>
+
+
+        <div class="partners-grid">
+
+
+            <!-- PARTENAIRE 01 -->
+
+            <article class="partner-card reveal">
+
+                <div class="partner-number">
+                    01
+                </div>
+
+                <div class="partner-type">
+                    Construction · Énergies · Conseil
+                </div>
+
+                <h3>
+                    GROUPE CEB Inc
+                </h3>
+
+                <p>
+
+                    <strong>Clean-Energy-Build Inc.</strong> est un
+                    partenaire orienté vers la construction durable,
+                    les solutions liées aux énergies vertes et la
+                    valorisation des déchets.
+
+                    <br><br>
+
+                    L’entreprise intervient également dans le conseil
+                    financier ainsi que dans des prestations liées
+                    aux secteurs des mines, du pétrole et du gaz.
+
+                    Cette complémentarité ouvre des perspectives
+                    de collaboration dans les domaines de la
+                    construction, des infrastructures et des
+                    solutions durables.
+
+                </p>
+
+                <span class="partner-tag">
+                    Construction & solutions durables
+                </span>
+
+            </article>
+
+
+            <!-- PARTENAIRE 02 -->
+
+            <article class="partner-card reveal">
+
+                <div class="partner-number">
+                    02
+                </div>
+
+                <div class="partner-type">
+                    Éducation · Recherche · Coopération
+                </div>
+
+                <h3>
+                    AFRICAN UNION UNIVERSITY
+                    INTERNATIONAL — AUUI
+                </h3>
+
+                <p>
+
+                    AUUI est une institution universitaire
+                    panafricaine tournée vers l’enseignement supérieur,
+                    la recherche, l’innovation et le développement
+                    des compétences.
+
+                    <br><br>
+
+                    Le partenariat avec MORAHEYM’S s’inscrit notamment
+                    dans le développement de l’éducation internationale,
+                    l’accompagnement des chercheurs, les programmes
+                    académiques et la création de passerelles entre
+                    institutions et acteurs du développement.
+
+                </p>
+
+                <span class="partner-tag">
+                    Enseignement supérieur & recherche
+                </span>
+
+            </article>
+
+
+            <!-- PARTENAIRE 03 -->
+
+            <article class="partner-card reveal">
+
+                <div class="partner-number">
+                    03
+                </div>
+
+                <div class="partner-type">
+                    Assurance · Protection · Accompagnement
+                </div>
+
+                <h3>
+                    MORAHEYM'S ASSURANCES
+                </h3>
+
+                <p>
+
+                    MORAHEYM'S ASSURANCES s’inscrit dans l’écosystème
+                    du Groupe en apportant une dimension dédiée à
+                    l’assurance et à la protection des personnes,
+                    des activités et des projets.
+
+                    <br><br>
+
+                    Cette activité participe à une approche globale
+                    de l’accompagnement des projets et à la maîtrise
+                    des risques associés au développement des
+                    activités du Groupe.
+
+                </p>
+
+                <span class="partner-tag">
+                    Assurance & gestion des risques
+                </span>
+
+            </article>
+
+
+            <!-- PARTENAIRE 04 -->
+
+            <article class="partner-card reveal">
+
+                <div class="partner-number">
+                    04
+                </div>
+
+                <div class="partner-type">
+                    Partenaire stratégique
+                </div>
+
+                <h3>
+                    GLORY TO GOD BJR
+                </h3>
+
+                <p>
+
+                    GLORY TO GOD BJR fait partie de l’écosystème de
+                    partenaires associés à la dynamique de développement
+                    du Groupe MORAHEYM’S.
+
+                    <br><br>
+
+                    Cette collaboration contribue à renforcer le réseau
+                    du Groupe et sa capacité à développer des initiatives
+                    avec différents acteurs économiques et partenaires
+                    selon les projets.
+
+                </p>
+
+                <span class="partner-tag">
+                    Partenariat & coopération
+                </span>
+
+            </article>
+
+
+            <!-- PARTENAIRE 05 -->
+
+            <article class="partner-card reveal">
+
+                <div class="partner-number">
+                    05
+                </div>
+
+                <div class="partner-type">
+                    Finance · Investissement · Développement
+                </div>
+
+                <h3>
+                    PARTENAIRES BANCAIRES
+                </h3>
+
+                <p>
+
+                    Les partenaires bancaires jouent un rôle essentiel
+                    dans la structuration et le financement des projets
+                    du Groupe.
+
+                    <br><br>
+
+                    Ils peuvent notamment contribuer à l’accompagnement
+                    financier des investissements, au financement des
+                    projets immobiliers et d’infrastructures, ainsi qu’à
+                    la structuration des opérations nécessaires au
+                    développement des activités du Groupe.
+
+                </p>
+
+                <span class="partner-tag">
+                    Financement & accompagnement financier
+                </span>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =========================================================
      CAP & DÉPLOIEMENT
@@ -2665,27 +3241,33 @@ html[data-theme="light"] ::selection {
             <!-- NOS PARTENAIRES -->
             <div>
                 <div class="footer-heading">
-                    Nos partenaires
+                   Nos partenaires
                 </div>
 
                 <div class="footer-links">
+
                     <a href="vision.html">
-                        AFRICAN UNION UNIVERSITY
-                        INTERNATIONAL (AUUI)
+                      AFRICAN UNION UNIVERSITY
+                      INTERNATIONAL (AUUI)
                     </a>
 
                     <a href="vision.html">
-                       CLEAN ENERGY BUILD 
-                       C.E.B.Inc 
+                     GROUPE CEB Inc
+                      — CLEAN-ENERGY-BUILD
                     </a>
 
                     <a href="vision.html">
-                        MORAHEYM'S ASSURANCES
+                      MORAHEYM'S ASSURANCES
                     </a>
 
                     <a href="vision.html">
-                        GLORY TO GOD BJR
+                      GLORY TO GOD BJR
                     </a>
+
+                    <a href="vision.html">
+                      PARTENAIRES BANCAIRES
+                     </a>
+
                 </div>
             </div>
 
