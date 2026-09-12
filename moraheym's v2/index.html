@@ -2894,9 +2894,9 @@ document
         }
     );
 
-/* =========================================================
+    /* =========================================================
    GLOBE MORAHEYM'S
-   Terre en rotation continue
+   Gestion de l'interaction avec le globe
 ========================================================= */
 
 (function () {
@@ -2918,6 +2918,9 @@ document
         "mouseenter",
         function () {
 
+            globe.style.animationPlayState =
+                "paused";
+
             globeMap.style.animationPlayState =
                 "paused";
 
@@ -2929,51 +2932,14 @@ document
         "mouseleave",
         function () {
 
+            globe.style.animationPlayState =
+                "running";
+
             globeMap.style.animationPlayState =
                 "running";
 
         }
     );
-
-
-    /* -----------------------------------------------------
-       ACCESSIBILITÉ
-    ----------------------------------------------------- */
-
-    const reducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        );
-
-
-    function updateMotion() {
-
-        if (reducedMotion.matches) {
-
-            globeMap.style.animation =
-                "none";
-
-            globeMap.style.backgroundPosition =
-                "50% center";
-
-        } else {
-
-            globeMap.style.animation =
-                "globeMapRotation 28s linear infinite";
-
-        }
-
-    }
-
-
-    updateMotion();
-
-
-    reducedMotion.addEventListener(
-        "change",
-        updateMotion
-    );
-
 
 
     /* -----------------------------------------------------
