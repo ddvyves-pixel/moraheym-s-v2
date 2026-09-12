@@ -877,6 +877,306 @@ body::before {
         var(--green);
 }
 
+/* =========================================================
+   ENTITÉS DU GROUPE
+========================================================= */
+
+.group-entities {
+
+    background:
+        var(--black-soft);
+
+    color:
+        var(--cream);
+}
+
+
+.entities-intro {
+
+    max-width:
+        820px;
+
+    margin-top:
+        28px;
+
+    color:
+        var(--cream-soft);
+
+    line-height:
+        1.9;
+
+    font-size:
+        .95rem;
+}
+
+
+.entities-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        1px;
+
+    margin-top:
+        65px;
+
+    background:
+        var(--line);
+}
+
+
+.entity-card {
+
+    background:
+        var(--black-card);
+
+    padding:
+        40px 30px;
+
+    min-height:
+        285px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid transparent;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
+}
+
+
+.entity-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    background:
+        var(--gold);
+
+    transition:
+        width .4s ease;
+}
+
+
+.entity-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(201,164,93,.35);
+}
+
+
+.entity-card:hover::before {
+
+    width:
+        100%;
+}
+
+
+.entity-number {
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        2.8rem;
+
+    line-height:
+        1;
+
+    color:
+        rgba(201,164,93,.35);
+}
+
+
+.entity-category {
+
+    margin-top:
+        28px;
+
+    color:
+        var(--gold);
+
+    font-size:
+        .57rem;
+
+    letter-spacing:
+        .18em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.entity-card h3 {
+
+    margin-top:
+        14px;
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.2;
+
+    color:
+        var(--cream);
+}
+
+
+.entity-card p {
+
+    margin-top:
+        16px;
+
+    color:
+        var(--cream-soft);
+
+    font-size:
+        .78rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   THÈME CLAIR — ENTITÉS DU GROUPE
+========================================================= */
+
+html[data-theme="light"] .group-entities {
+
+    background:
+        #ece8de;
+
+    color:
+        #171a17;
+}
+
+
+html[data-theme="light"] .entities-intro {
+
+    color:
+        #59605a;
+}
+
+
+html[data-theme="light"] .entities-grid {
+
+    background:
+        rgba(23,26,23,.13);
+}
+
+
+html[data-theme="light"] .entity-card {
+
+    background:
+        #ffffff;
+
+    color:
+        #171a17;
+
+    border-color:
+        transparent;
+}
+
+
+html[data-theme="light"] .entity-card:hover {
+
+    background:
+        #ffffff;
+
+    border-color:
+        rgba(154,118,45,.40);
+}
+
+
+html[data-theme="light"] .entity-number {
+
+    color:
+        rgba(154,118,45,.50);
+}
+
+
+html[data-theme="light"] .entity-category {
+
+    color:
+        #9a762d;
+}
+
+
+html[data-theme="light"] .entity-card h3 {
+
+    color:
+        #171a17;
+}
+
+
+html[data-theme="light"] .entity-card p {
+
+    color:
+        #59605a;
+}
+
+
+/* =========================================================
+   RESPONSIVE — ENTITÉS
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .entities-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .entities-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
 
 /* =========================================================
    AXES DU GROUPE
@@ -2261,6 +2561,165 @@ html[data-theme="light"] ::selection {
 
 </section>
 
+<!-- =========================================================
+     ENTITÉS DU GROUPE
+========================================================= -->
+
+<section class="section group-entities">
+
+    <div class="container">
+
+        <div class="section-label reveal">
+            02 — Les entités du groupe
+        </div>
+
+        <h2
+            class="section-title reveal"
+            style="
+                margin-top:25px;
+                max-width:1000px;
+            "
+        >
+            Un groupe,
+            <em>plusieurs entités.</em>
+        </h2>
+
+        <p class="entities-intro reveal">
+
+            Le GROUPE MORAHEYM'S s'inscrit dans une
+            organisation réunissant plusieurs entités
+            complémentaires. Cette diversité permet
+            au groupe de développer une approche
+            globale associant développement,
+            éducation, formation, action sociale
+            et protection.
+
+        </p>
+
+
+        <div class="entities-grid">
+
+
+            <!-- ENTITÉ 01 -->
+
+            <article class="entity-card reveal">
+
+                <div class="entity-number">
+                    01
+                </div>
+
+                <div class="entity-category">
+                    Pôle universitaire
+                </div>
+
+                <h3>
+                    Universités
+                    Faithai Prestiges
+                </h3>
+
+                <p>
+
+                    Une composante du groupe dédiée
+                    à l'univers universitaire et à la
+                    transmission des savoirs.
+
+                </p>
+
+            </article>
+
+
+            <!-- ENTITÉ 02 -->
+
+            <article class="entity-card reveal">
+
+                <div class="entity-number">
+                    02
+                </div>
+
+                <div class="entity-category">
+                    Formation &amp; technique
+                </div>
+
+                <h3>
+                    Institut Polytechnique
+                    Faithai Prestiges
+                </h3>
+
+                <p>
+
+                    Une entité consacrée à la formation
+                    et au développement des compétences
+                    dans une approche technique et
+                    professionnelle.
+
+                </p>
+
+            </article>
+
+
+            <!-- ENTITÉ 03 -->
+
+            <article class="entity-card reveal">
+
+                <div class="entity-number">
+                    03
+                </div>
+
+                <div class="entity-category">
+                    Impact &amp; engagement
+                </div>
+
+                <h3>
+                    FONDATION
+                    MORAHEYM'S
+                </h3>
+
+                <p>
+
+                    Une composante du groupe destinée
+                    à porter des initiatives à vocation
+                    sociale, solidaire et de développement.
+
+                </p>
+
+            </article>
+
+
+            <!-- ENTITÉ 04 -->
+
+            <article class="entity-card reveal">
+
+                <div class="entity-number">
+                    04
+                </div>
+
+                <div class="entity-category">
+                    Assurance
+                </div>
+
+                <h3>
+                    MORAHEYM'S
+                    Assurance
+                </h3>
+
+                <p>
+
+                    Une entité du groupe dédiée à
+                    l'univers de l'assurance et à
+                    l'accompagnement des besoins de
+                    protection des personnes et des
+                    activités.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =========================================================
      DOMAINES D'INTERVENTION
@@ -2271,7 +2730,7 @@ html[data-theme="light"] ::selection {
     <div class="container">
 
         <div class="section-label reveal">
-            02 — Nos activités
+            03 — Nos activités
         </div>
 
         <h2
@@ -2400,7 +2859,7 @@ html[data-theme="light"] ::selection {
         <div class="reveal">
 
             <div class="section-label">
-                Projet panafricain
+                04 — Projet panafricain
             </div>
 
             <h2 class="auui-title">
@@ -2494,7 +2953,7 @@ html[data-theme="light"] ::selection {
         <div class="reveal">
 
             <div class="section-label">
-                03 — Rayonnement
+                05 — Rayonnement
             </div>
 
             <h2
