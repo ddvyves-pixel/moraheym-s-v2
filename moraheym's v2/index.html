@@ -610,6 +610,32 @@ html[data-theme="light"] .hero h1 .outline {
     filter: blur(15px);
 }
 
+.core-sphere {
+    position: absolute;
+    width: 43%;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateZ(50px);
+
+    border-radius: 50%;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: #111714;
+
+    box-shadow:
+        0 0 70px rgba(201,164,93,.22),
+        inset -30px -35px 55px rgba(0,0,0,.55);
+
+    transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   CARTE DU MONDE — ROTATION CONTINUE
+========================================================= */
+
 .core-sphere .globe-map {
     position: absolute;
     inset: 0;
@@ -621,6 +647,12 @@ html[data-theme="light"] .hero h1 .outline {
 
     background-image: url("globe-map.png");
     background-repeat: repeat-x;
+
+    /*
+       L'image contient toute la Terre :
+       200% permet de faire défiler la carte
+       sans coupure visible.
+    */
     background-size: 200% 100%;
     background-position: 0% center;
 
@@ -644,6 +676,99 @@ html[data-theme="light"] .hero h1 .outline {
         infinite;
 
     will-change: background-position;
+}
+
+
+/* =========================================================
+   LUMIÈRE DU GLOBE
+========================================================= */
+
+.core-sphere::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.18),
+            transparent 38%
+        );
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    mix-blend-mode: screen;
+}
+
+
+/* =========================================================
+   OMBRE DU GLOBE
+========================================================= */
+
+.core-sphere::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 68% 70%,
+            transparent 35%,
+            rgba(0,0,0,.48) 100%
+        );
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ROTATION DE LA TERRE
+========================================================= */
+
+@keyframes globeMapRotation {
+
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 100% center;
+    }
+
+}
+
+
+/* =========================================================
+   PERFORMANCE
+========================================================= */
+
+.core-sphere,
+.core-sphere .globe-map {
+    will-change: transform, background-position;
+}
+
+
+/* =========================================================
+   ACCESSIBILITÉ
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .core-sphere .globe-map {
+        animation: none;
+        background-position: 50% center;
+    }
+
 }
 
 
