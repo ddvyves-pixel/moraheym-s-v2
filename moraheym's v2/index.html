@@ -635,7 +635,6 @@ html[data-theme="light"] .hero h1 .outline {
 /* =========================================================
    CARTE DU MONDE — ROTATION CONTINUE
 ========================================================= */
-
 .core-sphere .globe-map {
     position: absolute;
     inset: 0;
@@ -645,16 +644,11 @@ html[data-theme="light"] .hero h1 .outline {
 
     background-image: url("globe-map.png");
     background-repeat: repeat-x;
-
-    /* On garde une taille sûre pour que la carte reste visible */
     background-size: 200% 100%;
-
-    /* Position de départ */
     background-position: 0% center;
 
     opacity: 1;
 
-    /* Zoom léger du globe */
     transform: scale(1.12);
     transform-origin: center center;
 
@@ -677,55 +671,56 @@ html[data-theme="light"] .hero h1 .outline {
 }
 
 
-/* Rotation avec un passage beaucoup plus long sur l'Afrique */
+/* =========================================================
+   ROTATION CONTINUE DU GLOBE
+========================================================= */
+
 @keyframes globeMapRotation {
 
-    /* Début */
     0% {
         background-position: 0% center;
     }
 
-    /* Arrivée progressive vers l'Afrique */
-    18% {
-        background-position: 22% center;
+    15% {
+        background-position: 18% center;
     }
 
-    28% {
-        background-position: 34% center;
+    27% {
+        background-position: 32% center;
     }
 
-    /* AFRIQUE */
+    /* Arrivée sur l'Afrique */
     38% {
         background-position: 42% center;
     }
 
+    /* Passage lent autour de l'Afrique */
     48% {
         background-position: 44% center;
     }
 
     58% {
-        background-position: 45% center;
-    }
-
-    68% {
         background-position: 46% center;
     }
 
-    /* On quitte lentement l'Afrique */
-    76% {
-        background-position: 55% center;
+    68% {
+        background-position: 50% center;
     }
 
-    88% {
-        background-position: 75% center;
+    /* Reprise progressive de la rotation */
+    78% {
+        background-position: 62% center;
     }
 
+    89% {
+        background-position: 80% center;
+    }
+
+    /* Fin de rotation */
     100% {
         background-position: 100% center;
     }
 }
-
-
 
 /* =========================================================
    LUMIÈRE DU GLOBE
