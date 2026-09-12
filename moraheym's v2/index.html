@@ -620,32 +620,6 @@ html[data-theme="light"] .hero h1 .outline {
    Carte du monde visible en permanence
 ========================================================= */
 
-.core-sphere {
-    position: absolute;
-    width: 43%;
-    aspect-ratio: 1;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) translateZ(50px);
-
-    border-radius: 50%;
-    overflow: hidden;
-    isolation: isolate;
-
-    background: #111714;
-
-    box-shadow:
-        0 0 70px rgba(201,164,93,.22),
-        inset -30px -35px 55px rgba(0,0,0,.55);
-
-    transform-style: preserve-3d;
-}
-
-
-/* =========================================================
-   CARTE DU MONDE — ROTATION CONTINUE
-========================================================= */
-
 .core-sphere .globe-map {
     position: absolute;
     inset: 0;
@@ -659,33 +633,44 @@ html[data-theme="light"] .hero h1 .outline {
     background-repeat: repeat-x;
 
     /*
-       L'image contient toute la Terre :
-       200% permet de faire défiler la carte
-       sans coupure visible.
+       On agrandit légèrement la carte.
+       Cela donne un effet "loupe" plus marqué
+       sur le continent visible.
     */
-    background-size: 200% 100%;
+    background-size: 225% 112%;
+
     background-position: 0% center;
 
     opacity: 1;
 
-    transform: scale(1.05);
+    /*
+       Zoom général du globe.
+       L'Afrique paraîtra davantage mise en avant.
+    */
+    transform: scale(1.20);
+
+    transform-origin: center center;
 
     z-index: 2;
 
     filter:
-        saturate(.95)
-        contrast(1.08)
-        brightness(.92);
+        saturate(1.08)
+        contrast(1.12)
+        brightness(.94);
 
     pointer-events: none;
 
+    /*
+       Rotation plus lente :
+       42 secondes au lieu de 30.
+    */
     animation:
         globeMapRotation
-        30s
+        42s
         linear
         infinite;
 
-    will-change: background-position;
+    will-change: background-position, transform;
 }
 
 
@@ -747,12 +732,57 @@ html[data-theme="light"] .hero h1 .outline {
 
 @keyframes globeMapRotation {
 
-    from {
+    /*
+       Départ
+    */
+    0% {
         background-position: 0% center;
+        transform: scale(1.10);
     }
 
-    to {
+    /*
+       L'Afrique arrive progressivement
+    */
+    22% {
+        background-position: 22% center;
+        transform: scale(1.14);
+    }
+
+    /*
+       AFRIQUE AU PREMIER PLAN
+       On ralentit visuellement le passage
+       en conservant la même position pendant
+       une longue partie de l'animation.
+    */
+    38% {
+        background-position: 38% center;
+        transform: scale(1.20);
+    }
+
+    55% {
+        background-position: 42% center;
+        transform: scale(1.20);
+    }
+
+    65% {
+        background-position: 46% center;
+        transform: scale(1.18);
+    }
+
+    /*
+       L'Afrique commence à quitter le centre
+    */
+    78% {
+        background-position: 68% center;
+        transform: scale(1.12);
+    }
+
+    /*
+       Fin du tour
+    */
+    100% {
         background-position: 100% center;
+        transform: scale(1.10);
     }
 
 }
