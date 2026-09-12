@@ -610,25 +610,364 @@ html[data-theme="light"] .hero h1 .outline {
     filter: blur(15px);
 }
 
+/* =========================================================
+   GLOBE MORAHEYM'S
+   Globe doré + rotation de la carte du monde
+========================================================= */
+
 .core-sphere {
     position: absolute;
+
     width: 43%;
     aspect-ratio: 1;
+
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%) translateZ(50px);
+
+    transform:
+        translate(-50%, -50%)
+        translateZ(50px);
+
     border-radius: 50%;
+
+    /*
+       ÉTAT INITIAL :
+       globe entièrement doré
+    */
     background:
         radial-gradient(
             circle at 32% 25%,
-            #f2d995 0%,
-            var(--gold) 25%,
-            #72541e 72%,
-            #221c0e 100%
+            #f7dfa0 0%,
+            #c9a45d 28%,
+            #765722 70%,
+            #201a0c 100%
         );
+
     box-shadow:
         0 0 70px rgba(201,164,93,.22),
-        inset -30px -35px 55px rgba(0,0,0,.5);
+        inset -30px -35px 55px rgba(0,0,0,.55);
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    /*
+       Rotation du globe
+    */
+    animation:
+        globeTurn 16s cubic-bezier(.45,0,.55,1) infinite;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   TEXTURE DE LA TERRE
+========================================================= */
+
+.core-sphere .globe-map {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    /*
+       Image panoramique fournie.
+    */
+    background-image:
+        url("globe-map.png");
+
+    background-repeat: no-repeat;
+
+    /*
+       On double la largeur de la texture.
+       Cela permet de faire défiler la carte
+       horizontalement à l'intérieur du globe.
+    */
+    background-size: 200% 100%;
+
+    /*
+       Départ côté Amériques/Pacifique.
+    */
+    background-position: 0% center;
+
+    opacity: 0;
+
+    transform:
+        translateZ(1px)
+        scale(1.05);
+
+    z-index: 2;
+
+    /*
+       Aspect plus luxueux / sombre pour correspondre
+       au design noir et or du site.
+    */
+    filter:
+        saturate(.78)
+        contrast(1.12)
+        brightness(.78);
+
+    pointer-events: none;
+
+    animation:
+        globeMapRotation 16s cubic-bezier(.45,0,.55,1) infinite;
+}
+
+
+/* =========================================================
+   REFLET DE LUMIÈRE
+========================================================= */
+
+.core-sphere::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 28% 22%,
+            rgba(255,255,255,.38) 0%,
+            rgba(255,255,255,.14) 17%,
+            transparent 40%
+        );
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    mix-blend-mode: screen;
+}
+
+
+/* =========================================================
+   OMBRE / VOLUME DE LA SPHÈRE
+========================================================= */
+
+.core-sphere::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 70% 75%,
+            rgba(0,0,0,.68) 0%,
+            rgba(0,0,0,.34) 35%,
+            rgba(0,0,0,.05) 65%,
+            transparent 78%
+        );
+
+    box-shadow:
+        inset -25px -25px 40px rgba(0,0,0,.38),
+        inset 10px 10px 25px rgba(255,255,255,.08);
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ROTATION PHYSIQUE DU GLOBE
+========================================================= */
+
+@keyframes globeTurn {
+
+    /*
+       Départ :
+       globe doré
+    */
+    0% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(0deg);
+    }
+
+    /*
+       Le globe commence à tourner
+    */
+    18% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(70deg);
+    }
+
+    /*
+       Profil
+    */
+    32% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(130deg);
+    }
+
+    /*
+       Afrique présentée au visiteur
+    */
+    50% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(180deg);
+    }
+
+    /*
+       Petite pause visuelle
+    */
+    58% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(180deg);
+    }
+
+    /*
+       Rotation vers l'autre face
+    */
+    75% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(270deg);
+    }
+
+    /*
+       Retour
+    */
+    100% {
+        transform:
+            translate(-50%, -50%)
+            translateZ(50px)
+            rotateY(360deg);
+    }
+}
+
+
+/* =========================================================
+   DÉFILEMENT DE LA CARTE PANORAMIQUE
+========================================================= */
+
+@keyframes globeMapRotation {
+
+    /*
+       0–10 %
+       Globe encore doré
+    */
+    0% {
+        opacity: 0;
+        background-position: 0% center;
+    }
+
+    /*
+       La carte commence à apparaître
+    */
+    12% {
+        opacity: .15;
+        background-position: 10% center;
+    }
+
+    /*
+       La Terre devient progressivement visible
+    */
+    22% {
+        opacity: .65;
+        background-position: 25% center;
+    }
+
+    /*
+       Rotation vers l'Afrique
+    */
+    35% {
+        opacity: 1;
+        background-position: 55% center;
+    }
+
+    /*
+       AFRIQUE AU CENTRE
+    */
+    48% {
+        opacity: 1;
+        background-position: 100% center;
+    }
+
+    /*
+       Maintien de la vue Afrique
+    */
+    58% {
+        opacity: 1;
+        background-position: 100% center;
+    }
+
+    /*
+       L'autre côté de la planète apparaît
+    */
+    72% {
+        opacity: .95;
+        background-position: 55% center;
+    }
+
+    /*
+       Retour progressif au doré
+    */
+    84% {
+        opacity: .45;
+        background-position: 25% center;
+    }
+
+    /*
+       Globe doré
+    */
+    100% {
+        opacity: 0;
+        background-position: 0% center;
+    }
+}
+
+
+/* =========================================================
+   OPTIMISATION
+========================================================= */
+
+.core-sphere,
+.core-sphere .globe-map {
+    will-change:
+        transform,
+        background-position,
+        opacity;
+}
+
+
+/* =========================================================
+   RÉDUCTION DES ANIMATIONS
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .core-sphere,
+    .core-sphere .globe-map {
+        animation: none;
+    }
+
+    .core-sphere .globe-map {
+        opacity: 1;
+        background-position: 100% center;
+    }
 }
 
 .orbit {
@@ -1693,7 +2032,11 @@ html[data-theme="light"] .footer-bottom {
 
             <div class="core-glow"></div>
 
-            <div class="core-sphere"></div>
+            <div class="core-sphere">
+
+              <div class="globe-map"></div>
+
+            </div>
 
             <div class="orbit orbit-a"></div>
 
@@ -2761,6 +3104,96 @@ document
 
         }
     );
+
+    /* =========================================================
+   GLOBE MORAHEYM'S
+   Gestion de l'interaction avec le globe
+========================================================= */
+
+(function () {
+
+    const globe =
+        document.querySelector(".core-sphere");
+
+    const globeMap =
+        document.querySelector(".globe-map");
+
+    if (!globe || !globeMap) return;
+
+
+    /* -----------------------------------------------------
+       PAUSE AU SURVOL
+    ----------------------------------------------------- */
+
+    globe.addEventListener(
+        "mouseenter",
+        function () {
+
+            globe.style.animationPlayState =
+                "paused";
+
+            globeMap.style.animationPlayState =
+                "paused";
+
+        }
+    );
+
+
+    globe.addEventListener(
+        "mouseleave",
+        function () {
+
+            globe.style.animationPlayState =
+                "running";
+
+            globeMap.style.animationPlayState =
+                "running";
+
+        }
+    );
+
+
+    /* -----------------------------------------------------
+       ACCESSIBILITÉ
+    ----------------------------------------------------- */
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+
+    function updateMotion() {
+
+        if (reducedMotion.matches) {
+
+            globe.style.animation =
+                "none";
+
+            globeMap.style.animation =
+                "none";
+
+            globeMap.style.opacity =
+                "1";
+
+            globeMap.style.backgroundPosition =
+                "100% center";
+
+        }
+
+    }
+
+
+    updateMotion();
+
+
+    reducedMotion.addEventListener(
+        "change",
+        updateMotion
+    );
+
+
+})();
 
 </script>
 
