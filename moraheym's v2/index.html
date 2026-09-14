@@ -633,8 +633,9 @@ html[data-theme="light"] .hero h1 .outline {
 
 
 /* =========================================================
-   CARTE DU MONDE — ROTATION CONTINUE
+   CARTE DU MONDE — ROTATION CONTINUE SANS AUCUN RESET CSS
 ========================================================= */
+
 .core-sphere .globe-map {
     position: absolute;
     inset: 0;
@@ -645,7 +646,7 @@ html[data-theme="light"] .hero h1 .outline {
     background-image: url("globe-map.png");
     background-repeat: repeat-x;
     background-size: 200% 100%;
-    background-position: 100% 200% center;
+    background-position: 0 center;
 
     opacity: 1;
 
@@ -661,29 +662,15 @@ html[data-theme="light"] .hero h1 .outline {
 
     pointer-events: none;
 
-    animation:
-        globeMapRotation
-        20s
-        linear
-        infinite;
-
+    /*
+       IMPORTANT :
+       La rotation est pilotée par requestAnimationFrame.
+       Il n'y a donc plus de boucle CSS qui revient de 100% à 0%.
+       Le déplacement est calculé en continu et reboucle sur
+       exactement une largeur de texture, ce qui rend le retour
+       mathématiquement identique à la position de départ.
+    */
     will-change: background-position;
-}
-
-/* =========================================================
-   ROTATION CONTINUE DU GLOBE — VITESSE CONSTANTE
-========================================================= */
-
-@keyframes globeMapRotation {
-
-    from {
-        background-position: 0% center;
-    }
-
-    to {
-        background-position: 100% center;
-    }
-
 }
 
 /* =========================================================
@@ -737,9 +724,12 @@ html[data-theme="light"] .hero h1 .outline {
    PERFORMANCE
 ========================================================= */
 
-.core-sphere,
-.core-sphere .globe-map {
+.core-sphere {
     will-change: transform;
+}
+
+.core-sphere .globe-map {
+    will-change: background-position;
 }
 
 
@@ -748,12 +738,9 @@ html[data-theme="light"] .hero h1 .outline {
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
     .core-sphere .globe-map {
-        animation: none;
         background-position: 50% center;
     }
-
 }
 
 
@@ -2857,6 +2844,50 @@ document
         }
     );
 
+</script>
+
+
+<script>
+/* =========================================================
+   GLOBE — ROTATION RÉELLEMENT CONTINUE, SANS PAUSE
+========================================================= */
+(function () {
+    const globe = document.querySelector('.core-sphere .globe-map');
+
+    if (!globe || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    let startTime = null;
+
+    /*
+       20 secondes = un tour complet.
+       requestAnimationFrame évite le reset brutal d'une animation CSS.
+    */
+    const duration = 20000;
+
+    function animateGlobe(timestamp) {
+        if (startTime === null) {
+            startTime = timestamp;
+        }
+
+        const elapsed = (timestamp - startTime) % duration;
+        const progress = elapsed / duration;
+
+        /*
+           background-size = 200% 100%.
+           Un déplacement de -50% de la largeur de la texture
+           correspond exactement à une carte complète.
+           Comme background-repeat est actif, le point de retour
+           est visuellement identique au point de départ.
+        */
+        globe.style.backgroundPositionX = (-progress * 100) + '%';
+
+        requestAnimationFrame(animateGlobe);
+    }
+
+    requestAnimationFrame(animateGlobe);
+})();
 </script>
 
 </body>
