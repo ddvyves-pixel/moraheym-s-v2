@@ -1839,17 +1839,13 @@ body::before {
 }
 
 .nav-actions {
-    margin-left: 18px;
+    margin-left: auto;
     gap: 8px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-shrink: 0;
 }
-
-.nav-actions .theme-toggle { order: 1; }
-.nav-actions .language-switcher { order: 2; }
-.nav-actions .menu-button { order: 3; }
 
 .language-current {
     width: 40px;
@@ -2773,31 +2769,22 @@ html[data-theme="light"] .preloader {
     }
 
     .nav-actions {
-        margin-left: auto;
-        gap: 8px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
+    margin-left: auto;
+    gap: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 
-    .nav-actions .theme-toggle {
-        display: none;
-    }
+.language-current {
+    width: 44px;
+    height: 44px;
+}
 
-    .nav-actions .language-switcher {
-        display: block;
-    }
-
-    .nav-actions .menu-button {
-        display: block;
-        margin-left: 0;
-    }
-
-    .language-current {
-        width: 44px;
-        height: 44px;
-    }
+.nav-links .language-switcher {
+    display: none;
+}
 
 }
 
@@ -2818,13 +2805,14 @@ html[data-theme="light"] .preloader {
     }
 
 
-    .nav-actions .language-current {
-        width: 40px;
-        height: 40px;
-    }
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
 
-    .nav-actions .menu-button {
-        margin-left: 0;
+        width: 40px;
+
+        height: 40px;
+
+        margin-top: 2px;
     }
 
 }
@@ -2832,15 +2820,19 @@ html[data-theme="light"] .preloader {
 
 @media (max-width:400px) {
 
-    .nav-actions .language-current {
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+
         width: 38px;
+
         height: 38px;
-        font-size: .58rem;
     }
 
-    .nav-actions .menu-button {
-        font-size: 1.35rem;
-    }
+    .language-current {
+    width: 38px;
+    height: 38px;
+    font-size: .58rem;
+}
 
 }
 
@@ -2928,6 +2920,15 @@ html[data-theme="light"] .preloader {
                 alt="GROUPE MORAHEYM'S">
 
         </a>
+
+
+        <button
+            class="menu-button"
+            id="menuButton">
+
+            ☰
+
+        </button>
 
 
         <nav
@@ -4027,30 +4028,105 @@ html[data-theme="light"] .preloader {
             "themeToggle"
         );
 
+    const navLinks =
+        document.getElementById(
+            "navLinks"
+        );
+
     const navInner =
         document.querySelector(
             ".nav-inner"
         );
 
-    if (!button || !navInner) return;
+    const contactLink =
+        navLinks
+            ? navLinks.querySelector(
+                'a[href="contact.html"]'
+            )
+            : null;
 
-    const navActions =
-        navInner.querySelector(
-            ".nav-actions"
-        );
+    if (
+        !button ||
+        !navLinks ||
+        !navInner
+    ) return;
 
-    if (!navActions) return;
 
-    if (button.parentElement !== navActions) {
-        navActions.insertBefore(
-            button,
-            navActions.firstChild
-        );
+    /* =====================================================
+       MOBILE / TABLETTE
+       Le bouton reste dans le menu,
+       juste après "Contact"
+    ===================================================== */
+
+    if (
+        window.innerWidth <= 1050
+    ) {
+
+        if (
+            contactLink &&
+            button.parentElement !== navLinks
+        ) {
+
+            contactLink.insertAdjacentElement(
+                "afterend",
+                button
+            );
+
+        } else if (
+            contactLink &&
+            button.previousElementSibling !== contactLink
+        ) {
+
+            contactLink.insertAdjacentElement(
+                "afterend",
+                button
+            );
+
+        }
+
     }
+
+
+    /* =====================================================
+       PC
+       Le bouton est placé complètement à droite,
+       après "Contact"
+    ===================================================== */
+
+    else {
+
+        /*
+         * On remet le bouton directement dans
+         * .nav-inner et surtout APRÈS .nav-links.
+         *
+         * .nav-links possède margin-left:auto,
+         * donc la navigation reste collée à droite
+         * et le bouton vient juste après Contact.
+         */
+
+        const navActions =
+            navInner.querySelector(
+                ".nav-actions"
+            );
+
+        if (navActions) {
+            navActions.insertAdjacentElement(
+                "beforebegin",
+                button
+            );
+        } else {
+            navInner.appendChild(
+                button
+            );
+        }
+
+    }
+
 
     updateThemeButton();
 
-    }
+}
+
 
     window.addEventListener(
         "DOMContentLoaded",
