@@ -1839,16 +1839,17 @@ body::before {
 }
 
 .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
+    margin-left: 14px;
+    gap: 12px;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
 }
 
 .language-current {
-    width: 40px;
-    height: 40px;
-    font-size: .6rem;
+    width: 44px;
+    height: 44px;
+    font-size: .65rem;
 }
 
 
@@ -2739,7 +2740,7 @@ html[data-theme="light"] .preloader {
 
         display: block;
 
-        margin-left: auto;
+        margin-left: 0;
 
         position: relative;
 
@@ -2767,22 +2768,18 @@ html[data-theme="light"] .preloader {
     }
 
     .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
+        margin-left: auto;
+        gap: 10px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
 
-.language-current {
-    width: 44px;
-    height: 44px;
-}
-
-.nav-links .language-switcher {
-    display: none;
-}
+    .language-current {
+        width: 44px;
+        height: 44px;
+    }
 
 }
 
@@ -2796,8 +2793,6 @@ html[data-theme="light"] .preloader {
 
 
     .menu-button {
-
-        margin-left: auto;
 
         font-size: 1.45rem;
     }
@@ -2827,10 +2822,10 @@ html[data-theme="light"] .preloader {
     }
 
     .language-current {
-    width: 38px;
-    height: 38px;
-    font-size: .58rem;
-}
+        width: 38px;
+        height: 38px;
+        font-size: .58rem;
+    }
 
 }
 
@@ -2915,101 +2910,91 @@ html[data-theme="light"] .preloader {
     </a>
 
 
-    <button
-        class="menu-button"
-        id="menuButton">
-
-        ☰
-
-    </button>
-
-
     <nav
         class="nav-links"
         id="navLinks">
 
         <a href="actualites.html" class="nav-news" data-i18n="actualites">
-Actualités
+            Actualités
+        </a>
 
-</a>
+        <a href="groupe.html" data-i18n="groupe">
+            Le groupe
+        </a>
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+        <a href="expertise.html" data-i18n="expertise">
+            Expertise
+        </a>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+        <a href="vision.html" data-i18n="vision">
+            Vision
+        </a>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
+        <a href="projets.html" data-i18n="projets">
+            Projets
+        </a>
 
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
-
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
+        <a href="contact.html" class="nav-cta" data-i18n="contact">
+            Contact
+        </a>
 
     </nav>
 
-<div class="nav-actions">
+    <div class="nav-actions">
 
-     <div class="language-switcher" id="languageSwitcher">
+        <div class="language-switcher" id="languageSwitcher">
 
-    <button
-        class="language-current"
-        id="languageCurrent"
-        type="button"
-        aria-label="Choisir la langue"
-        aria-expanded="false"
-    >
-        FR
-    </button>
+            <button
+                class="language-current"
+                id="languageCurrent"
+                type="button"
+                aria-label="Choisir la langue"
+                aria-expanded="false"
+            >
+                FR
+            </button>
 
-         <div class="language-menu" id="languageMenu">
+            <div class="language-menu" id="languageMenu">
 
-        <button
-            type="button"
-            class="language-option active"
-            data-lang="fr"
-        >
-            FR
-        </button>
+                <button
+                    type="button"
+                    class="language-option active"
+                    data-lang="fr"
+                >
+                    FR
+                </button>
 
-        <button
-            type="button"
-            class="language-option"
-            data-lang="en"
-        >
-            EN
-        </button>
+                <button
+                    type="button"
+                    class="language-option"
+                    data-lang="en"
+                >
+                    EN
+                </button>
 
-        <button
-            type="button"
-            class="language-option"
-            data-lang="ru"
-        >
-            RU
-        </button>
+                <button
+                    type="button"
+                    class="language-option"
+                    data-lang="ru"
+                >
+                    RU
+                </button>
+
+            </div>
 
         </div>
 
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
     </div>
-
-<button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
->
-    ☰
-</button>
-
-</div>
 
 </div>
 
@@ -4010,109 +3995,107 @@ Actualités
 
     function positionThemeButton() {
 
-    const button =
-        document.getElementById(
-            "themeToggle"
-        );
+        const button =
+            document.getElementById(
+                "themeToggle"
+            );
 
-    const navLinks =
-        document.getElementById(
-            "navLinks"
-        );
+        const navLinks =
+            document.getElementById(
+                "navLinks"
+            );
 
-    const navInner =
-        document.querySelector(
-            ".nav-inner"
-        );
+        const navInner =
+            document.querySelector(
+                ".nav-inner"
+            );
 
-    const contactLink =
-        navLinks
-            ? navLinks.querySelector(
-                'a[href="contact.html"]'
-            )
-            : null;
+        const navActions =
+            document.querySelector(
+                ".nav-actions"
+            );
 
-    if (
-        !button ||
-        !navLinks ||
-        !navInner
-    ) return;
-
-
-    /* =====================================================
-       MOBILE / TABLETTE
-       Le bouton reste dans le menu,
-       juste après "Contact"
-    ===================================================== */
-
-    if (
-        window.innerWidth <= 1050
-    ) {
+        const contactLink =
+            navLinks
+                ? navLinks.querySelector(
+                    'a[href="contact.html"]'
+                )
+                : null;
 
         if (
-            contactLink &&
-            button.parentElement !== navLinks
+            !button ||
+            !navLinks ||
+            !navInner
+        ) return;
+
+
+        /* =====================================================
+           MOBILE / TABLETTE (<= 1050px)
+           Le bouton reste dans le menu mobile,
+           juste après "Contact"
+        ===================================================== */
+
+        if (
+            window.innerWidth <= 1050
         ) {
 
-            contactLink.insertAdjacentElement(
-                "afterend",
-                button
-            );
+            if (
+                contactLink &&
+                button.parentElement !== navLinks
+            ) {
 
-        } else if (
-            contactLink &&
-            button.previousElementSibling !== contactLink
-        ) {
+                contactLink.insertAdjacentElement(
+                    "afterend",
+                    button
+                );
 
-            contactLink.insertAdjacentElement(
-                "afterend",
-                button
-            );
+            } else if (
+                contactLink &&
+                button.previousElementSibling !== contactLink
+            ) {
+
+                contactLink.insertAdjacentElement(
+                    "afterend",
+                    button
+                );
+
+            }
 
         }
 
-    }
 
+        /* =====================================================
+           PC (> 1050px)
+           Le bouton est placé dans .nav-inner, APRÈS .nav-links
+           et AVANT .nav-actions (qui contient le menu des langues)
+        ===================================================== */
 
-    /* =====================================================
-       PC
-       Le bouton est placé complètement à droite,
-       après "Contact"
-    ===================================================== */
+        else {
 
-    else {
+            if (
+                navActions &&
+                navActions.parentElement === navInner
+            ) {
 
-        /*
-         * On remet le bouton directement dans
-         * .nav-inner et surtout APRÈS .nav-links.
-         *
-         * .nav-links possède margin-left:auto,
-         * donc la navigation reste collée à droite
-         * et le bouton vient juste après Contact.
-         */
+                navInner.insertBefore(
+                    button,
+                    navActions
+                );
 
-        if (
-            button.parentElement !== navInner
-        ) {
+            } else {
 
-            navInner.appendChild(
-                button
-            );
+                navInner.appendChild(
+                    button
+                );
 
-        } else {
-
-            navInner.appendChild(
-                button
-            );
+            }
 
         }
 
+
+        updateThemeButton();
+
     }
-
-
-    updateThemeButton();
-
-}
 
 
     window.addEventListener(
@@ -4155,9 +4138,29 @@ Actualités
                     '<span class="theme-icon" aria-hidden="true">☾</span>';
 
 
-                navInner.appendChild(
-                    button
-                );
+                const navActions =
+                    document.querySelector(
+                        ".nav-actions"
+                    );
+
+
+                if (
+                    navActions &&
+                    navActions.parentElement === navInner
+                ) {
+
+                    navInner.insertBefore(
+                        button,
+                        navActions
+                    );
+
+                } else {
+
+                    navInner.appendChild(
+                        button
+                    );
+
+                }
 
 
                 button.addEventListener(
