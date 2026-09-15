@@ -3710,15 +3710,24 @@ Actualités
 
     try {
 
-        const saved =
-            localStorage.getItem(KEY);
+    const saved =
+        localStorage.getItem(KEY);
 
-        root.setAttribute(
-            "data-theme",
-            saved === "light"
-                ? "light"
-                : "dark"
-        );
+    root.setAttribute(
+        "data-theme",
+        saved === "dark"
+            ? "dark"
+            : "light"
+    );
+
+} catch (e) {
+
+    root.setAttribute(
+        "data-theme",
+        "light"
+    );
+
+}
 
     } catch (e) {
 
