@@ -95,6 +95,7 @@ body::before {
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     pointer-events: none;
@@ -518,7 +519,7 @@ body::before {
 
     padding: 5px 0;
 
-    margin-left: auto;
+    margin-left: 15px;
 
     line-height: 1;
 
@@ -595,6 +596,7 @@ body::before {
     position: relative;
     flex: 0 0 auto;
     z-index: 30;
+    margin-left: 15px;
 }
 
 .language-current {
@@ -2219,7 +2221,7 @@ html[data-theme="light"] ::selection {
             block;
 
         margin-left:
-            auto;
+            15px;
 
         order:
             3;
@@ -2279,7 +2281,8 @@ html[data-theme="light"] ::selection {
             translateY(0);
     }
 
-    .nav-links .theme-toggle {
+    .nav-links .theme-toggle,
+    .nav-links .language-switcher {
 
         display:
             inline-flex;
@@ -2320,24 +2323,6 @@ html[data-theme="light"] ::selection {
         grid-template-columns:
             1fr 1fr;
     }
-
-    .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.language-current {
-    width: 44px;
-    height: 44px;
-}
-
-.nav-links .language-switcher {
-    display: none;
-}
 
 }
 
@@ -2405,7 +2390,8 @@ html[data-theme="light"] ::selection {
             22px;
     }
 
-    .nav-links .theme-toggle {
+    .nav-links .theme-toggle,
+    .nav-links .language-switcher {
 
         width:
             40px;
@@ -2477,19 +2463,6 @@ html[data-theme="light"] ::selection {
             column;
     }
 
-    .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
-}
-
-.language-current {
-    width: 40px;
-    height: 40px;
-    font-size: .6rem;
-}
-
 }
 
 
@@ -2512,12 +2485,6 @@ html[data-theme="light"] ::selection {
         font-size:
             1.7rem;
     }
-
-    .language-current {
-    width: 38px;
-    height: 38px;
-    font-size: .58rem;
-}
 }
 
 
@@ -2646,17 +2613,6 @@ html[data-theme="light"] ::selection {
         </a>
 
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-
         <nav
             class="nav-links"
             id="navLinks"
@@ -2688,63 +2644,61 @@ html[data-theme="light"] ::selection {
 
         </nav>
 
-    </div>
 
-    <div class="nav-actions">
-
-    <div class="language-switcher" id="languageSwitcher">
-
-        <button
-            class="language-current"
-            id="languageCurrent"
-            type="button"
-            aria-label="Choisir la langue"
-            aria-expanded="false"
-        >
-            FR
-        </button>
-
-        <div class="language-menu" id="languageMenu">
+        <div class="language-switcher" id="languageSwitcher">
 
             <button
+                class="language-current"
+                id="languageCurrent"
                 type="button"
-                class="language-option active"
-                data-lang="fr"
+                aria-label="Choisir la langue"
+                aria-expanded="false"
             >
                 FR
             </button>
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="en"
-            >
-                EN
-            </button>
+            <div class="language-menu" id="languageMenu">
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="ru"
-            >
-                RU
-            </button>
+                <button
+                    type="button"
+                    class="language-option active"
+                    data-lang="fr"
+                >
+                    FR
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-lang="en"
+                >
+                    EN
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-lang="ru"
+                >
+                    RU
+                </button>
+
+            </div>
 
         </div>
 
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
     </div>
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-    >
-        ☰
-    </button>
-
-</div>
 
 </header>
 
@@ -3685,11 +3639,17 @@ html[data-theme="light"] ::selection {
                 "themeToggle"
             );
 
+        const switcher =
+            document.getElementById(
+                "languageSwitcher"
+            );
+
 
         if (
             !navInner ||
             !navLinks ||
-            !button
+            !button ||
+            !switcher
         ) {
 
             return;
@@ -3705,10 +3665,19 @@ html[data-theme="light"] ::selection {
                 button
             );
 
+            navLinks.appendChild(
+                switcher
+            );
+
         } else {
 
             navInner.appendChild(
                 button
+            );
+
+            navInner.insertBefore(
+                switcher,
+                document.getElementById("menuButton")
             );
 
         }
