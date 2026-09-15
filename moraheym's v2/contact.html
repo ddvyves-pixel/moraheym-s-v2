@@ -1602,25 +1602,19 @@ html[data-theme="light"] ::selection {
     const KEY = "moraheyms-theme";
 
     try {
+        const savedTheme = localStorage.getItem(KEY);
 
-    const saved =
-        localStorage.getItem(KEY);
+        document.documentElement.setAttribute(
+            "data-theme",
+            savedTheme === "dark" ? "dark" : "light"
+        );
 
-    root.setAttribute(
-        "data-theme",
-        saved === "dark"
-            ? "dark"
-            : "light"
-    );
-
-} catch (e) {
-
-    root.setAttribute(
-        "data-theme",
-        "light"
-    );
-
-}
+    } catch(e) {
+        document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+        );
+    }
 })();
 </script>
 
