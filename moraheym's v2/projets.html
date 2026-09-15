@@ -247,13 +247,12 @@ body::before {
     color: var(--gold);
 }
 
-/* Navigation complètement à droite */
+/* Navigation liens */
 
 .nav-links {
     display: flex;
     align-items: center;
     gap: 31px;
-    margin-left: auto;
 }
 
 .nav-links a {
@@ -339,6 +338,15 @@ body::before {
     display: none;
 }
 
+/* Actions à droite (PC : Liens, puis Thème, puis Langues | Mobile : Langues, puis Burger) */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
 /* Burger */
 
 .menu-button {
@@ -349,9 +357,7 @@ body::before {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 5px 0;
-    margin-left: auto;
     line-height: 1;
-    order: 3;
 }
 
 /* Bouton thème */
@@ -360,7 +366,6 @@ body::before {
     flex: 0 0 auto;
     width: 44px;
     height: 44px;
-    margin-left: 22px;
 
     border: 1px solid var(--line);
     border-radius: 50%;
@@ -1467,8 +1472,6 @@ html[data-theme="light"] ::selection {
 
     .menu-button {
         display: block;
-        margin-left: auto;
-        order: 3;
     }
 
     .nav-links {
@@ -1491,20 +1494,10 @@ html[data-theme="light"] ::selection {
 
         transform: translateY(-150%);
         transition: transform .45s ease;
-
-        margin-left: 0;
     }
 
     .nav-links.open {
         transform: translateY(0);
-    }
-
-    .nav-links .theme-toggle {
-        display: inline-flex;
-        margin: 3px 0 0 0;
-
-        width: 42px;
-        height: 42px;
     }
 
     .projects-grid {
@@ -1527,24 +1520,6 @@ html[data-theme="light"] ::selection {
     html[data-theme="light"] .nav-links {
         background: rgba(245,242,234,.98);
     }
-
-    .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.language-current {
-    width: 44px;
-    height: 44px;
-}
-
-.nav-links .language-switcher {
-    display: none;
-}
 }
 
 @media (max-width: 768px) {
@@ -1587,15 +1562,8 @@ html[data-theme="light"] ::selection {
         gap: 22px;
     }
 
-    .nav-links .theme-toggle {
-        width: 40px;
-        height: 40px;
-        margin-top: 3px;
-    }
-
     .menu-button {
         font-size: 1.45rem;
-        padding-right: 0;
     }
 
     .page-header {
@@ -1642,18 +1610,11 @@ html[data-theme="light"] ::selection {
         flex-direction: column;
     }
 
-    .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
-}
-
-.language-current {
-    width: 40px;
-    height: 40px;
-    font-size: .6rem;
-}
+    .language-current {
+        width: 40px;
+        height: 40px;
+        font-size: .6rem;
+    }
 }
 
 @media (max-width: 400px) {
@@ -1670,10 +1631,10 @@ html[data-theme="light"] ::selection {
     }
 
     .language-current {
-    width: 38px;
-    height: 38px;
-    font-size: .58rem;
-}
+        width: 38px;
+        height: 38px;
+        font-size: .58rem;
+    }
 }
 
 @media (pointer: coarse) {
@@ -1784,18 +1745,6 @@ html[data-theme="light"] ::selection {
 
         </a>
 
-        <!-- BURGER -->
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
         <!-- LIENS -->
 
         <nav
@@ -1829,72 +1778,74 @@ html[data-theme="light"] ::selection {
 
         </nav>
 
-    </div>
+        <!-- ACTIONS NAVIGATION (Thème, Langues, Burger) -->
 
-    <div class="nav-actions">
-
-    <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Changer de thème"
-    >
-        <span class="theme-icon" aria-hidden="true">☀</span>
-    </button>
-
-    <div class="language-switcher" id="languageSwitcher">
-
-        <button
-            class="language-current"
-            id="languageCurrent"
-            type="button"
-            aria-label="Choisir la langue"
-            aria-expanded="false"
-        >
-            FR
-        </button>
-
-        <div class="language-menu" id="languageMenu">
+        <div class="nav-actions">
 
             <button
+                class="theme-toggle"
+                id="themeToggle"
                 type="button"
-                class="language-option active"
-                data-lang="fr"
+                aria-label="Changer de thème"
             >
-                FR
+                <span class="theme-icon" aria-hidden="true">☀</span>
             </button>
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="en"
-            >
-                EN
-            </button>
+            <div class="language-switcher" id="languageSwitcher">
+
+                <button
+                    class="language-current"
+                    id="languageCurrent"
+                    type="button"
+                    aria-label="Choisir la langue"
+                    aria-expanded="false"
+                >
+                    FR
+                </button>
+
+                <div class="language-menu" id="languageMenu">
+
+                    <button
+                        type="button"
+                        class="language-option active"
+                        data-lang="fr"
+                    >
+                        FR
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="en"
+                    >
+                        EN
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="ru"
+                    >
+                        RU
+                    </button>
+
+                </div>
+
+            </div>
 
             <button
+                class="menu-button"
+                id="menuButton"
                 type="button"
-                class="language-option"
-                data-lang="ru"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
             >
-                RU
+                ☰
             </button>
 
         </div>
 
     </div>
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-    >
-        ☰
-    </button>
-
-</div>
 
 </header>
 
@@ -1940,7 +1891,7 @@ html[data-theme="light"] ::selection {
             <p>
                 MORAHEYM’S développe et accompagne des initiatives
                 à l’intersection de l’immobilier, des infrastructures,
-                de l’éducation, de la recherche et du développement
+                de l’éducation, a la recherche et du développement
                 des compétences. Notre approche privilégie des projets
                 capables de contribuer durablement au développement
                 des territoires et au renforcement des capacités.
@@ -1956,7 +1907,7 @@ html[data-theme="light"] ::selection {
                 de Développement Humain), <B><FONT face="Times New Roman, serif" size="4" color=" #c9a45d">IPF</FONT></B> (Indicateur de Participation des Femmes),
                 <B><FONT face="Times New Roman, serif" size="4" color=" #c9a45d">IPH</FONT></B> (Indice de Niveau d'Instruction), <B><FONT face="Times New Roman, serif" size="4" color=" #c9a45d">IPIB</FONT></B> (Indice de Produit Intérieur Brut), 
                 <B><FONT face="Times New Roman, serif" size="4" color=" #c9a45d">SMIG</FONT></B> ou <B><FONT face="Times New Roman, serif" size="4" color=" #c9a45d">SMIC</FONT></B> (Salaire Moyen Interprofessionnel Garanti ou Salaire Moyen Interprofessionnel 
-                de Croissance).Nous donnons une typologie nouvelle au tourisme africain, 
+                de Croissance). Nous donnons une typologie nouvelle au tourisme africain, 
                 par les africains à la découverte de l'Afrique, ses valeurs, 
                 sa diversité culturelle, son histoire, et ses valeurs depuis sa 
                 démographie, jusqu'à ses acquis naturels.
@@ -2491,85 +2442,16 @@ html[data-theme="light"] ::selection {
             "</span>";
     }
 
-    function positionThemeButton() {
-
-        const navInner =
-            document.querySelector(
-                ".nav-inner"
-            );
-
-        const navLinks =
-            document.querySelector(
-                ".nav-links"
-            );
-
-        const button =
-            document.getElementById(
-                "themeToggle"
-            );
-
-        if (
-            !navInner ||
-            !navLinks ||
-            !button
-        ) {
-            return;
-        }
-
-        if (window.innerWidth <= 1050) {
-
-            navLinks.appendChild(
-                button
-            );
-
-        } else {
-
-            navInner.appendChild(
-                button
-            );
-
-        }
-
-        updateThemeButton();
-    }
-
     window.addEventListener(
         "DOMContentLoaded",
         function () {
 
-            const navInner =
-                document.querySelector(
-                    ".nav-inner"
-                );
-
-            if (!navInner) {
-                return;
-            }
-
-            let button =
+            const button =
                 document.getElementById(
                     "themeToggle"
                 );
 
-            if (!button) {
-
-                button =
-                    document.createElement(
-                        "button"
-                    );
-
-                button.type = "button";
-
-                button.id =
-                    "themeToggle";
-
-                button.className =
-                    "theme-toggle";
-
-                navInner.appendChild(
-                    button
-                );
-
+            if (button) {
                 button.addEventListener(
                     "click",
                     function () {
@@ -2599,15 +2481,9 @@ html[data-theme="light"] ::selection {
 
                     }
                 );
-
             }
 
-            positionThemeButton();
-
-            window.addEventListener(
-                "resize",
-                positionThemeButton
-            );
+            updateThemeButton();
 
         }
     );
