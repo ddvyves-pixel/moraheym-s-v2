@@ -498,6 +498,29 @@ body::before {
 
 
 /* =========================================================
+   ACTIONS DE NAVIGATION (LANGUES & BURGER)
+========================================================= */
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-left: 25px;
+
+    flex-shrink: 0;
+}
+
+.nav-actions .theme-toggle {
+
+    margin-left: 0;
+}
+
+
+/* =========================================================
    BURGER
 ========================================================= */
 
@@ -514,8 +537,6 @@ body::before {
     font-size: 1.5rem;
 
     cursor: pointer;
-
-    margin-left: auto;
 
     padding:
         8px 0 8px 12px;
@@ -534,8 +555,6 @@ body::before {
 
     width: 44px;
     height: 44px;
-
-    margin-left: 22px;
 
     border:
         1px solid var(--line);
@@ -591,30 +610,41 @@ body::before {
 ========================================================= */
 
 .language-switcher {
+
     position: relative;
+
     flex: 0 0 auto;
+
     z-index: 30;
 }
 
 .language-current {
+
     width: 44px;
     height: 44px;
+
     padding: 0;
 
     border: 1px solid var(--line);
+
     border-radius: 50%;
 
     background: var(--black-card);
+
     color: var(--cream);
 
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     cursor: pointer;
 
     font-size: .65rem;
+
     font-weight: 700;
+
     letter-spacing: .08em;
 
     transition:
@@ -625,19 +655,27 @@ body::before {
 }
 
 .language-current:hover {
+
     border-color: var(--gold);
+
     color: var(--gold);
+
     transform: scale(1.05);
 }
 
 .language-current::after {
+
     content: "⌄";
+
     margin-left: 4px;
+
     font-size: .7rem;
+
     transition: transform .3s ease;
 }
 
 .language-switcher.open .language-current::after {
+
     transform: rotate(180deg);
 }
 
@@ -645,9 +683,11 @@ body::before {
 /* LISTE DES LANGUES */
 
 .language-menu {
+
     position: absolute;
 
     top: calc(100% + 10px);
+
     right: 0;
 
     min-width: 70px;
@@ -662,10 +702,13 @@ body::before {
         0 15px 40px rgba(0,0,0,.20);
 
     display: flex;
+
     flex-direction: column;
+
     gap: 3px;
 
     opacity: 0;
+
     visibility: hidden;
 
     transform:
@@ -681,7 +724,9 @@ body::before {
 }
 
 .language-switcher.open .language-menu {
+
     opacity: 1;
+
     visibility: visible;
 
     transform:
@@ -691,16 +736,21 @@ body::before {
 
 
 .language-option {
+
     width: 100%;
+
     min-height: 36px;
 
     border: 0;
+
     background: transparent;
 
     color: var(--cream-soft);
 
     font-family: var(--sans);
+
     font-size: .62rem;
+
     font-weight: 600;
 
     letter-spacing: .12em;
@@ -714,7 +764,9 @@ body::before {
 
 .language-option:hover,
 .language-option.active {
+
     background: rgba(201,164,93,.12);
+
     color: var(--gold);
 }
 
@@ -724,29 +776,40 @@ body::before {
 ========================================================= */
 
 html[data-theme="light"] .language-current {
+
     background: #fff;
+
     color: #171a17;
+
     border-color: rgba(23,26,23,.18);
 }
 
 html[data-theme="light"] .language-current:hover {
+
     color: #9a762d;
+
     border-color: #9a762d;
 }
 
 html[data-theme="light"] .language-menu {
+
     background: #fff;
+
     border-color: rgba(23,26,23,.13);
+
     box-shadow: 0 15px 40px rgba(23,26,23,.12);
 }
 
 html[data-theme="light"] .language-option {
+
     color: #59605a;
 }
 
 html[data-theme="light"] .language-option:hover,
 html[data-theme="light"] .language-option.active {
+
     background: rgba(154,118,45,.10);
+
     color: #9a762d;
 }
 
@@ -1029,9 +1092,13 @@ html[data-theme="light"] .language-option.active {
 }
 
 .footer-grid {
+
     display: grid;
+
     grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr 1.4fr;
+
     gap: 35px;
+
     padding-bottom: 65px;
 }
 
@@ -1063,12 +1130,19 @@ html[data-theme="light"] .language-option.active {
 }
 
 .footer-heading {
+
     margin-bottom: 20px;
+
     color: var(--gold);
+
     font-size: .82rem;
+
     font-weight: 600;
+
     letter-spacing: .16em;
+
     text-transform: uppercase;
+
     line-height: 1.3;
 }
 
@@ -1117,19 +1191,26 @@ html[data-theme="light"] .language-option.active {
 }
 
 .footer-address {
+
     gap: 10px;
 }
 
 .footer-address div,
 .footer-address a {
+
     line-height: 1.6;
 }
 
 .footer-address strong {
+
     color: var(--cream);
+
     font-weight: 500;
+
     font-size: .72rem;
+
     line-height: 1.5;
+
     letter-spacing: .02em;
 }
 
@@ -1547,9 +1628,7 @@ html[data-theme="light"] ::selection {
 
         display: block;
 
-        margin-left: auto;
-
-        order: 3;
+        margin-left: 0;
     }
 
     .nav-links {
@@ -1612,22 +1691,26 @@ html[data-theme="light"] ::selection {
     }
 
     .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
 
-.language-current {
-    width: 44px;
-    height: 44px;
-}
+        margin-left: auto;
 
-.nav-links .language-switcher {
-    display: none;
-}
+        gap: 10px;
+
+        flex-shrink: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+    }
+
+    .language-current {
+
+        width: 44px;
+
+        height: 44px;
+    }
 
 }
 
@@ -1670,6 +1753,7 @@ html[data-theme="light"] ::selection {
         margin-top: 3px;
 
         width: 40px;
+
         height: 40px;
     }
 
@@ -1743,23 +1827,28 @@ html[data-theme="light"] ::selection {
     }
 
     .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
+
+        margin-left: auto;
+
+        gap: 6px;
+
+        justify-content: flex-end;
+
+        flex-shrink: 0;
+    }
+
+    .language-current {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: .6rem;
+    }
+
 }
 
-.language-current {
-    width: 40px;
-    height: 40px;
-    font-size: .6rem;
-}
-
-
-
-}
-
-@media (max-width:400px) {
+@media (max-width: 400px) {
 
     .nav-links .theme-toggle,
     .nav-links.open .theme-toggle {
@@ -1770,10 +1859,13 @@ html[data-theme="light"] ::selection {
     }
 
     .language-current {
-    width: 38px;
-    height: 38px;
-    font-size: .58rem;
-}
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: .58rem;
+    }
 
 }
 
@@ -1893,96 +1985,93 @@ html[data-theme="light"] ::selection {
             id="navLinks"
         >
 
-           <a href="actualites.html" class="nav-news" data-i18n="actualites">
-    Actualités
-</a>
+            <a href="actualites.html" class="nav-news" data-i18n="actualites">
+                Actualités
+            </a>
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+            <a href="groupe.html" data-i18n="groupe">
+                Le groupe
+            </a>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+            <a href="expertise.html" data-i18n="expertise">
+                Expertise
+            </a>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
+            <a href="vision.html" data-i18n="vision">
+                Vision
+            </a>
 
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
+            <a href="projets.html" data-i18n="projets">
+                Projets
+            </a>
 
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
+            <a href="contact.html" class="nav-cta" data-i18n="contact">
+                Contact
+            </a>
 
         </nav>
 
 
-        <!-- BURGER -->
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="Ouvrir le menu"
-            type="button"
-        >
-            ☰
-        </button>
+        <!-- ACTIONS : THÈME, LANGUES & BURGER -->
 
         <div class="nav-actions">
 
-            <div class="language-switcher" id="languageSwitcher">
-
-        <button
-            class="language-current"
-            id="languageCurrent"
-            type="button"
-            aria-label="Choisir la langue"
-            aria-expanded="false"
-        >
-            FR
-        </button>
-
-                <div class="language-menu" id="languageMenu">
-
-            <button
-                type="button"
-                class="language-option active"
-                data-lang="fr"
+            <div
+                class="language-switcher"
+                id="languageSwitcher"
             >
-                FR
-            </button>
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="en"
-            >
-                EN
-            </button>
+                <button
+                    class="language-current"
+                    id="languageCurrent"
+                    type="button"
+                    aria-label="Choisir la langue"
+                    aria-expanded="false"
+                >
+                    FR
+                </button>
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="ru"
-            >
-                RU
-            </button>
+                <div
+                    class="language-menu"
+                    id="languageMenu"
+                >
+
+                    <button
+                        type="button"
+                        class="language-option active"
+                        data-lang="fr"
+                    >
+                        FR
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="en"
+                    >
+                        EN
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="ru"
+                    >
+                        RU
+                    </button>
 
                 </div>
 
             </div>
 
             <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-    >
-         ☰
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+            >
+                ☰
             </button>
 
         </div>
@@ -2405,6 +2494,18 @@ html[data-theme="light"] ::selection {
                 );
 
 
+            const navActions =
+                document.querySelector(
+                    ".nav-actions"
+                );
+
+
+            const languageSwitcher =
+                document.getElementById(
+                    "languageSwitcher"
+                );
+
+
             if (
                 !navInner ||
                 document.getElementById(
@@ -2433,11 +2534,6 @@ html[data-theme="light"] ::selection {
 
             button.className =
                 "theme-toggle";
-
-
-            navLinks.appendChild(
-                button
-            );
 
 
             updateThemeButton();
@@ -2504,6 +2600,23 @@ html[data-theme="light"] ::selection {
 
 
                     if (
+                        navActions &&
+                        languageSwitcher
+                    ) {
+
+                        if (
+                            button.nextSibling !==
+                            languageSwitcher
+                        ) {
+
+                            navActions.insertBefore(
+                                button,
+                                languageSwitcher
+                            );
+
+                        }
+
+                    } else if (
                         button.parentElement !==
                         navInner
                     ) {
