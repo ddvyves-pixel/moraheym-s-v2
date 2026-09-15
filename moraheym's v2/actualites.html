@@ -2655,20 +2655,26 @@ html[data-theme="light"] .preloader {
 (function(){
     const KEY = "moraheyms-theme";
 
-    try {
-        const savedTheme = localStorage.getItem(KEY);
+   try {
 
-        document.documentElement.setAttribute(
-            "data-theme",
-            savedTheme === "dark" ? "dark" : "light"
-        );
+    const saved =
+        localStorage.getItem(KEY);
 
-    } catch(e) {
-        document.documentElement.setAttribute(
-            "data-theme",
-            "light"
-        );
-    }
+    root.setAttribute(
+        "data-theme",
+        saved === "dark"
+            ? "dark"
+            : "light"
+    );
+
+} catch (e) {
+
+    root.setAttribute(
+        "data-theme",
+        "light"
+    );
+
+}
 })();
 </script>
 
