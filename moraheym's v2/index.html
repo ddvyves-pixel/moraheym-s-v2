@@ -1890,47 +1890,7 @@ html[data-theme="light"] .footer-bottom {
 
     <div class="nav-actions">
 
-        <div class="language-switcher" id="languageSwitcher">
-
-           <button
-            class="language-current"
-            id="languageCurrent"
-            type="button"
-            aria-label="Choisir la langue"
-            aria-expanded="false"
-        >
-            FR
-           </button>
-
-            <div class="language-menu" id="languageMenu">
-
-            <button
-                type="button"
-                class="language-option active"
-                data-lang="fr"
-            >
-                FR
-            </button>
-
-            <button
-                type="button"
-                class="language-option"
-                data-lang="en"
-            >
-                EN
-            </button>
-
-            <button
-                type="button"
-                class="language-option"
-                data-lang="ru"
-            >
-                RU
-            </button>
-
-             </div>
-
-        </div>
+    <!-- ORDRE AJUSTÉ : Bouton thème d'abord, puis le menu langues complètement à droite -->
 
     <button
         class="menu-button"
@@ -2595,6 +2555,9 @@ root.setAttribute(
         const menuButton =
             document.getElementById("menuButton");
 
+        const languageSwitcher =
+            document.getElementById("languageSwitcher");
+
         const contactLink =
             navLinks
                 ? navLinks.querySelector(
@@ -2607,7 +2570,8 @@ root.setAttribute(
             !button ||
             !navActions ||
             !navLinks ||
-            !menuButton
+            !menuButton ||
+            !languageSwitcher
         ) return;
 
 
@@ -2624,6 +2588,11 @@ root.setAttribute(
                 );
 
             }
+            
+            // Sur mobile, le menu langues doit être replacé juste avant le menu burger
+            if (languageSwitcher.parentElement !== navActions) {
+                navActions.insertBefore(languageSwitcher, menuButton);
+            }
 
         } else {
 
@@ -2633,9 +2602,14 @@ root.setAttribute(
 
                 navActions.insertBefore(
                     button,
-                    menuButton
+                    languageSwitcher
                 );
 
+            }
+            
+            // Sur PC, le menu langues doit être après le bouton thème
+            if (languageSwitcher.parentElement !== navActions) {
+                navActions.appendChild(languageSwitcher);
             }
 
         }
@@ -2665,11 +2639,17 @@ root.setAttribute(
                     "menuButton"
                 );
 
+            const languageSwitcher =
+                document.getElementById(
+                    "languageSwitcher"
+                );
+
 
             if (
                 !navActions ||
                 !navLinks ||
-                !menuButton
+                !menuButton ||
+                !languageSwitcher
             ) return;
 
 
@@ -2717,13 +2697,18 @@ root.setAttribute(
                     navLinks.appendChild(button);
 
                 }
+                
+                // Mobile : langues avant le menu burger
+                navActions.insertBefore(languageSwitcher, menuButton);
 
             } else {
 
+                // PC : thème avant, langues complètement à droite après le thème
                 navActions.insertBefore(
                     button,
-                    menuButton
+                    languageSwitcher
                 );
+                navActions.appendChild(languageSwitcher);
 
             }
 
