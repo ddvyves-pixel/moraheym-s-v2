@@ -371,6 +371,171 @@ body::before {
 
 
 /* =========================================================
+   MENU DES LANGUES
+========================================================= */
+
+.language-switcher {
+    position: relative;
+    flex: 0 0 auto;
+    z-index: 30;
+}
+
+.language-current {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    background: var(--black-card);
+    color: var(--cream);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease,
+        transform .3s ease;
+}
+
+.language-current:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: scale(1.05);
+}
+
+.language-current::after {
+    content: "⌄";
+    margin-left: 4px;
+    font-size: .7rem;
+    transition: transform .3s ease;
+}
+
+.language-switcher.open .language-current::after {
+    transform: rotate(180deg);
+}
+
+
+/* LISTE DES LANGUES */
+
+.language-menu {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    min-width: 70px;
+
+    padding: 7px;
+
+    background: var(--black-card);
+
+    border: 1px solid var(--line);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.20);
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-8px)
+        scale(.96);
+
+    transform-origin: top right;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.language-switcher.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.language-option {
+    width: 100%;
+    min-height: 36px;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--cream-soft);
+
+    font-family: var(--sans);
+    font-size: .62rem;
+    font-weight: 600;
+
+    letter-spacing: .12em;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.language-option:hover,
+.language-option.active {
+    background: rgba(201,164,93,.12);
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   THÈME CLAIR — MENU LANGUES
+========================================================= */
+
+html[data-theme="light"] .language-current {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-current:hover {
+    color: #9a762d;
+    border-color: #9a762d;
+}
+
+html[data-theme="light"] .language-menu {
+    background: #fff;
+    border-color: rgba(23,26,23,.13);
+    box-shadow: 0 15px 40px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+    color: #59605a;
+}
+
+html[data-theme="light"] .language-option:hover,
+html[data-theme="light"] .language-option.active {
+    background: rgba(154,118,45,.10);
+    color: #9a762d;
+}
+
+
+/* =========================================================
    CONTENU
 ========================================================= */
 
@@ -1183,9 +1348,21 @@ html[data-theme="light"] .team-description {
     }
 
     .nav-actions {
-        margin-left: auto;
-        gap: 0;
-        flex-shrink: 0;
+    margin-left: auto;
+    gap: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    }
+
+.language-current {
+    width: 44px;
+    height: 44px;
+    }
+
+.nav-links .language-switcher {
+    display: none;
     }
 
     .menu-button {
@@ -1254,11 +1431,17 @@ html[data-theme="light"] .team-description {
     }
 
     .nav-actions {
-        margin-left: auto;
-        gap: 0;
-        justify-content: flex-end;
-        flex-shrink: 0;
-    }
+    margin-left: auto;
+    gap: 5px;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.language-current {
+    width: 40px;
+    height: 40px;
+    font-size: .6rem;
+}
 
     .menu-button {
         width: 40px;
@@ -1319,7 +1502,15 @@ html[data-theme="light"] .team-description {
     .hero h1 {
         font-size: clamp(3.2rem, 15vw, 5rem);
     }
+
+    .language-current {
+    width: 38px;
+    height: 38px;
+    font-size: .58rem;
 }
+}
+
+
 
 
 /* =========================================================
@@ -1702,17 +1893,59 @@ html[data-theme="light"] .footer-bottom {
 
     <div class="nav-actions">
 
+    <div class="language-switcher" id="languageSwitcher">
+
         <button
-            class="menu-button"
-            id="menuButton"
+            class="language-current"
+            id="languageCurrent"
             type="button"
-            aria-label="Ouvrir le menu"
+            aria-label="Choisir la langue"
             aria-expanded="false"
         >
-            ☰
+            FR
         </button>
 
+        <div class="language-menu" id="languageMenu">
+
+            <button
+                type="button"
+                class="language-option active"
+                data-lang="fr"
+            >
+                FR
+            </button>
+
+            <button
+                type="button"
+                class="language-option"
+                data-lang="en"
+            >
+                EN
+            </button>
+
+            <button
+                type="button"
+                class="language-option"
+                data-lang="ru"
+            >
+                RU
+            </button>
+
+        </div>
+
     </div>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+    >
+        ☰
+    </button>
+
+</div>
 
 </div>
 
@@ -2545,6 +2778,210 @@ root.setAttribute(
 
 })();
 
+/* =========================================================
+   SÉLECTEUR DE LANGUE
+========================================================= */
+
+(function () {
+
+    const LANGUAGE_KEY = "moraheyms-language";
+
+    const switcher =
+        document.getElementById("languageSwitcher");
+
+    const currentButton =
+        document.getElementById("languageCurrent");
+
+    const languageMenu =
+        document.getElementById("languageMenu");
+
+    const options =
+        document.querySelectorAll(".language-option");
+
+
+    if (
+        !switcher ||
+        !currentButton ||
+        !languageMenu
+    ) {
+        return;
+    }
+
+
+    /* -----------------------------------------
+       LANGUE ENREGISTRÉE
+    ----------------------------------------- */
+
+    let savedLanguage = "fr";
+
+    try {
+
+        const stored =
+            localStorage.getItem(
+                LANGUAGE_KEY
+            );
+
+        if (
+            stored === "fr" ||
+            stored === "en" ||
+            stored === "ru"
+        ) {
+            savedLanguage = stored;
+        }
+
+    } catch (e) {}
+
+
+    /* -----------------------------------------
+       OUVERTURE DU MENU
+    ----------------------------------------- */
+
+    currentButton.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            const isOpen =
+                switcher.classList.toggle(
+                    "open"
+                );
+
+            currentButton.setAttribute(
+                "aria-expanded",
+                isOpen
+                    ? "true"
+                    : "false"
+            );
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       CHOIX DE LA LANGUE
+    ----------------------------------------- */
+
+    options.forEach(
+        option => {
+
+            option.addEventListener(
+                "click",
+                function () {
+
+                    const language =
+                        this.dataset.lang;
+
+                    setLanguage(language);
+
+                    switcher.classList.remove(
+                        "open"
+                    );
+
+                    currentButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       FERMER EN CLIQUANT AILLEURS
+    ----------------------------------------- */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !switcher.contains(event.target)
+            ) {
+
+                switcher.classList.remove(
+                    "open"
+                );
+
+                currentButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       APPLICATION DE LA LANGUE
+    ----------------------------------------- */
+
+    function setLanguage(language) {
+
+        currentButton.textContent =
+            language.toUpperCase();
+
+
+        options.forEach(
+            option => {
+
+                option.classList.toggle(
+                    "active",
+                    option.dataset.lang === language
+                );
+
+            }
+        );
+
+
+        document.documentElement
+            .setAttribute(
+                "lang",
+                language
+            );
+
+
+        try {
+
+            localStorage.setItem(
+                LANGUAGE_KEY,
+                language
+            );
+
+        } catch (e) {}
+
+
+        /*
+         * Le système de traduction sera branché
+         * ici avec les textes de chaque page.
+         */
+
+        if (
+            typeof window.applyMoraheymLanguage ===
+            "function"
+        ) {
+
+            window.applyMoraheymLanguage(
+                language
+            );
+
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       INITIALISATION
+    ----------------------------------------- */
+
+    setLanguage(savedLanguage);
+
+})();
 
 /* =========================================================
    PRELOADER
