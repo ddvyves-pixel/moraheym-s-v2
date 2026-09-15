@@ -1602,27 +1602,20 @@ html[data-theme="light"] ::selection {
     const KEY = "moraheyms-theme";
 
     try {
+        const savedTheme = localStorage.getItem(KEY);
 
-    const saved =
-        localStorage.getItem(KEY);
+        document.documentElement.setAttribute(
+            "data-theme",
+            savedTheme === "dark" ? "dark" : "light"
+        );
 
-    root.setAttribute(
-        "data-theme",
-        saved === "dark"
-            ? "dark"
-            : "light"
-    );
-
-} catch (e) {
-
-    root.setAttribute(
-        "data-theme",
-        "light"
-    );
-
-}
+    } catch(e) {
+        document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+        );
     }
-)();
+})();
 </script>
 
 </head>
@@ -2087,30 +2080,36 @@ html[data-theme="light"] ::selection {
 
 
 /* =========================================================
-   THÈME CLAIR / SOMBRE
+   THEME TOGGLE
 ========================================================= */
 
 (function () {
 
+    const KEY = "moraheyms-theme";
 
-    const KEY =
-        "moraheyms-theme";
+    const root = document.documentElement;
 
 
-    const root =
-        document.documentElement;
-
+    try {
 
     const saved =
         localStorage.getItem(KEY);
 
+    root.setAttribute(
+        "data-theme",
+        saved === "dark"
+            ? "dark"
+            : "light"
+    );
+
+} catch (e) {
 
     root.setAttribute(
         "data-theme",
-        saved === "light"
-            ? "light"
-            : "dark"
+        "light"
     );
+
+}
 
 
     function updateThemeButton() {
