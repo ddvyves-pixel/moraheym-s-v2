@@ -12,7 +12,7 @@ const translations = {
 
         // HERO
         hero_kicker: "Développement · Construction · Éducation",
-        hero_title: "Construire l'Afrique de demain.",
+        hero_title: "Construire l'<span class=\"outline\">Afrique</span> de demain.",
         hero_text: "Le GROUPE MORAHEYM'S développe des projets immobiliers, des infrastructures et des initiatives d'éducation internationale pour contribuer au développement durable et au renforcement des compétences en Afrique.",
         hero_btn_1: "Découvrir le groupe",
         hero_btn_2: "Prendre contact",
@@ -51,7 +51,7 @@ const translations = {
 
         // HERO
         hero_kicker: "Development · Construction · Education",
-        hero_title: "Building the Africa of tomorrow.",
+        hero_title: "Building the <span class=\"outline\">Africa</span> of tomorrow.",
         hero_text: "GROUPE MORAHEYM'S develops real estate projects, infrastructure and international education initiatives to contribute to sustainable development and strengthen skills across Africa.",
         hero_btn_1: "Discover the Group",
         hero_btn_2: "Get in touch",
@@ -90,7 +90,7 @@ const translations = {
 
         // ГЛАВНЫЙ ЭКРАН
         hero_kicker: "Развитие · Строительство · Образование",
-        hero_title: "Создаём Африку завтрашнего дня.",
+       hero_title: "Создаём <span class=\"outline\">Африку</span> завтрашнего дня.",
         hero_text: "GROUPE MORAHEYM'S реализует проекты в сфере недвижимости, инфраструктуры и международного образования, способствуя устойчивому развитию и укреплению профессиональных компетенций в Африке.",
         hero_btn_1: "Открыть страницу группы",
         hero_btn_2: "Связаться с нами",
