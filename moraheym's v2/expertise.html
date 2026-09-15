@@ -546,8 +546,21 @@ body::before {
 
 
 /* =========================================================
-   BURGER
+   BURGER & ACTIONS MOBILE
 ========================================================= */
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: 22px;
+
+}
+
 
 .menu-button {
 
@@ -564,8 +577,6 @@ body::before {
     cursor: pointer;
 
     padding: 5px 0;
-
-    margin-left: auto;
 
     line-height: 1;
 
@@ -645,6 +656,7 @@ body::before {
 .language-switcher {
     position: relative;
     flex: 0 0 auto;
+    margin-left: 12px;
     z-index: 30;
 }
 
@@ -1484,10 +1496,6 @@ html[data-theme="light"] .language-option.active {
 
         display: block;
 
-        margin-left: auto;
-
-        order: 3;
-
     }
 
 
@@ -1585,25 +1593,14 @@ html[data-theme="light"] .language-option.active {
 
     }
 
-    .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
+    .language-switcher {
+        margin-left: 0;
+    }
 
-.language-current {
-    width: 44px;
-    height: 44px;
-}
-
-.nav-links .language-switcher {
-    display: none;
-}
-
-
+    .language-current {
+        width: 44px;
+        height: 44px;
+    }
 
 }
 
@@ -1618,10 +1615,10 @@ html[data-theme="light"] .language-option.active {
     }
 
     .language-current {
-    width: 38px;
-    height: 38px;
-    font-size: .58rem;
-}
+        width: 38px;
+        height: 38px;
+        font-size: .58rem;
+    }
 
 }
 
@@ -1686,17 +1683,14 @@ html[data-theme="light"] .language-option.active {
     }
 
     .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
-}
+        gap: 8px;
+    }
 
-.language-current {
-    width: 40px;
-    height: 40px;
-    font-size: .6rem;
-}
+    .language-current {
+        width: 40px;
+        height: 40px;
+        font-size: .6rem;
+    }
 
 }
 
@@ -2492,19 +2486,6 @@ html[data-theme="light"] ::selection {
         </a>
 
 
-        <!-- Burger -->
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-
         <nav
             class="nav-links"
             id="navLinks"
@@ -2518,7 +2499,7 @@ html[data-theme="light"] ::selection {
     Le groupe
 </a>
 
-<a href="expertise.html" data-i18n="expertise">
+<a href="expertise.html" class="active" data-i18n="expertise">
     Expertise
 </a>
 
@@ -2536,61 +2517,63 @@ html[data-theme="light"] ::selection {
 
         </nav>
 
+
         <div class="nav-actions">
 
-    <div class="language-switcher" id="languageSwitcher">
+            <div class="language-switcher" id="languageSwitcher">
 
-        <button
-            class="language-current"
-            id="languageCurrent"
-            type="button"
-            aria-label="Choisir la langue"
-            aria-expanded="false"
-        >
-            FR
-        </button>
+                <button
+                    class="language-current"
+                    id="languageCurrent"
+                    type="button"
+                    aria-label="Choisir la langue"
+                    aria-expanded="false"
+                >
+                    FR
+                </button>
 
-        <div class="language-menu" id="languageMenu">
+                <div class="language-menu" id="languageMenu">
 
+                    <button
+                        type="button"
+                        class="language-option active"
+                        data-lang="fr"
+                    >
+                        FR
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="en"
+                    >
+                        EN
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="ru"
+                    >
+                        RU
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Burger -->
             <button
+                class="menu-button"
+                id="menuButton"
                 type="button"
-                class="language-option active"
-                data-lang="fr"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
             >
-                FR
-            </button>
-
-            <button
-                type="button"
-                class="language-option"
-                data-lang="en"
-            >
-                EN
-            </button>
-
-            <button
-                type="button"
-                class="language-option"
-                data-lang="ru"
-            >
-                RU
+                ☰
             </button>
 
         </div>
-
-    </div>
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-    >
-        ☰
-    </button>
-
-</div>
 
     </div>
 
@@ -3178,8 +3161,8 @@ html[data-theme="light"] ::selection {
 
     function positionThemeButton() {
 
-        const navInner =
-            document.querySelector(".nav-inner");
+        const navActions =
+            document.querySelector(".nav-actions");
 
 
         const navLinks =
@@ -3191,7 +3174,7 @@ html[data-theme="light"] ::selection {
 
 
         if (
-            !navInner ||
+            !navActions ||
             !navLinks ||
             !button
         ) return;
@@ -3205,7 +3188,7 @@ html[data-theme="light"] ::selection {
 
         } else {
 
-            navInner.appendChild(button);
+            navActions.insertBefore(button, navActions.firstChild);
 
         }
 
@@ -3220,11 +3203,11 @@ html[data-theme="light"] ::selection {
         function () {
 
 
-            const navInner =
-                document.querySelector(".nav-inner");
+            const navActions =
+                document.querySelector(".nav-actions");
 
 
-            if (!navInner) return;
+            if (!navActions) return;
 
 
             if (
@@ -3260,7 +3243,7 @@ html[data-theme="light"] ::selection {
             );
 
 
-            navInner.appendChild(button);
+            navActions.insertBefore(button, navActions.firstChild);
 
 
             updateThemeButton();
