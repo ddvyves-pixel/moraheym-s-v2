@@ -2859,5 +2859,30 @@ document
 
 </script>
 
+<script>
+  (function() {
+    // 1. Définissez votre mot de passe ici
+    const motDePasseCorrect = "RENIEL080904";
+    
+    // 2. Vérifie si l'utilisateur s'est déjà connecté avec succès pendant cette session
+    if (sessionStorage.getItem("site_accessible") !== "true") {
+      
+      // 3. Demande le mot de passe
+      const saisie = prompt("Ce site est privé. Veuillez entrer le code d'accès :");
+      
+      // 4. Si le code est correct, on valide la session
+      if (saisie === motDePasseCorrect) {
+        sessionStorage.setItem("site_accessible", "true");
+      } else {
+        // 5. Si le code est faux, on bloque l'affichage et on affiche un message d'erreur
+        document.write("<style>body{display:none;}</style>"); // Cache le reste du site immédiatement
+        alert("Code incorrect. Accès refusé.");
+        window.location.href = "about:blank"; // Redirige vers une page blanche
+      }
+    }
+  })();
+</script>
+
+
 </body>
 </html>
