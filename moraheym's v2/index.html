@@ -154,6 +154,144 @@ body::before {
     transition: width 1.2s ease;
 }
 
+/* =========================================================
+   GOOGLE TRANSLATE — MENU DE LANGUES
+========================================================= */
+
+#google_translate_element {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex: 0 0 auto;
+    height: 44px;
+}
+
+/* Conteneur généré par Google */
+#google_translate_element .goog-te-gadget {
+    font-family: var(--sans) !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    color: transparent !important;
+    white-space: nowrap;
+}
+
+/* Select généré par Google */
+#google_translate_element .goog-te-combo {
+    height: 44px;
+    min-width: 72px;
+    margin: 0 !important;
+    padding: 0 30px 0 13px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--black-card);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    appearance: auto;
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+#google_translate_element .goog-te-combo:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+#google_translate_element .goog-te-combo:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px rgba(201,164,93,.15);
+}
+
+/* Supprime les éléments visuels inutiles générés par Google */
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+/* Bannière Google */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Thème clair */
+html[data-theme="light"] #google_translate_element .goog-te-combo {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] #google_translate_element .goog-te-combo:hover {
+    border-color: #9a762d;
+    color: #9a762d;
+}
+
+
+/* =========================================================
+   RESPONSIVE — MENU DE LANGUES
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    /*
+       Le sélecteur de langue reste dans .nav-actions.
+       Le bouton thème est déplacé dans le menu burger.
+       
+       Ordre mobile :
+       LOGO | LANGUE | BURGER
+    */
+
+    #google_translate_element {
+        height: 44px;
+        margin-left: auto;
+        margin-right: 4px;
+    }
+
+    #google_translate_element .goog-te-combo {
+        height: 40px;
+        min-width: 68px;
+        padding-left: 10px;
+        padding-right: 24px;
+        font-size: .6rem;
+    }
+}
+
+@media (max-width: 650px) {
+
+    #google_translate_element {
+        height: 40px;
+        margin-left: auto;
+        margin-right: 2px;
+    }
+
+    #google_translate_element .goog-te-combo {
+        height: 40px;
+        min-width: 64px;
+        font-size: .58rem;
+        letter-spacing: .08em;
+    }
+}
+
+@media (max-width: 400px) {
+
+    #google_translate_element .goog-te-combo {
+        height: 38px;
+        min-width: 60px;
+        font-size: .55rem;
+    }
+}
 
 /* =========================================================
    NAVIGATION DESKTOP
@@ -1702,14 +1840,20 @@ html[data-theme="light"] .footer-bottom {
 
     <div class="nav-actions">
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
+      <!-- GOOGLE TRADUCTION -->
+      <div id="google_translate_element">
+
+      </div>
+
+        <!-- MENU BURGER -->
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
         >
-            ☰
+        ☰
         </button>
 
     </div>
@@ -1717,6 +1861,7 @@ html[data-theme="light"] .footer-bottom {
 </div>
 
 </header>
+
 
 
 <!-- =========================================================
@@ -2855,6 +3000,35 @@ document
         }
     );
 
+</script>
+<!-- =========================================================
+     GOOGLE TRANSLATE
+========================================================= -->
+
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+        pageLanguage: 'fr',
+
+        includedLanguages: 'fr,en,ru',
+
+        layout:
+            google.translate.TranslateElement.InlineLayout.SIMPLE,
+
+        autoDisplay: false
+
+    }, 'google_translate_element');
+
+}
+
+</script>
+
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 
 </body>
