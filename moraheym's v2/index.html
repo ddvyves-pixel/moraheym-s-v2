@@ -3123,9 +3123,8 @@ document
 
         }
     );
-
 /* =========================================================
-   MENU DES LANGUES
+   MENU DES LANGUES + GOOGLE TRANSLATE
 ========================================================= */
 
 (function () {
@@ -3148,7 +3147,9 @@ document
     if (!selector || !button || !menu) return;
 
 
-    /* OUVRIR / FERMER LE MENU */
+    /* =====================================================
+       OUVRIR / FERMER LE MENU
+    ===================================================== */
 
     button.addEventListener("click", function (event) {
 
@@ -3165,83 +3166,9 @@ document
     });
 
 
-    /* CHOIX DE LA LANGUE */
-
-    options.forEach(function (option) {
-
-        option.addEventListener("click", function () {
-
-            const language =
-                option.getAttribute("data-lang");
-
-            if (!language) return;
-
-
-            /* Mettre à jour le bouton */
-
-            currentLanguage.textContent =
-                language.toUpperCase();
-
-
-            /* Marquer la langue active */
-
-            options.forEach(function (item) {
-
-                item.classList.remove("active");
-
-            });
-
-            option.classList.add("active");
-
-
-            /* Fermer le menu */
-
-            selector.classList.remove("open");
-
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            /* Français */
-
-            if (language === "fr") {
-
-                translatePage("fr");
-
-                return;
-
-            }
-
-
-            /* Anglais */
-
-            if (language === "en") {
-
-                translatePage("en");
-
-                return;
-
-            }
-
-
-            /* Russe */
-
-            if (language === "ru") {
-
-                translatePage("ru");
-
-                return;
-
-            }
-
-        });
-
-    });
-
-
-    /* Fermer si on clique ailleurs */
+    /* =====================================================
+       FERMER LE MENU SI ON CLIQUE AILLEURS
+    ===================================================== */
 
     document.addEventListener("click", function (event) {
 
@@ -3260,7 +3187,7 @@ document
 
 
     /* =====================================================
-       GOOGLE TRANSLATE
+       FONCTION GOOGLE TRANSLATE
     ===================================================== */
 
     function translatePage(language) {
@@ -3270,34 +3197,135 @@ document
                 "#google_translate_element .goog-te-combo"
             );
 
-        if (!googleSelect) {
+        /*
+         * Google n'a pas encore créé son sélecteur.
+         * On attend puis on réessaie.
+         */
 
-            /*
-               Google Translate peut mettre quelques instants
-               à créer son select.
-            */
+        if (!googleSelect) {
 
             setTimeout(function () {
 
                 translatePage(language);
 
-            }, 300);
+            }, 500);
 
             return;
 
         }
 
 
+        /*
+         * On sélectionne la langue.
+         */
+
         googleSelect.value = language;
 
-        googleSelect.dispatchEvent(
-            new Event("change")
-        );
+
+        /*
+         * Google Translate écoute un véritable
+         * événement "change".
+         */
+
+        try {
+
+            const event =
+                document.createEvent("HTMLEvents");
+
+            event.initEvent(
+                "change",
+                true,
+                true
+            );
+
+            googleSelect.dispatchEvent(event);
+
+        } catch (error) {
+
+            /*
+             * Solution de secours pour les navigateurs
+             * modernes.
+             */
+
+            googleSelect.dispatchEvent(
+                new Event("change", {
+                    bubbles: true
+                })
+            );
+
+        }
 
     }
 
 
+    /* =====================================================
+       CHOIX DE LA LANGUE
+    ===================================================== */
+
+    options.forEach(function (option) {
+
+        option.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                const language =
+                    option.getAttribute("data-lang");
+
+
+                if (!language) return;
+
+
+                /*
+                 * Mettre à jour le bouton
+                 */
+
+                currentLanguage.textContent =
+                    language.toUpperCase();
+
+
+                /*
+                 * Mettre à jour l'option active
+                 */
+
+                options.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+                option.classList.add("active");
+
+
+                /*
+                 * Fermer le menu
+                 */
+
+                selector.classList.remove("open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                /*
+                 * Lancer Google Translate
+                 */
+
+                translatePage(language);
+
+            }
+        );
+
+    });
+
+
 })();
+
 </script>
 <!-- =========================================================
      GOOGLE TRANSLATE
@@ -3312,9 +3340,6 @@ function googleTranslateElementInit() {
         pageLanguage: 'fr',
 
         includedLanguages: 'fr,en,ru',
-
-        layout:
-            google.translate.TranslateElement.InlineLayout.SIMPLE,
 
         autoDisplay: false
 
