@@ -155,23 +155,6 @@ body::before {
 }
 
 
-/* Intégration propre du widget dans votre barre de navigation */
-#google_translate_element {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 15px;
-}
-
-/* Optionnel : Masquer la bannière Google qui apparaît parfois tout en haut après traduction */
-.goog-te-banner-frame.skiptranslate {
-    display: none !important;
-}
-body {
-    top: 0px !important;
-}
-
-
-
 /* =========================================================
    NAVIGATION DESKTOP
 ========================================================= */
@@ -1733,12 +1716,7 @@ html[data-theme="light"] .footer-bottom {
 
 </div>
 
-<!-- Bouton du menu de langues Google -->
-<div id="google_translate_element"></div>
-
-
 </header>
-
 
 
 <!-- =========================================================
@@ -2878,17 +2856,6 @@ document
     );
 
 </script>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'fr', // Langue d'origine du site (Français)
-    includedLanguages: 'fr,en,ru', // Langues proposées : Français, Anglais, Russe
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//://google.com"></script>
 
 </body>
 </html>
