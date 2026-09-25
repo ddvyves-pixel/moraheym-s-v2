@@ -155,34 +155,21 @@ body::before {
 }
 
 /* =========================================================
-   GOOGLE TRANSLATE — MENU DE LANGUES
+   MENU DES LANGUES — FR / EN / RU
 ========================================================= */
 
-#google_translate_element {
+.language-selector {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
     flex: 0 0 auto;
-    height: 44px;
+    z-index: 100;
 }
 
-/* Conteneur généré par Google */
-#google_translate_element .goog-te-gadget {
-    font-family: var(--sans) !important;
-    font-size: 0 !important;
-    line-height: 1 !important;
-    color: transparent !important;
-    white-space: nowrap;
-}
-
-/* Select généré par Google */
-#google_translate_element .goog-te-combo {
+.language-button {
     height: 44px;
-    min-width: 72px;
-    margin: 0 !important;
-    padding: 0 30px 0 13px;
+    min-width: 58px;
+    padding: 0 13px;
     border: 1px solid var(--line);
     border-radius: 22px;
     background: var(--black-card);
@@ -191,33 +178,193 @@ body::before {
     font-size: .65rem;
     font-weight: 600;
     letter-spacing: .12em;
-    text-transform: uppercase;
-    outline: none;
     cursor: pointer;
-    appearance: auto;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
     transition:
         border-color .3s ease,
         color .3s ease,
         background .3s ease;
 }
 
-#google_translate_element .goog-te-combo:hover {
+.language-button:hover {
     border-color: var(--gold);
     color: var(--gold);
 }
 
-#google_translate_element .goog-te-combo:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 1px rgba(201,164,93,.15);
+.language-arrow {
+    font-size: .55rem;
+    transition: transform .3s ease;
 }
 
-/* Supprime les éléments visuels inutiles générés par Google */
+.language-selector.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 9px);
+    right: 0;
+
+    min-width: 90px;
+    padding: 6px;
+
+    background: var(--black-card);
+    border: 1px solid var(--line);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.language-selector.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    height: 36px;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--cream-soft);
+    font-family: var(--sans);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+
+    cursor: pointer;
+    text-align: left;
+
+    padding: 0 12px;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.language-option:hover {
+    background: rgba(201,164,93,.10);
+    color: var(--gold);
+}
+
+.language-option.active {
+    color: var(--gold);
+}
+
+/* Thème clair */
+
+html[data-theme="light"] .language-button {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-button:hover {
+    border-color: #9a762d;
+    color: #9a762d;
+}
+
+html[data-theme="light"] .language-menu {
+    background: #fff;
+    border-color: rgba(23,26,23,.15);
+    box-shadow: 0 15px 35px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+    color: #59605a;
+}
+
+html[data-theme="light"] .language-option:hover,
+html[data-theme="light"] .language-option.active {
+    color: #9a762d;
+    background: rgba(154,118,45,.08);
+}
+
+/* Mobile */
+
+@media (max-width: 1050px) {
+
+    .language-button {
+        height: 44px;
+        min-width: 58px;
+    }
+
+    .language-selector {
+        margin-right: 4px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .language-button {
+        height: 40px;
+        min-width: 54px;
+        padding: 0 10px;
+        font-size: .58rem;
+    }
+
+    .language-menu {
+        min-width: 82px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .language-button {
+        height: 38px;
+        min-width: 52px;
+        font-size: .55rem;
+    }
+}
+
+/* =========================================================
+   GOOGLE TRANSLATE — MOTEUR INVISIBLE
+========================================================= */
+
+#google_translate_element {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    left: -9999px !important;
+    top: 0 !important;
+}
+
+#google_translate_element .goog-te-gadget {
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+#google_translate_element .goog-te-combo {
+    opacity: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+}
+
 .goog-logo-link,
 .goog-te-gadget span {
     display: none !important;
 }
 
-/* Bannière Google */
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
 }
@@ -225,74 +372,6 @@ body::before {
 body {
     top: 0 !important;
 }
-
-/* Thème clair */
-html[data-theme="light"] #google_translate_element .goog-te-combo {
-    background: #fff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
-
-html[data-theme="light"] #google_translate_element .goog-te-combo:hover {
-    border-color: #9a762d;
-    color: #9a762d;
-}
-
-
-/* =========================================================
-   RESPONSIVE — MENU DE LANGUES
-========================================================= */
-
-@media (max-width: 1050px) {
-
-    /*
-       Le sélecteur de langue reste dans .nav-actions.
-       Le bouton thème est déplacé dans le menu burger.
-       
-       Ordre mobile :
-       LOGO | LANGUE | BURGER
-    */
-
-    #google_translate_element {
-        height: 44px;
-        margin-left: auto;
-        margin-right: 4px;
-    }
-
-    #google_translate_element .goog-te-combo {
-        height: 40px;
-        min-width: 68px;
-        padding-left: 10px;
-        padding-right: 24px;
-        font-size: .6rem;
-    }
-}
-
-@media (max-width: 650px) {
-
-    #google_translate_element {
-        height: 40px;
-        margin-left: auto;
-        margin-right: 2px;
-    }
-
-    #google_translate_element .goog-te-combo {
-        height: 40px;
-        min-width: 64px;
-        font-size: .58rem;
-        letter-spacing: .08em;
-    }
-}
-
-@media (max-width: 400px) {
-
-    #google_translate_element .goog-te-combo {
-        height: 38px;
-        min-width: 60px;
-        font-size: .55rem;
-    }
-}
-
 /* =========================================================
    NAVIGATION DESKTOP
 ========================================================= */
@@ -1840,23 +1919,68 @@ html[data-theme="light"] .footer-bottom {
 
     <div class="nav-actions">
 
-      <!-- GOOGLE TRADUCTION -->
-      <div id="google_translate_element">
+    <!-- MENU DES LANGUES -->
+    <div class="language-selector" id="languageSelector">
 
-      </div>
+        <button
+            type="button"
+            class="language-button"
+            id="languageButton"
+            aria-label="Choisir la langue"
+            aria-expanded="false"
+        >
+            <span id="currentLanguage">FR</span>
+            <span class="language-arrow">▼</span>
+        </button>
 
-        <!-- MENU BURGER -->
-      <button
+        <div class="language-menu" id="languageMenu">
+
+            <button
+                type="button"
+                class="language-option active"
+                data-lang="fr"
+            >
+                FR
+            </button>
+
+            <button
+                type="button"
+                class="language-option"
+                data-lang="en"
+            >
+                EN
+            </button>
+
+            <button
+                type="button"
+                class="language-option"
+                data-lang="ru"
+            >
+                RU
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- GOOGLE TRANSLATE INVISIBLE -->
+    <div
+        id="google_translate_element"
+        aria-hidden="true"
+    ></div>
+
+    <!-- MENU BURGER -->
+    <button
         class="menu-button"
         id="menuButton"
         type="button"
         aria-label="Ouvrir le menu"
         aria-expanded="false"
-        >
+    >
         ☰
-        </button>
+    </button>
 
-    </div>
+</div>
 
 </div>
 
@@ -3000,6 +3124,180 @@ document
         }
     );
 
+/* =========================================================
+   MENU DES LANGUES
+========================================================= */
+
+(function () {
+
+    const selector =
+        document.getElementById("languageSelector");
+
+    const button =
+        document.getElementById("languageButton");
+
+    const menu =
+        document.getElementById("languageMenu");
+
+    const currentLanguage =
+        document.getElementById("currentLanguage");
+
+    const options =
+        document.querySelectorAll(".language-option");
+
+    if (!selector || !button || !menu) return;
+
+
+    /* OUVRIR / FERMER LE MENU */
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+            selector.classList.toggle("open");
+
+        button.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+
+    /* CHOIX DE LA LANGUE */
+
+    options.forEach(function (option) {
+
+        option.addEventListener("click", function () {
+
+            const language =
+                option.getAttribute("data-lang");
+
+            if (!language) return;
+
+
+            /* Mettre à jour le bouton */
+
+            currentLanguage.textContent =
+                language.toUpperCase();
+
+
+            /* Marquer la langue active */
+
+            options.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+            option.classList.add("active");
+
+
+            /* Fermer le menu */
+
+            selector.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            /* Français */
+
+            if (language === "fr") {
+
+                translatePage("fr");
+
+                return;
+
+            }
+
+
+            /* Anglais */
+
+            if (language === "en") {
+
+                translatePage("en");
+
+                return;
+
+            }
+
+
+            /* Russe */
+
+            if (language === "ru") {
+
+                translatePage("ru");
+
+                return;
+
+            }
+
+        });
+
+    });
+
+
+    /* Fermer si on clique ailleurs */
+
+    document.addEventListener("click", function (event) {
+
+        if (!selector.contains(event.target)) {
+
+            selector.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    });
+
+
+    /* =====================================================
+       GOOGLE TRANSLATE
+    ===================================================== */
+
+    function translatePage(language) {
+
+        const googleSelect =
+            document.querySelector(
+                "#google_translate_element .goog-te-combo"
+            );
+
+        if (!googleSelect) {
+
+            /*
+               Google Translate peut mettre quelques instants
+               à créer son select.
+            */
+
+            setTimeout(function () {
+
+                translatePage(language);
+
+            }, 300);
+
+            return;
+
+        }
+
+
+        googleSelect.value = language;
+
+        googleSelect.dispatchEvent(
+            new Event("change")
+        );
+
+    }
+
+
+})();
 </script>
 <!-- =========================================================
      GOOGLE TRANSLATE
