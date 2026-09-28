@@ -2198,6 +2198,218 @@ html[data-theme="light"] ::selection {
 
 }
 
+
+
+/* =========================================================
+   MENU LANGUES — FR / EN / RU
+========================================================= */
+
+.nav-actions {
+    margin-left: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.language-selector {
+    position: relative;
+    flex: 0 0 auto;
+    z-index: 30;
+}
+
+.language-button {
+    min-width: 62px;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--black-card);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    line-height: 1;
+    transition: all .3s ease;
+}
+
+.language-button:hover,
+.language-selector.open .language-button {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.language-arrow {
+    font-size: .48rem;
+    transition: transform .3s ease;
+}
+
+.language-selector.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 62px;
+    padding: 7px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--black-card);
+    box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+}
+
+.language-selector.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    border: 0;
+    border-radius: 7px;
+    padding: 9px 10px;
+    background: transparent;
+    color: var(--cream-soft);
+    cursor: pointer;
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    transition: all .2s ease;
+}
+
+.language-option:hover,
+.language-option.active {
+    background: rgba(201,164,93,.12);
+    color: var(--gold);
+}
+
+/* Google Traduction : moteur complètement caché */
+#google_translate_element {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    left: -9999px !important;
+    top: 0 !important;
+}
+
+#google_translate_element .goog-te-gadget {
+    font-size: 0 !important;
+}
+
+#google_translate_element .goog-te-combo {
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* THÈME CLAIR — MENU LANGUES */
+html[data-theme="light"] .language-button {
+    background: #ffffff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-button:hover,
+html[data-theme="light"] .language-selector.open .language-button {
+    color: #9a762d;
+    border-color: #9a762d;
+}
+
+html[data-theme="light"] .language-menu {
+    background: #ffffff;
+    border-color: rgba(23,26,23,.13);
+    box-shadow: 0 18px 45px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+    color: #59605a;
+}
+
+html[data-theme="light"] .language-option:hover,
+html[data-theme="light"] .language-option.active {
+    background: rgba(154,118,45,.10);
+    color: #9a762d;
+}
+
+/* =========================================================
+   MENU LANGUES — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+    .nav-actions {
+        margin-left: auto;
+        gap: 8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .nav-actions .menu-button {
+        display: block;
+        margin-left: 0;
+        order: 2;
+    }
+
+    .nav-actions .language-selector {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-actions {
+        margin-left: auto;
+        gap: 5px;
+        justify-content: flex-end;
+        flex-shrink: 0;
+    }
+
+    .language-button {
+        min-width: 58px;
+        height: 40px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .language-button {
+        min-width: 54px;
+        height: 38px;
+        padding: 0 8px;
+        font-size: .62rem;
+    }
+}
+
+
 </style>
 
 
@@ -2275,7 +2487,6 @@ html[data-theme="light"] ::selection {
 
     <div class="nav-inner">
 
-
         <a
             href="index.html"
             class="brand-logo"
@@ -2304,50 +2515,101 @@ html[data-theme="light"] ::selection {
 
         </a>
 
-
-        <!-- Burger -->
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-
         <nav
             class="nav-links"
             id="navLinks"
         >
 
-           <a href="actualites.html" class="nav-news" data-i18n="actualites">
-    Actualités
-</a>
+            <a href="actualites.html" class="nav-news" data-i18n="actualites">
+                Actualités
+            </a>
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+            <a href="groupe.html" data-i18n="groupe">
+                Le groupe
+            </a>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+            <a href="expertise.html" data-i18n="expertise">
+                Expertise
+            </a>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
+            <a href="vision.html" data-i18n="vision">
+                Vision
+            </a>
 
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
+            <a href="projets.html" data-i18n="projets">
+                Projets
+            </a>
 
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
+            <a href="contact.html" class="nav-cta" data-i18n="contact">
+                Contact
+            </a>
 
         </nav>
+
+        <!-- ACTIONS : LANGUE + BURGER -->
+        <div class="nav-actions">
+
+            <!-- MENU LANGUES -->
+            <div class="language-selector" id="languageSelector">
+
+                <button
+                    type="button"
+                    class="language-button"
+                    id="languageButton"
+                    aria-label="Choisir la langue"
+                    aria-expanded="false"
+                >
+                    <span id="currentLanguage">FR</span>
+                    <span class="language-arrow">▼</span>
+                </button>
+
+                <div class="language-menu" id="languageMenu">
+
+                    <button
+                        type="button"
+                        class="language-option active"
+                        data-lang="fr"
+                    >
+                        FR
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="en"
+                    >
+                        EN
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="ru"
+                    >
+                        RU
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- GOOGLE TRADUCTION CACHÉ -->
+            <div id="google_translate_element" aria-hidden="true"></div>
+
+            <!-- BURGER -->
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
 
 </header>
 
@@ -2933,479 +3195,182 @@ html[data-theme="light"] ::selection {
 
     function positionThemeButton() {
 
-        const navInner =
-            document.querySelector(".nav-inner");
-
+        const isMobile =
+            window.innerWidth <= 1050;
 
         const navLinks =
-            document.querySelector(".nav-links");
+            document.getElementById("navLinks");
 
+        const navActions =
+            document.querySelector(".nav-actions");
+
+        const languageSelector =
+            document.getElementById("languageSelector");
 
         const button =
             document.getElementById("themeToggle");
 
+        if (!button || !navLinks) return;
 
-        if (
-            !navInner ||
-            !navLinks ||
-            !button
-        ) return;
+        if (isMobile) {
 
-
-        if (
-            window.innerWidth <= 1050
-        ) {
-
-            navLinks.appendChild(button);
+            /* Mobile : le thème reste dans le menu burger,
+               juste après le lien Contact. */
+            if (button.parentElement !== navLinks) {
+                navLinks.appendChild(button);
+            }
 
         } else {
 
-            navInner.appendChild(button);
+            /* PC : THEME → LANGUE → BURGER */
+            if (navActions) {
 
-        }
-
-
-        updateThemeButton();
-
-    }
-
-
-    window.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-
-            const navInner =
-                document.querySelector(".nav-inner");
-
-
-            if (!navInner) return;
-
-
-            if (
-                document.getElementById("themeToggle")
-            ) {
-
-                positionThemeButton();
-
-                return;
+                if (languageSelector) {
+                    navActions.insertBefore(
+                        button,
+                        languageSelector
+                    );
+                } else {
+                    navActions.insertBefore(
+                        button,
+                        navActions.firstChild
+                    );
+                }
 
             }
 
-
-            const button =
-                document.createElement("button");
-
-
-            button.type =
-                "button";
-
-
-            button.id =
-                "themeToggle";
-
-
-            button.className =
-                "theme-toggle";
-
-
-            button.setAttribute(
-                "aria-label",
-                "Activer le thème clair"
-            );
-
-
-            navInner.appendChild(button);
-
-
-            updateThemeButton();
-
-            positionThemeButton();
-
-
-            button.addEventListener(
-                "click",
-                function () {
-
-
-                    const next =
-                        root.getAttribute(
-                            "data-theme"
-                        ) === "light"
-                            ? "dark"
-                            : "light";
-
-
-                    root.setAttribute(
-                        "data-theme",
-                        next
-                    );
-
-
-                    try {
-
-                        localStorage.setItem(
-                            KEY,
-                            next
-                        );
-
-                    } catch (e) {}
-
-
-                    updateThemeButton();
-
-                }
-            );
-
-
-            window.addEventListener(
-                "resize",
-                positionThemeButton
-            );
-
-        }
-    );
-
-})();
-
-/* =========================================================
-   PRELOADER
-========================================================= */
-
-const preloader =
-    document.getElementById(
-        "preloader"
-    );
-
-
-const progress =
-    document.getElementById(
-        "loaderProgress"
-    );
-
-
-let progressValue = 0;
-
-
-const loadingInterval =
-    setInterval(() => {
-
-
-        progressValue +=
-            Math.random() * 15;
-
-
-        if (
-            progressValue > 100
-        ) {
-
-            progressValue = 100;
-
-        }
-
-
-        progress.style.width =
-            progressValue + "%";
-
-
-    }, 120);
-
-
-window.addEventListener(
-    "load",
-    () => {
-
-
-        progress.style.width =
-            "100%";
-
-
-        setTimeout(() => {
-
-
-            clearInterval(
-                loadingInterval
-            );
-
-
-            preloader.classList.add(
-                "hide"
-            );
-
-
-        }, 900);
-
-    }
-);
-
-
-/* =========================================================
-   NAVIGATION AU SCROLL
-========================================================= */
-
-const nav =
-    document.getElementById(
-        "nav"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-
-        if (
-            window.scrollY > 50
-        ) {
-
-            nav.classList.add(
-                "scrolled"
-            );
-
-        } else {
-
-            nav.classList.remove(
-                "scrolled"
-            );
-
         }
 
     }
-);
 
+<!-- =========================================================
+     GOOGLE TRANSLATE — MOTEUR CACHÉ
+========================================================= -->
 
-/* =========================================================
-   MENU BURGER
-========================================================= */
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'fr,en,ru',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
 
-const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
+<!-- =========================================================
+     MENU LANGUES + GOOGLE TRANSLATE
+========================================================= -->
 
-const navLinks =
-    document.getElementById(
-        "navLinks"
-    );
+<script>
+(function () {
 
+    const selector =
+        document.getElementById("languageSelector");
 
-menuButton.addEventListener(
-    "click",
-    () => {
+    const button =
+        document.getElementById("languageButton");
 
+    const menu =
+        document.getElementById("languageMenu");
+
+    const currentLanguage =
+        document.getElementById("currentLanguage");
+
+    if (!selector || !button || !menu || !currentLanguage) {
+        return;
+    }
+
+    const options =
+        menu.querySelectorAll(".language-option");
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
 
         const isOpen =
-            navLinks.classList.toggle(
-                "open"
-            );
+            selector.classList.toggle("open");
 
-
-        menuButton.innerHTML =
-            isOpen
-                ? "✕"
-                : "☰";
-
-
-        menuButton.setAttribute(
+        button.setAttribute(
             "aria-expanded",
-            isOpen
-                ? "true"
-                : "false"
-        );
-
-
-        menuButton.setAttribute(
-            "aria-label",
-
-            isOpen
-                ? "Fermer le menu"
-                : "Ouvrir le menu"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   FERMETURE DU MENU
-========================================================= */
-
-document
-    .querySelectorAll(
-        ".nav-links a"
-    )
-    .forEach(link => {
-
-
-        link.addEventListener(
-            "click",
-            () => {
-
-
-                navLinks.classList.remove(
-                    "open"
-                );
-
-
-                menuButton.innerHTML =
-                    "☰";
-
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Ouvrir le menu"
-                );
-
-            }
+            isOpen ? "true" : "false"
         );
 
     });
 
+    document.addEventListener("click", function (event) {
 
-/* =========================================================
-   CURSEUR PERSONNALISÉ
-========================================================= */
+        if (!selector.contains(event.target)) {
 
-const cursorDot =
-    document.querySelector(
-        ".cursor-dot"
-    );
+            selector.classList.remove("open");
 
-
-const cursorRing =
-    document.querySelector(
-        ".cursor-ring"
-    );
-
-
-if (
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
-) {
-
-
-    window.addEventListener(
-        "mousemove",
-        e => {
-
-
-            cursorDot.style.left =
-                e.clientX + "px";
-
-
-            cursorDot.style.top =
-                e.clientY + "px";
-
-
-            cursorRing.animate(
-                {
-                    left:
-                        e.clientX + "px",
-
-                    top:
-                        e.clientY + "px"
-                },
-                {
-                    duration: 450,
-                    fill: "forwards"
-                }
+            button.setAttribute(
+                "aria-expanded",
+                "false"
             );
 
         }
-    );
 
+    });
 
-    document
-        .querySelectorAll(
-            "a, button"
-        )
-        .forEach(el => {
+    options.forEach(function (option) {
 
+        option.addEventListener("click", function () {
 
-            el.addEventListener(
-                "mouseenter",
-                () => {
+            const lang =
+                option.getAttribute("data-lang");
 
-                    cursorRing.classList.add(
-                        "active"
-                    );
+            currentLanguage.textContent =
+                lang.toUpperCase();
 
-                }
+            options.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            option.classList.add("active");
+
+            selector.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
             );
 
-
-            el.addEventListener(
-                "mouseleave",
-                () => {
-
-                    cursorRing.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
+            translatePage(lang);
 
         });
 
-}
-
-
-/* =========================================================
-   ANIMATIONS REVEAL
-========================================================= */
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-
-            entries.forEach(entry => {
-
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-
-                    entry.target.classList.add(
-                        "show"
-                    );
-
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: .1
-        }
-    );
-
-
-document
-    .querySelectorAll(
-        ".reveal"
-    )
-    .forEach(el => {
-
-        revealObserver.observe(el);
-
     });
 
+    function translatePage(lang) {
+
+        const googleSelect =
+            document.querySelector(
+                "#google_translate_element select"
+            );
+
+        if (!googleSelect) {
+
+            setTimeout(function () {
+                translatePage(lang);
+            }, 300);
+
+            return;
+        }
+
+        googleSelect.value = lang;
+
+        googleSelect.dispatchEvent(
+            new Event("change")
+        );
+
+    }
+
+})();
 </script>
 
-</body>
-</html>
+>
