@@ -2324,156 +2324,29 @@ html[data-theme="light"] ::selection {
 /* =========================================================
    RESPONSIVE
    ========================================================= */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 1050px) {
-
-    .nav-inner {
-
-        width:
-            92%;
-    }
-
-    .menu-button {
-
-        display:
-            block;
-
-        margin-left:
-            auto;
-
-        order:
-            3;
-    }
-
-    .nav-links {
-
-        position:
-            fixed;
-
-        top:
-            104px;
-
-        left:
-            0;
-
-        width:
-            100%;
-
-        padding:
-            35px 4% 40px;
-
-        background:
-            rgba(7,9,8,.98);
-
-        backdrop-filter:
-            blur(20px);
-
-        border-bottom:
-            1px solid var(--line);
-
-        display:
-            flex;
-
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
-
-        gap:
-            25px;
-
-        transform:
-            translateY(-150%);
-
-        transition:
-            transform .45s ease;
-
-        margin-left:
-            0;
-    }
-
-    .nav-links.open {
-
-        transform:
-            translateY(0);
-    }
-
-    .nav-links .theme-toggle {
-
-        display:
-            inline-flex;
-
-        width:
-            42px;
-
-        height:
-            42px;
-
-        margin:
-            3px 0 0 0;
-    }
-
-    html[data-theme="light"] .nav-links {
-
-        background:
-            rgba(245,242,234,.98);
-    }
-
-    .axes-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .auui-layout {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            50px;
-    }
-
-    .footer-grid {
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    @media (max-width: 1050px) {
 
     .nav-inner {
         width: 92%;
     }
 
     .nav-actions {
-
         margin-left: auto;
-
         gap: 8px;
-
         flex-shrink: 0;
-
         display: flex;
-
         align-items: center;
-
         justify-content: flex-end;
     }
 
-    .language-selector {
-
-        position: relative;
-    }
-
     .menu-button {
-
         display: block;
-
         margin-left: 10px;
-
-        order: 3;
+        order: 2;
     }
 
     .nav-links {
@@ -2481,7 +2354,6 @@ html[data-theme="light"] ::selection {
         position: fixed;
 
         top: 104px;
-
         left: 0;
 
         width: 100%;
@@ -2510,7 +2382,6 @@ html[data-theme="light"] ::selection {
     }
 
     .nav-links.open {
-
         transform: translateY(0);
     }
 
@@ -2519,19 +2390,15 @@ html[data-theme="light"] ::selection {
         display: inline-flex;
 
         width: 42px;
-
         height: 42px;
 
         margin: 3px 0 0 0;
     }
 
-    html[data-theme="light"] .nav-links {
-
-        background:
-            rgba(245,242,234,.98);
-    }
-
-    /* Le sélecteur de langue reste dans la barre supérieure */
+    /*
+     * Le sélecteur de langue reste
+     * dans la barre supérieure.
+     */
 
     .language-menu {
 
@@ -2540,16 +2407,187 @@ html[data-theme="light"] ::selection {
         top: calc(100% + 8px);
     }
 
-    /* Le bouton thème est déplacé dans le menu burger */
+    /*
+     * Le bouton thème est déplacé
+     * dans le menu burger.
+     */
 
     .nav-actions .theme-toggle {
-
         display: none;
+    }
+
+    html[data-theme="light"] .nav-links {
+        background: rgba(245,242,234,.98);
+    }
+
+    .axes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .auui-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
+
+@media (max-width: 768px) {
+
+    .axes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .axis-card {
+        min-height: auto;
+        padding: 40px 30px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .auui-card {
+        max-width: 550px;
+    }
+
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-card {
+        min-height: auto;
+        padding: 40px 30px;
+    }
 }
 
+
+@media (max-width: 600px) {
+
+    .nav-inner {
+
+        width: 92%;
+
+        min-height: 90px;
+    }
+
+    .logo-img {
+        height: 70px;
+    }
+
+    .nav-links {
+
+        top: 90px;
+
+        padding: 30px 6% 35px;
+
+        gap: 22px;
+    }
+
+    .language-button {
+
+        min-width: 72px;
+
+        height: 40px;
+
+        padding: 0 11px;
+
+        font-size: .6rem;
+    }
+
+    .language-menu {
+        min-width: 120px;
+    }
+
+    .nav-actions {
+        gap: 5px;
+        margin-left: auto;
+        justify-content: flex-end;
+    }
+
+    .nav-links .theme-toggle {
+
+        width: 40px;
+        height: 40px;
+
+        margin-top: 3px;
+    }
+
+    .menu-button {
+
+        font-size: 1.45rem;
+
+        padding-right: 0;
+
+        margin-left: 8px;
+    }
+
+    .vision {
+        min-height: 75vh;
+    }
+
+    .section {
+        padding: 100px 0;
+    }
+
+    .vision-description {
+        font-size: .95rem;
+    }
+
+    .section-title {
+        font-size: clamp(2.7rem, 12vw, 4rem);
+    }
+
+    .auui-title {
+        font-size: clamp(2.8rem, 12vw, 4.5rem);
+    }
+
+    .auui-card {
+        padding: 35px 25px;
+    }
+
+    .partner-card {
+        padding: 35px 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .vision-watermark {
+        font-size: 5rem;
+    }
+
+    .axis-card h3 {
+        font-size: 1.7rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.7rem;
+    }
+}
+
+
+@media (pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+}
 
 @media (max-width: 768px) {
 
@@ -2582,181 +2620,6 @@ html[data-theme="light"] ::selection {
         max-width:
             550px;
     }
-}
-
-
-@media (max-width: 600px) {
-
-    .nav-inner {
-
-        width:
-            92%;
-
-        min-height:
-            90px;
-    }
-
-    .logo-img {
-
-        height:
-            70px;
-    }
-
-    .nav-links {
-
-        top:
-            90px;
-
-        padding:
-            30px 6% 35px;
-
-        gap:
-            22px;
-    }
-
-    .nav-links .theme-toggle {
-
-        width:
-            40px;
-
-        height:
-            40px;
-
-        margin-top:
-            3px;
-    }
-
-    .menu-button {
-
-        font-size:
-            1.45rem;
-
-        padding-right:
-            0;
-    }
-
-    .vision {
-
-        min-height:
-            75vh;
-    }
-
-    .section {
-
-        padding:
-            100px 0;
-    }
-
-    .vision-description {
-
-        font-size:
-            .95rem;
-    }
-
-    .section-title {
-
-        font-size:
-            clamp(2.7rem, 12vw, 4rem);
-    }
-
-    .auui-title {
-
-        font-size:
-            clamp(2.8rem, 12vw, 4.5rem);
-    }
-
-    .auui-card {
-
-        padding:
-            35px 25px;
-    }
-
-    .footer-grid {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            40px;
-    }
-
-    .footer-bottom {
-
-        flex-direction:
-            column;
-    }
-
-    @media (max-width: 600px) {
-
-    .nav-inner {
-
-        width: 92%;
-
-        min-height: 90px;
-    }
-
-    .logo-img {
-
-        height: 70px;
-    }
-
-    .nav-links {
-
-        top: 90px;
-
-        padding: 30px 6% 35px;
-
-        gap: 22px;
-    }
-
-    .language-button {
-
-        min-width: 72px;
-
-        height: 40px;
-
-        padding: 0 11px;
-
-        font-size: .6rem;
-    }
-
-    .language-menu {
-
-        min-width: 120px;
-    }
-
-    .nav-links .theme-toggle {
-
-        width: 40px;
-
-        height: 40px;
-
-        margin-top: 3px;
-    }
-
-    .menu-button {
-
-        font-size: 1.45rem;
-
-        padding-right: 0;
-
-        margin-left: 8px;
-    }
-
-    .nav-actions {
-
-        gap: 5px;
-
-        margin-left: auto;
-
-        justify-content: flex-end;
-
-        flex-shrink: 0;
-    }
-
-    /* reste de tes règles existantes... */
-}
-
 }
 
 
@@ -2950,8 +2813,6 @@ html[data-theme="light"] ::selection {
 
 <div class="nav-actions">
 
-    <!-- SÉLECTEUR DE LANGUE -->
-
     <div
         class="language-selector"
         id="languageSelector"
@@ -2964,10 +2825,7 @@ html[data-theme="light"] ::selection {
             aria-haspopup="true"
             aria-expanded="false"
         >
-
-            <span id="currentLanguage">
-                FR
-            </span>
+            <span id="currentLanguage">FR</span>
 
             <span
                 class="language-arrow"
@@ -2975,7 +2833,6 @@ html[data-theme="light"] ::selection {
             >
                 ▾
             </span>
-
         </button>
 
 
@@ -3012,23 +2869,25 @@ html[data-theme="light"] ::selection {
 
     </div>
 
+
+    <!-- GOOGLE TRANSLATE CACHÉ -->
+
+    <div id="google_translate_element"></div>
+
+
+    <!-- BURGER -->
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+    >
+        ☰
+    </button>
+
 </div>
-
-
-<!-- GOOGLE TRANSLATE CACHÉ -->
-
-<div id="google_translate_element"></div>
-
-
-<button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
->
-    ☰
-</button>
 
 
 </header>
