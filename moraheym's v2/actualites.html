@@ -1846,6 +1846,239 @@ body::before {
 }
 
 
+
+/* =========================================================
+   MENU LANGUES — FR / EN / RU
+========================================================= */
+
+.language-selector {
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 8px;
+    z-index: 40;
+}
+
+.language-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 58px;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.language-button:hover,
+.language-selector.open .language-button {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.language-arrow {
+    font-size: .48rem;
+    transition: transform .3s ease;
+}
+
+.language-selector.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 78px;
+    padding: 7px;
+    background: rgba(7,9,8,.97);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.language-selector.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--cream-soft);
+    font-family: var(--sans);
+    font-size: .58rem;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-align: left;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.language-option:hover,
+.language-option.active {
+    background: rgba(201,164,93,.12);
+    color: var(--gold);
+}
+
+/* Google Translate reste entièrement caché :
+   seul notre menu personnalisé est visible. */
+#google_translate_element {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    left: -9999px !important;
+    top: 0 !important;
+}
+
+#google_translate_element .goog-te-gadget {
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+#google_translate_element .goog-te-combo {
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Conteneur des actions à droite */
+.nav-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   MENU LANGUES — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .language-button {
+    background: #ffffff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-button:hover,
+html[data-theme="light"] .language-selector.open .language-button {
+    color: #9a762d;
+    border-color: #9a762d;
+}
+
+html[data-theme="light"] .language-menu {
+    background: rgba(255,255,255,.98);
+    border-color: rgba(23,26,23,.13);
+    box-shadow: 0 18px 45px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+    color: #59605a;
+}
+
+html[data-theme="light"] .language-option:hover,
+html[data-theme="light"] .language-option.active {
+    background: rgba(154,118,45,.10);
+    color: #9a762d;
+}
+
+/* =========================================================
+   RESPONSIVE — MENU LANGUES
+========================================================= */
+
+@media (max-width:1050px) {
+    .nav-actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .language-selector {
+        margin-left: 0;
+    }
+
+    .language-button {
+        height: 40px;
+        min-width: 54px;
+        padding: 0 10px;
+    }
+
+    .language-menu {
+        right: 0;
+    }
+
+    /* Le bouton thème est placé dans le menu burger.
+       La langue reste à côté du bouton burger, comme sur index.html. */
+    .nav-links .theme-toggle {
+        display: none;
+    }
+
+    .nav-links.open .theme-toggle {
+        display: inline-flex;
+    }
+}
+
+@media (max-width:650px) {
+    .language-button {
+        height: 38px;
+        min-width: 52px;
+        padding: 0 9px;
+    }
+
+    .language-menu {
+        top: calc(100% + 8px);
+    }
+}
+
+@media (max-width:400px) {
+    .language-button {
+        height: 36px;
+        min-width: 49px;
+        padding: 0 8px;
+        gap: 5px;
+    }
+}
+
 /* =========================================================
    THEME CLAIR / SOMBRE
 ========================================================= */
@@ -2730,18 +2963,7 @@ html[data-theme="light"] .preloader {
     </a>
 
 
-     <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-    >
-        ☰
-    </button>
-
-
-    <nav
+     <nav
         class="nav-links"
         id="navLinks">
 
@@ -2772,6 +2994,68 @@ Actualités
 
     </nav>
 
+    <div class="nav-actions">
+
+        <div class="language-selector" id="languageSelector">
+
+            <button
+                type="button"
+                class="language-button"
+                id="languageButton"
+                aria-label="Choisir la langue"
+                aria-expanded="false"
+            >
+                <span id="currentLanguage">FR</span>
+                <span class="language-arrow">▼</span>
+            </button>
+
+            <div
+                class="language-menu"
+                id="languageMenu"
+            >
+                <button
+                    type="button"
+                    class="language-option active"
+                    data-lang="fr"
+                >
+                    FR
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-lang="en"
+                >
+                    EN
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-lang="ru"
+                >
+                    RU
+                </button>
+            </div>
+
+        </div>
+
+        <div
+            id="google_translate_element"
+            aria-hidden="true"
+        ></div>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+    </div>
 
 </div>
 
@@ -3853,12 +4137,20 @@ Actualités
          * et le bouton vient juste après Contact.
          */
 
+        const languageSelector =
+            document.getElementById(
+                "languageSelector"
+            );
+
         if (
-            button.parentElement !== navInner
+            languageSelector &&
+            languageSelector.parentElement ===
+                document.querySelector(".nav-actions")
         ) {
 
-            navInner.appendChild(
-                button
+            languageSelector.parentElement.insertBefore(
+                button,
+                languageSelector
             );
 
         } else {
@@ -4450,6 +4742,238 @@ window.addEventListener(
     }
 );
 
+
+
+/* =========================================================
+   MENU LANGUES — GOOGLE TRANSLATE
+========================================================= */
+
+(function () {
+
+    const selector =
+        document.getElementById(
+            "languageSelector"
+        );
+
+    const button =
+        document.getElementById(
+            "languageButton"
+        );
+
+    const menu =
+        document.getElementById(
+            "languageMenu"
+        );
+
+    const currentLanguage =
+        document.getElementById(
+            "currentLanguage"
+        );
+
+    const options =
+        document.querySelectorAll(
+            ".language-option"
+        );
+
+    if (
+        !selector ||
+        !button ||
+        !menu
+    ) return;
+
+
+    button.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            const isOpen =
+                selector.classList.toggle(
+                    "open"
+                );
+
+            button.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !selector.contains(
+                    event.target
+                )
+            ) {
+
+                selector.classList.remove(
+                    "open"
+                );
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+    function translatePage(
+        language
+    ) {
+
+        const googleSelect =
+            document.querySelector(
+                "#google_translate_element .goog-te-combo"
+            );
+
+        if (!googleSelect) {
+
+            setTimeout(
+                function () {
+
+                    translatePage(
+                        language
+                    );
+
+                },
+                300
+            );
+
+            return;
+
+        }
+
+
+        googleSelect.value =
+            language;
+
+
+        try {
+
+            const event =
+                document.createEvent(
+                    "HTMLEvents"
+                );
+
+            event.initEvent(
+                "change",
+                true,
+                true
+            );
+
+            googleSelect.dispatchEvent(
+                event
+            );
+
+        } catch (error) {
+
+            googleSelect.dispatchEvent(
+                new Event(
+                    "change",
+                    {
+                        bubbles: true
+                    }
+                )
+            );
+
+        }
+
+    }
+
+
+    options.forEach(
+        function (option) {
+
+            option.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+
+                    const language =
+                        option.getAttribute(
+                            "data-lang"
+                        );
+
+                    if (!language) return;
+
+
+                    if (currentLanguage) {
+
+                        currentLanguage.textContent =
+                            language.toUpperCase();
+
+                    }
+
+
+                    options.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    option.classList.add(
+                        "active"
+                    );
+
+
+                    selector.classList.remove(
+                        "open"
+                    );
+
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    translatePage(
+                        language
+                    );
+
+                }
+            );
+
+        }
+    );
+
+})();
+
+</script>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'fr,en,ru',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 
 </body>
