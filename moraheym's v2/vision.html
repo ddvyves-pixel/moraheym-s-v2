@@ -497,6 +497,233 @@ body::before {
     display: none;
 }
 
+/* =========================================================
+   SÉLECTEUR DE LANGUE
+   ========================================================= */
+
+.nav-actions {
+
+    margin-left: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.language-selector {
+
+    position: relative;
+
+    flex: 0 0 auto;
+}
+
+.language-button {
+
+    min-width: 78px;
+
+    height: 44px;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 22px;
+
+    background: var(--black-card);
+
+    color: var(--cream);
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    font-family: var(--sans);
+
+    font-size: .65rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+.language-button:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+}
+
+.language-button .language-arrow {
+
+    font-size: .65rem;
+
+    transition:
+        transform .3s ease;
+}
+
+.language-selector.open
+.language-button .language-arrow {
+
+    transform:
+        rotate(180deg);
+}
+
+.language-menu {
+
+    position: absolute;
+
+    top: calc(100% + 10px);
+
+    right: 0;
+
+    min-width: 130px;
+
+    padding: 7px;
+
+    background: var(--black-card);
+
+    border: 1px solid var(--line);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.25);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-8px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+
+    z-index: 100;
+}
+
+.language-selector.open .language-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+.language-option {
+
+    width: 100%;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--cream-soft);
+
+    padding: 11px 12px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-family: var(--sans);
+
+    font-size: .62rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.language-option:hover {
+
+    background:
+        rgba(201,164,93,.08);
+
+    color:
+        var(--gold);
+}
+
+.language-option.active {
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(201,164,93,.06);
+}
+
+
+/* Google Traduction masqué */
+
+#google_translate_element {
+
+    position: fixed;
+
+    left: -9999px;
+
+    top: -9999px;
+
+    width: 1px;
+
+    height: 1px;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* Masquage supplémentaire des éléments Google */
+
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-te-menu-frame,
+.goog-te-gadget-icon {
+
+    display: none !important;
+}
+
+body {
+
+    top: 0 !important;
+}
+
+.goog-text-highlight {
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+}
 
 /* =========================================================
    BURGER
@@ -1652,6 +1879,61 @@ html[data-theme="light"] {
 }
 
 /* =========================================================
+   SÉLECTEUR DE LANGUE — THÈME CLAIR
+   ========================================================= */
+
+html[data-theme="light"] .language-button {
+
+    background: #ffffff;
+
+    color: #171a17;
+
+    border-color:
+        rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-button:hover {
+
+    color: #9a762d;
+
+    border-color: #9a762d;
+}
+
+html[data-theme="light"] .language-menu {
+
+    background: #ffffff;
+
+    border-color:
+        rgba(23,26,23,.13);
+
+    box-shadow:
+        0 18px 45px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+
+    color: #4f554f;
+}
+
+html[data-theme="light"] .language-option:hover {
+
+    background:
+        rgba(154,118,45,.07);
+
+    color:
+        #9a762d;
+}
+
+html[data-theme="light"] .language-option.active {
+
+    color:
+        #9a762d;
+
+    background:
+        rgba(154,118,45,.06);
+}
+
+/* =========================================================
    VARIABLES DU THÈME CLAIR
    ========================================================= */
 
@@ -1689,6 +1971,8 @@ html[data-theme="light"] .theme-toggle:hover {
     color: #9a762d;
     border-color: #9a762d;
 }
+
+
 
 /* =========================================================
    NAVIGATION
@@ -2157,13 +2441,111 @@ html[data-theme="light"] ::selection {
             1fr 1fr;
     }
 
+    @media (max-width: 1050px) {
+
+    .nav-inner {
+        width: 92%;
+    }
+
     .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+
+        margin-left: auto;
+
+        gap: 8px;
+
+        flex-shrink: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+    }
+
+    .language-selector {
+
+        position: relative;
+    }
+
+    .menu-button {
+
+        display: block;
+
+        margin-left: 10px;
+
+        order: 3;
+    }
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 104px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 35px 4% 40px;
+
+        background: rgba(7,9,8,.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        transform: translateY(-150%);
+
+        transition: transform .45s ease;
+
+        margin-left: 0;
+    }
+
+    .nav-links.open {
+
+        transform: translateY(0);
+    }
+
+    .nav-links .theme-toggle {
+
+        display: inline-flex;
+
+        width: 42px;
+
+        height: 42px;
+
+        margin: 3px 0 0 0;
+    }
+
+    html[data-theme="light"] .nav-links {
+
+        background:
+            rgba(245,242,234,.98);
+    }
+
+    /* Le sélecteur de langue reste dans la barre supérieure */
+
+    .language-menu {
+
+        right: 0;
+
+        top: calc(100% + 8px);
+    }
+
+    /* Le bouton thème est déplacé dans le menu burger */
+
+    .nav-actions .theme-toggle {
+
+        display: none;
+    }
 }
 
 }
@@ -2304,11 +2686,75 @@ html[data-theme="light"] ::selection {
             column;
     }
 
+    @media (max-width: 600px) {
+
+    .nav-inner {
+
+        width: 92%;
+
+        min-height: 90px;
+    }
+
+    .logo-img {
+
+        height: 70px;
+    }
+
+    .nav-links {
+
+        top: 90px;
+
+        padding: 30px 6% 35px;
+
+        gap: 22px;
+    }
+
+    .language-button {
+
+        min-width: 72px;
+
+        height: 40px;
+
+        padding: 0 11px;
+
+        font-size: .6rem;
+    }
+
+    .language-menu {
+
+        min-width: 120px;
+    }
+
+    .nav-links .theme-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+        margin-top: 3px;
+    }
+
+    .menu-button {
+
+        font-size: 1.45rem;
+
+        padding-right: 0;
+
+        margin-left: 8px;
+    }
+
     .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
+
+        gap: 5px;
+
+        margin-left: auto;
+
+        justify-content: flex-end;
+
+        flex-shrink: 0;
+    }
+
+    /* reste de tes règles existantes... */
 }
 
 }
@@ -2461,49 +2907,128 @@ html[data-theme="light"] ::selection {
         </a>
 
 
+        <nav
+    class="nav-links"
+    id="navLinks"
+>
+
+    <a href="actualites.html"
+       class="nav-news"
+       data-i18n="actualites">
+        Actualités
+    </a>
+
+    <a href="groupe.html"
+       data-i18n="groupe">
+        Le groupe
+    </a>
+
+    <a href="expertise.html"
+       data-i18n="expertise">
+        Expertise
+    </a>
+
+    <a href="vision.html"
+       class="active"
+       data-i18n="vision">
+        Vision
+    </a>
+
+    <a href="projets.html"
+       data-i18n="projets">
+        Projets
+    </a>
+
+    <a href="contact.html"
+       class="nav-cta"
+       data-i18n="contact">
+        Contact
+    </a>
+
+</nav>
+
+
+<div class="nav-actions">
+
+    <!-- SÉLECTEUR DE LANGUE -->
+
+    <div
+        class="language-selector"
+        id="languageSelector"
+    >
+
         <button
-            class="menu-button"
-            id="menuButton"
             type="button"
-            aria-label="Ouvrir le menu"
+            class="language-button"
+            id="languageButton"
+            aria-haspopup="true"
             aria-expanded="false"
         >
-            ☰
+
+            <span id="currentLanguage">
+                FR
+            </span>
+
+            <span
+                class="language-arrow"
+                aria-hidden="true"
+            >
+                ▾
+            </span>
+
         </button>
 
 
-        <nav
-            class="nav-links"
-            id="navLinks"
+        <div
+            class="language-menu"
+            id="languageMenu"
         >
 
-            <a href="actualites.html" class="nav-news" data-i18n="actualites">
-    Actualités
-</a>
+            <button
+                type="button"
+                class="language-option active"
+                data-lang="fr"
+            >
+                FR
+            </button>
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+            <button
+                type="button"
+                class="language-option"
+                data-lang="en"
+            >
+                EN
+            </button>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+            <button
+                type="button"
+                class="language-option"
+                data-lang="ru"
+            >
+                RU
+            </button>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
-
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
-
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
-
-        </nav>
+        </div>
 
     </div>
+
+</div>
+
+
+<!-- GOOGLE TRANSLATE CACHÉ -->
+
+<div id="google_translate_element"></div>
+
+
+<button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+>
+    ☰
+</button>
 
 
 </header>
@@ -3371,40 +3896,33 @@ html[data-theme="light"] ::selection {
 <script>
 
 
+<script>
+
 /* =========================================================
    THÈME SOMBRE / CLAIR
    ========================================================= */
 
 (function () {
 
-    const KEY =
-        "moraheyms-theme";
+    const KEY = "moraheyms-theme";
 
-    const root =
-        document.documentElement;
+    const root = document.documentElement;
 
 
     function updateThemeButton() {
 
         const button =
-            document.getElementById(
-                "themeToggle"
-            );
+            document.getElementById("themeToggle");
 
-        if (!button) {
-            return;
-        }
+        if (!button) return;
 
 
         const isLight =
-            root.getAttribute(
-                "data-theme"
-            ) === "light";
+            root.getAttribute("data-theme") === "light";
 
 
         button.setAttribute(
             "aria-label",
-
             isLight
                 ? "Activer le thème sombre"
                 : "Activer le thème clair"
@@ -3413,7 +3931,6 @@ html[data-theme="light"] ::selection {
 
         button.setAttribute(
             "title",
-
             isLight
                 ? "Thème sombre"
                 : "Thème clair"
@@ -3431,45 +3948,47 @@ html[data-theme="light"] ::selection {
     function positionThemeButton() {
 
         const navInner =
-            document.querySelector(
-                ".nav-inner"
-            );
+            document.querySelector(".nav-inner");
 
         const navLinks =
-            document.querySelector(
-                ".nav-links"
-            );
+            document.querySelector(".nav-links");
+
+        const navActions =
+            document.querySelector(".nav-actions");
 
         const button =
-            document.getElementById(
-                "themeToggle"
-            );
+            document.getElementById("themeToggle");
 
 
         if (
             !navInner ||
             !navLinks ||
+            !navActions ||
             !button
         ) {
-
             return;
-
         }
 
 
-        if (
-            window.innerWidth <= 1050
-        ) {
+        if (window.innerWidth <= 1050) {
 
-            navLinks.appendChild(
-                button
-            );
+            /*
+             * MOBILE :
+             * le bouton thème se retrouve
+             * dans le menu burger, sous Contact.
+             */
+
+            navLinks.appendChild(button);
 
         } else {
 
-            navInner.appendChild(
-                button
-            );
+            /*
+             * PC :
+             * le bouton thème reste dans les actions
+             * de navigation, après le sélecteur de langue.
+             */
+
+            navActions.appendChild(button);
 
         }
 
@@ -3481,60 +4000,41 @@ html[data-theme="light"] ::selection {
 
     window.addEventListener(
         "DOMContentLoaded",
-
         function () {
 
-            const navInner =
-                document.querySelector(
-                    ".nav-inner"
-                );
+            const navActions =
+                document.querySelector(".nav-actions");
 
 
-            if (!navInner) {
-                return;
-            }
+            if (!navActions) return;
 
 
             let button =
-                document.getElementById(
-                    "themeToggle"
-                );
+                document.getElementById("themeToggle");
 
 
             if (!button) {
 
                 button =
-                    document.createElement(
-                        "button"
-                    );
+                    document.createElement("button");
 
 
-                button.type =
-                    "button";
+                button.type = "button";
+
+                button.id = "themeToggle";
+
+                button.className = "theme-toggle";
 
 
-                button.id =
-                    "themeToggle";
-
-
-                button.className =
-                    "theme-toggle";
-
-
-                navInner.appendChild(
-                    button
-                );
+                navActions.appendChild(button);
 
 
                 button.addEventListener(
                     "click",
-
                     function () {
 
                         const next =
-                            root.getAttribute(
-                                "data-theme"
-                            ) === "light"
+                            root.getAttribute("data-theme") === "light"
                                 ? "dark"
                                 : "light";
 
@@ -3951,6 +4451,205 @@ document
 
     );
 
+    /* =========================================================
+   SÉLECTEUR DE LANGUE
+   GOOGLE TRANSLATE CACHÉ
+   ========================================================= */
+
+(function () {
+
+    const selector =
+        document.getElementById("languageSelector");
+
+    const button =
+        document.getElementById("languageButton");
+
+    const menu =
+        document.getElementById("languageMenu");
+
+    const currentLanguage =
+        document.getElementById("currentLanguage");
+
+    const options =
+        document.querySelectorAll(".language-option");
+
+
+    if (
+        !selector ||
+        !button ||
+        !menu
+    ) {
+        return;
+    }
+
+
+    /* -------------------------------------------------------
+       OUVERTURE / FERMETURE
+       ------------------------------------------------------- */
+
+    button.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            const isOpen =
+                selector.classList.toggle("open");
+
+
+            button.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+        }
+    );
+
+
+    /* -------------------------------------------------------
+       FERMER EN CLIQUANT À L'EXTÉRIEUR
+       ------------------------------------------------------- */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (!selector.contains(event.target)) {
+
+                selector.classList.remove("open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* -------------------------------------------------------
+       TRADUCTION GOOGLE
+       ------------------------------------------------------- */
+
+    function translatePage(language) {
+
+        const googleSelect =
+            document.querySelector(
+                "#google_translate_element select.goog-te-combo"
+            );
+
+
+        if (!googleSelect) {
+
+            setTimeout(
+                function () {
+                    translatePage(language);
+                },
+                500
+            );
+
+            return;
+        }
+
+
+        googleSelect.value = language;
+
+
+        googleSelect.dispatchEvent(
+            new Event("change")
+        );
+
+    }
+
+
+    /* -------------------------------------------------------
+       LANGUE ACTIVE
+       ------------------------------------------------------- */
+
+    options.forEach(
+        function (option) {
+
+            option.addEventListener(
+                "click",
+                function () {
+
+                    const language =
+                        option.getAttribute("data-lang");
+
+
+                    const label =
+                        language.toUpperCase();
+
+
+                    currentLanguage.textContent =
+                        label;
+
+
+                    options.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    option.classList.add(
+                        "active"
+                    );
+
+
+                    selector.classList.remove(
+                        "open"
+                    );
+
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    translatePage(language);
+
+                }
+            );
+
+        }
+    );
+
+})();
+</script>
+
+<!-- =========================================================
+     GOOGLE TRANSLATE
+========================================================= -->
+
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+        pageLanguage: 'fr',
+
+        includedLanguages: 'fr,en,ru',
+
+        autoDisplay: false
+
+    }, 'google_translate_element');
+
+}
+
+</script>
+
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 </body>
 </html>
