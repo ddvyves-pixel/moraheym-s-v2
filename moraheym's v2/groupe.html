@@ -557,6 +557,226 @@ body::before {
 }
 
 
+
+/* =========================================================
+   MENU DES LANGUES — FR / EN / RU
+========================================================= */
+
+.language-selector {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    z-index: 100;
+}
+
+.language-button {
+    height: 44px;
+    min-width: 58px;
+    padding: 0 13px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--black-card);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+.language-button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.language-arrow {
+    font-size: .55rem;
+    transition: transform .3s ease;
+}
+
+.language-selector.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 9px);
+    right: 0;
+
+    min-width: 90px;
+    padding: 6px;
+
+    background: var(--black-card);
+    border: 1px solid var(--line);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.language-selector.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    height: 36px;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--cream-soft);
+    font-family: var(--sans);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+
+    cursor: pointer;
+    text-align: left;
+
+    padding: 0 12px;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.language-option:hover {
+    background: rgba(201,164,93,.10);
+    color: var(--gold);
+}
+
+.language-option.active {
+    color: var(--gold);
+}
+
+/* Thème clair */
+
+html[data-theme="light"] .language-button {
+    background: #fff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-button:hover {
+    border-color: #9a762d;
+    color: #9a762d;
+}
+
+html[data-theme="light"] .language-menu {
+    background: #fff;
+    border-color: rgba(23,26,23,.15);
+    box-shadow: 0 15px 35px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+    color: #59605a;
+}
+
+html[data-theme="light"] .language-option:hover,
+html[data-theme="light"] .language-option.active {
+    color: #9a762d;
+    background: rgba(154,118,45,.08);
+}
+
+/* Mobile */
+
+@media (max-width: 1050px) {
+
+    .language-button {
+        height: 44px;
+        min-width: 58px;
+    }
+
+    .language-selector {
+        margin-right: 4px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .language-button {
+        height: 40px;
+        min-width: 54px;
+        padding: 0 10px;
+        font-size: .58rem;
+    }
+
+    .language-menu {
+        min-width: 82px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .language-button {
+        height: 38px;
+        min-width: 52px;
+        font-size: .55rem;
+    }
+}
+
+/* =========================================================
+   GOOGLE TRANSLATE — MOTEUR INVISIBLE
+========================================================= */
+
+#google_translate_element {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    left: -9999px !important;
+    top: 0 !important;
+}
+
+#google_translate_element .goog-te-gadget {
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+#google_translate_element .goog-te-combo {
+    opacity: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
 /* =========================================================
    BOUTON THÈME
 ========================================================= */
@@ -2521,51 +2741,102 @@ html[data-theme="light"] ::selection {
         </a>
 
 
-        <!-- BURGER -->
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-
-        <!-- MENU -->
-
         <nav
             class="nav-links"
             id="navLinks"
         >
 
             <a href="actualites.html" class="nav-news" data-i18n="actualites">
-    Actualités
-</a>
+                Actualités
+            </a>
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+            <a href="groupe.html" data-i18n="groupe">
+                Le groupe
+            </a>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+            <a href="expertise.html" data-i18n="expertise">
+                Expertise
+            </a>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
+            <a href="vision.html" data-i18n="vision">
+                Vision
+            </a>
 
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
+            <a href="projets.html" data-i18n="projets">
+                Projets
+            </a>
 
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
+            <a href="contact.html" class="nav-cta" data-i18n="contact">
+                Contact
+            </a>
 
         </nav>
+
+
+        <div class="nav-actions">
+
+            <!-- MENU DES LANGUES -->
+            <div class="language-selector" id="languageSelector">
+
+                <button
+                    type="button"
+                    class="language-button"
+                    id="languageButton"
+                    aria-label="Choisir la langue"
+                    aria-expanded="false"
+                >
+                    <span id="currentLanguage">FR</span>
+                    <span class="language-arrow">▼</span>
+                </button>
+
+                <div class="language-menu" id="languageMenu">
+
+                    <button
+                        type="button"
+                        class="language-option active"
+                        data-lang="fr"
+                    >
+                        FR
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="en"
+                    >
+                        EN
+                    </button>
+
+                    <button
+                        type="button"
+                        class="language-option"
+                        data-lang="ru"
+                    >
+                        RU
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- GOOGLE TRANSLATE INVISIBLE -->
+            <div
+                id="google_translate_element"
+                aria-hidden="true"
+            ></div>
+
+            <!-- MENU BURGER -->
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
 
     </div>
 
@@ -3409,9 +3680,7 @@ html[data-theme="light"] ::selection {
 
 
         button.setAttribute(
-
             "aria-label",
-
             isLight
                 ? "Activer le thème sombre"
                 : "Activer le thème clair"
@@ -3419,9 +3688,7 @@ html[data-theme="light"] ::selection {
 
 
         button.setAttribute(
-
             "title",
-
             isLight
                 ? "Thème sombre"
                 : "Thème clair"
@@ -3429,15 +3696,12 @@ html[data-theme="light"] ::selection {
 
 
         button.innerHTML =
-
             '<span class="theme-icon" aria-hidden="true">' +
-
             (
                 isLight
                     ? "☀"
                     : "☾"
             ) +
-
             "</span>";
 
     }
@@ -3445,47 +3709,70 @@ html[data-theme="light"] ::selection {
 
     function positionThemeButton() {
 
-        const navInner =
-            document.querySelector(
-                ".nav-inner"
-            );
-
-        const navLinks =
-            document.querySelector(
-                ".nav-links"
-            );
-
         const button =
             document.getElementById(
                 "themeToggle"
             );
 
+        const navActions =
+            document.querySelector(
+                ".nav-actions"
+            );
+
+        const navLinks =
+            document.getElementById(
+                "navLinks"
+            );
+
+        const menuButton =
+            document.getElementById(
+                "menuButton"
+            );
+
+        const contactLink =
+            navLinks
+                ? navLinks.querySelector(
+                    'a[href="contact.html"]'
+                )
+                : null;
+
 
         if (
-            !navInner ||
+            !button ||
+            !navActions ||
             !navLinks ||
-            !button
-        ) {
-
-            return;
-        }
+            !menuButton
+        ) return;
 
 
         if (
             window.innerWidth <= 1050
         ) {
 
-            navLinks.appendChild(
-                button
-            );
+            if (
+                contactLink &&
+                button.parentElement !== navLinks
+            ) {
 
-        }
+                contactLink.insertAdjacentElement(
+                    "afterend",
+                    button
+                );
 
-        else {
+            }
 
-            navInner.appendChild(
-                button
-            );
+        } else {
+
+            if (
+                button.parentElement !== navActions
+            ) {
+
+                navActions.insertBefore(
+                    button,
+                    menuButton
+                );
+
+            }
 
         }
 
@@ -3496,34 +3783,44 @@ html[data-theme="light"] ::selection {
 
 
     window.addEventListener(
-
         "DOMContentLoaded",
-
         function () {
 
-            const navInner =
+            const navActions =
                 document.querySelector(
-                    ".nav-inner"
+                    ".nav-actions"
+                );
+
+            const navLinks =
+                document.getElementById(
+                    "navLinks"
+                );
+
+            const menuButton =
+                document.getElementById(
+                    "menuButton"
                 );
 
 
-            if (!navInner) {
-
-                return;
-            }
-
-
             if (
-                !document.getElementById(
-                    "themeToggle"
-                )
-            ) {
+                !navActions ||
+                !navLinks ||
+                !menuButton
+            ) return;
 
-                const button =
+
+            let button =
+                document.getElementById(
+                    "themeToggle"
+                );
+
+
+            if (!button) {
+
+                button =
                     document.createElement(
                         "button"
                     );
-
 
                 button.type =
                     "button";
@@ -3534,59 +3831,81 @@ html[data-theme="light"] ::selection {
                 button.className =
                     "theme-toggle";
 
-
-                navInner.appendChild(
-                    button
-                );
+            }
 
 
-                updateThemeButton();
+            if (
+                window.innerWidth <= 1050
+            ) {
+
+                const contactLink =
+                    navLinks.querySelector(
+                        'a[href="contact.html"]'
+                    );
 
 
-                button.addEventListener(
+                if (contactLink) {
 
-                    "click",
+                    contactLink.insertAdjacentElement(
+                        "afterend",
+                        button
+                    );
 
-                    function () {
+                } else {
 
-                        const next =
+                    navLinks.appendChild(
+                        button
+                    );
 
-                            root.getAttribute(
-                                "data-theme"
-                            ) === "light"
+                }
 
-                                ? "dark"
+            } else {
 
-                                : "light";
-
-
-                        root.setAttribute(
-                            "data-theme",
-                            next
-                        );
-
-
-                        try {
-
-                            localStorage.setItem(
-                                KEY,
-                                next
-                            );
-
-                        }
-
-                        catch (e) {}
-
-
-                        updateThemeButton();
-
-                    }
+                navActions.insertBefore(
+                    button,
+                    menuButton
                 );
 
             }
 
 
-            positionThemeButton();
+            updateThemeButton();
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const next =
+                        root.getAttribute(
+                            "data-theme"
+                        ) === "light"
+                            ? "dark"
+                            : "light";
+
+
+                    root.setAttribute(
+                        "data-theme",
+                        next
+                    );
+
+
+                    try {
+
+                        localStorage.setItem(
+                            KEY,
+                            next
+                        );
+
+                    }
+
+                    catch (e) {}
+
+
+                    updateThemeButton();
+
+                }
+            );
 
 
             window.addEventListener(
@@ -3981,7 +4300,203 @@ document
         }
     );
 
+
+/* =========================================================
+   MENU DES LANGUES + GOOGLE TRANSLATE
+========================================================= */
+
+(function () {
+
+    const selector =
+        document.getElementById("languageSelector");
+
+    const button =
+        document.getElementById("languageButton");
+
+    const menu =
+        document.getElementById("languageMenu");
+
+    const currentLanguage =
+        document.getElementById("currentLanguage");
+
+    const options =
+        document.querySelectorAll(".language-option");
+
+    if (!selector || !button || !menu) return;
+
+
+    /* =====================================================
+       OUVRIR / FERMER LE MENU
+    ===================================================== */
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+            selector.classList.toggle("open");
+
+        button.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+
+    /* =====================================================
+       FERMER LE MENU SI ON CLIQUE AILLEURS
+    ===================================================== */
+
+    document.addEventListener("click", function (event) {
+
+        if (!selector.contains(event.target)) {
+
+            selector.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    });
+
+
+    /* =====================================================
+       FONCTION GOOGLE TRANSLATE
+    ===================================================== */
+
+    function translatePage(language) {
+
+        const googleSelect =
+            document.querySelector(
+                "#google_translate_element .goog-te-combo"
+            );
+
+        if (!googleSelect) {
+
+            setTimeout(function () {
+
+                translatePage(language);
+
+            }, 500);
+
+            return;
+
+        }
+
+        googleSelect.value = language;
+
+        try {
+
+            const event =
+                document.createEvent("HTMLEvents");
+
+            event.initEvent(
+                "change",
+                true,
+                true
+            );
+
+            googleSelect.dispatchEvent(event);
+
+        } catch (error) {
+
+            googleSelect.dispatchEvent(
+                new Event("change", {
+                    bubbles: true
+                })
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CHOIX DE LA LANGUE
+    ===================================================== */
+
+    options.forEach(function (option) {
+
+        option.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                const language =
+                    option.getAttribute("data-lang");
+
+
+                if (!language) return;
+
+
+                currentLanguage.textContent =
+                    language.toUpperCase();
+
+
+                options.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+                option.classList.add("active");
+
+
+                selector.classList.remove("open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                translatePage(language);
+
+            }
+        );
+
+    });
+
+
+})();
+
 </script>
+
+
+<!-- =========================================================
+     GOOGLE TRANSLATE
+========================================================= -->
+
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+        pageLanguage: 'fr',
+
+        includedLanguages: 'fr,en,ru',
+
+        autoDisplay: false
+
+    }, 'google_translate_element');
+
+}
+
+</script>
+
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
 
 </body>
 </html>
