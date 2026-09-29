@@ -297,11 +297,13 @@ body::before {
 }
 
 
-/* Le logo reste à gauche */
+/* Le logo reste complètement à gauche */
 
-.brand-logo {
+.logo {
 
     margin-right: auto;
+
+    flex: 0 0 auto;
 }
 
 
@@ -315,7 +317,14 @@ body::before {
 
     gap: 31px;
 
+    /*
+     * PC :
+     * toute la navigation est regroupée complètement à droite,
+     * juste avant le sélecteur de langue et le bouton de thème.
+     */
     margin-left: auto;
+
+    flex: 0 0 auto;
 }
 
 
@@ -1591,7 +1600,12 @@ body::before {
 ========================================================= */
 
 .nav-actions {
-    margin-left: auto;
+    /*
+     * PC :
+     * la zone langue + thème vient immédiatement
+     * après les liens de navigation.
+     */
+    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
