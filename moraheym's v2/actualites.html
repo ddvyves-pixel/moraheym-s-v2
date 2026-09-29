@@ -3098,68 +3098,104 @@ Actualités
 
     </nav>
 
-    <div class="nav-actions">
+    <!-- =========================
+     ACTIONS NAVIGATION
+========================= -->
 
-        <div class="language-selector" id="languageSelector">
+<div class="nav-actions">
+
+    <!-- MENU LANGUES -->
+
+    <div
+        class="language-selector"
+        id="languageSelector"
+    >
+
+        <button
+            class="language-button"
+            id="languageButton"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="Choisir la langue"
+        >
+
+            <span
+                class="language-current"
+                id="currentLanguage"
+            >
+                FR
+            </span>
+
+            <span
+                class="language-arrow"
+                aria-hidden="true"
+            >
+                ▾
+            </span>
+
+        </button>
+
+
+        <div
+            class="language-menu"
+            id="languageMenu"
+        >
 
             <button
                 type="button"
-                class="language-button"
-                id="languageButton"
-                aria-label="Choisir la langue"
-                aria-expanded="false"
+                class="language-option active"
+                data-lang="fr"
             >
-                <span id="currentLanguage">FR</span>
-                <span class="language-arrow">▼</span>
+                <span>FR</span>
             </button>
 
-            <div
-                class="language-menu"
-                id="languageMenu"
+            <button
+                type="button"
+                class="language-option"
+                data-lang="en"
             >
-                <button
-                    type="button"
-                    class="language-option active"
-                    data-lang="fr"
-                >
-                    FR
-                </button>
+                <span>EN</span>
+            </button>
 
-                <button
-                    type="button"
-                    class="language-option"
-                    data-lang="en"
-                >
-                    EN
-                </button>
-
-                <button
-                    type="button"
-                    class="language-option"
-                    data-lang="ru"
-                >
-                    RU
-                </button>
-            </div>
+            <button
+                type="button"
+                class="language-option"
+                data-lang="ru"
+            >
+                <span>RU</span>
+            </button>
 
         </div>
 
-        <div
-            id="google_translate_element"
-            aria-hidden="true"
-        ></div>
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
     </div>
+
+
+    <!-- GOOGLE TRANSLATE CACHÉ -->
+
+    <div
+        id="google_translate_element"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- BOUTON THÈME -->
+
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Changer de thème"
+    >
+        <span
+            class="theme-icon"
+            aria-hidden="true"
+        >
+            ☀
+        </span>
+    </button>
+
+</div>
 
 </div>
 
