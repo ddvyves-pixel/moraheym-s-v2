@@ -1596,47 +1596,40 @@ body::before {
 
 
 /* =========================================================
-   SÉLECTEUR DE LANGUE — FR / EN / RU
+   MENU DES LANGUES — FR / EN / RU
 ========================================================= */
-
-.nav-actions {
-    /*
-     * PC :
-     * la zone langue + thème vient immédiatement
-     * après les liens de navigation.
-     */
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    flex-shrink: 0;
-}
 
 .language-selector {
     position: relative;
+    display: inline-flex;
+    align-items: center;
     flex: 0 0 auto;
+    z-index: 100;
 }
 
 .language-button {
-    min-width: 78px;
     height: 44px;
+    min-width: 58px;
     padding: 0 13px;
     border: 1px solid var(--line);
     border-radius: 22px;
     background: var(--black-card);
     color: var(--cream);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    cursor: pointer;
     font-family: var(--sans);
     font-size: .65rem;
     font-weight: 600;
     letter-spacing: .12em;
-    text-transform: uppercase;
-    transition: border-color .3s ease, color .3s ease, background .3s ease;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
 }
 
 .language-button:hover {
@@ -1644,29 +1637,37 @@ body::before {
     color: var(--gold);
 }
 
-.language-button .language-arrow {
-    font-size: .65rem;
+.language-arrow {
+    font-size: .55rem;
     transition: transform .3s ease;
 }
 
-.language-selector.open .language-button .language-arrow {
+.language-selector.open .language-arrow {
     transform: rotate(180deg);
 }
 
 .language-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 9px);
     right: 0;
-    min-width: 130px;
-    padding: 7px;
+
+    min-width: 90px;
+    padding: 6px;
+
     background: var(--black-card);
     border: 1px solid var(--line);
-    box-shadow: 0 18px 45px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
-    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
-    z-index: 100;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
 }
 
 .language-selector.open .language-menu {
@@ -1677,140 +1678,80 @@ body::before {
 
 .language-option {
     width: 100%;
+    height: 36px;
+
     border: 0;
     background: transparent;
+
     color: var(--cream-soft);
-    padding: 11px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
     font-family: var(--sans);
     font-size: .62rem;
     font-weight: 600;
     letter-spacing: .12em;
-    text-transform: uppercase;
-    transition: background .25s ease, color .25s ease;
+
+    cursor: pointer;
+    text-align: left;
+
+    padding: 0 12px;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
 }
 
 .language-option:hover {
-    background: rgba(201,164,93,.08);
+    background: rgba(201,164,93,.10);
     color: var(--gold);
 }
 
 .language-option.active {
     color: var(--gold);
-    background: rgba(201,164,93,.06);
 }
 
-.language-option .language-check {
-    opacity: 0;
-}
-
-.language-option.active .language-check {
-    opacity: 1;
-}
-
-#google_translate_element {
-    position: fixed;
-    left: -9999px;
-    top: -9999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.goog-te-banner-frame,
-.goog-te-balloon-frame,
-.goog-te-menu-frame,
-.goog-te-gadget-icon {
-    display: none !important;
-}
-
-body {
-    top: 0 !important;
-}
-
-.goog-text-highlight {
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-.theme-toggle {
-    margin-left: 0;
-}
+/* Thème clair */
 
 html[data-theme="light"] .language-button {
-    background: #ffffff;
+    background: #fff;
     color: #171a17;
     border-color: rgba(23,26,23,.18);
 }
 
+html[data-theme="light"] .language-button:hover {
+    border-color: #9a762d;
+    color: #9a762d;
+}
+
 html[data-theme="light"] .language-menu {
-    background: #ffffff;
-    border-color: rgba(23,26,23,.13);
-    box-shadow: 0 18px 45px rgba(23,26,23,.12);
+    background: #fff;
+    border-color: rgba(23,26,23,.15);
+    box-shadow: 0 15px 35px rgba(23,26,23,.12);
 }
 
 html[data-theme="light"] .language-option {
-    color: #4f554f;
+    color: #59605a;
 }
 
-html[data-theme="light"] .language-option:hover {
-    background: rgba(154,118,45,.07);
-    color: #9a762d;
-}
-
+html[data-theme="light"] .language-option:hover,
 html[data-theme="light"] .language-option.active {
     color: #9a762d;
-    background: rgba(154,118,45,.06);
+    background: rgba(154,118,45,.08);
 }
 
-@media (max-width:1050px) {
-    .nav-actions {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px;
-        flex-shrink: 0;
-    }
+/* Mobile */
+
+@media (max-width: 1050px) {
 
     .language-button {
+        height: 44px;
         min-width: 58px;
-        height: 44px;
     }
 
-    .menu-button {
-        display: block;
-        margin-left: 0;
-        position: relative;
-        z-index: 30;
-    }
-
-    .nav-actions .theme-toggle {
-        display: none;
-    }
-
-    .nav-links .theme-toggle {
-        display: none;
-        margin: 0;
-        width: 44px;
-        height: 44px;
-        align-self: flex-start;
-    }
-
-    .nav-links.open .theme-toggle {
-        display: inline-flex;
+    .language-selector {
+        margin-right: 4px;
     }
 }
 
-@media (max-width:650px) {
-    .nav-actions {
-        gap: 7px;
-    }
+@media (max-width: 650px) {
 
     .language-button {
         height: 40px;
@@ -1822,32 +1763,17 @@ html[data-theme="light"] .language-option.active {
     .language-menu {
         min-width: 82px;
     }
-
-    .menu-button {
-        margin-left: 0;
-        font-size: 1.45rem;
-    }
-
-    .nav-links .theme-toggle,
-    .nav-links.open .theme-toggle {
-        width: 40px;
-        height: 40px;
-        margin-top: 2px;
-    }
 }
 
-@media (max-width:400px) {
+@media (max-width: 400px) {
+
     .language-button {
-        min-width: 66px;
-        padding: 0 9px;
-    }
-
-    .nav-links .theme-toggle,
-    .nav-links.open .theme-toggle {
-        width: 38px;
         height: 38px;
+        min-width: 52px;
+        font-size: .55rem;
     }
 }
+
 
 /* =========================================================
    RESPONSIVE
@@ -2804,101 +2730,59 @@ html[data-theme="light"] .preloader {
 }
 
 /* =========================================================
-   THÈME DANS LE MENU BURGER
+   POSITIONNEMENT DU BOUTON THÈME
+   Le bouton reste dans .nav-actions, hors du menu burger.
 ========================================================= */
 
 @media (max-width:1050px) {
-
-    .nav-inner {
-
-        justify-content: space-between;
-    }
-
-
-    .menu-button {
-
-        display: block;
-
+    .nav-actions {
         margin-left: auto;
-
-        position: relative;
-
-        z-index: 30;
+        gap: 8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
-
-    .nav-links .theme-toggle {
-
-        display: none;
-
-        margin: 0;
-
-        width: 44px;
-
-        height: 44px;
-
-        align-self: flex-start;
-    }
-
-
-    .nav-links.open .theme-toggle {
-
+    .nav-actions .theme-toggle {
         display: inline-flex;
     }
 
-    .nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    .menu-button {
+        display: inline-flex;
+        margin-left: 0;
+    }
 }
-
-}
-
 
 @media (max-width:600px) {
-
-    .nav-inner {
-
-        width: 94%;
+    .nav-actions {
+        gap: 7px;
     }
 
+    .nav-actions .theme-toggle {
+        width: 40px;
+        height: 40px;
+    }
 
     .menu-button {
-
-        margin-left: auto;
-
+        width: 40px;
+        height: 40px;
+        margin-left: 0;
         font-size: 1.45rem;
     }
-
-
-    .nav-links .theme-toggle,
-    .nav-links.open .theme-toggle {
-
-        width: 40px;
-
-        height: 40px;
-
-        margin-top: 2px;
-    }
-
 }
 
-
 @media (max-width:400px) {
-
-    .nav-links .theme-toggle,
-    .nav-links.open .theme-toggle {
-
+    .nav-actions .theme-toggle {
         width: 38px;
-
         height: 38px;
     }
 
+    .menu-button {
+        width: 38px;
+        height: 38px;
+    }
 }
-
 </style>
 <script>
 (function(){
@@ -2998,49 +2882,59 @@ html[data-theme="light"] .preloader {
 
 </nav>
 
-<div class="nav-actions">
+    <div class="nav-actions">
 
+    <!-- MENU DES LANGUES -->
     <div class="language-selector" id="languageSelector">
 
         <button
             type="button"
             class="language-button"
             id="languageButton"
-            aria-haspopup="true"
-            aria-expanded="false"
             aria-label="Choisir la langue"
+            aria-expanded="false"
         >
             <span id="currentLanguage">FR</span>
-            <span class="language-arrow" aria-hidden="true">⌄</span>
+            <span class="language-arrow">▼</span>
         </button>
 
-        <div
-            class="language-menu"
-            id="languageMenu"
-            role="menu"
-            aria-label="Choix de la langue"
-        >
+        <div class="language-menu" id="languageMenu">
 
-            <button type="button" class="language-option active" data-lang="fr" role="menuitem">
-                <span>Français</span>
-                <span class="language-check" aria-hidden="true">✓</span>
+            <button
+                type="button"
+                class="language-option active"
+                data-lang="fr"
+            >
+                FR
             </button>
 
-            <button type="button" class="language-option" data-lang="en" role="menuitem">
-                <span>English</span>
-                <span class="language-check" aria-hidden="true">✓</span>
+            <button
+                type="button"
+                class="language-option"
+                data-lang="en"
+            >
+                EN
             </button>
 
-            <button type="button" class="language-option" data-lang="ru" role="menuitem">
-                <span>Русский</span>
-                <span class="language-check" aria-hidden="true">✓</span>
+            <button
+                type="button"
+                class="language-option"
+                data-lang="ru"
+            >
+                RU
             </button>
 
         </div>
+
     </div>
 
-    <div id="google_translate_element"></div>
+    <!-- GOOGLE TRANSLATE INVISIBLE -->
+    <div
+        id="google_translate_element"
+        aria-hidden="true"
+    ></div>
 
+    <!-- MENU BURGER -->
     <button
         class="menu-button"
         id="menuButton"
@@ -3977,99 +3871,51 @@ function googleTranslateElementInit() {
 <script>
 
 /* =========================================================
-   SÉLECTEUR DE LANGUE
+   MENU DES LANGUES + GOOGLE TRANSLATE
 ========================================================= */
 
 (function () {
 
-    const selector = document.getElementById("languageSelector");
-    const button = document.getElementById("languageButton");
-    const menu = document.getElementById("languageMenu");
-    const currentLanguage = document.getElementById("currentLanguage");
-    const options = document.querySelectorAll(".language-option");
+    const selector =
+        document.getElementById("languageSelector");
+
+    const button =
+        document.getElementById("languageButton");
+
+    const menu =
+        document.getElementById("languageMenu");
+
+    const currentLanguage =
+        document.getElementById("currentLanguage");
+
+    const options =
+        document.querySelectorAll(".language-option");
 
     if (!selector || !button || !menu) return;
 
-    function setActiveLanguage(lang) {
 
-        const labels = {
-            fr: "FR",
-            en: "EN",
-            ru: "RU"
-        };
-
-        if (currentLanguage) {
-            currentLanguage.textContent = labels[lang] || "FR";
-        }
-
-        options.forEach(function (option) {
-            option.classList.toggle(
-                "active",
-                option.dataset.lang === lang
-            );
-        });
-    }
-
-    function translatePage(lang) {
-
-        const select = document.querySelector(
-            "#google_translate_element select.goog-te-combo"
-        );
-
-        if (!select) return false;
-
-        select.value = lang;
-        select.dispatchEvent(new Event("change"));
-
-        return true;
-    }
+    /* =====================================================
+       OUVRIR / FERMER LE MENU
+    ===================================================== */
 
     button.addEventListener("click", function (event) {
 
         event.stopPropagation();
 
-        const isOpen = selector.classList.toggle("open");
+        const isOpen =
+            selector.classList.toggle("open");
 
         button.setAttribute(
             "aria-expanded",
-            String(isOpen)
+            isOpen ? "true" : "false"
         );
+
     });
 
-    options.forEach(function (option) {
 
-        option.addEventListener("click", function () {
-
-            const lang = option.dataset.lang;
-
-            setActiveLanguage(lang);
-
-            selector.classList.remove("open");
-
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            if (!translatePage(lang)) {
-
-                let attempts = 0;
-
-                const retry = setInterval(function () {
-
-                    attempts++;
-
-                    if (
-                        translatePage(lang) ||
-                        attempts >= 20
-                    ) {
-                        clearInterval(retry);
-                    }
-
-                }, 500);
-            }
-        });
-    });
+    /* =====================================================
+       FERMER LE MENU SI ON CLIQUE AILLEURS
+    ===================================================== */
 
     document.addEventListener("click", function (event) {
 
@@ -4081,761 +3927,151 @@ function googleTranslateElementInit() {
                 "aria-expanded",
                 "false"
             );
+
         }
+
     });
 
-    setActiveLanguage("fr");
-
-})();
-
-/* =========================================================
-   THEME TOGGLE
-========================================================= */
-
-(function () {
-
-    const KEY = "moraheyms-theme";
-
-    const root = document.documentElement;
-
-
-    try {
-
-    const saved =
-        localStorage.getItem(KEY);
-
-    root.setAttribute(
-        "data-theme",
-        saved === "dark"
-            ? "dark"
-            : "light"
-    );
-
-} catch (e) {
-
-    root.setAttribute(
-        "data-theme",
-        "light"
-    );
-
-}
-
-
-    function updateThemeButton() {
-
-        const button =
-            document.getElementById(
-                "themeToggle"
-            );
-
-        if (!button) return;
-
-
-        const isLight =
-            root.getAttribute(
-                "data-theme"
-            ) === "light";
-
-
-        button.setAttribute(
-            "aria-label",
-            isLight
-                ? "Activer le thème sombre"
-                : "Activer le thème clair"
-        );
-
-
-        button.setAttribute(
-            "title",
-            isLight
-                ? "Thème sombre"
-                : "Thème clair"
-        );
-
-
-        button.innerHTML =
-            '<span class="theme-icon" aria-hidden="true">' +
-            (isLight ? "☀" : "☾") +
-            '</span>';
-
-    }
-
-
-    function positionThemeButton() {
-
-    const button =
-        document.getElementById(
-            "themeToggle"
-        );
-
-    const navLinks =
-        document.getElementById(
-            "navLinks"
-        );
-
-    const navInner =
-        document.querySelector(
-            ".nav-inner"
-        );
-
-    const navActions =
-        document.querySelector(
-            ".nav-actions"
-        );
-
-    const contactLink =
-        navLinks
-            ? navLinks.querySelector(
-                'a[href="contact.html"]'
-            )
-            : null;
-
-    if (
-        !button ||
-        !navLinks ||
-        !navInner
-    ) return;
-
 
     /* =====================================================
-       MOBILE / TABLETTE
-       Le bouton reste dans le menu,
-       juste après "Contact"
+       FONCTION GOOGLE TRANSLATE
     ===================================================== */
 
-    if (
-        window.innerWidth <= 1050
-    ) {
+    function translatePage(language) {
 
-        if (
-            contactLink &&
-            button.parentElement !== navLinks
-        ) {
-
-            contactLink.insertAdjacentElement(
-                "afterend",
-                button
+        const googleSelect =
+            document.querySelector(
+                "#google_translate_element .goog-te-combo"
             );
-
-        } else if (
-            contactLink &&
-            button.previousElementSibling !== contactLink
-        ) {
-
-            contactLink.insertAdjacentElement(
-                "afterend",
-                button
-            );
-
-        }
-
-    }
-
-
-    /* =====================================================
-       PC
-       Le bouton est placé complètement à droite,
-       après "Contact"
-    ===================================================== */
-
-    else {
 
         /*
-         * PC :
-         * le bouton de thème rejoint la même zone
-         * que le sélecteur de langue.
+         * Google n'a pas encore créé son sélecteur.
+         * On attend puis on réessaie.
          */
 
-        if (navActions) {
-            navActions.appendChild(button);
-        } else {
-            navInner.appendChild(button);
+        if (!googleSelect) {
+
+            setTimeout(function () {
+
+                translatePage(language);
+
+            }, 500);
+
+            return;
+
+        }
+
+
+        /*
+         * On sélectionne la langue.
+         */
+
+        googleSelect.value = language;
+
+
+        /*
+         * Google Translate écoute un véritable
+         * événement "change".
+         */
+
+        try {
+
+            const event =
+                document.createEvent("HTMLEvents");
+
+            event.initEvent(
+                "change",
+                true,
+                true
+            );
+
+            googleSelect.dispatchEvent(event);
+
+        } catch (error) {
+
+            /*
+             * Solution de secours pour les navigateurs
+             * modernes.
+             */
+
+            googleSelect.dispatchEvent(
+                new Event("change", {
+                    bubbles: true
+                })
+            );
+
         }
 
     }
 
-    updateThemeButton();
 
-}
+    /* =====================================================
+       CHOIX DE LA LANGUE
+    ===================================================== */
+
+    options.forEach(function (option) {
+
+        option.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
 
 
-    window.addEventListener(
-        "DOMContentLoaded",
-        function () {
+                const language =
+                    option.getAttribute("data-lang");
 
-            const navInner =
-                document.querySelector(
-                    ".nav-inner"
+
+                if (!language) return;
+
+
+                /*
+                 * Mettre à jour le bouton
+                 */
+
+                currentLanguage.textContent =
+                    language.toUpperCase();
+
+
+                /*
+                 * Mettre à jour l'option active
+                 */
+
+                options.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+                option.classList.add("active");
+
+
+                /*
+                 * Fermer le menu
+                 */
+
+                selector.classList.remove("open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
                 );
 
 
-            if (!navInner) return;
+                /*
+                 * Lancer Google Translate
+                 */
 
-
-            let button =
-                document.getElementById(
-                    "themeToggle"
-                );
-
-
-            if (!button) {
-
-                button =
-                    document.createElement(
-                        "button"
-                    );
-
-
-                button.type = "button";
-
-                button.id =
-                    "themeToggle";
-
-                button.className =
-                    "theme-toggle";
-
-
-                button.innerHTML =
-                    '<span class="theme-icon" aria-hidden="true">☾</span>';
-
-
-                const navActions =
-                    document.querySelector(".nav-actions");
-
-                if (navActions) {
-                    navActions.appendChild(button);
-                } else {
-                    navInner.appendChild(button);
-                }
-
-
-                button.addEventListener(
-                    "click",
-                    function () {
-
-                        const next =
-                            root.getAttribute(
-                                "data-theme"
-                            ) === "light"
-                                ? "dark"
-                                : "light";
-
-
-                        root.setAttribute(
-                            "data-theme",
-                            next
-                        );
-
-
-                        try {
-
-                            localStorage.setItem(
-                                KEY,
-                                next
-                            );
-
-                        } catch (e) {}
-
-
-                        updateThemeButton();
-
-                    }
-                );
+                translatePage(language);
 
             }
+        );
 
+    });
 
-            positionThemeButton();
-
-        }
-    );
-
-
-    window.addEventListener(
-        "resize",
-        positionThemeButton
-    );
 
 })();
-
-/* =========================================================
-   PRELOADER
-========================================================= */
-
-const preloader =
-    document.getElementById(
-        "preloader"
-    );
-
-
-const progress =
-    document.getElementById(
-        "loaderProgress"
-    );
-
-
-let progressValue = 0;
-
-
-const loadingInterval =
-    setInterval(() => {
-
-        progressValue +=
-            Math.random() * 15;
-
-
-        if (
-            progressValue > 100
-        ) {
-
-            progressValue = 100;
-
-        }
-
-
-        progress.style.width =
-            progressValue + "%";
-
-    },120);
-
-
-window.addEventListener(
-    "load",
-    () => {
-
-        progress.style.width =
-            "100%";
-
-
-        setTimeout(
-            () => {
-
-                clearInterval(
-                    loadingInterval
-                );
-
-                preloader.classList.add(
-                    "hide"
-                );
-
-            },
-            900
-        );
-
-    }
-);
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-const nav =
-    document.getElementById(
-        "nav"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (
-            window.scrollY > 50
-        ) {
-
-            nav.classList.add(
-                "scrolled"
-            );
-
-        } else {
-
-            nav.classList.remove(
-                "scrolled"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
-
-
-const navLinks =
-    document.getElementById(
-        "navLinks"
-    );
-
-
-menuButton.addEventListener(
-    "click",
-    () => {
-
-        navLinks.classList.toggle(
-            "open"
-        );
-
-
-        menuButton.innerHTML =
-            navLinks.classList.contains(
-                "open"
-            )
-                ? "✕"
-                : "☰";
-
-    }
-);
-
-
-document
-.querySelectorAll(
-    ".nav-links a"
-)
-.forEach(
-    link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                navLinks.classList.remove(
-                    "open"
-                );
-
-
-                menuButton.innerHTML =
-                    "☰";
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   CURSEUR
-========================================================= */
-
-const cursorDot =
-    document.querySelector(
-        ".cursor-dot"
-    );
-
-
-const cursorRing =
-    document.querySelector(
-        ".cursor-ring"
-    );
-
-
-if (
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
-) {
-
-    window.addEventListener(
-        "mousemove",
-        e => {
-
-            cursorDot.style.left =
-                e.clientX + "px";
-
-
-            cursorDot.style.top =
-                e.clientY + "px";
-
-
-            cursorRing.animate(
-
-                {
-                    left:
-                        e.clientX + "px",
-
-                    top:
-                        e.clientY + "px"
-                },
-
-                {
-                    duration: 450,
-
-                    fill: "forwards"
-                }
-
-            );
-
-        }
-    );
-
-
-    document
-    .querySelectorAll(
-        "a,button,.news-card,.featured-card"
-    )
-    .forEach(
-        element => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-
-                    cursorRing.classList.add(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            element.addEventListener(
-                "mouseleave",
-                () => {
-
-                    cursorRing.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target
-                            .classList
-                            .add("show");
-
-
-                        revealObserver
-                            .unobserve(
-                                entry.target
-                            );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: .1
-        }
-
-    );
-
-
-document
-.querySelectorAll(
-    ".reveal"
-)
-.forEach(
-    element => {
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-/* =========================================================
-   FILTRES DES ACTUALITÉS
-========================================================= */
-
-const filters =
-    document.querySelectorAll(
-        ".filter"
-    );
-
-
-const cards =
-    document.querySelectorAll(
-        ".news-card"
-    );
-
-
-filters.forEach(
-    filter => {
-
-        filter.addEventListener(
-            "click",
-            () => {
-
-                filters.forEach(
-                    item => {
-
-                        item.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-
-                filter.classList.add(
-                    "active"
-                );
-
-
-                const selected =
-                    filter.dataset.filter;
-
-
-                cards.forEach(
-                    card => {
-
-                        const category =
-                            card.dataset.category;
-
-
-                        if (
-                            selected === "all" ||
-                            category === selected
-                        ) {
-
-                            card.style.display =
-                                "";
-
-
-                            setTimeout(
-                                () => {
-
-                                    card.style.opacity =
-                                        "1";
-
-                                    card.style.transform =
-                                        "translateY(0)";
-
-                                },
-                                20
-                            );
-
-                        } else {
-
-                            card.style.opacity =
-                                "0";
-
-
-                            card.style.transform =
-                                "translateY(15px)";
-
-
-                            setTimeout(
-                                () => {
-
-                                    card.style.display =
-                                        "none";
-
-                                },
-                                250
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   NEWSLETTER
-========================================================= */
-
-const newsletterForm =
-    document.getElementById(
-        "newsletterForm"
-    );
-
-
-const newsletterMessage =
-    document.getElementById(
-        "newsletterMessage"
-    );
-
-
-newsletterForm.addEventListener(
-    "submit",
-    event => {
-
-        event.preventDefault();
-
-
-        newsletterMessage.style.display =
-            "block";
-
-
-        newsletterForm.reset();
-
-    }
-);
-
-
-/* =========================================================
-   PARALLAXE HERO
-========================================================= */
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        const hero =
-            document.querySelector(
-                ".news-hero"
-            );
-
-
-        const scroll =
-            window.scrollY;
-
-
-        if (
-            scroll <
-            window.innerHeight
-        ) {
-
-            hero.style.backgroundPosition =
-                `center ${scroll * .15}px`;
-
-        }
-
-    }
-);
 
 </script>
 </body>
