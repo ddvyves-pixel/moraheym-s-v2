@@ -9,7 +9,7 @@
 <title>Actualités — GROUPE MORAHEYM'S</title>
 
 <meta name="description"
-   content="Découvrez les actualités, projets, initiatives et partenariats du GROUPE MORAHEYM'S dans l'immobilier, les infrastructures, l'éducation, la recherche et le développement des compétences en Afrique.">
+content="Découvrez les actualités, projets, initiatives et partenariats du GROUPE MORAHEYM'S dans l'immobilier, les infrastructures, l'éducation, la recherche et le développement des compétences en Afrique.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1846,239 +1846,6 @@ body::before {
 }
 
 
-
-/* =========================================================
-   MENU LANGUES — FR / EN / RU
-========================================================= */
-
-.language-selector {
-    position: relative;
-    flex: 0 0 auto;
-    margin-left: 8px;
-    z-index: 40;
-}
-
-.language-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    min-width: 58px;
-    height: 42px;
-    padding: 0 12px;
-    border: 1px solid var(--line);
-    background: transparent;
-    color: var(--cream);
-    font-family: var(--sans);
-    font-size: .62rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    cursor: pointer;
-    transition: all .3s ease;
-}
-
-.language-button:hover,
-.language-selector.open .language-button {
-    border-color: var(--gold);
-    color: var(--gold);
-}
-
-.language-arrow {
-    font-size: .48rem;
-    transition: transform .3s ease;
-}
-
-.language-selector.open .language-arrow {
-    transform: rotate(180deg);
-}
-
-.language-menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    min-width: 78px;
-    padding: 7px;
-    background: rgba(7,9,8,.97);
-    border: 1px solid var(--line);
-    box-shadow: 0 18px 45px rgba(0,0,0,.25);
-    backdrop-filter: blur(18px);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition:
-        opacity .25s ease,
-        visibility .25s ease,
-        transform .25s ease;
-}
-
-.language-selector.open .language-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.language-option {
-    display: block;
-    width: 100%;
-    padding: 10px 12px;
-    border: 0;
-    background: transparent;
-    color: var(--cream-soft);
-    font-family: var(--sans);
-    font-size: .58rem;
-    font-weight: 600;
-    letter-spacing: .13em;
-    text-align: left;
-    cursor: pointer;
-    transition: all .25s ease;
-}
-
-.language-option:hover,
-.language-option.active {
-    background: rgba(201,164,93,.12);
-    color: var(--gold);
-}
-
-/* Google Translate reste entièrement caché :
-   seul notre menu personnalisé est visible. */
-#google_translate_element {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    left: -9999px !important;
-    top: 0 !important;
-}
-
-#google_translate_element .goog-te-gadget {
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-}
-
-#google_translate_element .goog-te-combo {
-    width: 1px !important;
-    height: 1px !important;
-    opacity: 0 !important;
-}
-
-.goog-logo-link,
-.goog-te-gadget span {
-    display: none !important;
-}
-
-.goog-te-banner-frame.skiptranslate {
-    display: none !important;
-}
-
-body {
-    top: 0 !important;
-}
-
-/* Conteneur des actions à droite */
-.nav-actions {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-/* =========================================================
-   MENU LANGUES — MODE CLAIR
-========================================================= */
-
-html[data-theme="light"] .language-button {
-    background: #ffffff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
-
-html[data-theme="light"] .language-button:hover,
-html[data-theme="light"] .language-selector.open .language-button {
-    color: #9a762d;
-    border-color: #9a762d;
-}
-
-html[data-theme="light"] .language-menu {
-    background: rgba(255,255,255,.98);
-    border-color: rgba(23,26,23,.13);
-    box-shadow: 0 18px 45px rgba(23,26,23,.12);
-}
-
-html[data-theme="light"] .language-option {
-    color: #59605a;
-}
-
-html[data-theme="light"] .language-option:hover,
-html[data-theme="light"] .language-option.active {
-    background: rgba(154,118,45,.10);
-    color: #9a762d;
-}
-
-/* =========================================================
-   RESPONSIVE — MENU LANGUES
-========================================================= */
-
-@media (max-width:1050px) {
-    .nav-actions {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px;
-        flex-shrink: 0;
-    }
-
-    .language-selector {
-        margin-left: 0;
-    }
-
-    .language-button {
-        height: 40px;
-        min-width: 54px;
-        padding: 0 10px;
-    }
-
-    .language-menu {
-        right: 0;
-    }
-
-    /* Le bouton thème est placé dans le menu burger.
-       La langue reste à côté du bouton burger, comme sur index.html. */
-    .nav-links .theme-toggle {
-        display: none;
-    }
-
-    .nav-links.open .theme-toggle {
-        display: inline-flex;
-    }
-}
-
-@media (max-width:650px) {
-    .language-button {
-        height: 38px;
-        min-width: 52px;
-        padding: 0 9px;
-    }
-
-    .language-menu {
-        top: calc(100% + 8px);
-    }
-}
-
-@media (max-width:400px) {
-    .language-button {
-        height: 36px;
-        min-width: 49px;
-        padding: 0 8px;
-        gap: 5px;
-    }
-}
-
 /* =========================================================
    THEME CLAIR / SOMBRE
 ========================================================= */
@@ -2917,22 +2684,22 @@ html[data-theme="light"] .preloader {
 
 <div class="loader">
 
-    <div class="loader-logo">
-        MORAHEYM'S
+<div class="loader-logo">
+    MORAHEYM'S
+</div>
+
+<div class="loader-subtitle">
+    Actualités
+</div>
+
+<div class="loader-bar">
+
+    <div
+        class="loader-progress"
+        id="loaderProgress">
     </div>
 
-    <div class="loader-subtitle">
-        Actualités
-    </div>
-
-    <div class="loader-bar">
-
-        <div
-            class="loader-progress"
-            id="loaderProgress">
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -2951,23 +2718,34 @@ html[data-theme="light"] .preloader {
 
 <div class="nav-inner">
 
+<a
+    href="index.html"
+    class="logo">
 
-    <a
-        href="index.html"
-        class="logo">
+    <img
+        src="logo-moraheyms.png"
+        alt="GROUPE MORAHEYM'S">
 
-        <img
-            src="logo-moraheyms.png"
-            alt="GROUPE MORAHEYM'S">
-
-    </a>
+</a>
 
 
-     <nav
-        class="nav-links"
-        id="navLinks">
+ <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+>
+    ☰
+</button>
 
-        <a href="actualites.html" class="nav-news" data-i18n="actualites">
+
+<nav
+    class="nav-links"
+    id="navLinks">
+
+    <a href="actualites.html" class="nav-news" data-i18n="actualites">
+
 Actualités
 
 </a>
@@ -2992,70 +2770,7 @@ Actualités
     Contact
 </a>
 
-    </nav>
-
-    <div class="nav-actions">
-
-        <div class="language-selector" id="languageSelector">
-
-            <button
-                type="button"
-                class="language-button"
-                id="languageButton"
-                aria-label="Choisir la langue"
-                aria-expanded="false"
-            >
-                <span id="currentLanguage">FR</span>
-                <span class="language-arrow">▼</span>
-            </button>
-
-            <div
-                class="language-menu"
-                id="languageMenu"
-            >
-                <button
-                    type="button"
-                    class="language-option active"
-                    data-lang="fr"
-                >
-                    FR
-                </button>
-
-                <button
-                    type="button"
-                    class="language-option"
-                    data-lang="en"
-                >
-                    EN
-                </button>
-
-                <button
-                    type="button"
-                    class="language-option"
-                    data-lang="ru"
-                >
-                    RU
-                </button>
-            </div>
-
-        </div>
-
-        <div
-            id="google_translate_element"
-            aria-hidden="true"
-        ></div>
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-    </div>
+</nav>
 
 </div>
 
@@ -3069,43 +2784,42 @@ Actualités
 
 <div class="container news-hero-grid">
 
+<div class="reveal">
 
-    <div class="reveal">
+    <div class="section-label">
 
-        <div class="section-label">
-
-            01 — GROUPE MORAHEYM'S
-
-        </div>
-
-
-        <h1>
-
-            Nos
-
-            <br>
-
-            <em>actualités.</em>
-
-        </h1>
+        01 — GROUPE MORAHEYM'S
 
     </div>
 
 
-    <div class="hero-intro reveal">
+    <h1>
 
-        <p>
+        Nos
 
-            Suivez l'évolution des initiatives,
-            projets et partenariats du GROUPE
-            MORAHEYM'S dans l'immobilier,
-            les infrastructures, l'éducation,
-            la recherche et le développement
-            des compétences en Afrique.
+        <br>
 
-        </p>
+        <em>actualités.</em>
 
-    </div>
+    </h1>
+
+</div>
+
+
+<div class="hero-intro reveal">
+
+    <p>
+
+        Suivez l'évolution des initiatives,
+        projets et partenariats du GROUPE
+        MORAHEYM'S dans l'immobilier,
+        les infrastructures, l'éducation,
+        la recherche et le développement
+        des compétences en Afrique.
+
+    </p>
+
+</div>
 
 </div>
 
@@ -3119,61 +2833,60 @@ Actualités
 
 <div class="container filters-inner">
 
+<div class="filter-title">
 
-    <div class="filter-title">
+    Filtrer les publications
 
-        Filtrer les publications
-
-    </div>
-
-
-    <div class="filter-buttons">
-
-        <button
-            class="filter active"
-            data-filter="all">
-
-            Toutes
-
-        </button>
+</div>
 
 
-        <button
-            class="filter"
-            data-filter="immobilier">
+<div class="filter-buttons">
 
-            Immobilier
+    <button
+        class="filter active"
+        data-filter="all">
 
-        </button>
+        Toutes
 
-
-        <button
-            class="filter"
-            data-filter="education">
-
-            Éducation
-
-        </button>
+    </button>
 
 
-        <button
-            class="filter"
-            data-filter="partenariat">
+    <button
+        class="filter"
+        data-filter="immobilier">
 
-            Partenariats
+        Immobilier
 
-        </button>
+    </button>
 
 
-        <button
-            class="filter"
-            data-filter="projet">
+    <button
+        class="filter"
+        data-filter="education">
 
-            Projets
+        Éducation
 
-        </button>
+    </button>
 
-    </div>
+
+    <button
+        class="filter"
+        data-filter="partenariat">
+
+        Partenariats
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-filter="projet">
+
+        Projets
+
+    </button>
+
+</div>
 
 </div>
 
@@ -3187,87 +2900,86 @@ Actualités
 
 <div class="container">
 
+<div class="section-label featured-label reveal">
 
-    <div class="section-label featured-label reveal">
+    02 — À la une
 
-        02 — À la une
+</div>
+
+
+<article class="featured-card reveal">
+
+
+    <div class="featured-image">
+
+        <div class="featured-image-tag">
+
+            Projet panafricain
+
+        </div>
+
+
+        <div class="featured-image-number">
+
+            01
+
+        </div>
 
     </div>
 
 
-    <article class="featured-card reveal">
+    <div class="featured-content">
 
 
-        <div class="featured-image">
+        <div class="article-meta">
 
-            <div class="featured-image-tag">
+            MORAHEYMS – AUUI
 
-                Projet panafricain
+            <span></span>
 
-            </div>
-
-
-            <div class="featured-image-number">
-
-                01
-
-            </div>
+            17 AOÛT 2026
 
         </div>
 
 
-        <div class="featured-content">
+        <h2>
+
+            Un projet panafricain
+            au service du
+
+            <em>
+                développement.
+            </em>
+
+        </h2>
 
 
-            <div class="article-meta">
+        <p>
 
-                MORAHEYMS – AUUI
+            Le projet MORAHEYMS – AUUI associe
+            développement immobilier, infrastructures
+            et éducation internationale. Il porte
+            l'ambition de créer des passerelles entre
+            les institutions, les chercheurs, les
+            étudiants et les acteurs du développement
+            à l'échelle africaine.
 
-                <span></span>
-
-                17 AOÛT 2026
-
-            </div>
-
-
-            <h2>
-
-                Un projet panafricain
-                au service du
-
-                <em>
-                    développement.
-                </em>
-
-            </h2>
+        </p>
 
 
-            <p>
+        <a
+            href="projets.html"
+            class="read-more">
 
-                Le projet MORAHEYMS – AUUI associe
-                développement immobilier, infrastructures
-                et éducation internationale. Il porte
-                l'ambition de créer des passerelles entre
-                les institutions, les chercheurs, les
-                étudiants et les acteurs du développement
-                à l'échelle africaine.
+            Découvrir le projet
 
-            </p>
+            <span>→</span>
 
+        </a>
 
-            <a
-                href="projets.html"
-                class="read-more">
+    </div>
 
-                Découvrir le projet
-
-                <span>→</span>
-
-            </a>
-
-        </div>
-
-    </article>
+</article>
 
 </div>
 
@@ -3281,411 +2993,410 @@ Actualités
 
 <div class="container">
 
-
-    <div class="latest-header reveal">
-
-
-        <div>
-
-            <div class="section-label">
-
-                03 — Publications
-
-            </div>
+<div class="latest-header reveal">
 
 
-            <h2 class="latest-title">
+    <div>
 
-                Les dernières
+        <div class="section-label">
 
-                <em>nouvelles.</em>
-
-            </h2>
+            03 — Publications
 
         </div>
 
 
-        <p class="latest-description">
+        <h2 class="latest-title">
 
-            Retrouvez les principales actualités
-            liées aux domaines d'intervention et
-            aux projets portés ou développés par
-            le GROUPE MORAHEYM'S.
+            Les dernières
 
-        </p>
+            <em>nouvelles.</em>
+
+        </h2>
 
     </div>
 
 
-    <div class="news-grid">
+    <p class="latest-description">
+
+        Retrouvez les principales actualités
+        liées aux domaines d'intervention et
+        aux projets portés ou développés par
+        le GROUPE MORAHEYM'S.
+
+    </p>
+
+</div>
 
 
-        <!-- ARTICLE 1 -->
-
-        <article
-            class="news-card reveal"
-            id="article-1"
-            data-category="projet">
+<div class="news-grid">
 
 
-            <div class="news-image">
+    <!-- ARTICLE 1 -->
 
-                <div class="news-category">
-                    Projet
-                </div>
+    <article
+        class="news-card reveal"
+        id="article-1"
+        data-category="projet">
 
-                <div class="news-number">
-                    01
-                </div>
+
+        <div class="news-image">
+
+            <div class="news-category">
+                Projet
+            </div>
+
+            <div class="news-number">
+                01
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                17 AOÛT 2026
 
             </div>
 
 
-            <div class="news-content">
+            <h3>
 
-                <div class="news-meta">
+                MORAHEYMS – AUUI :
+                une ambition panafricaine
 
-                    17 AOÛT 2026
-
-                </div>
-
-
-                <h3>
-
-                    MORAHEYMS – AUUI :
-                    une ambition panafricaine
-
-                </h3>
+            </h3>
 
 
-                <p>
+            <p>
 
-                    Le projet MORAHEYMS – AUUI vise
-                    à articuler développement immobilier,
-                    infrastructures et éducation
-                    internationale dans une dynamique
-                    panafricaine.
+                Le projet MORAHEYMS – AUUI vise
+                à articuler développement immobilier,
+                infrastructures et éducation
+                internationale dans une dynamique
+                panafricaine.
 
-                </p>
+            </p>
 
 
-                <a
-                    href="projets.html"
-                    class="news-link">
+            <a
+                href="projets.html"
+                class="news-link">
 
-                    Découvrir → 
+                Découvrir → 
 
-                </a>
+            </a>
 
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 2 -->
+
+    <article
+        class="news-card reveal"
+        data-category="education">
+
+
+        <div class="news-image two">
+
+            <div class="news-category">
+                Éducation
             </div>
 
-        </article>
-
-
-        <!-- ARTICLE 2 -->
-
-        <article
-            class="news-card reveal"
-            data-category="education">
-
-
-            <div class="news-image two">
-
-                <div class="news-category">
-                    Éducation
-                </div>
-
-                <div class="news-number">
-                    02
-                </div>
-
+            <div class="news-number">
+                02
             </div>
 
-
-            <div class="news-content">
-
-                <div class="news-meta">
-
-                    2026
-
-                </div>
+        </div>
 
 
-                <h3>
+        <div class="news-content">
 
-                    Soutenir les étudiants
-                    et les chercheurs
+            <div class="news-meta">
 
-                </h3>
-
-
-                <p>
-
-                    MORAHEYM'S développe une approche
-                    destinée à favoriser l'appui technique
-                    et financier aux projets académiques,
-                    aux activités de recherche et au
-                    développement des compétences.
-
-                </p>
-
-
-                <a
-                    href="expertise.html"
-                    class="news-link">
-
-                    Notre expertise →
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- ARTICLE 3 -->
-
-        <article
-            class="news-card reveal"
-            data-category="partenariat">
-
-
-            <div class="news-image three">
-
-                <div class="news-category">
-                    Partenariats
-                </div>
-
-                <div class="news-number">
-                    03
-                </div>
+                2026
 
             </div>
 
 
-            <div class="news-content">
+            <h3>
 
-                <div class="news-meta">
+                Soutenir les étudiants
+                et les chercheurs
 
-                    2026
-
-                </div>
-
-
-                <h3>
-
-                    Développer des partenariats
-                    à l'échelle africaine
-
-                </h3>
+            </h3>
 
 
-                <p>
+            <p>
 
-                    Le groupe souhaite renforcer les
-                    coopérations avec les États,
-                    institutions, universités et autres
-                    acteurs engagés dans le développement
-                    du continent.
+                MORAHEYM'S développe une approche
+                destinée à favoriser l'appui technique
+                et financier aux projets académiques,
+                aux activités de recherche et au
+                développement des compétences.
 
-                </p>
+            </p>
 
 
-                <a
-                    href="vision.html"
-                    class="news-link">
+            <a
+                href="expertise.html"
+                class="news-link">
 
-                    Notre vision →
+                Notre expertise →
 
-                </a>
+            </a>
 
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 3 -->
+
+    <article
+        class="news-card reveal"
+        data-category="partenariat">
+
+
+        <div class="news-image three">
+
+            <div class="news-category">
+                Partenariats
             </div>
 
-        </article>
-
-
-        <!-- ARTICLE 4 -->
-
-        <article
-            class="news-card reveal"
-            data-category="immobilier">
-
-
-            <div class="news-image four">
-
-                <div class="news-category">
-                    Immobilier
-                </div>
-
-                <div class="news-number">
-                    04
-                </div>
-
+            <div class="news-number">
+                03
             </div>
 
-
-            <div class="news-content">
-
-                <div class="news-meta">
-
-                    2026
-
-                </div>
+        </div>
 
 
-                <h3>
+        <div class="news-content">
 
-                    L'immobilier au cœur
-                    du développement
+            <div class="news-meta">
 
-                </h3>
-
-
-                <p>
-
-                    La promotion immobilière et le
-                    développement de projets de construction
-                    constituent l'un des axes majeurs
-                    d'intervention de MORAHEYM'S.
-
-                </p>
-
-
-                <a
-                    href="expertise.html"
-                    class="news-link">
-
-                    Voir notre expertise →
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- ARTICLE 5 -->
-
-        <article
-            class="news-card reveal"
-            data-category="immobilier">
-
-
-            <div class="news-image">
-
-                <div class="news-category">
-                    Infrastructures
-                </div>
-
-                <div class="news-number">
-                    05
-                </div>
+                2026
 
             </div>
 
 
-            <div class="news-content">
+            <h3>
 
-                <div class="news-meta">
+                Développer des partenariats
+                à l'échelle africaine
 
-                    2026
-
-                </div>
-
-
-                <h3>
-
-                    Contribuer au développement
-                    des infrastructures
-
-                </h3>
+            </h3>
 
 
-                <p>
+            <p>
 
-                    Le groupe inscrit le développement
-                    d'infrastructures dans une démarche
-                    destinée à accompagner la croissance
-                    économique, sociale et institutionnelle
-                    en Afrique de l'Ouest.
+                Le groupe souhaite renforcer les
+                coopérations avec les États,
+                institutions, universités et autres
+                acteurs engagés dans le développement
+                du continent.
 
-                </p>
+            </p>
 
 
-                <a
-                    href="expertise.html"
-                    class="news-link">
+            <a
+                href="vision.html"
+                class="news-link">
 
-                    En savoir plus →
+                Notre vision →
 
-                </a>
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 4 -->
+
+    <article
+        class="news-card reveal"
+        data-category="immobilier">
+
+
+        <div class="news-image four">
+
+            <div class="news-category">
+                Immobilier
+            </div>
+
+            <div class="news-number">
+                04
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
 
             </div>
 
-        </article>
+
+            <h3>
+
+                L'immobilier au cœur
+                du développement
+
+            </h3>
 
 
-        <!-- ARTICLE 6 -->
+            <p>
 
-        <article
-            class="news-card reveal"
-            data-category="partenariat">
+                La promotion immobilière et le
+                développement de projets de construction
+                constituent l'un des axes majeurs
+                d'intervention de MORAHEYM'S.
+
+            </p>
 
 
-            <div class="news-image three">
+            <a
+                href="expertise.html"
+                class="news-link">
 
-                <div class="news-category">
-                    Recherche
-                </div>
+                Voir notre expertise →
 
-                <div class="news-number">
-                    06
-                </div>
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 5 -->
+
+    <article
+        class="news-card reveal"
+        data-category="immobilier">
+
+
+        <div class="news-image">
+
+            <div class="news-category">
+                Infrastructures
+            </div>
+
+            <div class="news-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
 
             </div>
 
 
-            <div class="news-content">
+            <h3>
 
-                <div class="news-meta">
+                Contribuer au développement
+                des infrastructures
 
-                    2026
-
-                </div>
-
-
-                <h3>
-
-                    Un réseau de chercheurs
-                    au service des projets
-
-                </h3>
+            </h3>
 
 
-                <p>
+            <p>
 
-                    À travers son orientation panafricaine,
-                    MORAHEYM'S entend faciliter les échanges
-                    et les collaborations entre chercheurs,
-                    étudiants et institutions de différentes
-                    nationalités.
+                Le groupe inscrit le développement
+                d'infrastructures dans une démarche
+                destinée à accompagner la croissance
+                économique, sociale et institutionnelle
+                en Afrique de l'Ouest.
 
-                </p>
+            </p>
 
 
-                <a
-                    href="projets.html"
-                    class="news-link">
+            <a
+                href="expertise.html"
+                class="news-link">
 
-                    Découvrir → 
+                En savoir plus →
 
-                </a>
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 6 -->
+
+    <article
+        class="news-card reveal"
+        data-category="partenariat">
+
+
+        <div class="news-image three">
+
+            <div class="news-category">
+                Recherche
+            </div>
+
+            <div class="news-number">
+                06
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
 
             </div>
 
-        </article>
 
-    </div>
+            <h3>
+
+                Un réseau de chercheurs
+                au service des projets
+
+            </h3>
+
+
+            <p>
+
+                À travers son orientation panafricaine,
+                MORAHEYM'S entend faciliter les échanges
+                et les collaborations entre chercheurs,
+                étudiants et institutions de différentes
+                nationalités.
+
+            </p>
+
+
+            <a
+                href="projets.html"
+                class="news-link">
+
+                Découvrir → 
+
+            </a>
+
+        </div>
+
+    </article>
+
+</div>
 
 </div>
 
@@ -3699,78 +3410,77 @@ Actualités
 
 <div class="container newsletter-box">
 
+<div class="reveal">
 
-    <div class="reveal">
+    <div class="section-label">
 
-        <div class="section-label">
-
-            04 — Restez informés
-
-        </div>
-
-
-        <h2>
-
-            Suivez nos
-
-            <br>
-
-            prochaines
-
-            <em>initiatives.</em>
-
-        </h2>
-
-
-        <p class="newsletter-text">
-
-            Restez informé des évolutions du
-            GROUPE MORAHEYM'S, de ses projets,
-            de ses initiatives panafricaines et
-            de ses actions dans les domaines de
-            l'immobilier, des infrastructures,
-            de l'éducation et de la recherche.
-
-        </p>
+        04 — Restez informés
 
     </div>
 
 
-    <div class="reveal">
+    <h2>
+
+        Suivez nos
+
+        <br>
+
+        prochaines
+
+        <em>initiatives.</em>
+
+    </h2>
 
 
-        <form
-            class="newsletter-form"
-            id="newsletterForm">
+    <p class="newsletter-text">
 
-            <input
-                type="email"
-                placeholder="Votre adresse email"
-                required>
+        Restez informé des évolutions du
+        GROUPE MORAHEYM'S, de ses projets,
+        de ses initiatives panafricaines et
+        de ses actions dans les domaines de
+        l'immobilier, des infrastructures,
+        de l'éducation et de la recherche.
 
-            <button type="submit">
+    </p>
 
-                S'inscrire →
-
-            </button>
-
-        </form>
+</div>
 
 
-        <p
-            id="newsletterMessage"
-            style="
-                margin-top:18px;
-                color:var(--gold-light);
-                font-size:.7rem;
-                display:none;
-            ">
+<div class="reveal">
 
-            Merci pour votre inscription.
 
-        </p>
+    <form
+        class="newsletter-form"
+        id="newsletterForm">
 
-    </div>
+        <input
+            type="email"
+            placeholder="Votre adresse email"
+            required>
+
+        <button type="submit">
+
+            S'inscrire →
+
+        </button>
+
+    </form>
+
+
+    <p
+        id="newsletterMessage"
+        style="
+            margin-top:18px;
+            color:var(--gold-light);
+            font-size:.7rem;
+            display:none;
+        ">
+
+        Merci pour votre inscription.
+
+    </p>
+
+</div>
 
 </div>
 
@@ -3780,196 +3490,196 @@ Actualités
 
 <div class="container">
 
-    <div class="footer-grid">
+<div class="footer-grid">
 
-        <!-- IDENTITÉ -->
-        <div>
-            <div class="footer-logo">
-                GROUPE
-                <span>MORAHEYM'S</span>
-            </div>
-
-            <p class="footer-description">
-                MORAHEYM’S développe des projets
-                immobiliers, des infrastructures et
-                des initiatives dans l’éducation,
-                la recherche et le développement
-                des compétences en Afrique.
-            </p>
+    <!-- IDENTITÉ -->
+    <div>
+        <div class="footer-logo">
+            GROUPE
+            <span>MORAHEYM'S</span>
         </div>
 
-
-        <!-- NAVIGATION -->
-        <div>
-            <div class="footer-heading">
-                Navigation
-            </div>
-
-            <div class="footer-links">
-                <a href="actualites.html">Actualités</a>
-                <a href="groupe.html">Le groupe</a>
-                <a href="expertise.html">Expertise</a>
-                <a href="vision.html">Vision</a>
-                <a href="projets.html">Projets</a>
-            </div>
-        </div>
-
-
-       <!-- DOMAINES -->
-        <div>
-            <div class="footer-heading">
-                Nos domaines
-            </div>
-
-            <div class="footer-links">
-                <a href="expertise.html">
-                    IMMOBILIER & CONSTRUCTION
-                </a>
-
-                <a href="expertise.html">
-                    INFRASTRUCTURES
-                </a>
-
-                <a href="expertise.html">
-                    ÉDUCATION & RECHERCHE
-                </a>
-
-                <a href="expertise.html">
-                    DÉVELOPPEMENT DES COMPÉTENCES
-                </a>
-
-                <a href="expertise.html">
-                    ÉQUIPEMENTS
-                </a>
-                
-                <a href="expertise.html">
-                    FORMATION PROFESSIONNELLE
-                </a>
-
-                <a href="expertise.html">
-                    DEVELOPPEMENT PERSONNEL 
-                    ET LEADERSHIP FAMILIAL
-                </a>
-            </div>
-        </div>
-
-
-        <!-- CONTACT -->
-        <div>
-            <div class="footer-heading">
-                Contact
-            </div>
-
-            <div class="footer-links">
-                <a href="contact.html">
-                    Nous contacter
-                </a>
-
-                <a href="mailto:moraheyms@gmail.com">
-                    moraheyms@gmail.com
-                </a>
-
-                <a href="projets.html">
-                    Découvrir nos projets
-                </a>
-            </div>
-        </div>
-
-
-        <!-- NOS PARTENAIRES -->
-        <div>
-            <div class="footer-heading">
-               Nos partenaires
-            </div>
-
-            <div class="footer-links">
-
-                <a href="vision.html">
-                  AFRICAN UNION UNIVERSITY
-                  INTERNATIONAL (AUUI)
-                </a>
-
-                <a href="vision.html">
-                 GROUPE CEB Inc
-                  — CLEAN-ENERGY-BUILD
-                </a>
-
-                <a href="vision.html">
-                  MORAHEYM'S ASSURANCES
-                </a>
-
-                <a href="vision.html">
-                  GLORY TO GOD BJR
-                </a>
-
-                <a href="vision.html">
-                  PARTENAIRES BANCAIRES
-                 </a>
-
-            </div>
-        </div>
-
-
-        <!-- ADRESSES -->
-        <div>
-            <div class="footer-heading">
-                COORDONNÉES
-            </div>
-
-            <div class="footer-links footer-address">
-
-                <div>
-                    <strong>
-                        SOCIETE MORAHEYM’S
-                        CONSULTING AND
-                        CONSTRUCTION SARLU
-                    </strong>
-                </div>
-
-                <div>
-                    MORAHEYM’S SARLU LIMITED
-                    (MC & CS)
-                </div>
-
-                <div>
-                    106 Ikorodu-Osusun Road,
-                    3nd Floor at the Right,
-                    Fadeyi, Lagos
-                </div>
-
-                <a href="mailto:moraheyms@gmail.com">
-                    moraheyms@gmail.com
-                </a>
-
-                <div>
-                    RCCM : 9312884
-                </div>
-
-                <div>
-                    Tél :
-                    +225 07 14 92 50 32/  +225 07 07 00 76 45
-                </div>
-
-            </div>
-        </div>
-
+        <p class="footer-description">
+            MORAHEYM’S développe des projets
+            immobiliers, des infrastructures et
+            des initiatives dans l’éducation,
+            la recherche et le développement
+            des compétences en Afrique.
+        </p>
     </div>
 
 
-    <!-- FOOTER BOTTOM -->
-    <div class="footer-bottom">
+    <!-- NAVIGATION -->
+    <div>
+        <div class="footer-heading">
+            Navigation
+        </div>
 
-        <span>
-            © 2026 GROUPE MORAHEYM'S —
-            Tous droits réservés.
-        </span>
-
-        <span>
-            Immobilier · Infrastructures ·
-            Éducation · Recherche
-        </span>
-
+        <div class="footer-links">
+            <a href="actualites.html">Actualités</a>
+            <a href="groupe.html">Le groupe</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="vision.html">Vision</a>
+            <a href="projets.html">Projets</a>
+        </div>
     </div>
+
+
+   <!-- DOMAINES -->
+    <div>
+        <div class="footer-heading">
+            Nos domaines
+        </div>
+
+        <div class="footer-links">
+            <a href="expertise.html">
+                IMMOBILIER & CONSTRUCTION
+            </a>
+
+            <a href="expertise.html">
+                INFRASTRUCTURES
+            </a>
+
+            <a href="expertise.html">
+                ÉDUCATION & RECHERCHE
+            </a>
+
+            <a href="expertise.html">
+                DÉVELOPPEMENT DES COMPÉTENCES
+            </a>
+
+            <a href="expertise.html">
+                ÉQUIPEMENTS
+            </a>
+            
+            <a href="expertise.html">
+                FORMATION PROFESSIONNELLE
+            </a>
+
+            <a href="expertise.html">
+                DEVELOPPEMENT PERSONNEL 
+                ET LEADERSHIP FAMILIAL
+            </a>
+        </div>
+    </div>
+
+
+    <!-- CONTACT -->
+    <div>
+        <div class="footer-heading">
+            Contact
+        </div>
+
+        <div class="footer-links">
+            <a href="contact.html">
+                Nous contacter
+            </a>
+
+            <a href="mailto:moraheyms@gmail.com">
+                moraheyms@gmail.com
+            </a>
+
+            <a href="projets.html">
+                Découvrir nos projets
+            </a>
+        </div>
+    </div>
+
+
+    <!-- NOS PARTENAIRES -->
+    <div>
+        <div class="footer-heading">
+           Nos partenaires
+        </div>
+
+        <div class="footer-links">
+
+            <a href="vision.html">
+              AFRICAN UNION UNIVERSITY
+              INTERNATIONAL (AUUI)
+            </a>
+
+            <a href="vision.html">
+             GROUPE CEB Inc
+              — CLEAN-ENERGY-BUILD
+            </a>
+
+            <a href="vision.html">
+              MORAHEYM'S ASSURANCES
+            </a>
+
+            <a href="vision.html">
+              GLORY TO GOD BJR
+            </a>
+
+            <a href="vision.html">
+              PARTENAIRES BANCAIRES
+             </a>
+
+        </div>
+    </div>
+
+
+    <!-- ADRESSES -->
+    <div>
+        <div class="footer-heading">
+            COORDONNÉES
+        </div>
+
+        <div class="footer-links footer-address">
+
+            <div>
+                <strong>
+                    SOCIETE MORAHEYM’S
+                    CONSULTING AND
+                    CONSTRUCTION SARLU
+                </strong>
+            </div>
+
+            <div>
+                MORAHEYM’S SARLU LIMITED
+                (MC & CS)
+            </div>
+
+            <div>
+                106 Ikorodu-Osusun Road,
+                3nd Floor at the Right,
+                Fadeyi, Lagos
+            </div>
+
+            <a href="mailto:moraheyms@gmail.com">
+                moraheyms@gmail.com
+            </a>
+
+            <div>
+                RCCM : 9312884
+            </div>
+
+            <div>
+                Tél :
+                +225 07 14 92 50 32/  +225 07 07 00 76 45
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- FOOTER BOTTOM -->
+<div class="footer-bottom">
+
+    <span>
+        © 2026 GROUPE MORAHEYM'S —
+        Tous droits réservés.
+    </span>
+
+    <span>
+        Immobilier · Infrastructures ·
+        Éducation · Recherche
+    </span>
+
+</div>
 
 </div>
 
@@ -4137,20 +3847,12 @@ Actualités
          * et le bouton vient juste après Contact.
          */
 
-        const languageSelector =
-            document.getElementById(
-                "languageSelector"
-            );
-
         if (
-            languageSelector &&
-            languageSelector.parentElement ===
-                document.querySelector(".nav-actions")
+            button.parentElement !== navInner
         ) {
 
-            languageSelector.parentElement.insertBefore(
-                button,
-                languageSelector
+            navInner.appendChild(
+                button
             );
 
         } else {
@@ -4742,249 +4444,6 @@ window.addEventListener(
     }
 );
 
-
-
-/* =========================================================
-   MENU LANGUES — GOOGLE TRANSLATE
-========================================================= */
-
-(function () {
-
-    const selector =
-        document.getElementById(
-            "languageSelector"
-        );
-
-    const button =
-        document.getElementById(
-            "languageButton"
-        );
-
-    const menu =
-        document.getElementById(
-            "languageMenu"
-        );
-
-    const currentLanguage =
-        document.getElementById(
-            "currentLanguage"
-        );
-
-    const options =
-        document.querySelectorAll(
-            ".language-option"
-        );
-
-    if (
-        !selector ||
-        !button ||
-        !menu
-    ) return;
-
-
-    button.addEventListener(
-        "click",
-        function (event) {
-
-            event.stopPropagation();
-
-            const isOpen =
-                selector.classList.toggle(
-                    "open"
-                );
-
-            button.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-        }
-    );
-
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                !selector.contains(
-                    event.target
-                )
-            ) {
-
-                selector.classList.remove(
-                    "open"
-                );
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-    );
-
-
-    function translatePage(
-        language
-    ) {
-
-        const googleSelect =
-            document.querySelector(
-                "#google_translate_element .goog-te-combo"
-            );
-
-        if (!googleSelect) {
-
-            setTimeout(
-                function () {
-
-                    translatePage(
-                        language
-                    );
-
-                },
-                300
-            );
-
-            return;
-
-        }
-
-
-        googleSelect.value =
-            language;
-
-
-        try {
-
-            const event =
-                document.createEvent(
-                    "HTMLEvents"
-                );
-
-            event.initEvent(
-                "change",
-                true,
-                true
-            );
-
-            googleSelect.dispatchEvent(
-                event
-            );
-
-        } catch (error) {
-
-            googleSelect.dispatchEvent(
-                new Event(
-                    "change",
-                    {
-                        bubbles: true
-                    }
-                )
-            );
-
-        }
-
-    }
-
-
-    options.forEach(
-        function (option) {
-
-            option.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-
-                    const language =
-                        option.getAttribute(
-                            "data-lang"
-                        );
-
-                    if (!language) return;
-
-
-                    if (currentLanguage) {
-
-                        currentLanguage.textContent =
-                            language.toUpperCase();
-
-                    }
-
-
-                    options.forEach(
-                        function (item) {
-
-                            item.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-
-                    option.classList.add(
-                        "active"
-                    );
-
-
-                    selector.classList.remove(
-                        "open"
-                    );
-
-
-                    button.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    translatePage(
-                        language
-                    );
-
-                }
-            );
-
-        }
-    );
-
-})();
-
-</script>
-
-<!-- =========================================================
-     GOOGLE TRANSLATE
-========================================================= -->
-
-<script type="text/javascript">
-
-function googleTranslateElementInit() {
-
-    new google.translate.TranslateElement({
-
-        pageLanguage: 'fr',
-
-        includedLanguages: 'fr,en,ru',
-
-        autoDisplay: false
-
-    }, 'google_translate_element');
-
-}
-
-</script>
-
-<script
-    type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 
 </body>
