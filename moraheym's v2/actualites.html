@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Actualités — GROUPE MORAHEYM'S</title>
-
 <meta name="description"
 content="Découvrez les actualités, projets, initiatives et partenariats du GROUPE MORAHEYM'S dans l'immobilier, les infrastructures, l'éducation, la recherche et le développement des compétences en Afrique.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
       rel="stylesheet">
-
 <style>
 
 /* =========================================================
@@ -1594,6 +1587,256 @@ body::before {
 
 
 /* =========================================================
+   SÉLECTEUR DE LANGUE — FR / EN / RU
+========================================================= */
+
+.nav-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.language-selector {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.language-button {
+    min-width: 78px;
+    height: 44px;
+    padding: 0 13px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--black-card);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transition: border-color .3s ease, color .3s ease, background .3s ease;
+}
+
+.language-button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.language-button .language-arrow {
+    font-size: .65rem;
+    transition: transform .3s ease;
+}
+
+.language-selector.open .language-button .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 130px;
+    padding: 7px;
+    background: var(--black-card);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+    z-index: 100;
+}
+
+.language-selector.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: var(--cream-soft);
+    padding: 11px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transition: background .25s ease, color .25s ease;
+}
+
+.language-option:hover {
+    background: rgba(201,164,93,.08);
+    color: var(--gold);
+}
+
+.language-option.active {
+    color: var(--gold);
+    background: rgba(201,164,93,.06);
+}
+
+.language-option .language-check {
+    opacity: 0;
+}
+
+.language-option.active .language-check {
+    opacity: 1;
+}
+
+#google_translate_element {
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-te-menu-frame,
+.goog-te-gadget-icon {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+.goog-text-highlight {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.theme-toggle {
+    margin-left: 0;
+}
+
+html[data-theme="light"] .language-button {
+    background: #ffffff;
+    color: #171a17;
+    border-color: rgba(23,26,23,.18);
+}
+
+html[data-theme="light"] .language-menu {
+    background: #ffffff;
+    border-color: rgba(23,26,23,.13);
+    box-shadow: 0 18px 45px rgba(23,26,23,.12);
+}
+
+html[data-theme="light"] .language-option {
+    color: #4f554f;
+}
+
+html[data-theme="light"] .language-option:hover {
+    background: rgba(154,118,45,.07);
+    color: #9a762d;
+}
+
+html[data-theme="light"] .language-option.active {
+    color: #9a762d;
+    background: rgba(154,118,45,.06);
+}
+
+@media (max-width:1050px) {
+    .nav-actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .language-button {
+        min-width: 72px;
+        height: 42px;
+        padding: 0 11px;
+    }
+
+    .menu-button {
+        display: block;
+        margin-left: 0;
+        position: relative;
+        z-index: 30;
+    }
+
+    .nav-actions .theme-toggle {
+        display: none;
+    }
+
+    .nav-links .theme-toggle {
+        display: none;
+        margin: 0;
+        width: 44px;
+        height: 44px;
+        align-self: flex-start;
+    }
+
+    .nav-links.open .theme-toggle {
+        display: inline-flex;
+    }
+}
+
+@media (max-width:650px) {
+    .nav-actions {
+        gap: 7px;
+    }
+
+    .language-button {
+        min-width: 70px;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .language-menu {
+        top: calc(100% + 8px);
+        min-width: 120px;
+    }
+
+    .menu-button {
+        margin-left: 0;
+        font-size: 1.45rem;
+    }
+
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width:400px) {
+    .language-button {
+        min-width: 66px;
+        padding: 0 9px;
+    }
+
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 
@@ -1838,12 +2081,6 @@ body::before {
     letter-spacing: .02em;
 }
 
-.nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
-}
 
 
 /* =========================================================
@@ -1872,7 +2109,7 @@ body {
     width: 44px;
     height: 44px;
 
-    margin-left: 18px;
+    margin-left: 0;
 
     border: 1px solid var(--line);
 
@@ -2650,7 +2887,6 @@ html[data-theme="light"] .preloader {
 }
 
 </style>
-
 <script>
 (function(){
     const KEY = "moraheyms-theme";
@@ -2671,18 +2907,14 @@ html[data-theme="light"] .preloader {
     }
 })();
 </script>
-
 </head>
-
 <body>
-
 <!-- =========================================================
      PRELOADER
 ========================================================= -->
-
 <div class="preloader" id="preloader">
-
 <div class="loader">
+
 
 <div class="loader-logo">
     MORAHEYM'S
@@ -2701,21 +2933,16 @@ html[data-theme="light"] .preloader {
 
 </div>
 
-</div>
 
 </div>
-
+</div>
 <!-- CURSEUR -->
-
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-
 <!-- =========================================================
      NAVIGATION
 ========================================================= -->
-
 <header class="nav" id="nav">
-
 <div class="nav-inner">
 
 <a
@@ -2728,61 +2955,99 @@ html[data-theme="light"] .preloader {
 
 </a>
 
-
- <button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
->
-    ☰
-</button>
-
-
 <nav
     class="nav-links"
     id="navLinks">
 
     <a href="actualites.html" class="nav-news" data-i18n="actualites">
+        Actualités
+    </a>
 
-Actualités
+    <a href="groupe.html" data-i18n="groupe">
+        Le groupe
+    </a>
 
-</a>
+    <a href="expertise.html" data-i18n="expertise">
+        Expertise
+    </a>
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+    <a href="vision.html" data-i18n="vision">
+        Vision
+    </a>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+    <a href="projets.html" data-i18n="projets">
+        Projets
+    </a>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
-
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
-
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
+    <a href="contact.html" class="nav-cta" data-i18n="contact">
+        Contact
+    </a>
 
 </nav>
 
+<div class="nav-actions">
+
+    <div class="language-selector" id="languageSelector">
+
+        <button
+            type="button"
+            class="language-button"
+            id="languageButton"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="Choisir la langue"
+        >
+            <span id="currentLanguage">FR</span>
+            <span class="language-arrow" aria-hidden="true">⌄</span>
+        </button>
+
+        <div
+            class="language-menu"
+            id="languageMenu"
+            role="menu"
+            aria-label="Choix de la langue"
+        >
+
+            <button type="button" class="language-option active" data-lang="fr" role="menuitem">
+                <span>Français</span>
+                <span class="language-check" aria-hidden="true">✓</span>
+            </button>
+
+            <button type="button" class="language-option" data-lang="en" role="menuitem">
+                <span>English</span>
+                <span class="language-check" aria-hidden="true">✓</span>
+            </button>
+
+            <button type="button" class="language-option" data-lang="ru" role="menuitem">
+                <span>Русский</span>
+                <span class="language-check" aria-hidden="true">✓</span>
+            </button>
+
+        </div>
+    </div>
+
+    <div id="google_translate_element"></div>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+    >
+        ☰
+    </button>
+
 </div>
 
+</div>
 </header>
-
 <!-- =========================================================
      HERO
 ========================================================= -->
-
 <section class="news-hero">
-
 <div class="container news-hero-grid">
+
 
 <div class="reveal">
 
@@ -2821,17 +3086,15 @@ Actualités
 
 </div>
 
+
 </div>
-
 </section>
-
 <!-- =========================================================
      FILTRES
 ========================================================= -->
-
 <section class="filters">
-
 <div class="container filters-inner">
+
 
 <div class="filter-title">
 
@@ -2888,17 +3151,15 @@ Actualités
 
 </div>
 
+
 </div>
-
 </section>
-
 <!-- =========================================================
      À LA UNE
 ========================================================= -->
-
 <section class="featured">
-
 <div class="container">
+
 
 <div class="section-label featured-label reveal">
 
@@ -2981,17 +3242,15 @@ Actualités
 
 </article>
 
+
 </div>
-
 </section>
-
 <!-- =========================================================
      ACTUALITÉS RÉCENTES
 ========================================================= -->
-
 <section class="latest">
-
 <div class="container">
+
 
 <div class="latest-header reveal">
 
@@ -3398,17 +3657,15 @@ Actualités
 
 </div>
 
+
 </div>
-
 </section>
-
 <!-- =========================================================
      NEWSLETTER
 ========================================================= -->
-
 <section class="newsletter">
-
 <div class="container newsletter-box">
+
 
 <div class="reveal">
 
@@ -3482,13 +3739,12 @@ Actualités
 
 </div>
 
+
 </div>
-
 </section>
-
 <footer class="footer">
-
 <div class="container">
+
 
 <div class="footer-grid">
 
@@ -3681,15 +3937,143 @@ Actualités
 
 </div>
 
-</div>
 
+</div>
 </footer>
+<!-- =========================================================
+     GOOGLE TRANSLATE — MOTEUR CACHÉ
+========================================================= -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: "fr",
+        includedLanguages: "fr,en,ru",
+        autoDisplay: false
+    }, "google_translate_element");
+}
+</script>
+
+<script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
-
 <script>
+
+/* =========================================================
+   SÉLECTEUR DE LANGUE
+========================================================= */
+
+(function () {
+
+    const selector = document.getElementById("languageSelector");
+    const button = document.getElementById("languageButton");
+    const menu = document.getElementById("languageMenu");
+    const currentLanguage = document.getElementById("currentLanguage");
+    const options = document.querySelectorAll(".language-option");
+
+    if (!selector || !button || !menu) return;
+
+    function setActiveLanguage(lang) {
+
+        const labels = {
+            fr: "FR",
+            en: "EN",
+            ru: "RU"
+        };
+
+        if (currentLanguage) {
+            currentLanguage.textContent = labels[lang] || "FR";
+        }
+
+        options.forEach(function (option) {
+            option.classList.toggle(
+                "active",
+                option.dataset.lang === lang
+            );
+        });
+    }
+
+    function translatePage(lang) {
+
+        const select = document.querySelector(
+            "#google_translate_element select.goog-te-combo"
+        );
+
+        if (!select) return false;
+
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
+
+        return true;
+    }
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        const isOpen = selector.classList.toggle("open");
+
+        button.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+    });
+
+    options.forEach(function (option) {
+
+        option.addEventListener("click", function () {
+
+            const lang = option.dataset.lang;
+
+            setActiveLanguage(lang);
+
+            selector.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            if (!translatePage(lang)) {
+
+                let attempts = 0;
+
+                const retry = setInterval(function () {
+
+                    attempts++;
+
+                    if (
+                        translatePage(lang) ||
+                        attempts >= 20
+                    ) {
+                        clearInterval(retry);
+                    }
+
+                }, 500);
+            }
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+
+        if (!selector.contains(event.target)) {
+
+            selector.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+    });
+
+    setActiveLanguage("fr");
+
+})();
 
 /* =========================================================
    THEME TOGGLE
@@ -3781,6 +4165,11 @@ Actualités
             ".nav-inner"
         );
 
+    const navActions =
+        document.querySelector(
+            ".nav-actions"
+        );
+
     const contactLink =
         navLinks
             ? navLinks.querySelector(
@@ -3839,32 +4228,18 @@ Actualités
     else {
 
         /*
-         * On remet le bouton directement dans
-         * .nav-inner et surtout APRÈS .nav-links.
-         *
-         * .nav-links possède margin-left:auto,
-         * donc la navigation reste collée à droite
-         * et le bouton vient juste après Contact.
+         * PC :
+         * le bouton de thème rejoint la même zone
+         * que le sélecteur de langue.
          */
 
-        if (
-            button.parentElement !== navInner
-        ) {
-
-            navInner.appendChild(
-                button
-            );
-
+        if (navActions) {
+            navActions.appendChild(button);
         } else {
-
-            navInner.appendChild(
-                button
-            );
-
+            navInner.appendChild(button);
         }
 
     }
-
 
     updateThemeButton();
 
@@ -3911,9 +4286,14 @@ Actualités
                     '<span class="theme-icon" aria-hidden="true">☾</span>';
 
 
-                navInner.appendChild(
-                    button
-                );
+                const navActions =
+                    document.querySelector(".nav-actions");
+
+                if (navActions) {
+                    navActions.appendChild(button);
+                } else {
+                    navInner.appendChild(button);
+                }
 
 
                 button.addEventListener(
@@ -4445,6 +4825,5 @@ window.addEventListener(
 );
 
 </script>
-
 </body>
 </html>
