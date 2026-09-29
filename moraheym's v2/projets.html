@@ -327,202 +327,6 @@ body::before {
     }
 }
 
-/* =========================
-   MENU LANGUES
-========================= */
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-left: 22px;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 30;
-}
-
-.language-selector {
-    position: relative;
-    flex: 0 0 auto;
-}
-
-.language-button {
-    height: 44px;
-    min-width: 76px;
-    padding: 0 13px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    border: 1px solid var(--line);
-    border-radius: 22px;
-
-    background: var(--black-card);
-    color: var(--cream);
-
-    cursor: pointer;
-
-    font-size: .62rem;
-    font-weight: 600;
-    letter-spacing: .14em;
-
-    transition:
-        border-color .3s ease,
-        color .3s ease,
-        background .3s ease;
-}
-
-.language-button:hover,
-.language-selector.open .language-button {
-    border-color: var(--gold);
-    color: var(--gold);
-}
-
-.language-current {
-    min-width: 20px;
-    text-align: center;
-}
-
-.language-arrow {
-    font-size: .65rem;
-    transition: transform .3s ease;
-}
-
-.language-selector.open .language-arrow {
-    transform: rotate(180deg);
-}
-
-.language-menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-
-    min-width: 130px;
-    padding: 7px;
-
-    background: var(--black-card);
-    border: 1px solid var(--line);
-
-    box-shadow: 0 18px 45px rgba(0,0,0,.22);
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-
-    transition:
-        opacity .25s ease,
-        visibility .25s ease,
-        transform .25s ease;
-}
-
-.language-selector.open .language-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.language-option {
-    width: 100%;
-    padding: 10px 12px;
-
-    border: 0;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    color: var(--cream-soft);
-
-    cursor: pointer;
-
-    font-size: .62rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-
-    transition:
-        background .25s ease,
-        color .25s ease;
-}
-
-.language-option:hover {
-    background: rgba(201,164,93,.08);
-    color: var(--gold);
-}
-
-.language-option.active {
-    color: var(--gold);
-}
-
-.language-option.active::after {
-    content: "✓";
-    font-size: .7rem;
-}
-
-/* Google Traduction complètement caché */
-
-#google_translate_element {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-
-    opacity: 0 !important;
-    pointer-events: none !important;
-
-    left: -9999px !important;
-    top: -9999px !important;
-}
-
-.goog-te-banner-frame,
-.goog-te-balloon-frame,
-.goog-te-menu-frame {
-    display: none !important;
-}
-
-body {
-    top: 0 !important;
-}
-
-.goog-te-gadget {
-    font-size: 0 !important;
-}
-
-.goog-te-gadget span {
-    display: none !important;
-}
-
-html[data-theme="light"] .language-button {
-    background: #ffffff;
-    color: #171a17;
-    border-color: rgba(23,26,23,.18);
-}
-
-html[data-theme="light"] .language-button:hover,
-html[data-theme="light"] .language-selector.open .language-button {
-    color: #9a762d;
-    border-color: #9a762d;
-}
-
-html[data-theme="light"] .language-menu {
-    background: #ffffff;
-    border-color: rgba(23,26,23,.13);
-    box-shadow: 0 18px 45px rgba(23,26,23,.12);
-}
-
-html[data-theme="light"] .language-option {
-    color: #4f554f;
-}
-
-html[data-theme="light"] .language-option:hover,
-html[data-theme="light"] .language-option.active {
-    color: #9a762d;
-    background: rgba(154,118,45,.06);
-}
-
 /* Contact */
 
 .nav-cta {
@@ -1560,45 +1364,13 @@ html[data-theme="light"] ::selection {
         background: rgba(245,242,234,.98);
     }
 
-   .nav-actions {
+    .nav-actions {
     margin-left: auto;
     gap: 8px;
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    order: 2;
-}
-
-.language-selector {
-    position: relative;
-}
-.language-button {
-        height: 44px;
-        min-width: 58px;
-    }
-
-    .language-selector {
-        margin-right: 4px;
-    }
-
-.menu-button {
-    order: 3;
-    margin-left: 8px;
-}
-
-.nav-links {
-    z-index: 4000;
-}
-
-.nav-links .theme-toggle {
-    display: inline-flex;
-    margin: 3px 0 0 0;
-
-    width: 42px;
-    height: 42px;
 }
 
 }
@@ -1698,30 +1470,11 @@ html[data-theme="light"] ::selection {
         flex-direction: column;
     }
 
-   .nav-actions {
+    .nav-actions {
     margin-left: auto;
     gap: 5px;
-
-    display: flex;
-    align-items: center;
     justify-content: flex-end;
-
     flex-shrink: 0;
-    order: 2;
-}
-
-.language-button {
-    height: 44px;
-    min-width: 58px;
-}
-
-.language-menu {
-    right: 0;
-}
-
-.menu-button {
-    order: 3;
-    margin-left: 5px;
 }
 }
 
@@ -1847,139 +1600,54 @@ html[data-theme="light"] ::selection {
 
         </a>
 
-        <!-- =========================
-     BURGER
-========================= -->
-
-<button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
->
-    ☰
-</button>
-
-
-<!-- =========================
-     LIENS
-========================= -->
-
-<nav
-    class="nav-links"
-    id="navLinks"
->
-
-    <a href="actualites.html" class="nav-news">
-        Actualités
-    </a>
-
-    <a href="groupe.html">
-        Le groupe
-    </a>
-
-    <a href="expertise.html">
-        Expertise
-    </a>
-
-    <a href="vision.html">
-        Vision
-    </a>
-
-    <a href="projets.html" class="active">
-        Projets
-    </a>
-
-    <a href="contact.html" class="nav-cta">
-        Contact
-    </a>
-
-</nav>
-
-
-<!-- =========================
-     ACTIONS NAVIGATION
-========================= -->
-
-<div class="nav-actions">
-
-    <!-- MENU LANGUES -->
-
-    <div
-        class="language-selector"
-        id="languageSelector"
-    >
+        <!-- BURGER -->
 
         <button
-            class="language-button"
-            id="languageButton"
+            class="menu-button"
+            id="menuButton"
             type="button"
-            aria-haspopup="true"
+            aria-label="Ouvrir le menu"
             aria-expanded="false"
-            aria-label="Choisir la langue"
         >
-
-            <span
-                class="language-current"
-                id="currentLanguage"
-            >
-                FR
-            </span>
-
-            <span
-                class="language-arrow"
-                aria-hidden="true"
-            >
-                ▾
-            </span>
-
+            ☰
         </button>
 
+        <!-- LIENS -->
 
-        <div
-            class="language-menu"
-            id="languageMenu"
+        <nav
+            class="nav-links"
+            id="navLinks"
         >
 
-            <button
-                type="button"
-                class="language-option active"
-                data-lang="fr"
-            >
-                <span>FR</span>
-            </button>
+            <a href="actualites.html" class="nav-news" data-i18n="actualites">
+    Actualités
+</a>
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="en"
-            >
-                <span>EN</span>
-            </button>
+<a href="groupe.html" data-i18n="groupe">
+    Le groupe
+</a>
 
-            <button
-                type="button"
-                class="language-option"
-                data-lang="ru"
-            >
-                <span>RU</span>
-            </button>
+<a href="expertise.html" data-i18n="expertise">
+    Expertise
+</a>
 
-        </div>
+<a href="vision.html" data-i18n="vision">
+    Vision
+</a>
+
+<a href="projets.html" data-i18n="projets">
+    Projets
+</a>
+
+<a href="contact.html" class="nav-cta" data-i18n="contact">
+    Contact
+</a>
+
+        </nav>
 
     </div>
 
-
-    <!-- GOOGLE TRANSLATE CACHÉ -->
-
-    <div
-        id="google_translate_element"
-        aria-hidden="true"
-    ></div>
-
-
-    <!-- BOUTON THÈME -->
+    <div class="nav-actions">
 
     <button
         class="theme-toggle"
@@ -1987,13 +1655,12 @@ html[data-theme="light"] ::selection {
         type="button"
         aria-label="Changer de thème"
     >
-        <span
-            class="theme-icon"
-            aria-hidden="true"
-        >
-            ☀
-        </span>
+        <span class="theme-icon" aria-hidden="true">☀</span>
     </button>
+
+    
+
+    </div>
 
 </div>
 
@@ -2592,7 +2259,6 @@ html[data-theme="light"] ::selection {
             "</span>";
     }
 
-
     function positionThemeButton() {
 
         const navInner =
@@ -2618,12 +2284,7 @@ html[data-theme="light"] ::selection {
             return;
         }
 
-
         if (window.innerWidth <= 1050) {
-
-            /* Mobile :
-               thème à l'intérieur
-               du menu burger */
 
             navLinks.appendChild(
                 button
@@ -2631,38 +2292,25 @@ html[data-theme="light"] ::selection {
 
         } else {
 
-            /* PC :
-               thème dans nav-actions */
-
-            const navActions =
-                document.querySelector(
-                    ".nav-actions"
-                );
-
-            if (navActions) {
-
-                navActions.appendChild(
-                    button
-                );
-
-            }
+            navInner.appendChild(
+                button
+            );
 
         }
 
         updateThemeButton();
     }
 
-
     window.addEventListener(
         "DOMContentLoaded",
         function () {
 
-            const navActions =
+            const navInner =
                 document.querySelector(
-                    ".nav-actions"
+                    ".nav-inner"
                 );
 
-            if (!navActions) {
+            if (!navInner) {
                 return;
             }
 
@@ -2670,7 +2318,6 @@ html[data-theme="light"] ::selection {
                 document.getElementById(
                     "themeToggle"
                 );
-
 
             if (!button) {
 
@@ -2687,10 +2334,9 @@ html[data-theme="light"] ::selection {
                 button.className =
                     "theme-toggle";
 
-                navActions.appendChild(
+                navInner.appendChild(
                     button
                 );
-
 
                 button.addEventListener(
                     "click",
@@ -2724,9 +2370,7 @@ html[data-theme="light"] ::selection {
 
             }
 
-
             positionThemeButton();
-
 
             window.addEventListener(
                 "resize",
@@ -2737,228 +2381,6 @@ html[data-theme="light"] ::selection {
     );
 
 })();
-
-
-/* =========================================================
-   MENU LANGUES — FR / EN / RU
-========================================================= */
-
-(function () {
-
-    const selector =
-        document.getElementById(
-            "languageSelector"
-        );
-
-    const button =
-        document.getElementById(
-            "languageButton"
-        );
-
-    const current =
-        document.getElementById(
-            "currentLanguage"
-        );
-
-    const options =
-        document.querySelectorAll(
-            ".language-option"
-        );
-
-
-    if (
-        !selector ||
-        !button
-    ) {
-        return;
-    }
-
-
-    /* Ouvrir / fermer */
-
-    button.addEventListener(
-        "click",
-        function (event) {
-
-            event.stopPropagation();
-
-            const isOpen =
-                selector.classList.toggle(
-                    "open"
-                );
-
-            button.setAttribute(
-                "aria-expanded",
-                isOpen
-                    ? "true"
-                    : "false"
-            );
-
-        }
-    );
-
-
-    /* Fermer au clic extérieur */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                !selector.contains(
-                    event.target
-                )
-            ) {
-
-                selector.classList.remove(
-                    "open"
-                );
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* Traduction Google */
-
-    function translatePage(language) {
-
-        const combo =
-            document.querySelector(
-                "#google_translate_element .goog-te-combo"
-            );
-
-
-        if (!combo) {
-
-            setTimeout(
-                function () {
-
-                    translatePage(
-                        language
-                    );
-
-                },
-                500
-            );
-
-            return;
-        }
-
-
-        combo.value =
-            language;
-
-        combo.dispatchEvent(
-            new Event(
-                "change"
-            )
-        );
-
-    }
-
-
-    /* Choix de langue */
-
-    options.forEach(
-        option => {
-
-            option.addEventListener(
-                "click",
-                function () {
-
-                    const language =
-                        this.getAttribute(
-                            "data-lang"
-                        );
-
-
-                    /* Langue active */
-
-                    options.forEach(
-                        item => {
-
-                            item.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-                    this.classList.add(
-                        "active"
-                    );
-
-
-                    /* Texte du bouton */
-
-                    if (current) {
-
-                        current.textContent =
-                            language.toUpperCase();
-
-                    }
-
-
-                    /* Fermer */
-
-                    selector.classList.remove(
-                        "open"
-                    );
-
-                    button.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    /* Traduire */
-
-                    translatePage(
-                        language
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    /* Langue initiale */
-
-    if (current) {
-
-        current.textContent =
-            "FR";
-
-    }
-
-})();
-
-
-/* =========================================================
-   GOOGLE TRANSLATE
-========================================================= */
-
-function googleTranslateElementInit() {
-
-    new google.translate.TranslateElement(
-        {
-            pageLanguage: "fr",
-            includedLanguages: "fr,en,ru",
-            autoDisplay: false
-        },
-        "google_translate_element"
-    );
-
-}
 
 /* =========================================================
    PRELOADER
@@ -3269,33 +2691,5 @@ document
     );
 
 </script>
-
-<!-- =========================================================
-     GOOGLE TRANSLATE
-========================================================= -->
-
-<script type="text/javascript">
-
-function googleTranslateElementInit() {
-
-    new google.translate.TranslateElement({
-
-        pageLanguage: 'fr',
-
-        includedLanguages: 'fr,en,ru',
-
-        autoDisplay: false
-
-    }, 'google_translate_element');
-
-}
-
-</script>
-
-<script
-    type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-
 </body>
 </html>

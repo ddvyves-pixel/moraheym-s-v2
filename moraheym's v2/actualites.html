@@ -1,2496 +1,2503 @@
-\<!DOCTYPE html>
-\<html lang="fr">
-\<head>
-\<meta charset="UTF-8">
-\<meta name="viewport" content="width=device-width, initial-scale=1.0">
-\<title>Actualités — GROUPE MORAHEYM'S\</title>
-\<meta name="description"
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Actualités — GROUPE MORAHEYM'S</title>
+
+<meta name="description"
 content="Découvrez les actualités, projets, initiatives et partenariats du GROUPE MORAHEYM'S dans l'immobilier, les infrastructures, l'éducation, la recherche et le développement des compétences en Afrique.">
-\<link rel="preconnect" href="https\://fonts.googleapis.com">
-\<link rel="preconnect" href="https\://fonts.gstatic.com" crossorigin>
-\<link href="https\://fonts.googleapis.com/css2?family=DM+Sans\:wght\@400;500;600;700&family=Playfair+Display\:ital,wght\@0,400;0,500;0,600;1,400;1,500&display=swap"
-&#x20;     rel="stylesheet">
-\<style>
 
-/\* =========================================================
-&#x20;  VARIABLES
-\========================================================= \*/
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-\:root {
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet">
 
-&#x20;   \--black: #070908;
-&#x20;   \--black-soft: #0d110f;
-&#x20;   \--black-card: #111714;
+<style>
 
-&#x20;   \--cream: #f4f0e6;
-&#x20;   \--cream-soft: #c9c5ba;
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-&#x20;   \--gold: #c9a45d;
-&#x20;   \--gold-light: #e4c986;
+:root {
 
-&#x20;   \--green: #183b2e;
-&#x20;   \--green-light: #2c604b;
+    --black: #070908;
+    --black-soft: #0d110f;
+    --black-card: #111714;
 
-&#x20;   \--line: rgba(244,240,230,.12);
+    --cream: #f4f0e6;
+    --cream-soft: #c9c5ba;
 
-&#x20;   \--serif: "Playfair Display", Georgia, serif;
-&#x20;   \--sans: "DM Sans", Arial, sans-serif;
+    --gold: #c9a45d;
+    --gold-light: #e4c986;
+
+    --green: #183b2e;
+    --green-light: #2c604b;
+
+    --line: rgba(244,240,230,.12);
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
 }
 
 
-/\* =========================================================
-&#x20;  RESET
-\========================================================= \*/
+/* =========================================================
+   RESET
+========================================================= */
 
-\* {
-&#x20;   margin: 0;
-&#x20;   padding: 0;
-&#x20;   box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-&#x20;   scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
 
-&#x20;   background: var(--black);
+    background: var(--black);
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 
-&#x20;   font-family: var(--sans);
+    font-family: var(--sans);
 
-&#x20;   overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 a {
-&#x20;   color: inherit;
-&#x20;   text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
-&#x20;   font-family: inherit;
+    font-family: inherit;
 }
 
-\::selection {
+::selection {
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 
-&#x20;   color: var(--black);
+    color: var(--black);
 }
 
 
-/\* =========================================================
-&#x20;  TEXTURE
-\========================================================= \*/
+/* =========================================================
+   TEXTURE
+========================================================= */
 
 body::before {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   position: fixed;
+    position: fixed;
 
-&#x20;   inset: 0;
+    inset: 0;
 
-&#x20;   pointer-events: none;
+    pointer-events: none;
 
-&#x20;   z-index: 9998;
+    z-index: 9998;
 
-&#x20;   opacity: .035;
+    opacity: .035;
 
-&#x20;   background-image:
-&#x20;       url("data\:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http\://www\.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 
 }
 
 
-/\* =========================================================
-&#x20;  CURSEUR
-\========================================================= \*/
+/* =========================================================
+   CURSEUR
+========================================================= */
 
 .cursor-dot {
 
-&#x20;   position: fixed;
+    position: fixed;
 
-&#x20;   width: 7px;
-&#x20;   height: 7px;
+    width: 7px;
+    height: 7px;
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 
-&#x20;   pointer-events: none;
+    pointer-events: none;
 
-&#x20;   z-index: 10001;
+    z-index: 10001;
 
-&#x20;   transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
 
 
 .cursor-ring {
 
-&#x20;   position: fixed;
+    position: fixed;
 
-&#x20;   width: 38px;
-&#x20;   height: 38px;
+    width: 38px;
+    height: 38px;
 
-&#x20;   border: 1px solid rgba(201,164,93,.7);
+    border: 1px solid rgba(201,164,93,.7);
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   pointer-events: none;
+    pointer-events: none;
 
-&#x20;   z-index: 10000;
+    z-index: 10000;
 
-&#x20;   transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
-&#x20;   transition:
+    transition:
 
-&#x20;       width .3s ease,
-&#x20;       height .3s ease,
-&#x20;       background .3s ease;
+        width .3s ease,
+        height .3s ease,
+        background .3s ease;
 }
 
 
 .cursor-ring.active {
 
-&#x20;   width: 65px;
-&#x20;   height: 65px;
+    width: 65px;
+    height: 65px;
 
-&#x20;   background: rgba(201,164,93,.08);
+    background: rgba(201,164,93,.08);
 }
 
 
-/\* =========================================================
-&#x20;  PRELOADER
-\========================================================= \*/
+/* =========================================================
+   PRELOADER
+========================================================= */
 
 .preloader {
 
-&#x20;   position: fixed;
+    position: fixed;
 
-&#x20;   inset: 0;
+    inset: 0;
 
-&#x20;   background: var(--black);
+    background: var(--black);
 
-&#x20;   z-index: 20000;
+    z-index: 20000;
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
-&#x20;   justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-&#x20;   transition:
+    transition:
 
-&#x20;       opacity .8s ease,
-&#x20;       visibility .8s ease;
+        opacity .8s ease,
+        visibility .8s ease;
 }
 
 
 .preloader.hide {
 
-&#x20;   opacity: 0;
+    opacity: 0;
 
-&#x20;   visibility: hidden;
+    visibility: hidden;
 }
 
 
 .loader {
 
-&#x20;   text-align: center;
+    text-align: center;
 }
 
 
 .loader-logo {
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: clamp(2rem,5vw,4rem);
+    font-size: clamp(2rem,5vw,4rem);
 
-&#x20;   letter-spacing: .16em;
+    letter-spacing: .16em;
 }
 
 
 .loader-subtitle {
 
-&#x20;   margin-top: 12px;
+    margin-top: 12px;
 
-&#x20;   font-size: .6rem;
+    font-size: .6rem;
 
-&#x20;   letter-spacing: .35em;
+    letter-spacing: .35em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 }
 
 
 .loader-bar {
 
-&#x20;   width: 220px;
+    width: 220px;
 
-&#x20;   height: 1px;
+    height: 1px;
 
-&#x20;   background: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.1);
 
-&#x20;   margin: 35px auto 0;
+    margin: 35px auto 0;
 
-&#x20;   overflow: hidden;
+    overflow: hidden;
 }
 
 
 .loader-progress {
 
-&#x20;   width: 0;
+    width: 0;
 
-&#x20;   height: 100%;
+    height: 100%;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 
-&#x20;   transition: width 1.2s ease;
+    transition: width 1.2s ease;
 }
 
 
-/\* =========================================================
-&#x20;  NAVIGATION
-\========================================================= \*/
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav {
 
-&#x20;   position: fixed;
+    position: fixed;
 
-&#x20;   top: 0;
-&#x20;   left: 0;
+    top: 0;
+    left: 0;
 
-&#x20;   width: 100%;
+    width: 100%;
 
-&#x20;   z-index: 5000;
+    z-index: 5000;
 
-&#x20;   transition:
+    transition:
 
-&#x20;       background .4s ease,
-&#x20;       border-color .4s ease;
+        background .4s ease,
+        border-color .4s ease;
 }
 
 
 .nav.scrolled {
 
-&#x20;   background: rgba(7,9,8,.88);
+    background: rgba(7,9,8,.88);
 
-&#x20;   backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
 
-&#x20;   border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 
 .nav-inner {
 
-&#x20;   width: min(1450px, 92%);
+    width: min(1450px, 92%);
 
-&#x20;   min-height: 104px;
+    min-height: 104px;
 
-&#x20;   margin: auto;
+    margin: auto;
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 }
 
 
-/\* Le logo reste à gauche \*/
+/* Le logo reste à gauche */
 
 .brand-logo {
 
-&#x20;   margin-right: auto;
+    margin-right: auto;
 }
 
 
-/\* Navigation complètement à droite \*/
+/* Navigation complètement à droite */
 
 .nav-links {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   gap: 31px;
+    gap: 31px;
 
-&#x20;   margin-left: auto;
+    margin-left: auto;
 }
 
 
 .logo {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 }
 
 
 .logo img {
 
-&#x20;   height: 88px;
+    height: 88px;
 
-&#x20;   width: auto;
+    width: auto;
 
-&#x20;   object-fit: contain;
+    object-fit: contain;
 }
 
 
 .nav-links a {
 
-&#x20;   position: relative;
+    position: relative;
 
-&#x20;   font-size: .65rem;
+    font-size: .65rem;
 
-&#x20;   letter-spacing: .14em;
+    letter-spacing: .14em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 
-&#x20;   color: var(--cream-soft);
+    color: var(--cream-soft);
 
-&#x20;   transition: color .3s ease;
+    transition: color .3s ease;
 }
 
 
 .nav-links a::after {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   left: 0;
+    left: 0;
 
-&#x20;   bottom: -8px;
+    bottom: -8px;
 
-&#x20;   width: 0;
+    width: 0;
 
-&#x20;   height: 1px;
+    height: 1px;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 
-&#x20;   transition: width .3s ease;
+    transition: width .3s ease;
 }
 
 
-.nav-links a\:hover {
+.nav-links a:hover {
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 }
 
 
-.nav-links a\:hover::after {
+.nav-links a:hover::after {
 
-&#x20;   width: 100%;
+    width: 100%;
 }
 
 
-/\* ACTUALITÉS ACTIF \*/
+/* ACTUALITÉS ACTIF */
 
 .nav-news {
 
-&#x20;   color: var(--gold) !important;
+    color: var(--gold) !important;
 
-&#x20;   font-weight: 600;
+    font-weight: 600;
 }
 
 
 .nav-news::before {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   display: inline-block;
+    display: inline-block;
 
-&#x20;   width: 5px;
-&#x20;   height: 5px;
+    width: 5px;
+    height: 5px;
 
-&#x20;   margin-right: 8px;
+    margin-right: 8px;
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 
-&#x20;   box-shadow: 0 0 10px var(--gold);
+    box-shadow: 0 0 10px var(--gold);
 
-&#x20;   animation: newsPulse 2s ease-in-out infinite;
+    animation: newsPulse 2s ease-in-out infinite;
 }
 
 
 .nav-news::after {
 
-&#x20;   width: 100% !important;
+    width: 100% !important;
 
-&#x20;   background: var(--gold) !important;
+    background: var(--gold) !important;
 }
 
 
 @keyframes newsPulse {
 
-&#x20;   0%,100% {
+    0%,100% {
 
-&#x20;       opacity: .35;
+        opacity: .35;
 
-&#x20;       transform: scale(.8);
+        transform: scale(.8);
 
-&#x20;   }
+    }
 
-&#x20;   50% {
+    50% {
 
-&#x20;       opacity: 1;
+        opacity: 1;
 
-&#x20;       transform: scale(1.2);
+        transform: scale(1.2);
 
-&#x20;   }
+    }
 
 }
 
 
 .nav-cta {
 
-&#x20;   border: 1px solid var(--gold);
+    border: 1px solid var(--gold);
 
-&#x20;   padding: 12px 18px;
+    padding: 12px 18px;
 
-&#x20;   color: var(--gold) !important;
+    color: var(--gold) !important;
 }
 
 
 .nav-cta::after {
 
-&#x20;   display: none;
+    display: none;
 }
 
 
 .menu-button {
 
-&#x20;   display: none;
+    display: none;
 
-&#x20;   border: 0;
+    border: 0;
 
-&#x20;   background: none;
+    background: none;
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 
-&#x20;   font-size: 1.5rem;
+    font-size: 1.5rem;
 
-&#x20;   cursor: pointer;
+    cursor: pointer;
 }
 
 
-/\* =========================================================
-&#x20;  HERO ACTUALITÉS
-\========================================================= \*/
+/* =========================================================
+   HERO ACTUALITÉS
+========================================================= */
 
 .news-hero {
 
-&#x20;   min-height: 72vh;
+    min-height: 72vh;
 
-&#x20;   position: relative;
+    position: relative;
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: flex-end;
+    align-items: flex-end;
 
-&#x20;   overflow: hidden;
+    overflow: hidden;
 
-&#x20;   padding: 160px 0 95px;
+    padding: 160px 0 95px;
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 75% 45%,
-&#x20;           rgba(35,94,70,.25),
-&#x20;           transparent 34%
-&#x20;       ),
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(35,94,70,.25),
+            transparent 34%
+        ),
 
-&#x20;       radial-gradient(
-&#x20;           circle at 20% 70%,
-&#x20;           rgba(201,164,93,.09),
-&#x20;           transparent 25%
-&#x20;       ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(201,164,93,.09),
+            transparent 25%
+        ),
 
-&#x20;       var(--black);
+        var(--black);
 }
 
 
 .news-hero::before {
 
-&#x20;   content: "NEWS";
+    content: "NEWS";
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   right: -40px;
+    right: -40px;
 
-&#x20;   bottom: -80px;
+    bottom: -80px;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: clamp(12rem,28vw,32rem);
+    font-size: clamp(12rem,28vw,32rem);
 
-&#x20;   line-height: .7;
+    line-height: .7;
 
-&#x20;   color: transparent;
+    color: transparent;
 
-&#x20;   -webkit-text-stroke: 1px rgba(244,240,230,.045);
+    -webkit-text-stroke: 1px rgba(244,240,230,.045);
 
-&#x20;   pointer-events: none;
+    pointer-events: none;
 }
 
 
 .container {
 
-&#x20;   width: min(1450px,92%);
+    width: min(1450px,92%);
 
-&#x20;   margin: auto;
+    margin: auto;
 
-&#x20;   position: relative;
+    position: relative;
 
-&#x20;   z-index: 2;
+    z-index: 2;
 }
 
 
 .news-hero-grid {
 
-&#x20;   display: grid;
+    display: grid;
 
-&#x20;   grid-template-columns: 1.15fr .85fr;
+    grid-template-columns: 1.15fr .85fr;
 
-&#x20;   align-items: end;
+    align-items: end;
 
-&#x20;   gap: 80px;
+    gap: 80px;
 }
 
 
 .section-label {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   gap: 14px;
+    gap: 14px;
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-size: .62rem;
+    font-size: .62rem;
 
-&#x20;   letter-spacing: .24em;
+    letter-spacing: .24em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
 .section-label::before {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   width: 42px;
+    width: 42px;
 
-&#x20;   height: 1px;
+    height: 1px;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 }
 
 
 .news-hero h1 {
 
-&#x20;   margin-top: 28px;
+    margin-top: 28px;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: clamp(4.5rem,9vw,10rem);
+    font-size: clamp(4.5rem,9vw,10rem);
 
-&#x20;   font-weight: 400;
+    font-weight: 400;
 
-&#x20;   line-height: .84;
+    line-height: .84;
 
-&#x20;   letter-spacing: -.065em;
+    letter-spacing: -.065em;
 }
 
 
 .news-hero h1 em {
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-style: italic;
+    font-style: italic;
 }
 
 
 .hero-intro {
 
-&#x20;   max-width: 520px;
+    max-width: 520px;
 
-&#x20;   color: var(--cream-soft);
+    color: var(--cream-soft);
 
-&#x20;   font-size: .95rem;
+    font-size: .95rem;
 
-&#x20;   line-height: 1.9;
+    line-height: 1.9;
 }
 
 
-/\* =========================================================
-&#x20;  FILTRES
-\========================================================= \*/
+/* =========================================================
+   FILTRES
+========================================================= */
 
 .filters {
 
-&#x20;   background: var(--cream);
+    background: var(--cream);
 
-&#x20;   color: var(--black);
+    color: var(--black);
 
-&#x20;   padding: 28px 0;
+    padding: 28px 0;
 
-&#x20;   border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 
 .filters-inner {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   justify-content: space-between;
+    justify-content: space-between;
 
-&#x20;   gap: 25px;
+    gap: 25px;
 }
 
 
 .filter-title {
 
-&#x20;   font-size: .58rem;
+    font-size: .58rem;
 
-&#x20;   letter-spacing: .2em;
+    letter-spacing: .2em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 
-&#x20;   color: #777;
+    color: #777;
 }
 
 
 .filter-buttons {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   gap: 10px;
+    gap: 10px;
 
-&#x20;   flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 
 .filter {
 
-&#x20;   border: 1px solid rgba(0,0,0,.16);
+    border: 1px solid rgba(0,0,0,.16);
 
-&#x20;   background: transparent;
+    background: transparent;
 
-&#x20;   padding: 10px 16px;
+    padding: 10px 16px;
 
-&#x20;   cursor: pointer;
+    cursor: pointer;
 
-&#x20;   font-size: .58rem;
+    font-size: .58rem;
 
-&#x20;   letter-spacing: .13em;
+    letter-spacing: .13em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 
-&#x20;   transition: all .3s ease;
+    transition: all .3s ease;
 }
 
 
-.filter\:hover,
+.filter:hover,
 .filter.active {
 
-&#x20;   background: var(--green);
+    background: var(--green);
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 
-&#x20;   border-color: var(--green);
+    border-color: var(--green);
 }
 
 
-/\* =========================================================
-&#x20;  ACTUALITÉ À LA UNE
-\========================================================= \*/
+/* =========================================================
+   ACTUALITÉ À LA UNE
+========================================================= */
 
 .featured {
 
-&#x20;   padding: 130px 0;
+    padding: 130px 0;
 
-&#x20;   background: var(--cream);
+    background: var(--cream);
 
-&#x20;   color: var(--black);
+    color: var(--black);
 }
 
 
 .featured-label {
 
-&#x20;   color: var(--green);
+    color: var(--green);
 
-&#x20;   margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 
 
 .featured-label::before {
 
-&#x20;   background: var(--green);
+    background: var(--green);
 }
 
 
 .featured-card {
 
-&#x20;   display: grid;
+    display: grid;
 
-&#x20;   grid-template-columns: 1.1fr .9fr;
+    grid-template-columns: 1.1fr .9fr;
 
-&#x20;   min-height: 570px;
+    min-height: 570px;
 
-&#x20;   background: var(--black);
+    background: var(--black);
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 
-&#x20;   overflow: hidden;
+    overflow: hidden;
 }
 
 
 .featured-image {
 
-&#x20;   position: relative;
+    position: relative;
 
-&#x20;   min-height: 570px;
+    min-height: 570px;
 
-&#x20;   overflow: hidden;
+    overflow: hidden;
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 50% 40%,
-&#x20;           rgba(201,164,93,.42),
-&#x20;           transparent 28%
-&#x20;       ),
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(201,164,93,.42),
+            transparent 28%
+        ),
 
-&#x20;       linear-gradient(
-&#x20;           145deg,
-&#x20;           \#204d3b,
-&#x20;           \#0b1611
-&#x20;       );
+        linear-gradient(
+            145deg,
+            #204d3b,
+            #0b1611
+        );
 }
 
 
 .featured-image::before {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   width: 400px;
+    width: 400px;
 
-&#x20;   height: 400px;
+    height: 400px;
 
-&#x20;   left: 50%;
+    left: 50%;
 
-&#x20;   top: 50%;
+    top: 50%;
 
-&#x20;   transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
-&#x20;   border: 1px solid rgba(201,164,93,.5);
+    border: 1px solid rgba(201,164,93,.5);
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   box-shadow:
+    box-shadow:
 
-&#x20;       0 0 0 45px rgba(201,164,93,.035),
+        0 0 0 45px rgba(201,164,93,.035),
 
-&#x20;       0 0 0 100px rgba(201,164,93,.025),
+        0 0 0 100px rgba(201,164,93,.025),
 
-&#x20;       0 0 0 160px rgba(201,164,93,.018);
+        0 0 0 160px rgba(201,164,93,.018);
 }
 
 
 .featured-image::after {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   width: 160px;
+    width: 160px;
 
-&#x20;   height: 160px;
+    height: 160px;
 
-&#x20;   left: 50%;
+    left: 50%;
 
-&#x20;   top: 50%;
+    top: 50%;
 
-&#x20;   transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 30% 25%,
-&#x20;           \#f1d795,
-&#x20;           var(--gold) 30%,
-&#x20;           \#5d4316 80%,
-&#x20;           \#19150b
-&#x20;       );
+        radial-gradient(
+            circle at 30% 25%,
+            #f1d795,
+            var(--gold) 30%,
+            #5d4316 80%,
+            #19150b
+        );
 
-&#x20;   box-shadow:
+    box-shadow:
 
-&#x20;       0 0 80px rgba(201,164,93,.25),
+        0 0 80px rgba(201,164,93,.25),
 
-&#x20;       inset -25px -25px 35px rgba(0,0,0,.45);
+        inset -25px -25px 35px rgba(0,0,0,.45);
 
 }
 
 
 .featured-image-tag {
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   left: 30px;
+    left: 30px;
 
-&#x20;   top: 30px;
+    top: 30px;
 
-&#x20;   z-index: 3;
+    z-index: 3;
 
-&#x20;   padding: 9px 13px;
+    padding: 9px 13px;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 
-&#x20;   color: var(--black);
+    color: var(--black);
 
-&#x20;   font-size: .55rem;
+    font-size: .55rem;
 
-&#x20;   letter-spacing: .15em;
+    letter-spacing: .15em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 
-&#x20;   font-weight: 700;
+    font-weight: 700;
 }
 
 
 .featured-image-number {
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   right: 30px;
+    right: 30px;
 
-&#x20;   bottom: 25px;
+    bottom: 25px;
 
-&#x20;   z-index: 3;
+    z-index: 3;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: 5rem;
+    font-size: 5rem;
 
-&#x20;   color: rgba(255,255,255,.07);
+    color: rgba(255,255,255,.07);
 }
 
 
 .featured-content {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   flex-direction: column;
+    flex-direction: column;
 
-&#x20;   justify-content: center;
+    justify-content: center;
 
-&#x20;   padding: clamp(40px,6vw,85px);
+    padding: clamp(40px,6vw,85px);
 }
 
 
 .article-meta {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   gap: 14px;
+    gap: 14px;
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-size: .57rem;
+    font-size: .57rem;
 
-&#x20;   letter-spacing: .16em;
+    letter-spacing: .16em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
 .article-meta span {
 
-&#x20;   width: 4px;
+    width: 4px;
 
-&#x20;   height: 4px;
+    height: 4px;
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   background: var(--gold);
+    background: var(--gold);
 }
 
 
 .featured-content h2 {
 
-&#x20;   margin-top: 25px;
+    margin-top: 25px;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: clamp(2.3rem,4vw,4.5rem);
+    font-size: clamp(2.3rem,4vw,4.5rem);
 
-&#x20;   line-height: 1.02;
+    line-height: 1.02;
 
-&#x20;   font-weight: 400;
+    font-weight: 400;
 
-&#x20;   letter-spacing: -.035em;
+    letter-spacing: -.035em;
 }
 
 
 .featured-content h2 em {
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-style: italic;
+    font-style: italic;
 }
 
 
 .featured-content p {
 
-&#x20;   max-width: 500px;
+    max-width: 500px;
 
-&#x20;   margin-top: 25px;
+    margin-top: 25px;
 
-&#x20;   color: #8e938e;
+    color: #8e938e;
 
-&#x20;   font-size: .88rem;
+    font-size: .88rem;
 
-&#x20;   line-height: 1.9;
+    line-height: 1.9;
 }
 
 
 .read-more {
 
-&#x20;   display: inline-flex;
+    display: inline-flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   gap: 18px;
+    gap: 18px;
 
-&#x20;   width: fit-content;
+    width: fit-content;
 
-&#x20;   margin-top: 35px;
+    margin-top: 35px;
 
-&#x20;   padding-bottom: 9px;
+    padding-bottom: 9px;
 
-&#x20;   border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-size: .6rem;
+    font-size: .6rem;
 
-&#x20;   letter-spacing: .17em;
+    letter-spacing: .17em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 
-&#x20;   transition: gap .3s ease;
+    transition: gap .3s ease;
 }
 
 
-.read-more\:hover {
+.read-more:hover {
 
-&#x20;   gap: 27px;
+    gap: 27px;
 }
 
 
-/\* =========================================================
-&#x20;  ACTUALITÉS RÉCENTES
-\========================================================= \*/
+/* =========================================================
+   ACTUALITÉS RÉCENTES
+========================================================= */
 
 .latest {
 
-&#x20;   padding: 135px 0 150px;
+    padding: 135px 0 150px;
 
-&#x20;   background: var(--black-soft);
+    background: var(--black-soft);
 }
 
 
 .latest-header {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   justify-content: space-between;
+    justify-content: space-between;
 
-&#x20;   align-items: end;
+    align-items: end;
 
-&#x20;   gap: 50px;
+    gap: 50px;
 
-&#x20;   margin-bottom: 65px;
+    margin-bottom: 65px;
 }
 
 
 .latest-title {
 
-&#x20;   margin-top: 22px;
+    margin-top: 22px;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: clamp(3rem,6vw,6rem);
+    font-size: clamp(3rem,6vw,6rem);
 
-&#x20;   font-weight: 400;
+    font-weight: 400;
 
-&#x20;   line-height: .95;
+    line-height: .95;
 
-&#x20;   letter-spacing: -.05em;
+    letter-spacing: -.05em;
 }
 
 
 .latest-title em {
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-style: italic;
+    font-style: italic;
 }
 
 
 .latest-description {
 
-&#x20;   max-width: 420px;
+    max-width: 420px;
 
-&#x20;   color: #818681;
+    color: #818681;
 
-&#x20;   font-size: .85rem;
+    font-size: .85rem;
 
-&#x20;   line-height: 1.8;
+    line-height: 1.8;
 }
 
 
 .news-grid {
 
-&#x20;   display: grid;
+    display: grid;
 
-&#x20;   grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
 
-&#x20;   gap: 18px;
+    gap: 18px;
 }
 
 
-/\* =========================================================
-&#x20;  CARTE ARTICLE
-\========================================================= \*/
+/* =========================================================
+   CARTE ARTICLE
+========================================================= */
 
 .news-card {
 
-&#x20;   background: var(--black-card);
+    background: var(--black-card);
 
-&#x20;   border: 1px solid var(--line);
+    border: 1px solid var(--line);
 
-&#x20;   overflow: hidden;
+    overflow: hidden;
 
-&#x20;   transition:
+    transition:
 
-&#x20;       transform .5s cubic-bezier(.16,1,.3,1),
+        transform .5s cubic-bezier(.16,1,.3,1),
 
-&#x20;       border-color .4s ease;
+        border-color .4s ease;
 }
 
 
-.news-card\:hover {
+.news-card:hover {
 
-&#x20;   transform: translateY(-10px);
+    transform: translateY(-10px);
 
-&#x20;   border-color: rgba(201,164,93,.4);
+    border-color: rgba(201,164,93,.4);
 }
 
 
 .news-image {
 
-&#x20;   position: relative;
+    position: relative;
 
-&#x20;   height: 275px;
+    height: 275px;
 
-&#x20;   overflow: hidden;
+    overflow: hidden;
 
-&#x20;   background: var(--green);
+    background: var(--green);
 }
 
 
 .news-image::before {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   inset: 0;
+    inset: 0;
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 60% 45%,
-&#x20;           rgba(201,164,93,.4),
-&#x20;           transparent 25%
-&#x20;       ),
+        radial-gradient(
+            circle at 60% 45%,
+            rgba(201,164,93,.4),
+            transparent 25%
+        ),
 
-&#x20;       linear-gradient(
-&#x20;           135deg,
-&#x20;           \#285740,
-&#x20;           \#09110d
-&#x20;       );
+        linear-gradient(
+            135deg,
+            #285740,
+            #09110d
+        );
 
-&#x20;   transition: transform .7s ease;
+    transition: transform .7s ease;
 }
 
 
-.news-card\:hover .news-image::before {
+.news-card:hover .news-image::before {
 
-&#x20;   transform: scale(1.08);
+    transform: scale(1.08);
 }
 
 
 .news-image::after {
 
-&#x20;   content: "";
+    content: "";
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   width: 150px;
+    width: 150px;
 
-&#x20;   height: 150px;
+    height: 150px;
 
-&#x20;   left: 50%;
+    left: 50%;
 
-&#x20;   top: 50%;
+    top: 50%;
 
-&#x20;   transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   border: 1px solid rgba(201,164,93,.45);
+    border: 1px solid rgba(201,164,93,.45);
 }
 
 
 .news-image.two {
 
-&#x20;   background: #17130c;
+    background: #17130c;
 }
 
 
 .news-image.two::before {
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 45% 55%,
-&#x20;           rgba(201,164,93,.42),
-&#x20;           transparent 25%
-&#x20;       ),
+        radial-gradient(
+            circle at 45% 55%,
+            rgba(201,164,93,.42),
+            transparent 25%
+        ),
 
-&#x20;       linear-gradient(
-&#x20;           135deg,
-&#x20;           \#40351c,
-&#x20;           \#0b0d0b
-&#x20;       );
+        linear-gradient(
+            135deg,
+            #40351c,
+            #0b0d0b
+        );
 }
 
 
 .news-image.three::before {
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 35% 45%,
-&#x20;           rgba(74,135,101,.55),
-&#x20;           transparent 28%
-&#x20;       ),
+        radial-gradient(
+            circle at 35% 45%,
+            rgba(74,135,101,.55),
+            transparent 28%
+        ),
 
-&#x20;       linear-gradient(
-&#x20;           135deg,
-&#x20;           \#173e30,
-&#x20;           \#070908
-&#x20;       );
+        linear-gradient(
+            135deg,
+            #173e30,
+            #070908
+        );
 }
 
 
 .news-image.four::before {
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 70% 40%,
-&#x20;           rgba(201,164,93,.32),
-&#x20;           transparent 25%
-&#x20;       ),
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(201,164,93,.32),
+            transparent 25%
+        ),
 
-&#x20;       linear-gradient(
-&#x20;           135deg,
-&#x20;           \#3b2a13,
-&#x20;           \#0a0c0a
-&#x20;       );
+        linear-gradient(
+            135deg,
+            #3b2a13,
+            #0a0c0a
+        );
 }
 
 
 .news-category {
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   left: 20px;
+    left: 20px;
 
-&#x20;   top: 20px;
+    top: 20px;
 
-&#x20;   z-index: 2;
+    z-index: 2;
 
-&#x20;   padding: 8px 11px;
+    padding: 8px 11px;
 
-&#x20;   background: rgba(7,9,8,.78);
+    background: rgba(7,9,8,.78);
 
-&#x20;   border: 1px solid rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.15);
 
-&#x20;   backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 
-&#x20;   color: var(--gold-light);
+    color: var(--gold-light);
 
-&#x20;   font-size: .5rem;
+    font-size: .5rem;
 
-&#x20;   letter-spacing: .15em;
+    letter-spacing: .15em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
 .news-number {
 
-&#x20;   position: absolute;
+    position: absolute;
 
-&#x20;   right: 20px;
+    right: 20px;
 
-&#x20;   bottom: 10px;
+    bottom: 10px;
 
-&#x20;   z-index: 2;
+    z-index: 2;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: 4.5rem;
+    font-size: 4.5rem;
 
-&#x20;   color: rgba(255,255,255,.07);
+    color: rgba(255,255,255,.07);
 }
 
 
 .news-content {
 
-&#x20;   padding: 28px 27px 32px;
+    padding: 28px 27px 32px;
 }
 
 
 .news-meta {
 
-&#x20;   color: #727771;
+    color: #727771;
 
-&#x20;   font-size: .55rem;
+    font-size: .55rem;
 
-&#x20;   letter-spacing: .13em;
+    letter-spacing: .13em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
 .news-content h3 {
 
-&#x20;   margin-top: 13px;
+    margin-top: 13px;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: 1.65rem;
+    font-size: 1.65rem;
 
-&#x20;   font-weight: 400;
+    font-weight: 400;
 
-&#x20;   line-height: 1.15;
+    line-height: 1.15;
 }
 
 
 .news-content p {
 
-&#x20;   margin-top: 14px;
+    margin-top: 14px;
 
-&#x20;   color: #7e837e;
+    color: #7e837e;
 
-&#x20;   font-size: .78rem;
+    font-size: .78rem;
 
-&#x20;   line-height: 1.75;
+    line-height: 1.75;
 }
 
 
 .news-link {
 
-&#x20;   display: inline-flex;
+    display: inline-flex;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   gap: 10px;
+    gap: 10px;
 
-&#x20;   margin-top: 22px;
+    margin-top: 22px;
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   font-size: .56rem;
+    font-size: .56rem;
 
-&#x20;   letter-spacing: .15em;
+    letter-spacing: .15em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
-/\* =========================================================
-&#x20;  SECTION "RESTEZ INFORMÉS"
-\========================================================= \*/
+/* =========================================================
+   SECTION "RESTEZ INFORMÉS"
+========================================================= */
 
 .newsletter {
 
-&#x20;   padding: 120px 0;
+    padding: 120px 0;
 
-&#x20;   background: var(--green);
+    background: var(--green);
 }
 
 
 .newsletter-box {
 
-&#x20;   display: grid;
+    display: grid;
 
-&#x20;   grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-&#x20;   align-items: center;
+    align-items: center;
 
-&#x20;   gap: 80px;
+    gap: 80px;
 }
 
 
 .newsletter h2 {
 
-&#x20;   margin-top: 25px;
+    margin-top: 25px;
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: clamp(3rem,5vw,5.5rem);
+    font-size: clamp(3rem,5vw,5.5rem);
 
-&#x20;   font-weight: 400;
+    font-weight: 400;
 
-&#x20;   line-height: .95;
+    line-height: .95;
 
-&#x20;   letter-spacing: -.045em;
+    letter-spacing: -.045em;
 }
 
 
 .newsletter h2 em {
 
-&#x20;   color: var(--gold-light);
+    color: var(--gold-light);
 
-&#x20;   font-style: italic;
+    font-style: italic;
 }
 
 
 .newsletter-text {
 
-&#x20;   margin-top: 25px;
+    margin-top: 25px;
 
-&#x20;   max-width: 570px;
+    max-width: 570px;
 
-&#x20;   color: rgba(244,240,230,.65);
+    color: rgba(244,240,230,.65);
 
-&#x20;   font-size: .86rem;
+    font-size: .86rem;
 
-&#x20;   line-height: 1.85;
+    line-height: 1.85;
 }
 
 
 .newsletter-form {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   border-bottom: 1px solid rgba(244,240,230,.45);
+    border-bottom: 1px solid rgba(244,240,230,.45);
 
-&#x20;   padding-bottom: 12px;
+    padding-bottom: 12px;
 }
 
 
 .newsletter-form input {
 
-&#x20;   flex: 1;
+    flex: 1;
 
-&#x20;   border: 0;
+    border: 0;
 
-&#x20;   outline: 0;
+    outline: 0;
 
-&#x20;   background: transparent;
+    background: transparent;
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 
-&#x20;   font-family: var(--sans);
+    font-family: var(--sans);
 
-&#x20;   font-size: .82rem;
+    font-size: .82rem;
 }
 
 
 .newsletter-form input::placeholder {
 
-&#x20;   color: rgba(244,240,230,.45);
+    color: rgba(244,240,230,.45);
 }
 
 
 .newsletter-form button {
 
-&#x20;   border: 0;
+    border: 0;
 
-&#x20;   background: transparent;
+    background: transparent;
 
-&#x20;   color: var(--gold-light);
+    color: var(--gold-light);
 
-&#x20;   cursor: pointer;
+    cursor: pointer;
 
-&#x20;   font-size: .6rem;
+    font-size: .6rem;
 
-&#x20;   letter-spacing: .15em;
+    letter-spacing: .15em;
 
-&#x20;   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
-/\* =========================================================
-&#x20;  FOOTER
-\========================================================= \*/
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer {
 
-&#x20;   background: #050706;
+    background: #050706;
 
-&#x20;   border-top: 1px solid var(--line);
+    border-top: 1px solid var(--line);
 
-&#x20;   padding: 75px 0 30px;
+    padding: 75px 0 30px;
 }
 
 
 .footer-grid {
-&#x20;   display: grid;
-&#x20;   grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr 1.4fr;
-&#x20;   gap: 35px;
-&#x20;   padding-bottom: 65px;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr 1.4fr;
+    gap: 35px;
+    padding-bottom: 65px;
 }
 
 
 .footer-logo {
 
-&#x20;   font-family: var(--serif);
+    font-family: var(--serif);
 
-&#x20;   font-size: 2rem;
+    font-size: 2rem;
 
-&#x20;   letter-spacing: .08em;
+    letter-spacing: .08em;
 }
 
 
 .footer-logo span {
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 }
 
 
 .footer-description {
 
-&#x20;   max-width: 390px;
+    max-width: 390px;
 
-&#x20;   margin-top: 18px;
+    margin-top: 18px;
 
-&#x20;   color: #707570;
+    color: #707570;
 
-&#x20;   font-size: .82rem;
+    font-size: .82rem;
 
-&#x20;   line-height: 1.8;
+    line-height: 1.8;
 }
 
 
 .footer-heading {
-&#x20;   margin-bottom: 20px;
-&#x20;   color: var(--gold);
-&#x20;   font-size: .82rem;
-&#x20;   font-weight: 600;
-&#x20;   letter-spacing: .16em;
-&#x20;   text-transform: uppercase;
-&#x20;   line-height: 1.3;
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    line-height: 1.3;
 }
 
 
 .footer-links {
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   flex-direction: column;
+    flex-direction: column;
 
-&#x20;   gap: 12px;
+    gap: 12px;
 }
 
 
 .footer-links a {
 
-&#x20;   color: #9a9d99;
+    color: #9a9d99;
 
-&#x20;   font-size: .78rem;
+    font-size: .78rem;
 
-&#x20;   transition: color .25s ease;
+    transition: color .25s ease;
 }
 
 
-.footer-links a\:hover {
+.footer-links a:hover {
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 }
 
 
 .footer-bottom {
 
-&#x20;   padding-top: 25px;
+    padding-top: 25px;
 
-&#x20;   border-top: 1px solid var(--line);
+    border-top: 1px solid var(--line);
 
-&#x20;   display: flex;
+    display: flex;
 
-&#x20;   justify-content: space-between;
+    justify-content: space-between;
 
-&#x20;   gap: 20px;
+    gap: 20px;
 
-&#x20;   color: #5e625f;
+    color: #5e625f;
 
-&#x20;   font-size: .58rem;
+    font-size: .58rem;
 
-&#x20;   letter-spacing: .08em;
+    letter-spacing: .08em;
 }
 
 
-/\* =========================================================
-&#x20;  ANIMATIONS
-\========================================================= \*/
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 .reveal {
 
-&#x20;   opacity: 0;
+    opacity: 0;
 
-&#x20;   transform: translateY(45px);
+    transform: translateY(45px);
 
-&#x20;   transition:
+    transition:
 
-&#x20;       opacity 1s cubic-bezier(.16,1,.3,1),
+        opacity 1s cubic-bezier(.16,1,.3,1),
 
-&#x20;       transform 1s cubic-bezier(.16,1,.3,1);
+        transform 1s cubic-bezier(.16,1,.3,1);
 }
 
 
 .reveal.show {
 
-&#x20;   opacity: 1;
+    opacity: 1;
 
-&#x20;   transform: translateY(0);
+    transform: translateY(0);
 }
 
 
-/\* =========================================================
-&#x20;  RESPONSIVE
-\========================================================= \*/
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media (max-width:1050px) {
 
-&#x20;   .nav-links {
+    .nav-links {
 
-&#x20;       position: fixed;
+        position: fixed;
 
-&#x20;       top: 94px;
+        top: 94px;
 
-&#x20;       left: 0;
+        left: 0;
 
-&#x20;       width: 100%;
+        width: 100%;
 
-&#x20;       padding: 35px 4%;
+        padding: 35px 4%;
 
-&#x20;       background: rgba(7,9,8,.98);
+        background: rgba(7,9,8,.98);
 
-&#x20;       backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
 
-&#x20;       border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
 
-&#x20;       display: flex;
+        display: flex;
 
-&#x20;       flex-direction: column;
+        flex-direction: column;
 
-&#x20;       align-items: flex-start;
+        align-items: flex-start;
 
-&#x20;       gap: 25px;
+        gap: 25px;
 
-&#x20;       transform: translateY(-150%);
+        transform: translateY(-150%);
 
-&#x20;       transition: transform .45s ease;
-&#x20;   }
-
-
-&#x20;   .nav-links.open {
-
-&#x20;       transform: translateY(0);
-&#x20;   }
+        transition: transform .45s ease;
+    }
 
 
-&#x20;   .menu-button {
+    .nav-links.open {
 
-&#x20;       display: block;
-&#x20;   }
-
-
-&#x20;   .news-hero-grid {
-
-&#x20;       grid-template-columns: 1fr;
-
-&#x20;       gap: 40px;
-&#x20;   }
+        transform: translateY(0);
+    }
 
 
-&#x20;   .featured-card {
+    .menu-button {
 
-&#x20;       grid-template-columns: 1fr;
-&#x20;   }
-
-
-&#x20;   .featured-image {
-
-&#x20;       min-height: 430px;
-&#x20;   }
+        display: block;
+    }
 
 
-&#x20;   .news-grid {
+    .news-hero-grid {
 
-&#x20;       grid-template-columns: 1fr 1fr;
-&#x20;   }
+        grid-template-columns: 1fr;
 
-
-&#x20;   .newsletter-box {
-
-&#x20;       grid-template-columns: 1fr;
-
-&#x20;       gap: 45px;
-&#x20;   }
+        gap: 40px;
+    }
 
 
-&#x20;   .footer-grid {
+    .featured-card {
 
-&#x20;       grid-template-columns: 1fr 1fr;
-&#x20;   }
+        grid-template-columns: 1fr;
+    }
+
+
+    .featured-image {
+
+        min-height: 430px;
+    }
+
+
+    .news-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .newsletter-box {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
 
 
 @media (max-width:650px) {
 
-&#x20;   .cursor-dot,
-&#x20;   .cursor-ring {
+    .cursor-dot,
+    .cursor-ring {
 
-&#x20;       display: none;
-&#x20;   }
+        display: none;
+    }
 
 
-&#x20;   .nav-inner {
+    .nav-inner {
 
-&#x20;       min-height: 78px;
-&#x20;   }
+        min-height: 78px;
+    }
 
 
-&#x20;   .nav-links {
+    .nav-links {
 
-&#x20;       top: 78px;
-&#x20;   }
+        top: 78px;
+    }
 
 
-&#x20;   .news-hero {
+    .news-hero {
 
-&#x20;       min-height: 70vh;
+        min-height: 70vh;
 
-&#x20;       padding: 130px 0 75px;
-&#x20;   }
+        padding: 130px 0 75px;
+    }
 
 
-&#x20;   .news-hero h1 {
+    .news-hero h1 {
 
-&#x20;       font-size: clamp(4rem,17vw,6rem);
-&#x20;   }
+        font-size: clamp(4rem,17vw,6rem);
+    }
 
 
-&#x20;   .hero-intro {
+    .hero-intro {
 
-&#x20;       font-size: .87rem;
-&#x20;   }
+        font-size: .87rem;
+    }
 
 
-&#x20;   .filters-inner {
+    .filters-inner {
 
-&#x20;       align-items: flex-start;
+        align-items: flex-start;
 
-&#x20;       flex-direction: column;
-&#x20;   }
+        flex-direction: column;
+    }
 
 
-&#x20;   .featured {
+    .featured {
 
-&#x20;       padding: 80px 0;
-&#x20;   }
+        padding: 80px 0;
+    }
 
 
-&#x20;   .featured-card {
+    .featured-card {
 
-&#x20;       min-height: auto;
-&#x20;   }
+        min-height: auto;
+    }
 
 
-&#x20;   .featured-image {
+    .featured-image {
 
-&#x20;       min-height: 350px;
-&#x20;   }
+        min-height: 350px;
+    }
 
 
-&#x20;   .featured-image::before {
+    .featured-image::before {
 
-&#x20;       width: 270px;
+        width: 270px;
 
-&#x20;       height: 270px;
-&#x20;   }
+        height: 270px;
+    }
 
 
-&#x20;   .featured-content {
+    .featured-content {
 
-&#x20;       padding: 40px 27px 50px;
-&#x20;   }
+        padding: 40px 27px 50px;
+    }
 
 
-&#x20;   .featured-content h2 {
+    .featured-content h2 {
 
-&#x20;       font-size: 2.5rem;
-&#x20;   }
+        font-size: 2.5rem;
+    }
 
 
-&#x20;   .latest {
+    .latest {
 
-&#x20;       padding: 85px 0;
-&#x20;   }
+        padding: 85px 0;
+    }
 
 
-&#x20;   .latest-header {
+    .latest-header {
 
-&#x20;       display: block;
-&#x20;   }
+        display: block;
+    }
 
 
-&#x20;   .latest-description {
+    .latest-description {
 
-&#x20;       margin-top: 25px;
-&#x20;   }
+        margin-top: 25px;
+    }
 
 
-&#x20;   .news-grid {
+    .news-grid {
 
-&#x20;       grid-template-columns: 1fr;
-&#x20;   }
+        grid-template-columns: 1fr;
+    }
 
 
-&#x20;   .news-image {
+    .news-image {
 
-&#x20;       height: 260px;
-&#x20;   }
+        height: 260px;
+    }
 
 
-&#x20;   .newsletter {
+    .newsletter {
 
-&#x20;       padding: 85px 0;
-&#x20;   }
+        padding: 85px 0;
+    }
 
 
-&#x20;   .footer-grid {
+    .footer-grid {
 
-&#x20;       grid-template-columns: 1fr;
-&#x20;   }
+        grid-template-columns: 1fr;
+    }
 
 
-&#x20;   .footer-bottom {
+    .footer-bottom {
 
-&#x20;       flex-direction: column;
-&#x20;   }
+        flex-direction: column;
+    }
 
 }
 
 .footer-address {
-&#x20;   gap: 10px;
+    gap: 10px;
 }
 
 .footer-address div,
 .footer-address a {
-&#x20;   line-height: 1.6;
+    line-height: 1.6;
 }
 
 .footer-address strong {
-&#x20;   color: var(--cream);
-&#x20;   font-weight: 500;
-&#x20;   font-size: .72rem;
-&#x20;   line-height: 1.5;
-&#x20;   letter-spacing: .02em;
+    color: var(--cream);
+    font-weight: 500;
+    font-size: .72rem;
+    line-height: 1.5;
+    letter-spacing: .02em;
 }
 
 .nav-actions {
-&#x20;   margin-left: auto;
-&#x20;   gap: 5px;
-&#x20;   justify-content: flex-end;
-&#x20;   flex-shrink: 0;
+    margin-left: auto;
+    gap: 5px;
+    justify-content: flex-end;
+    flex-shrink: 0;
 }
 
 
-/\* =========================================================
-&#x20;  THEME CLAIR / SOMBRE
-\========================================================= \*/
+/* =========================================================
+   THEME CLAIR / SOMBRE
+========================================================= */
 
 html {
-&#x20;   color-scheme: dark;
+    color-scheme: dark;
 }
 
 body {
-&#x20;   transition:
-&#x20;       background-color .35s ease,
-&#x20;       color .35s ease;
+    transition:
+        background-color .35s ease,
+        color .35s ease;
 }
 
 
-/\* =========================================================
-&#x20;  BOUTON THÈME
-\========================================================= \*/
+/* =========================================================
+   BOUTON THÈME
+========================================================= */
 
 .theme-toggle {
 
-&#x20;   flex: 0 0 auto;
+    flex: 0 0 auto;
 
-&#x20;   width: 44px;
-&#x20;   height: 44px;
+    width: 44px;
+    height: 44px;
 
-&#x20;   margin-left: 18px;
+    margin-left: 18px;
 
-&#x20;   border: 1px solid var(--line);
+    border: 1px solid var(--line);
 
-&#x20;   border-radius: 50%;
+    border-radius: 50%;
 
-&#x20;   background: var(--black-card);
+    background: var(--black-card);
 
-&#x20;   color: var(--cream);
+    color: var(--cream);
 
-&#x20;   display: inline-flex;
+    display: inline-flex;
 
-&#x20;   align-items: center;
-&#x20;   justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-&#x20;   cursor: pointer;
+    cursor: pointer;
 
-&#x20;   font-size: 1.05rem;
+    font-size: 1.05rem;
 
-&#x20;   line-height: 1;
+    line-height: 1;
 
-&#x20;   transition: all .3s ease;
+    transition: all .3s ease;
 
-&#x20;   position: relative;
+    position: relative;
 
-&#x20;   z-index: 20;
+    z-index: 20;
 }
 
 
-.theme-toggle\:hover {
+.theme-toggle:hover {
 
-&#x20;   border-color: var(--gold);
+    border-color: var(--gold);
 
-&#x20;   color: var(--gold);
+    color: var(--gold);
 
-&#x20;   transform:
-&#x20;       rotate(12deg)
-&#x20;       scale(1.05);
+    transform:
+        rotate(12deg)
+        scale(1.05);
 }
 
 
 .theme-toggle .theme-icon {
 
-&#x20;   display: block;
+    display: block;
 
-&#x20;   transition:
-&#x20;       transform .3s ease;
+    transition:
+        transform .3s ease;
 }
 
 
 
-/\* =========================================================
-&#x20;  THÈME CLAIR
-\========================================================= \*/
+/* =========================================================
+   THÈME CLAIR
+========================================================= */
 
 html[data-theme="light"] {
 
-&#x20;   color-scheme: light;
+    color-scheme: light;
 }
 
 
 html[data-theme="light"] body {
 
-&#x20;   \--black: #f5f2ea;
+    --black: #f5f2ea;
 
-&#x20;   \--black-soft: #ece8de;
+    --black-soft: #ece8de;
 
-&#x20;   \--black-card: #ffffff;
+    --black-card: #ffffff;
 
-&#x20;   \--cream: #171a17;
+    --cream: #171a17;
 
-&#x20;   \--cream-soft: #59605a;
+    --cream-soft: #59605a;
 
-&#x20;   \--gold: #9a762d;
+    --gold: #9a762d;
 
-&#x20;   \--gold-light: #b28d3c;
+    --gold-light: #b28d3c;
 
-&#x20;   \--green: #dce8df;
+    --green: #dce8df;
 
-&#x20;   \--green-light: #bfd5c5;
+    --green-light: #bfd5c5;
 
-&#x20;   \--line: rgba(23,26,23,.13);
+    --line: rgba(23,26,23,.13);
 
-&#x20;   background: var(--black);
+    background: var(--black);
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
-/\* =========================================================
-&#x20;  BOUTON THÈME — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   BOUTON THÈME — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .theme-toggle {
 
-&#x20;   background: #ffffff;
+    background: #ffffff;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-color: rgba(23,26,23,.18);
+    border-color: rgba(23,26,23,.18);
 }
 
-/\* =========================================================
-&#x20;  NAVIGATION — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   NAVIGATION — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .nav {
 
-&#x20;   background:
-&#x20;       rgba(245,242,234,.88);
+    background:
+        rgba(245,242,234,.88);
 
-&#x20;   border-bottom-color:
-&#x20;       rgba(23,26,23,.10);
+    border-bottom-color:
+        rgba(23,26,23,.10);
 }
 
 
 html[data-theme="light"] .nav.scrolled {
 
-&#x20;   background:
-&#x20;       rgba(245,242,234,.94);
+    background:
+        rgba(245,242,234,.94);
 }
 
 
 html[data-theme="light"] .nav-links {
 
-&#x20;   background:
-&#x20;       rgba(245,242,234,.98);
+    background:
+        rgba(245,242,234,.98);
 }
 
 
 html[data-theme="light"] .nav-links a {
 
-&#x20;   color: #303630;
+    color: #303630;
 }
 
 
-html[data-theme="light"] .nav-links a\:hover {
+html[data-theme="light"] .nav-links a:hover {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .nav-links .active {
 
-&#x20;   color: #9a762d !important;
+    color: #9a762d !important;
 }
 
 
 html[data-theme="light"] .nav-news {
 
-&#x20;   color: #9a762d !important;
+    color: #9a762d !important;
 }
 
 
 html[data-theme="light"] .nav-cta {
 
-&#x20;   color: #9a762d !important;
+    color: #9a762d !important;
 
-&#x20;   border-color: #9a762d;
+    border-color: #9a762d;
 }
 
 
 html[data-theme="light"] .menu-button {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
-/\* =========================================================
-&#x20;  HERO — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   HERO — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .news-hero {
 
-&#x20;   background:
+    background:
 
-&#x20;       radial-gradient(
-&#x20;           circle at 75% 45%,
-&#x20;           rgba(44,96,75,.12),
-&#x20;           transparent 34%
-&#x20;       ),
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(44,96,75,.12),
+            transparent 34%
+        ),
 
-&#x20;       radial-gradient(
-&#x20;           circle at 20% 70%,
-&#x20;           rgba(154,118,45,.08),
-&#x20;           transparent 25%
-&#x20;       ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(154,118,45,.08),
+            transparent 25%
+        ),
 
-&#x20;       \#f5f2ea;
+        #f5f2ea;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .news-hero h1 {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .news-hero h1 em {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .hero-intro {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .section-label {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .section-label::before {
 
-&#x20;   background: #9a762d;
+    background: #9a762d;
 }
 
 
-/\* Grand "NEWS" décoratif \*/
+/* Grand "NEWS" décoratif */
 
 html[data-theme="light"] .news-hero::before {
 
-&#x20;   -webkit-text-stroke:
-&#x20;       1px rgba(23,26,23,.055);
+    -webkit-text-stroke:
+        1px rgba(23,26,23,.055);
 }
 
 
-/\* =========================================================
-&#x20;  FILTRES — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   FILTRES — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .filters {
 
-&#x20;   background: #e8e4da;
+    background: #e8e4da;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-bottom-color:
-&#x20;       rgba(23,26,23,.12);
+    border-bottom-color:
+        rgba(23,26,23,.12);
 }
 
 
 html[data-theme="light"] .filter-title {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .filter {
 
-&#x20;   background: transparent;
+    background: transparent;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-color:
-&#x20;       rgba(23,26,23,.22);
+    border-color:
+        rgba(23,26,23,.22);
 }
 
 
-html[data-theme="light"] .filter\:hover {
+html[data-theme="light"] .filter:hover {
 
-&#x20;   background: #dce8df;
+    background: #dce8df;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-color:
-&#x20;       \#9bb8a5;
+    border-color:
+        #9bb8a5;
 }
 
 
 html[data-theme="light"] .filter.active {
 
-&#x20;   background: #183b2e;
+    background: #183b2e;
 
-&#x20;   color: #f5f2ea;
+    color: #f5f2ea;
 
-&#x20;   border-color: #183b2e;
+    border-color: #183b2e;
 }
 
 
-/\* =========================================================
-&#x20;  ACTUALITÉ À LA UNE — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   ACTUALITÉ À LA UNE — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .featured {
 
-&#x20;   background: #f5f2ea;
+    background: #f5f2ea;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .featured-label {
 
-&#x20;   color: #183b2e;
+    color: #183b2e;
 }
 
 
 html[data-theme="light"] .featured-label::before {
 
-&#x20;   background: #183b2e;
+    background: #183b2e;
 }
 
 
-/\*
-&#x20;  La partie image reste sombre volontairement
-&#x20;  afin de conserver le contraste visuel.
-\*/
+/*
+   La partie image reste sombre volontairement
+   afin de conserver le contraste visuel.
+*/
 
 html[data-theme="light"] .featured-card {
 
-&#x20;   background: #111714;
+    background: #111714;
 
-&#x20;   color: #f4f0e6;
+    color: #f4f0e6;
 }
 
 
 html[data-theme="light"] .featured-content {
 
-&#x20;   background: #ffffff;
+    background: #ffffff;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .featured-content h2 {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .featured-content h2 em {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .featured-content p {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .article-meta {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .article-meta span {
 
-&#x20;   background: #9a762d;
+    background: #9a762d;
 }
 
 
 html[data-theme="light"] .read-more {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 
-&#x20;   border-bottom-color: #9a762d;
+    border-bottom-color: #9a762d;
 }
 
 
-/\* Étiquette sur l'image \*/
+/* Étiquette sur l'image */
 
 html[data-theme="light"] .featured-image-tag {
 
-&#x20;   background: #9a762d;
+    background: #9a762d;
 
-&#x20;   color: #ffffff;
+    color: #ffffff;
 }
 
 
-/\* Numéro décoratif \*/
+/* Numéro décoratif */
 
 html[data-theme="light"] .featured-image-number {
 
-&#x20;   color: rgba(255,255,255,.09);
+    color: rgba(255,255,255,.09);
 }
 
 
-/\* =========================================================
-&#x20;  ACTUALITÉS RÉCENTES — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   ACTUALITÉS RÉCENTES — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .latest {
 
-&#x20;   background: #f5f2ea;
+    background: #f5f2ea;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .latest-title {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .latest-title em {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .latest-description {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
-/\* =========================================================
-&#x20;  CARTES D'ACTUALITÉS — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   CARTES D'ACTUALITÉS — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .news-card {
 
-&#x20;   background: #ffffff;
+    background: #ffffff;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-color:
-&#x20;       rgba(23,26,23,.13);
+    border-color:
+        rgba(23,26,23,.13);
 }
 
 
-html[data-theme="light"] .news-card\:hover {
+html[data-theme="light"] .news-card:hover {
 
-&#x20;   border-color:
-&#x20;       rgba(154,118,45,.45);
+    border-color:
+        rgba(154,118,45,.45);
 }
 
 
 html[data-theme="light"] .news-content {
 
-&#x20;   background: #ffffff;
+    background: #ffffff;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .news-meta {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .news-content h3 {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .news-content p {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .news-link {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
-/\* Les images restent foncées pour garder
-&#x20;  le contraste avec les badges \*/
+/* Les images restent foncées pour garder
+   le contraste avec les badges */
 
 html[data-theme="light"] .news-image {
 
-&#x20;   filter:
-&#x20;       brightness(1.06)
-&#x20;       saturate(.9);
+    filter:
+        brightness(1.06)
+        saturate(.9);
 }
 
 
 html[data-theme="light"] .news-category {
 
-&#x20;   background:
-&#x20;       rgba(7,9,8,.82);
+    background:
+        rgba(7,9,8,.82);
 
-&#x20;   color: #e4c986;
+    color: #e4c986;
 
-&#x20;   border-color:
-&#x20;       rgba(255,255,255,.18);
+    border-color:
+        rgba(255,255,255,.18);
 }
 
 
 html[data-theme="light"] .news-number {
 
-&#x20;   color: rgba(255,255,255,.09);
+    color: rgba(255,255,255,.09);
 }
 
 
-/\* =========================================================
-&#x20;  NEWSLETTER — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   NEWSLETTER — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .newsletter {
 
-&#x20;   background: #e8e4da;
+    background: #e8e4da;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .newsletter h2 {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .newsletter h2 em {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .newsletter-text {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .newsletter-form {
 
-&#x20;   border-bottom-color:
-&#x20;       rgba(23,26,23,.28);
+    border-bottom-color:
+        rgba(23,26,23,.28);
 }
 
 
 html[data-theme="light"] .newsletter-form input {
 
-&#x20;   background: transparent;
+    background: transparent;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .newsletter-form input::placeholder {
 
-&#x20;   color: #6a706b;
+    color: #6a706b;
 }
 
 
 html[data-theme="light"] .newsletter-form button {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] #newsletterMessage {
 
-&#x20;   color: #9a762d !important;
+    color: #9a762d !important;
 }
 
 
-/\* =========================================================
-&#x20;  FOOTER — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   FOOTER — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .footer {
 
-&#x20;   background: #e8e4da;
+    background: #e8e4da;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-top-color:
-&#x20;       rgba(23,26,23,.13);
+    border-top-color:
+        rgba(23,26,23,.13);
 }
 
 
 html[data-theme="light"] .footer-logo {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .footer-logo span {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .footer-heading {
 
-&#x20;   color: #9a762d;
+    color: #9a762d;
 }
 
 
 html[data-theme="light"] .footer-description {
 
-&#x20;   color: #59605a;
+    color: #59605a;
 }
 
 
 html[data-theme="light"] .footer-links a {
 
-&#x20;   color: #4f554f;
+    color: #4f554f;
 }
 
 
-html[data-theme="light"] .footer-links a\:hover {
+html[data-theme="light"] .footer-links a:hover {
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .footer-bottom {
 
-&#x20;   color: #626860;
+    color: #626860;
 
-&#x20;   border-top-color:
-&#x20;       rgba(23,26,23,.13);
+    border-top-color:
+        rgba(23,26,23,.13);
 }
 
 
-/\* =========================================================
-&#x20;  AUTRES ÉLÉMENTS — MODE CLAIR
-\========================================================= \*/
+/* =========================================================
+   AUTRES ÉLÉMENTS — MODE CLAIR
+========================================================= */
 
 html[data-theme="light"] .page-header,
 html[data-theme="light"] .hero,
@@ -2499,9 +2506,9 @@ html[data-theme="light"] .vision,
 html[data-theme="light"] .timeline-section,
 html[data-theme="light"] .contact {
 
-&#x20;   background-color: #f5f2ea;
+    background-color: #f5f2ea;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
@@ -2511,18 +2518,18 @@ html[data-theme="light"] .project-card,
 html[data-theme="light"] .contact-box,
 html[data-theme="light"] .timeline-content {
 
-&#x20;   background:
-&#x20;       rgba(255,255,255,.72);
+    background:
+        rgba(255,255,255,.72);
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
 
 html[data-theme="light"] .marquee {
 
-&#x20;   background: #171a17;
+    background: #171a17;
 
-&#x20;   color: #f5f2ea;
+    color: #f5f2ea;
 }
 
 
@@ -2530,72 +2537,72 @@ html[data-theme="light"] input,
 html[data-theme="light"] textarea,
 html[data-theme="light"] select {
 
-&#x20;   background: #ffffff;
+    background: #ffffff;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 
-&#x20;   border-color:
-&#x20;       rgba(23,26,23,.18);
+    border-color:
+        rgba(23,26,23,.18);
 }
 
 
 html[data-theme="light"] .preloader {
 
-&#x20;   background: #f5f2ea;
+    background: #f5f2ea;
 
-&#x20;   color: #171a17;
+    color: #171a17;
 }
 
-/\* =========================================================
-&#x20;  THÈME DANS LE MENU BURGER
-\========================================================= \*/
+/* =========================================================
+   THÈME DANS LE MENU BURGER
+========================================================= */
 
 @media (max-width:1050px) {
 
-&#x20;   .nav-inner {
+    .nav-inner {
 
-&#x20;       justify-content: space-between;
-&#x20;   }
-
-
-&#x20;   .menu-button {
-
-&#x20;       display: block;
-
-&#x20;       margin-left: auto;
-
-&#x20;       position: relative;
-
-&#x20;       z-index: 30;
-&#x20;   }
+        justify-content: space-between;
+    }
 
 
-&#x20;   .nav-links .theme-toggle {
+    .menu-button {
 
-&#x20;       display: none;
+        display: block;
 
-&#x20;       margin: 0;
+        margin-left: auto;
 
-&#x20;       width: 44px;
+        position: relative;
 
-&#x20;       height: 44px;
-
-&#x20;       align-self: flex-start;
-&#x20;   }
+        z-index: 30;
+    }
 
 
-&#x20;   .nav-links.open .theme-toggle {
+    .nav-links .theme-toggle {
 
-&#x20;       display: inline-flex;
-&#x20;   }
+        display: none;
 
-&#x20;   .nav-actions {
-&#x20;   margin-left: auto;
-&#x20;   gap: 8px;
-&#x20;   flex-shrink: 0;
-&#x20;   display: flex;
-&#x20;   align-items: center;
-&#x20;   justify-content: flex-end;
+        margin: 0;
+
+        width: 44px;
+
+        height: 44px;
+
+        align-self: flex-start;
+    }
+
+
+    .nav-links.open .theme-toggle {
+
+        display: inline-flex;
+    }
+
+    .nav-actions {
+    margin-left: auto;
+    gap: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 }
@@ -2603,75 +2610,80 @@ html[data-theme="light"] .preloader {
 
 @media (max-width:600px) {
 
-&#x20;   .nav-inner {
+    .nav-inner {
 
-&#x20;       width: 94%;
-&#x20;   }
-
-
-&#x20;   .menu-button {
-
-&#x20;       margin-left: auto;
-
-&#x20;       font-size: 1.45rem;
-&#x20;   }
+        width: 94%;
+    }
 
 
-&#x20;   .nav-links .theme-toggle,
-&#x20;   .nav-links.open .theme-toggle {
+    .menu-button {
 
-&#x20;       width: 40px;
+        margin-left: auto;
 
-&#x20;       height: 40px;
+        font-size: 1.45rem;
+    }
 
-&#x20;       margin-top: 2px;
-&#x20;   }
+
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+        margin-top: 2px;
+    }
 
 }
 
 
 @media (max-width:400px) {
 
-&#x20;   .nav-links .theme-toggle,
-&#x20;   .nav-links.open .theme-toggle {
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
 
-&#x20;       width: 38px;
+        width: 38px;
 
-&#x20;       height: 38px;
-&#x20;   }
+        height: 38px;
+    }
 
 }
 
-\</style>
-\<script>
+</style>
+
+<script>
 (function(){
-&#x20;   const KEY = "moraheyms-theme";
+    const KEY = "moraheyms-theme";
 
-&#x20;   try {
-&#x20;       const savedTheme = localStorage.getItem(KEY);
+    try {
+        const savedTheme = localStorage.getItem(KEY);
 
-&#x20;       document.documentElement.setAttribute(
-&#x20;           "data-theme",
-&#x20;           savedTheme === "dark" ? "dark" : "light"
-&#x20;       );
+        document.documentElement.setAttribute(
+            "data-theme",
+            savedTheme === "dark" ? "dark" : "light"
+        );
 
-&#x20;   } catch(e) {
-&#x20;       document.documentElement.setAttribute(
-&#x20;           "data-theme",
-&#x20;           "light"
-&#x20;       );
-&#x20;   }
+    } catch(e) {
+        document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+        );
+    }
 })();
-\</script>
-\</head>
-\<body>
-\<!-- =========================================================
-&#x20;    PRELOADER
-\========================================================= -->
-\<div class="preloader" id="preloader">
-\<div class="loader">
+</script>
 
-```
+</head>
+
+<body>
+
+<!-- =========================================================
+     PRELOADER
+========================================================= -->
+
+<div class="preloader" id="preloader">
+
+<div class="loader">
+
 <div class="loader-logo">
     MORAHEYM'S
 </div>
@@ -2688,20 +2700,24 @@ html[data-theme="light"] .preloader {
     </div>
 
 </div>
-```
 
-\</div>
-\</div>
-\<!-- CURSEUR -->
-\<div class="cursor-dot">\</div>
-\<div class="cursor-ring">\</div>
-\<!-- =========================================================
-&#x20;    NAVIGATION
-\========================================================= -->
-\<header class="nav" id="nav">
-\<div class="nav-inner">
+</div>
 
-```
+</div>
+
+<!-- CURSEUR -->
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav" id="nav">
+
+<div class="nav-inner">
+
 <a
     href="index.html"
     class="logo">
@@ -2729,39 +2745,45 @@ html[data-theme="light"] .preloader {
     id="navLinks">
 
     <a href="actualites.html" class="nav-news" data-i18n="actualites">
-```
 
 Actualités
-\</a>
-\<a href="groupe.html" data-i18n="groupe">
-&#x20;   Le groupe
-\</a>
-\<a href="expertise.html" data-i18n="expertise">
-&#x20;   Expertise
-\</a>
-\<a href="vision.html" data-i18n="vision">
-&#x20;   Vision
-\</a>
-\<a href="projets.html" data-i18n="projets">
-&#x20;   Projets
-\</a>
-\<a href="contact.html" class="nav-cta" data-i18n="contact">
-&#x20;   Contact
-\</a>
 
-```
+</a>
+
+<a href="groupe.html" data-i18n="groupe">
+    Le groupe
+</a>
+
+<a href="expertise.html" data-i18n="expertise">
+    Expertise
+</a>
+
+<a href="vision.html" data-i18n="vision">
+    Vision
+</a>
+
+<a href="projets.html" data-i18n="projets">
+    Projets
+</a>
+
+<a href="contact.html" class="nav-cta" data-i18n="contact">
+    Contact
+</a>
+
 </nav>
-```
 
-\</div>
-\</header>
-\<!-- =========================================================
-&#x20;    HERO
-\========================================================= -->
-\<section class="news-hero">
-\<div class="container news-hero-grid">
+</div>
 
-```
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="news-hero">
+
+<div class="container news-hero-grid">
+
 <div class="reveal">
 
     <div class="section-label">
@@ -2798,17 +2820,19 @@ Actualités
     </p>
 
 </div>
-```
 
-\</div>
-\</section>
-\<!-- =========================================================
-&#x20;    FILTRES
-\========================================================= -->
-\<section class="filters">
-\<div class="container filters-inner">
+</div>
 
-```
+</section>
+
+<!-- =========================================================
+     FILTRES
+========================================================= -->
+
+<section class="filters">
+
+<div class="container filters-inner">
+
 <div class="filter-title">
 
     Filtrer les publications
@@ -2863,17 +2887,19 @@ Actualités
     </button>
 
 </div>
-```
 
-\</div>
-\</section>
-\<!-- =========================================================
-&#x20;    À LA UNE
-\========================================================= -->
-\<section class="featured">
-\<div class="container">
+</div>
 
-```
+</section>
+
+<!-- =========================================================
+     À LA UNE
+========================================================= -->
+
+<section class="featured">
+
+<div class="container">
+
 <div class="section-label featured-label reveal">
 
     02 — À la une
@@ -2954,17 +2980,19 @@ Actualités
     </div>
 
 </article>
-```
 
-\</div>
-\</section>
-\<!-- =========================================================
-&#x20;    ACTUALITÉS RÉCENTES
-\========================================================= -->
-\<section class="latest">
-\<div class="container">
+</div>
 
-```
+</section>
+
+<!-- =========================================================
+     ACTUALITÉS RÉCENTES
+========================================================= -->
+
+<section class="latest">
+
+<div class="container">
+
 <div class="latest-header reveal">
 
 
@@ -3369,17 +3397,19 @@ Actualités
     </article>
 
 </div>
-```
 
-\</div>
-\</section>
-\<!-- =========================================================
-&#x20;    NEWSLETTER
-\========================================================= -->
-\<section class="newsletter">
-\<div class="container newsletter-box">
+</div>
 
-```
+</section>
+
+<!-- =========================================================
+     NEWSLETTER
+========================================================= -->
+
+<section class="newsletter">
+
+<div class="container newsletter-box">
+
 <div class="reveal">
 
     <div class="section-label">
@@ -3451,14 +3481,15 @@ Actualités
     </p>
 
 </div>
-```
 
-\</div>
-\</section>
-\<footer class="footer">
-\<div class="container">
+</div>
 
-```
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
 <div class="footer-grid">
 
     <!-- IDENTITÉ -->
@@ -3649,768 +3680,771 @@ Actualités
     </span>
 
 </div>
-```
 
-\</div>
-\</footer>
-\<!-- =========================================================
-&#x20;    JAVASCRIPT
-\========================================================= -->
-\<script>
+</div>
 
-/\* =========================================================
-&#x20;  THEME TOGGLE
-\========================================================= \*/
+</footer>
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
 
 (function () {
 
-&#x20;   const KEY = "moraheyms-theme";
+    const KEY = "moraheyms-theme";
 
-&#x20;   const root = document.documentElement;
+    const root = document.documentElement;
 
 
-&#x20;   try {
+    try {
 
-&#x20;   const saved =
-&#x20;       localStorage.getItem(KEY);
+    const saved =
+        localStorage.getItem(KEY);
 
-&#x20;   root.setAttribute(
-&#x20;       "data-theme",
-&#x20;       saved === "dark"
-&#x20;           ? "dark"
-&#x20;           : "light"
-&#x20;   );
+    root.setAttribute(
+        "data-theme",
+        saved === "dark"
+            ? "dark"
+            : "light"
+    );
 
 } catch (e) {
 
-&#x20;   root.setAttribute(
-&#x20;       "data-theme",
-&#x20;       "light"
-&#x20;   );
+    root.setAttribute(
+        "data-theme",
+        "light"
+    );
 
 }
 
 
-&#x20;   function updateThemeButton() {
+    function updateThemeButton() {
 
-&#x20;       const button =
-&#x20;           document.getElementById(
-&#x20;               "themeToggle"
-&#x20;           );
+        const button =
+            document.getElementById(
+                "themeToggle"
+            );
 
-&#x20;       if (!button) return;
-
-
-&#x20;       const isLight =
-&#x20;           root.getAttribute(
-&#x20;               "data-theme"
-&#x20;           ) === "light";
+        if (!button) return;
 
 
-&#x20;       button.setAttribute(
-&#x20;           "aria-label",
-&#x20;           isLight
-&#x20;               ? "Activer le thème sombre"
-&#x20;               : "Activer le thème clair"
-&#x20;       );
+        const isLight =
+            root.getAttribute(
+                "data-theme"
+            ) === "light";
 
 
-&#x20;       button.setAttribute(
-&#x20;           "title",
-&#x20;           isLight
-&#x20;               ? "Thème sombre"
-&#x20;               : "Thème clair"
-&#x20;       );
+        button.setAttribute(
+            "aria-label",
+            isLight
+                ? "Activer le thème sombre"
+                : "Activer le thème clair"
+        );
 
 
-&#x20;       button.innerHTML =
-&#x20;           '\<span class="theme-icon" aria-hidden="true">' +
-&#x20;           (isLight ? "☀" : "☾") +
-&#x20;           '\</span>';
-
-&#x20;   }
-
-
-&#x20;   function positionThemeButton() {
-
-&#x20;   const button =
-&#x20;       document.getElementById(
-&#x20;           "themeToggle"
-&#x20;       );
-
-&#x20;   const navLinks =
-&#x20;       document.getElementById(
-&#x20;           "navLinks"
-&#x20;       );
-
-&#x20;   const navInner =
-&#x20;       document.querySelector(
-&#x20;           ".nav-inner"
-&#x20;       );
-
-&#x20;   const contactLink =
-&#x20;       navLinks
-&#x20;           ? navLinks.querySelector(
-&#x20;               'a[href="contact.html"]'
-&#x20;           )
-&#x20;           : null;
-
-&#x20;   if (
-&#x20;       !button ||
-&#x20;       !navLinks ||
-&#x20;       !navInner
-&#x20;   ) return;
+        button.setAttribute(
+            "title",
+            isLight
+                ? "Thème sombre"
+                : "Thème clair"
+        );
 
 
-&#x20;   /\* =====================================================
-&#x20;      MOBILE / TABLETTE
-&#x20;      Le bouton reste dans le menu,
-&#x20;      juste après "Contact"
-&#x20;   \===================================================== \*/
+        button.innerHTML =
+            '<span class="theme-icon" aria-hidden="true">' +
+            (isLight ? "☀" : "☾") +
+            '</span>';
 
-&#x20;   if (
-&#x20;       window\.innerWidth <= 1050
-&#x20;   ) {
-
-&#x20;       if (
-&#x20;           contactLink &&
-&#x20;           button.parentElement !== navLinks
-&#x20;       ) {
-
-&#x20;           contactLink.insertAdjacentElement(
-&#x20;               "afterend",
-&#x20;               button
-&#x20;           );
-
-&#x20;       } else if (
-&#x20;           contactLink &&
-&#x20;           button.previousElementSibling !== contactLink
-&#x20;       ) {
-
-&#x20;           contactLink.insertAdjacentElement(
-&#x20;               "afterend",
-&#x20;               button
-&#x20;           );
-
-&#x20;       }
-
-&#x20;   }
+    }
 
 
-&#x20;   /\* =====================================================
-&#x20;      PC
-&#x20;      Le bouton est placé complètement à droite,
-&#x20;      après "Contact"
-&#x20;   \===================================================== \*/
+    function positionThemeButton() {
 
-&#x20;   else {
+    const button =
+        document.getElementById(
+            "themeToggle"
+        );
 
-&#x20;       /\*
-&#x20;        \* On remet le bouton directement dans
-&#x20;        \* .nav-inner et surtout APRÈS .nav-links.
-&#x20;        \*
-&#x20;        \* .nav-links possède margin-left\:auto,
-&#x20;        \* donc la navigation reste collée à droite
-&#x20;        \* et le bouton vient juste après Contact.
-&#x20;        \*/
+    const navLinks =
+        document.getElementById(
+            "navLinks"
+        );
 
-&#x20;       if (
-&#x20;           button.parentElement !== navInner
-&#x20;       ) {
+    const navInner =
+        document.querySelector(
+            ".nav-inner"
+        );
 
-&#x20;           navInner.appendChild(
-&#x20;               button
-&#x20;           );
+    const contactLink =
+        navLinks
+            ? navLinks.querySelector(
+                'a[href="contact.html"]'
+            )
+            : null;
 
-&#x20;       } else {
-
-&#x20;           navInner.appendChild(
-&#x20;               button
-&#x20;           );
-
-&#x20;       }
-
-&#x20;   }
+    if (
+        !button ||
+        !navLinks ||
+        !navInner
+    ) return;
 
 
-&#x20;   updateThemeButton();
+    /* =====================================================
+       MOBILE / TABLETTE
+       Le bouton reste dans le menu,
+       juste après "Contact"
+    ===================================================== */
+
+    if (
+        window.innerWidth <= 1050
+    ) {
+
+        if (
+            contactLink &&
+            button.parentElement !== navLinks
+        ) {
+
+            contactLink.insertAdjacentElement(
+                "afterend",
+                button
+            );
+
+        } else if (
+            contactLink &&
+            button.previousElementSibling !== contactLink
+        ) {
+
+            contactLink.insertAdjacentElement(
+                "afterend",
+                button
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PC
+       Le bouton est placé complètement à droite,
+       après "Contact"
+    ===================================================== */
+
+    else {
+
+        /*
+         * On remet le bouton directement dans
+         * .nav-inner et surtout APRÈS .nav-links.
+         *
+         * .nav-links possède margin-left:auto,
+         * donc la navigation reste collée à droite
+         * et le bouton vient juste après Contact.
+         */
+
+        if (
+            button.parentElement !== navInner
+        ) {
+
+            navInner.appendChild(
+                button
+            );
+
+        } else {
+
+            navInner.appendChild(
+                button
+            );
+
+        }
+
+    }
+
+
+    updateThemeButton();
 
 }
 
 
-&#x20;   window\.addEventListener(
-&#x20;       "DOMContentLoaded",
-&#x20;       function () {
+    window.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
-&#x20;           const navInner =
-&#x20;               document.querySelector(
-&#x20;                   ".nav-inner"
-&#x20;               );
-
-
-&#x20;           if (!navInner) return;
+            const navInner =
+                document.querySelector(
+                    ".nav-inner"
+                );
 
 
-&#x20;           let button =
-&#x20;               document.getElementById(
-&#x20;                   "themeToggle"
-&#x20;               );
+            if (!navInner) return;
 
 
-&#x20;           if (!button) {
-
-&#x20;               button =
-&#x20;                   document.createElement(
-&#x20;                       "button"
-&#x20;                   );
+            let button =
+                document.getElementById(
+                    "themeToggle"
+                );
 
 
-&#x20;               button.type = "button";
+            if (!button) {
 
-&#x20;               button.id =
-&#x20;                   "themeToggle";
-
-&#x20;               button.className =
-&#x20;                   "theme-toggle";
-
-
-&#x20;               button.innerHTML =
-&#x20;                   '\<span class="theme-icon" aria-hidden="true">☾\</span>';
+                button =
+                    document.createElement(
+                        "button"
+                    );
 
 
-&#x20;               navInner.appendChild(
-&#x20;                   button
-&#x20;               );
+                button.type = "button";
+
+                button.id =
+                    "themeToggle";
+
+                button.className =
+                    "theme-toggle";
 
 
-&#x20;               button.addEventListener(
-&#x20;                   "click",
-&#x20;                   function () {
-
-&#x20;                       const next =
-&#x20;                           root.getAttribute(
-&#x20;                               "data-theme"
-&#x20;                           ) === "light"
-&#x20;                               ? "dark"
-&#x20;                               : "light";
+                button.innerHTML =
+                    '<span class="theme-icon" aria-hidden="true">☾</span>';
 
 
-&#x20;                       root.setAttribute(
-&#x20;                           "data-theme",
-&#x20;                           next
-&#x20;                       );
+                navInner.appendChild(
+                    button
+                );
 
 
-&#x20;                       try {
+                button.addEventListener(
+                    "click",
+                    function () {
 
-&#x20;                           localStorage.setItem(
-&#x20;                               KEY,
-&#x20;                               next
-&#x20;                           );
-
-&#x20;                       } catch (e) {}
-
-
-&#x20;                       updateThemeButton();
-
-&#x20;                   }
-&#x20;               );
-
-&#x20;           }
+                        const next =
+                            root.getAttribute(
+                                "data-theme"
+                            ) === "light"
+                                ? "dark"
+                                : "light";
 
 
-&#x20;           positionThemeButton();
+                        root.setAttribute(
+                            "data-theme",
+                            next
+                        );
 
-&#x20;       }
-&#x20;   );
+
+                        try {
+
+                            localStorage.setItem(
+                                KEY,
+                                next
+                            );
+
+                        } catch (e) {}
 
 
-&#x20;   window\.addEventListener(
-&#x20;       "resize",
-&#x20;       positionThemeButton
-&#x20;   );
+                        updateThemeButton();
+
+                    }
+                );
+
+            }
+
+
+            positionThemeButton();
+
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        positionThemeButton
+    );
 
 })();
 
-/\* =========================================================
-&#x20;  PRELOADER
-\========================================================= \*/
+/* =========================================================
+   PRELOADER
+========================================================= */
 
 const preloader =
-&#x20;   document.getElementById(
-&#x20;       "preloader"
-&#x20;   );
+    document.getElementById(
+        "preloader"
+    );
 
 
 const progress =
-&#x20;   document.getElementById(
-&#x20;       "loaderProgress"
-&#x20;   );
+    document.getElementById(
+        "loaderProgress"
+    );
 
 
 let progressValue = 0;
 
 
 const loadingInterval =
-&#x20;   setInterval(() => {
+    setInterval(() => {
 
-&#x20;       progressValue +=
-&#x20;           Math.random() \* 15;
-
-
-&#x20;       if (
-&#x20;           progressValue > 100
-&#x20;       ) {
-
-&#x20;           progressValue = 100;
-
-&#x20;       }
+        progressValue +=
+            Math.random() * 15;
 
 
-&#x20;       progress.style.width =
-&#x20;           progressValue + "%";
+        if (
+            progressValue > 100
+        ) {
 
-&#x20;   },120);
+            progressValue = 100;
 
-
-window\.addEventListener(
-&#x20;   "load",
-&#x20;   () => {
-
-&#x20;       progress.style.width =
-&#x20;           "100%";
+        }
 
 
-&#x20;       setTimeout(
-&#x20;           () => {
+        progress.style.width =
+            progressValue + "%";
 
-&#x20;               clearInterval(
-&#x20;                   loadingInterval
-&#x20;               );
+    },120);
 
-&#x20;               preloader.classList.add(
-&#x20;                   "hide"
-&#x20;               );
 
-&#x20;           },
-&#x20;           900
-&#x20;       );
+window.addEventListener(
+    "load",
+    () => {
 
-&#x20;   }
+        progress.style.width =
+            "100%";
+
+
+        setTimeout(
+            () => {
+
+                clearInterval(
+                    loadingInterval
+                );
+
+                preloader.classList.add(
+                    "hide"
+                );
+
+            },
+            900
+        );
+
+    }
 );
 
 
-/\* =========================================================
-&#x20;  NAVIGATION
-\========================================================= \*/
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 const nav =
-&#x20;   document.getElementById(
-&#x20;       "nav"
-&#x20;   );
+    document.getElementById(
+        "nav"
+    );
 
 
-window\.addEventListener(
-&#x20;   "scroll",
-&#x20;   () => {
+window.addEventListener(
+    "scroll",
+    () => {
 
-&#x20;       if (
-&#x20;           window\.scrollY > 50
-&#x20;       ) {
+        if (
+            window.scrollY > 50
+        ) {
 
-&#x20;           nav.classList.add(
-&#x20;               "scrolled"
-&#x20;           );
+            nav.classList.add(
+                "scrolled"
+            );
 
-&#x20;       } else {
+        } else {
 
-&#x20;           nav.classList.remove(
-&#x20;               "scrolled"
-&#x20;           );
+            nav.classList.remove(
+                "scrolled"
+            );
 
-&#x20;       }
+        }
 
-&#x20;   }
+    }
 );
 
 
-/\* =========================================================
-&#x20;  MENU MOBILE
-\========================================================= \*/
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
 const menuButton =
-&#x20;   document.getElementById(
-&#x20;       "menuButton"
-&#x20;   );
+    document.getElementById(
+        "menuButton"
+    );
 
 
 const navLinks =
-&#x20;   document.getElementById(
-&#x20;       "navLinks"
-&#x20;   );
+    document.getElementById(
+        "navLinks"
+    );
 
 
 menuButton.addEventListener(
-&#x20;   "click",
-&#x20;   () => {
+    "click",
+    () => {
 
-&#x20;       navLinks.classList.toggle(
-&#x20;           "open"
-&#x20;       );
+        navLinks.classList.toggle(
+            "open"
+        );
 
 
-&#x20;       menuButton.innerHTML =
-&#x20;           navLinks.classList.contains(
-&#x20;               "open"
-&#x20;           )
-&#x20;               ? "✕"
-&#x20;               : "☰";
+        menuButton.innerHTML =
+            navLinks.classList.contains(
+                "open"
+            )
+                ? "✕"
+                : "☰";
 
-&#x20;   }
+    }
 );
 
 
 document
 .querySelectorAll(
-&#x20;   ".nav-links a"
+    ".nav-links a"
 )
 .forEach(
-&#x20;   link => {
+    link => {
 
-&#x20;       link.addEventListener(
-&#x20;           "click",
-&#x20;           () => {
+        link.addEventListener(
+            "click",
+            () => {
 
-&#x20;               navLinks.classList.remove(
-&#x20;                   "open"
-&#x20;               );
+                navLinks.classList.remove(
+                    "open"
+                );
 
 
-&#x20;               menuButton.innerHTML =
-&#x20;                   "☰";
+                menuButton.innerHTML =
+                    "☰";
 
-&#x20;           }
-&#x20;       );
+            }
+        );
 
-&#x20;   }
+    }
 );
 
 
-/\* =========================================================
-&#x20;  CURSEUR
-\========================================================= \*/
+/* =========================================================
+   CURSEUR
+========================================================= */
 
 const cursorDot =
-&#x20;   document.querySelector(
-&#x20;       ".cursor-dot"
-&#x20;   );
+    document.querySelector(
+        ".cursor-dot"
+    );
 
 
 const cursorRing =
-&#x20;   document.querySelector(
-&#x20;       ".cursor-ring"
-&#x20;   );
+    document.querySelector(
+        ".cursor-ring"
+    );
 
 
 if (
-&#x20;   window\.matchMedia(
-&#x20;       "(pointer\:fine)"
-&#x20;   ).matches
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
 ) {
 
-&#x20;   window\.addEventListener(
-&#x20;       "mousemove",
-&#x20;       e => {
+    window.addEventListener(
+        "mousemove",
+        e => {
 
-&#x20;           cursorDot.style.left =
-&#x20;               e.clientX + "px";
-
-
-&#x20;           cursorDot.style.top =
-&#x20;               e.clientY + "px";
+            cursorDot.style.left =
+                e.clientX + "px";
 
 
-&#x20;           cursorRing.animate(
-
-&#x20;               {
-&#x20;                   left:
-&#x20;                       e.clientX + "px",
-
-&#x20;                   top:
-&#x20;                       e.clientY + "px"
-&#x20;               },
-
-&#x20;               {
-&#x20;                   duration: 450,
-
-&#x20;                   fill: "forwards"
-&#x20;               }
-
-&#x20;           );
-
-&#x20;       }
-&#x20;   );
+            cursorDot.style.top =
+                e.clientY + "px";
 
 
-&#x20;   document
-&#x20;   .querySelectorAll(
-&#x20;       "a,button,.news-card,.featured-card"
-&#x20;   )
-&#x20;   .forEach(
-&#x20;       element => {
+            cursorRing.animate(
 
-&#x20;           element.addEventListener(
-&#x20;               "mouseenter",
-&#x20;               () => {
+                {
+                    left:
+                        e.clientX + "px",
 
-&#x20;                   cursorRing.classList.add(
-&#x20;                       "active"
-&#x20;                   );
+                    top:
+                        e.clientY + "px"
+                },
 
-&#x20;               }
-&#x20;           );
+                {
+                    duration: 450,
+
+                    fill: "forwards"
+                }
+
+            );
+
+        }
+    );
 
 
-&#x20;           element.addEventListener(
-&#x20;               "mouseleave",
-&#x20;               () => {
+    document
+    .querySelectorAll(
+        "a,button,.news-card,.featured-card"
+    )
+    .forEach(
+        element => {
 
-&#x20;                   cursorRing.classList.remove(
-&#x20;                       "active"
-&#x20;                   );
+            element.addEventListener(
+                "mouseenter",
+                () => {
 
-&#x20;               }
-&#x20;           );
+                    cursorRing.classList.add(
+                        "active"
+                    );
 
-&#x20;       }
-&#x20;   );
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+
+                    cursorRing.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
-/\* =========================================================
-&#x20;  REVEAL
-\========================================================= \*/
+/* =========================================================
+   REVEAL
+========================================================= */
 
 const revealObserver =
-&#x20;   new IntersectionObserver(
+    new IntersectionObserver(
 
-&#x20;       entries => {
+        entries => {
 
-&#x20;           entries.forEach(
-&#x20;               entry => {
+            entries.forEach(
+                entry => {
 
-&#x20;                   if (
-&#x20;                       entry.isIntersecting
-&#x20;                   ) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-&#x20;                       entry.target
-&#x20;                           .classList
-&#x20;                           .add("show");
+                        entry.target
+                            .classList
+                            .add("show");
 
 
-&#x20;                       revealObserver
-&#x20;                           .unobserve(
-&#x20;                               entry.target
-&#x20;                           );
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
 
-&#x20;                   }
+                    }
 
-&#x20;               }
-&#x20;           );
+                }
+            );
 
-&#x20;       },
+        },
 
-&#x20;       {
-&#x20;           threshold: .1
-&#x20;       }
+        {
+            threshold: .1
+        }
 
-&#x20;   );
+    );
 
 
 document
 .querySelectorAll(
-&#x20;   ".reveal"
+    ".reveal"
 )
 .forEach(
-&#x20;   element => {
+    element => {
 
-&#x20;       revealObserver.observe(
-&#x20;           element
-&#x20;       );
+        revealObserver.observe(
+            element
+        );
 
-&#x20;   }
+    }
 );
 
 
-/\* =========================================================
-&#x20;  FILTRES DES ACTUALITÉS
-\========================================================= \*/
+/* =========================================================
+   FILTRES DES ACTUALITÉS
+========================================================= */
 
 const filters =
-&#x20;   document.querySelectorAll(
-&#x20;       ".filter"
-&#x20;   );
+    document.querySelectorAll(
+        ".filter"
+    );
 
 
 const cards =
-&#x20;   document.querySelectorAll(
-&#x20;       ".news-card"
-&#x20;   );
+    document.querySelectorAll(
+        ".news-card"
+    );
 
 
 filters.forEach(
-&#x20;   filter => {
+    filter => {
 
-&#x20;       filter.addEventListener(
-&#x20;           "click",
-&#x20;           () => {
+        filter.addEventListener(
+            "click",
+            () => {
 
-&#x20;               filters.forEach(
-&#x20;                   item => {
+                filters.forEach(
+                    item => {
 
-&#x20;                       item.classList.remove(
-&#x20;                           "active"
-&#x20;                       );
+                        item.classList.remove(
+                            "active"
+                        );
 
-&#x20;                   }
-&#x20;               );
-
-
-&#x20;               filter.classList.add(
-&#x20;                   "active"
-&#x20;               );
+                    }
+                );
 
 
-&#x20;               const selected =
-&#x20;                   filter.dataset.filter;
+                filter.classList.add(
+                    "active"
+                );
 
 
-&#x20;               cards.forEach(
-&#x20;                   card => {
-
-&#x20;                       const category =
-&#x20;                           card.dataset.category;
+                const selected =
+                    filter.dataset.filter;
 
 
-&#x20;                       if (
-&#x20;                           selected === "all" ||
-&#x20;                           category === selected
-&#x20;                       ) {
+                cards.forEach(
+                    card => {
 
-&#x20;                           card.style.display =
-&#x20;                               "";
+                        const category =
+                            card.dataset.category;
 
 
-&#x20;                           setTimeout(
-&#x20;                               () => {
+                        if (
+                            selected === "all" ||
+                            category === selected
+                        ) {
 
-&#x20;                                   card.style.opacity =
-&#x20;                                       "1";
-
-&#x20;                                   card.style.transform =
-&#x20;                                       "translateY(0)";
-
-&#x20;                               },
-&#x20;                               20
-&#x20;                           );
-
-&#x20;                       } else {
-
-&#x20;                           card.style.opacity =
-&#x20;                               "0";
+                            card.style.display =
+                                "";
 
 
-&#x20;                           card.style.transform =
-&#x20;                               "translateY(15px)";
+                            setTimeout(
+                                () => {
+
+                                    card.style.opacity =
+                                        "1";
+
+                                    card.style.transform =
+                                        "translateY(0)";
+
+                                },
+                                20
+                            );
+
+                        } else {
+
+                            card.style.opacity =
+                                "0";
 
 
-&#x20;                           setTimeout(
-&#x20;                               () => {
+                            card.style.transform =
+                                "translateY(15px)";
 
-&#x20;                                   card.style.display =
-&#x20;                                       "none";
 
-&#x20;                               },
-&#x20;                               250
-&#x20;                           );
+                            setTimeout(
+                                () => {
 
-&#x20;                       }
+                                    card.style.display =
+                                        "none";
 
-&#x20;                   }
-&#x20;               );
+                                },
+                                250
+                            );
 
-&#x20;           }
-&#x20;       );
+                        }
 
-&#x20;   }
+                    }
+                );
+
+            }
+        );
+
+    }
 );
 
 
-/\* =========================================================
-&#x20;  NEWSLETTER
-\========================================================= \*/
+/* =========================================================
+   NEWSLETTER
+========================================================= */
 
 const newsletterForm =
-&#x20;   document.getElementById(
-&#x20;       "newsletterForm"
-&#x20;   );
+    document.getElementById(
+        "newsletterForm"
+    );
 
 
 const newsletterMessage =
-&#x20;   document.getElementById(
-&#x20;       "newsletterMessage"
-&#x20;   );
+    document.getElementById(
+        "newsletterMessage"
+    );
 
 
 newsletterForm.addEventListener(
-&#x20;   "submit",
-&#x20;   event => {
+    "submit",
+    event => {
 
-&#x20;       event.preventDefault();
-
-
-&#x20;       newsletterMessage.style.display =
-&#x20;           "block";
+        event.preventDefault();
 
 
-&#x20;       newsletterForm.reset();
+        newsletterMessage.style.display =
+            "block";
 
-&#x20;   }
+
+        newsletterForm.reset();
+
+    }
 );
 
 
-/\* =========================================================
-&#x20;  PARALLAXE HERO
-\========================================================= \*/
+/* =========================================================
+   PARALLAXE HERO
+========================================================= */
 
-window\.addEventListener(
-&#x20;   "scroll",
-&#x20;   () => {
+window.addEventListener(
+    "scroll",
+    () => {
 
-&#x20;       const hero =
-&#x20;           document.querySelector(
-&#x20;               ".news-hero"
-&#x20;           );
-
-
-&#x20;       const scroll =
-&#x20;           window\.scrollY;
+        const hero =
+            document.querySelector(
+                ".news-hero"
+            );
 
 
-&#x20;       if (
-&#x20;           scroll <
-&#x20;           window\.innerHeight
-&#x20;       ) {
+        const scroll =
+            window.scrollY;
 
-&#x20;           hero.style.backgroundPosition =
-&#x20;               \`center ${scroll \* .15}px\`;
 
-&#x20;       }
+        if (
+            scroll <
+            window.innerHeight
+        ) {
 
-&#x20;   }
+            hero.style.backgroundPosition =
+                `center ${scroll * .15}px`;
+
+        }
+
+    }
 );
 
-\</script>
-\</body>
-\</html>
+</script>
+
+</body>
+</html>
