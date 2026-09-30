@@ -167,6 +167,59 @@ body::before {
     background: rgba(201,164,93,.08);
 }
 
+/* ===========================
+   LANGUE
+=========================== */
+
+.language-switcher{
+    display:flex;
+    align-items:center;
+}
+
+.language-switcher select{
+    height:44px;
+    padding:0 14px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:var(--black-card);
+    color:var(--cream);
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.language-switcher select:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+.language-switcher select:focus{
+    outline:none;
+    border-color:var(--gold);
+}
+
+html[data-theme="light"] .language-switcher select{
+    background:#fff;
+    color:#171a17;
+    border-color:rgba(23,26,23,.18);
+}
+
+@media (max-width:1050px){
+
+    .nav-actions{
+        gap:8px;
+    }
+
+    .language-switcher select{
+        width:66px;
+        height:40px;
+        padding:0 8px;
+        font-size:.68rem;
+    }
+
+}
 
 /* =========================================================
    PRELOADER
@@ -2718,59 +2771,63 @@ html[data-theme="light"] .preloader {
 
 <div class="nav-inner">
 
-<a
-    href="index.html"
-    class="logo">
+    <a href="index.html" class="logo">
+        <img
+            src="logo-moraheyms.png"
+            alt="GROUPE MORAHEYM'S">
+    </a>
 
-    <img
-        src="logo-moraheyms.png"
-        alt="GROUPE MORAHEYM'S">
+    <nav class="nav-links" id="navLinks">
 
-</a>
+        <a href="actualites.html" class="nav-news" data-i18n="actualites">
+            Actualités
+        </a>
 
+        <a href="groupe.html" data-i18n="groupe">
+            Le groupe
+        </a>
 
- <button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-expanded="false"
->
-    ☰
-</button>
+        <a href="expertise.html" data-i18n="expertise">
+            Expertise
+        </a>
 
+        <a href="vision.html" data-i18n="vision">
+            Vision
+        </a>
 
-<nav
-    class="nav-links"
-    id="navLinks">
+        <a href="projets.html" data-i18n="projets">
+            Projets
+        </a>
 
-    <a href="actualites.html" class="nav-news" data-i18n="actualites">
+        <a href="contact.html" class="nav-cta" data-i18n="contact">
+            Contact
+        </a>
 
-Actualités
+    </nav>
 
-</a>
+    <div class="nav-actions">
 
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
+        <div class="language-switcher">
+    <select onchange="window.location.href=this.value">
+        <option value="actualites-fr.html" selected>FR</option>
+        <option value="actualites-en.html">EN</option>
+        <option value="actualites-ru.html">RU</option>
+    </select>
+</div>
 
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
+        </div>
 
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
+        <!-- BURGER -->
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+            ☰
+        </button>
 
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
-
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
-
-</nav>
+    </div>
 
 </div>
 
