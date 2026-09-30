@@ -171,6 +171,668 @@ body::before {
         rgba(201,164,93,.08);
 }
 
+/* =========================================================
+   NAVIGATION — STRUCTURE
+========================================================= */
+
+.nav-inner {
+
+    width: min(1450px, 92%);
+
+    min-height: 104px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* LOGO À GAUCHE */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+.logo img {
+
+    height: 88px;
+
+    width: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   LIENS — COMPLÈTEMENT À DROITE SUR PC
+========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 31px;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    font-size: .65rem;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
+
+    color: var(--cream-soft);
+
+    transition: color .3s ease;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width .3s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: var(--cream);
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+}
+
+
+/* ACTUALITÉS ACTIF */
+
+.nav-news {
+
+    color: var(--gold) !important;
+
+    font-weight: 600;
+}
+
+
+.nav-news::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+
+    height: 5px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 10px var(--gold);
+
+    animation: newsPulse 2s ease-in-out infinite;
+}
+
+
+.nav-news::after {
+
+    width: 100% !important;
+
+    background: var(--gold) !important;
+}
+
+
+/* CONTACT */
+
+.nav-cta {
+
+    border: 1px solid var(--gold);
+
+    padding: 12px 18px;
+
+    color: var(--gold) !important;
+}
+
+
+.nav-cta::after {
+
+    display: none;
+}
+
+
+/* =========================================================
+   ACTIONS — LANGUE + THÈME + BURGER
+========================================================= */
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-left: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MENU LANGUES
+========================================================= */
+
+.language-switcher {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+.language-switcher select {
+
+    width: 58px;
+
+    height: 44px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 22px;
+
+    background: var(--black-card);
+
+    color: var(--cream);
+
+    font-family: var(--sans);
+
+    font-size: .65rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+
+    cursor: pointer;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+
+.language-switcher select:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+}
+
+
+.language-switcher select:focus {
+
+    outline: none;
+
+    border-color: var(--gold);
+}
+
+
+/* MODE CLAIR */
+
+html[data-theme="light"] .language-switcher select {
+
+    background: #fff;
+
+    color: #171a17;
+
+    border-color: rgba(23,26,23,.18);
+}
+
+
+html[data-theme="light"] .language-switcher select:hover {
+
+    border-color: #9a762d;
+
+    color: #9a762d;
+}
+
+
+/* =========================================================
+   BOUTON THÈME
+========================================================= */
+
+.theme-toggle {
+
+    flex: 0 0 auto;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin: 0;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    background: var(--black-card);
+
+    color: var(--cream);
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 1.05rem;
+
+    line-height: 1;
+
+    transition: all .3s ease;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+.theme-toggle:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+    transform:
+        rotate(12deg)
+        scale(1.05);
+}
+
+
+.theme-toggle .theme-icon {
+
+    display: block;
+
+    transition:
+        transform .3s ease;
+}
+
+
+/* =========================================================
+   BURGER
+========================================================= */
+
+.menu-button {
+
+    display: none;
+
+    border: 0;
+
+    background: none;
+
+    color: var(--cream);
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MODE CLAIR — NAVIGATION
+========================================================= */
+
+html[data-theme="light"] .nav {
+
+    background:
+        rgba(245,242,234,.88);
+
+    border-bottom-color:
+        rgba(23,26,23,.10);
+}
+
+
+html[data-theme="light"] .nav.scrolled {
+
+    background:
+        rgba(245,242,234,.94);
+}
+
+
+html[data-theme="light"] .nav-links {
+
+    background:
+        rgba(245,242,234,.98);
+}
+
+
+html[data-theme="light"] .nav-links a {
+
+    color: #303630;
+}
+
+
+html[data-theme="light"] .nav-links a:hover {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .nav-news {
+
+    color: #9a762d !important;
+}
+
+
+html[data-theme="light"] .nav-cta {
+
+    color: #9a762d !important;
+
+    border-color: #9a762d;
+}
+
+
+html[data-theme="light"] .menu-button {
+
+    color: #171a17;
+}
+
+
+/* =========================================================
+   TABLETTE / MOBILE
+========================================================= */
+
+@media (max-width:1050px) {
+
+    .nav-inner {
+
+        min-height: 78px;
+
+        width: 94%;
+    }
+
+
+    /*
+       Les liens passent dans le burger.
+       Le sélecteur de langue reste à l'extérieur.
+    */
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 78px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 35px 4%;
+
+        background: rgba(7,9,8,.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        transform: translateY(-150%);
+
+        transition: transform .45s ease;
+
+        margin: 0;
+    }
+
+
+    .nav-links.open {
+
+        transform: translateY(0);
+    }
+
+
+    /*
+       ACTIONS À L'EXTRÊME DROITE
+       FR -> BURGER
+    */
+
+    .nav-actions {
+
+        margin-left: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+    }
+
+
+    /*
+       LE THÈME EST CACHÉ DE LA BARRE
+       ET SERA DÉPLACÉ DANS LE BURGER
+    */
+
+    .nav-actions .theme-toggle {
+
+        display: none;
+    }
+
+
+    /*
+       LANGUE TOUJOURS VISIBLE
+    */
+
+    .language-switcher {
+
+        display: flex;
+
+        align-items: center;
+
+        order: 1;
+    }
+
+
+    .language-switcher select {
+
+        width: 54px;
+
+        height: 40px;
+
+        padding: 0 8px;
+
+        font-size: .58rem;
+    }
+
+
+    /*
+       BURGER À L'EXTRÊME DROITE
+    */
+
+    .menu-button {
+
+        display: block;
+
+        order: 2;
+
+        margin: 0;
+
+        width: 40px;
+
+        height: 40px;
+
+        position: relative;
+
+        z-index: 30;
+    }
+
+
+    /*
+       BOUTON THÈME DANS LE MENU BURGER
+    */
+
+    .nav-links .theme-toggle {
+
+        display: inline-flex;
+
+        width: 44px;
+
+        height: 44px;
+
+        margin-top: 5px;
+
+        order: 20;
+    }
+
+}
+
+
+/* =========================================================
+   PETIT MOBILE
+========================================================= */
+
+@media (max-width:650px) {
+
+    .nav-inner {
+
+        width: 94%;
+
+        min-height: 78px;
+    }
+
+
+    .logo img {
+
+        height: 64px;
+    }
+
+
+    .nav-actions {
+
+        gap: 5px;
+    }
+
+
+    .language-switcher select {
+
+        width: 54px;
+
+        height: 40px;
+
+        padding: 0 8px;
+
+        font-size: .58rem;
+    }
+
+
+    .menu-button {
+
+        width: 38px;
+
+        height: 40px;
+
+        font-size: 1.45rem;
+    }
+
+
+    .nav-links .theme-toggle {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   TRÈS PETIT ÉCRAN
+========================================================= */
+
+@media (max-width:400px) {
+
+    .logo img {
+
+        height: 58px;
+    }
+
+
+    .language-switcher select {
+
+        width: 52px;
+
+        height: 38px;
+
+        font-size: .55rem;
+    }
+
+
+    .menu-button {
+
+        width: 36px;
+
+        height: 38px;
+
+        font-size: 1.35rem;
+    }
+
+
+    .nav-links .theme-toggle {
+
+        width: 38px;
+
+        height: 38px;
+    }
+
+}
 
 /* =========================================================
    PRELOADER
@@ -1858,15 +2520,6 @@ html[data-theme="light"] .entity-card p {
     letter-spacing: .02em;
 }
 
-.nav-actions {
-    margin-left: auto;
-    gap: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
 /* =========================================================
    AXES — AJUSTEMENT MOBILE
 ========================================================= */
@@ -1898,12 +2551,6 @@ html[data-theme="light"] .entity-card p {
         line-height: 1.8;
     }
 
-    .nav-actions {
-    margin-left: auto;
-    gap: 5px;
-    justify-content: flex-end;
-    flex-shrink: 0;
-}
 
 }
 
@@ -3395,9 +4042,7 @@ html[data-theme="light"] ::selection {
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
-
 <script>
-
 
 /* =========================================================
    THEME TOGGLE
@@ -3405,22 +4050,51 @@ html[data-theme="light"] ::selection {
 
 (function () {
 
-    const KEY =
-        "moraheyms-theme";
+    const KEY = "moraheyms-theme";
 
     const root =
         document.documentElement;
 
+    const button =
+        document.getElementById(
+            "themeToggle"
+        );
+
+
+    if (!button) return;
+
+
+    /*
+       Charger le thème sauvegardé
+    */
+
+    try {
+
+        const saved =
+            localStorage.getItem(KEY);
+
+        root.setAttribute(
+            "data-theme",
+            saved === "dark"
+                ? "dark"
+                : "light"
+        );
+
+    } catch (e) {
+
+        root.setAttribute(
+            "data-theme",
+            "light"
+        );
+
+    }
+
+
+    /*
+       Mise à jour de l'icône
+    */
 
     function updateThemeButton() {
-
-        const button =
-            document.getElementById(
-                "themeToggle"
-            );
-
-        if (!button) return;
-
 
         const isLight =
             root.getAttribute(
@@ -3429,9 +4103,7 @@ html[data-theme="light"] ::selection {
 
 
         button.setAttribute(
-
             "aria-label",
-
             isLight
                 ? "Activer le thème sombre"
                 : "Activer le thème clair"
@@ -3439,9 +4111,7 @@ html[data-theme="light"] ::selection {
 
 
         button.setAttribute(
-
             "title",
-
             isLight
                 ? "Thème sombre"
                 : "Thème clair"
@@ -3449,173 +4119,52 @@ html[data-theme="light"] ::selection {
 
 
         button.innerHTML =
-
             '<span class="theme-icon" aria-hidden="true">' +
-
-            (
-                isLight
-                    ? "☀"
-                    : "☾"
-            ) +
-
-            "</span>";
+            (isLight ? "☀" : "☾") +
+            '</span>';
 
     }
 
 
-    function positionThemeButton() {
+    /*
+       Changement de thème
+    */
 
-        const navInner =
-            document.querySelector(
-                ".nav-inner"
-            );
-
-        const navLinks =
-            document.querySelector(
-                ".nav-links"
-            );
-
-        const button =
-            document.getElementById(
-                "themeToggle"
-            );
-
-
-        if (
-            !navInner ||
-            !navLinks ||
-            !button
-        ) {
-
-            return;
-        }
-
-
-        if (
-            window.innerWidth <= 1050
-        ) {
-
-            navLinks.appendChild(
-                button
-            );
-
-        }
-
-        else {
-
-            navInner.appendChild(
-                button
-            );
-
-        }
-
-
-        updateThemeButton();
-
-    }
-
-
-    window.addEventListener(
-
-        "DOMContentLoaded",
-
+    button.addEventListener(
+        "click",
         function () {
 
-            const navInner =
-                document.querySelector(
-                    ".nav-inner"
-                );
+            const next =
+                root.getAttribute(
+                    "data-theme"
+                ) === "light"
+                    ? "dark"
+                    : "light";
 
 
-            if (!navInner) {
-
-                return;
-            }
-
-
-            if (
-                !document.getElementById(
-                    "themeToggle"
-                )
-            ) {
-
-                const button =
-                    document.createElement(
-                        "button"
-                    );
-
-
-                button.type =
-                    "button";
-
-                button.id =
-                    "themeToggle";
-
-                button.className =
-                    "theme-toggle";
-
-
-                navInner.appendChild(
-                    button
-                );
-
-
-                updateThemeButton();
-
-
-                button.addEventListener(
-
-                    "click",
-
-                    function () {
-
-                        const next =
-
-                            root.getAttribute(
-                                "data-theme"
-                            ) === "light"
-
-                                ? "dark"
-
-                                : "light";
-
-
-                        root.setAttribute(
-                            "data-theme",
-                            next
-                        );
-
-
-                        try {
-
-                            localStorage.setItem(
-                                KEY,
-                                next
-                            );
-
-                        }
-
-                        catch (e) {}
-
-
-                        updateThemeButton();
-
-                    }
-                );
-
-            }
-
-
-            positionThemeButton();
-
-
-            window.addEventListener(
-                "resize",
-                positionThemeButton
+            root.setAttribute(
+                "data-theme",
+                next
             );
+
+
+            try {
+
+                localStorage.setItem(
+                    KEY,
+                    next
+                );
+
+            } catch (e) {}
+
+
+            updateThemeButton();
 
         }
     );
+
+
+    updateThemeButton();
 
 })();
 
