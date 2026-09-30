@@ -2432,78 +2432,116 @@ html[data-theme="light"] ::selection {
     id="nav"
 >
 
-    <div class="nav-inner">
+   <div class="nav-inner">
 
-        <a
-            href="index.html"
-            class="brand-logo"
-        >
+    <!-- LOGO -->
+    <a href="index.html" class="logo">
+        <img
+            src="logo-moraheyms.png"
+            alt="GROUPE MORAHEYM'S">
+    </a>
 
-            <img
-                src="logo-moraheyms.png"
-                alt="GROUPE MORAHEYM'S"
-                class="logo-img"
 
-                onerror="
-                    this.style.display='none';
-                    document.getElementById('logoFallback').style.display='block';
-                "
-            >
+    <!-- NAVIGATION -->
+    <nav class="nav-links" id="navLinks">
 
-            <span
-                id="logoFallback"
-                class="brand-logo-fallback"
-            >
-                GROUPE
-                <span>MORAHEYM'S</span>
-            </span>
-
+        <a href="actualites.html"
+           class="nav-news"
+           data-i18n="actualites">
+            Actualités
         </a>
 
+        <a href="groupe.html"
+           data-i18n="groupe">
+            Le groupe
+        </a>
 
+        <a href="expertise.html"
+           data-i18n="expertise">
+            Expertise
+        </a>
+
+        <a href="vision.html"
+           data-i18n="vision">
+            Vision
+        </a>
+
+        <a href="projets.html"
+           data-i18n="projets">
+            Projets
+        </a>
+
+        <a href="contact.html"
+           class="nav-cta"
+           data-i18n="contact">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <!-- ACTIONS TOUJOURS À DROITE -->
+    <div class="nav-actions">
+
+        <!-- LANGUE -->
+        <div class="language-switcher">
+
+            <select
+                onchange="window.location.href=this.value"
+                aria-label="Choisir la langue">
+
+                <option
+                    value="actualites-fr.html"
+                    selected>
+                    FR
+                </option>
+
+                <option
+                    value="actualites-en.html">
+                    EN
+                </option>
+
+                <option
+                    value="actualites-ru.html">
+                    RU
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- BOUTON THÈME -->
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Changer le thème">
+
+            <span
+                class="theme-icon"
+                aria-hidden="true">
+                ☾
+            </span>
+
+        </button>
+
+
+        <!-- BURGER -->
         <button
             class="menu-button"
             id="menuButton"
             type="button"
             aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
+            aria-expanded="false">
+
             ☰
+
         </button>
 
-
-        <nav
-            class="nav-links"
-            id="navLinks"
-        >
-
-            <a href="actualites.html" class="nav-news" data-i18n="actualites">
-    Actualités
-</a>
-
-<a href="groupe.html" data-i18n="groupe">
-    Le groupe
-</a>
-
-<a href="expertise.html" data-i18n="expertise">
-    Expertise
-</a>
-
-<a href="vision.html" data-i18n="vision">
-    Vision
-</a>
-
-<a href="projets.html" data-i18n="projets">
-    Projets
-</a>
-
-<a href="contact.html" class="nav-cta" data-i18n="contact">
-    Contact
-</a>
-
-        </nav>
-
     </div>
+
+</div>
 
 
 </header>
