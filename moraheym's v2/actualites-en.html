@@ -1,0 +1,4981 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>News — GROUPE MORAHEYM'S</title>
+
+<meta name="description"
+content="Discover the latest news, projects, initiatives and partnerships of GROUPE MORAHEYM'S in real estate, infrastructure, education, research and skills development across Africa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --black: #070908;
+    --black-soft: #0d110f;
+    --black-card: #111714;
+
+    --cream: #f4f0e6;
+    --cream-soft: #c9c5ba;
+
+    --gold: #c9a45d;
+    --gold-light: #e4c986;
+
+    --green: #183b2e;
+    --green-light: #2c604b;
+
+    --line: rgba(244,240,230,.12);
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: var(--black);
+
+    color: var(--cream);
+
+    font-family: var(--sans);
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+::selection {
+
+    background: var(--gold);
+
+    color: var(--black);
+}
+
+
+/* =========================================================
+   TEXTURE
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+}
+
+
+/* =========================================================
+   CURSEUR
+========================================================= */
+
+.cursor-dot {
+
+    position: fixed;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    pointer-events: none;
+
+    z-index: 10001;
+
+    transform: translate(-50%,-50%);
+}
+
+
+.cursor-ring {
+
+    position: fixed;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(201,164,93,.7);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    transform: translate(-50%,-50%);
+
+    transition:
+
+        width .3s ease,
+        height .3s ease,
+        background .3s ease;
+}
+
+
+.cursor-ring.active {
+
+    width: 65px;
+    height: 65px;
+
+    background: rgba(201,164,93,.08);
+}
+
+/* =========================================================
+   NAVIGATION — STRUCTURE
+========================================================= */
+
+.nav-inner {
+
+    width: min(1450px, 92%);
+
+    min-height: 104px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* LOGO À GAUCHE */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+.logo img {
+
+    height: 88px;
+
+    width: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   LIENS — COMPLÈTEMENT À DROITE SUR PC
+========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 31px;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    font-size: .65rem;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
+
+    color: var(--cream-soft);
+
+    transition: color .3s ease;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width .3s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: var(--cream);
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+}
+
+
+/* ACTUALITÉS ACTIF */
+
+.nav-news {
+
+    color: var(--gold) !important;
+
+    font-weight: 600;
+}
+
+
+.nav-news::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+
+    height: 5px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 10px var(--gold);
+
+    animation: newsPulse 2s ease-in-out infinite;
+}
+
+
+.nav-news::after {
+
+    width: 100% !important;
+
+    background: var(--gold) !important;
+}
+
+
+/* CONTACT */
+
+.nav-cta {
+
+    border: 1px solid var(--gold);
+
+    padding: 12px 18px;
+
+    color: var(--gold) !important;
+}
+
+
+.nav-cta::after {
+
+    display: none;
+}
+
+
+/* =========================================================
+   ACTIONS — LANGUE + THÈME + BURGER
+========================================================= */
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-left: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MENU LANGUES
+========================================================= */
+
+.language-switcher {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+.language-switcher select {
+
+    width: 58px;
+
+    height: 44px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 22px;
+
+    background: var(--black-card);
+
+    color: var(--cream);
+
+    font-family: var(--sans);
+
+    font-size: .65rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+
+    cursor: pointer;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+
+.language-switcher select:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+}
+
+
+.language-switcher select:focus {
+
+    outline: none;
+
+    border-color: var(--gold);
+}
+
+
+/* MODE CLAIR */
+
+html[data-theme="light"] .language-switcher select {
+
+    background: #fff;
+
+    color: #171a17;
+
+    border-color: rgba(23,26,23,.18);
+}
+
+
+html[data-theme="light"] .language-switcher select:hover {
+
+    border-color: #9a762d;
+
+    color: #9a762d;
+}
+
+
+/* =========================================================
+   BOUTON THÈME
+========================================================= */
+
+.theme-toggle {
+
+    flex: 0 0 auto;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin: 0;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    background: var(--black-card);
+
+    color: var(--cream);
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 1.05rem;
+
+    line-height: 1;
+
+    transition: all .3s ease;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+.theme-toggle:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+    transform:
+        rotate(12deg)
+        scale(1.05);
+}
+
+
+.theme-toggle .theme-icon {
+
+    display: block;
+
+    transition:
+        transform .3s ease;
+}
+
+
+/* =========================================================
+   BURGER
+========================================================= */
+
+.menu-button {
+
+    display: none;
+
+    border: 0;
+
+    background: none;
+
+    color: var(--cream);
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MODE CLAIR — NAVIGATION
+========================================================= */
+
+html[data-theme="light"] .nav {
+
+    background:
+        rgba(245,242,234,.88);
+
+    border-bottom-color:
+        rgba(23,26,23,.10);
+}
+
+
+html[data-theme="light"] .nav.scrolled {
+
+    background:
+        rgba(245,242,234,.94);
+}
+
+
+html[data-theme="light"] .nav-links {
+
+    background:
+        rgba(245,242,234,.98);
+}
+
+
+html[data-theme="light"] .nav-links a {
+
+    color: #303630;
+}
+
+
+html[data-theme="light"] .nav-links a:hover {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .nav-news {
+
+    color: #9a762d !important;
+}
+
+
+html[data-theme="light"] .nav-cta {
+
+    color: #9a762d !important;
+
+    border-color: #9a762d;
+}
+
+
+html[data-theme="light"] .menu-button {
+
+    color: #171a17;
+}
+
+
+/* =========================================================
+   TABLETTE / MOBILE
+========================================================= */
+
+@media (max-width:1050px) {
+
+    .nav-inner {
+
+        min-height: 78px;
+
+        width: 94%;
+    }
+
+
+    /*
+       Les liens passent dans le burger.
+       Le sélecteur de langue reste à l'extérieur.
+    */
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 78px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 35px 4%;
+
+        background: rgba(7,9,8,.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        transform: translateY(-150%);
+
+        transition: transform .45s ease;
+
+        margin: 0;
+    }
+
+
+    .nav-links.open {
+
+        transform: translateY(0);
+    }
+
+
+    /*
+       ACTIONS À L'EXTRÊME DROITE
+       FR -> BURGER
+    */
+
+    .nav-actions {
+
+        margin-left: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+    }
+
+
+    /*
+       LE THÈME EST CACHÉ DE LA BARRE
+       ET SERA DÉPLACÉ DANS LE BURGER
+    */
+
+    .nav-actions .theme-toggle {
+
+        display: none;
+    }
+
+
+    /*
+       LANGUE TOUJOURS VISIBLE
+    */
+
+    .language-switcher {
+
+        display: flex;
+
+        align-items: center;
+
+        order: 1;
+    }
+
+
+    .language-switcher select {
+
+        width: 54px;
+
+        height: 40px;
+
+        padding: 0 8px;
+
+        font-size: .58rem;
+    }
+
+
+    /*
+       BURGER À L'EXTRÊME DROITE
+    */
+
+    .menu-button {
+
+        display: block;
+
+        order: 2;
+
+        margin: 0;
+
+        width: 40px;
+
+        height: 40px;
+
+        position: relative;
+
+        z-index: 30;
+    }
+
+
+    /*
+       BOUTON THÈME DANS LE MENU BURGER
+    */
+
+    .nav-links .theme-toggle {
+
+        display: inline-flex;
+
+        width: 44px;
+
+        height: 44px;
+
+        margin-top: 5px;
+
+        order: 20;
+    }
+
+}
+
+
+/* =========================================================
+   PETIT MOBILE
+========================================================= */
+
+@media (max-width:650px) {
+
+    .nav-inner {
+
+        width: 94%;
+
+        min-height: 78px;
+    }
+
+
+    .logo img {
+
+        height: 64px;
+    }
+
+
+    .nav-actions {
+
+        gap: 5px;
+    }
+
+
+    .language-switcher select {
+
+        width: 54px;
+
+        height: 40px;
+
+        padding: 0 8px;
+
+        font-size: .58rem;
+    }
+
+
+    .menu-button {
+
+        width: 38px;
+
+        height: 40px;
+
+        font-size: 1.45rem;
+    }
+
+
+    .nav-links .theme-toggle {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   TRÈS PETIT ÉCRAN
+========================================================= */
+
+@media (max-width:400px) {
+
+    .logo img {
+
+        height: 58px;
+    }
+
+
+    .language-switcher select {
+
+        width: 52px;
+
+        height: 38px;
+
+        font-size: .55rem;
+    }
+
+
+    .menu-button {
+
+        width: 36px;
+
+        height: 38px;
+
+        font-size: 1.35rem;
+    }
+
+
+    .nav-links .theme-toggle {
+
+        width: 38px;
+
+        height: 38px;
+    }
+
+}
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+.preloader {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: var(--black);
+
+    z-index: 20000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+
+.preloader.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+.loader {
+
+    text-align: center;
+}
+
+
+.loader-logo {
+
+    font-family: var(--serif);
+
+    font-size: clamp(2rem,5vw,4rem);
+
+    letter-spacing: .16em;
+}
+
+
+.loader-subtitle {
+
+    margin-top: 12px;
+
+    font-size: .6rem;
+
+    letter-spacing: .35em;
+
+    text-transform: uppercase;
+
+    color: var(--gold);
+}
+
+
+.loader-bar {
+
+    width: 220px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,.1);
+
+    margin: 35px auto 0;
+
+    overflow: hidden;
+}
+
+
+.loader-progress {
+
+    width: 0;
+
+    height: 100%;
+
+    background: var(--gold);
+
+    transition: width 1.2s ease;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 5000;
+
+    transition:
+
+        background .4s ease,
+        border-color .4s ease;
+}
+
+
+.nav.scrolled {
+
+    background: rgba(7,9,8,.88);
+
+    backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+.nav-inner {
+
+    width: min(1450px, 92%);
+
+    min-height: 104px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* Le logo reste à gauche */
+
+.brand-logo {
+
+    margin-right: auto;
+}
+
+
+/* Navigation complètement à droite */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 31px;
+
+    margin-left: auto;
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.logo img {
+
+    height: 88px;
+
+    width: auto;
+
+    object-fit: contain;
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    font-size: .65rem;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
+
+    color: var(--cream-soft);
+
+    transition: color .3s ease;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width .3s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: var(--cream);
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+}
+
+
+/* ACTUALITÉS ACTIF */
+
+.nav-news {
+
+    color: var(--gold) !important;
+
+    font-weight: 600;
+}
+
+
+.nav-news::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 10px var(--gold);
+
+    animation: newsPulse 2s ease-in-out infinite;
+}
+
+
+.nav-news::after {
+
+    width: 100% !important;
+
+    background: var(--gold) !important;
+}
+
+
+@keyframes newsPulse {
+
+    0%,100% {
+
+        opacity: .35;
+
+        transform: scale(.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+
+.nav-cta {
+
+    border: 1px solid var(--gold);
+
+    padding: 12px 18px;
+
+    color: var(--gold) !important;
+}
+
+
+.nav-cta::after {
+
+    display: none;
+}
+
+
+.menu-button {
+
+    display: none;
+
+    border: 0;
+
+    background: none;
+
+    color: var(--cream);
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO ACTUALITÉS
+========================================================= */
+
+.news-hero {
+
+    min-height: 72vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    padding: 160px 0 95px;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(35,94,70,.25),
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(201,164,93,.09),
+            transparent 25%
+        ),
+
+        var(--black);
+}
+
+
+.news-hero::before {
+
+    content: "NEWS";
+
+    position: absolute;
+
+    right: -40px;
+
+    bottom: -80px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(12rem,28vw,32rem);
+
+    line-height: .7;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px rgba(244,240,230,.045);
+
+    pointer-events: none;
+}
+
+
+.container {
+
+    width: min(1450px,92%);
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.news-hero-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.15fr .85fr;
+
+    align-items: end;
+
+    gap: 80px;
+}
+
+
+.section-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: var(--gold);
+
+    font-size: .62rem;
+
+    letter-spacing: .24em;
+
+    text-transform: uppercase;
+}
+
+
+.section-label::before {
+
+    content: "";
+
+    width: 42px;
+
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+.news-hero h1 {
+
+    margin-top: 28px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(4.5rem,9vw,10rem);
+
+    font-weight: 400;
+
+    line-height: .84;
+
+    letter-spacing: -.065em;
+}
+
+
+.news-hero h1 em {
+
+    color: var(--gold);
+
+    font-style: italic;
+}
+
+
+.hero-intro {
+
+    max-width: 520px;
+
+    color: var(--cream-soft);
+
+    font-size: .95rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   FILTRES
+========================================================= */
+
+.filters {
+
+    background: var(--cream);
+
+    color: var(--black);
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+
+.filters-inner {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+.filter-title {
+
+    font-size: .58rem;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+.filter-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+.filter {
+
+    border: 1px solid rgba(0,0,0,.16);
+
+    background: transparent;
+
+    padding: 10px 16px;
+
+    cursor: pointer;
+
+    font-size: .58rem;
+
+    letter-spacing: .13em;
+
+    text-transform: uppercase;
+
+    transition: all .3s ease;
+}
+
+
+.filter:hover,
+.filter.active {
+
+    background: var(--green);
+
+    color: var(--cream);
+
+    border-color: var(--green);
+}
+
+
+/* =========================================================
+   ACTUALITÉ À LA UNE
+========================================================= */
+
+.featured {
+
+    padding: 130px 0;
+
+    background: var(--cream);
+
+    color: var(--black);
+}
+
+
+.featured-label {
+
+    color: var(--green);
+
+    margin-bottom: 35px;
+}
+
+
+.featured-label::before {
+
+    background: var(--green);
+}
+
+
+.featured-card {
+
+    display: grid;
+
+    grid-template-columns: 1.1fr .9fr;
+
+    min-height: 570px;
+
+    background: var(--black);
+
+    color: var(--cream);
+
+    overflow: hidden;
+}
+
+
+.featured-image {
+
+    position: relative;
+
+    min-height: 570px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(201,164,93,.42),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            145deg,
+            #204d3b,
+            #0b1611
+        );
+}
+
+
+.featured-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    border: 1px solid rgba(201,164,93,.5);
+
+    border-radius: 50%;
+
+    box-shadow:
+
+        0 0 0 45px rgba(201,164,93,.035),
+
+        0 0 0 100px rgba(201,164,93,.025),
+
+        0 0 0 160px rgba(201,164,93,.018);
+}
+
+
+.featured-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+
+    height: 160px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 25%,
+            #f1d795,
+            var(--gold) 30%,
+            #5d4316 80%,
+            #19150b
+        );
+
+    box-shadow:
+
+        0 0 80px rgba(201,164,93,.25),
+
+        inset -25px -25px 35px rgba(0,0,0,.45);
+
+}
+
+
+.featured-image-tag {
+
+    position: absolute;
+
+    left: 30px;
+
+    top: 30px;
+
+    z-index: 3;
+
+    padding: 9px 13px;
+
+    background: var(--gold);
+
+    color: var(--black);
+
+    font-size: .55rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+}
+
+
+.featured-image-number {
+
+    position: absolute;
+
+    right: 30px;
+
+    bottom: 25px;
+
+    z-index: 3;
+
+    font-family: var(--serif);
+
+    font-size: 5rem;
+
+    color: rgba(255,255,255,.07);
+}
+
+
+.featured-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: clamp(40px,6vw,85px);
+}
+
+
+.article-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: var(--gold);
+
+    font-size: .57rem;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+}
+
+
+.article-meta span {
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+}
+
+
+.featured-content h2 {
+
+    margin-top: 25px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(2.3rem,4vw,4.5rem);
+
+    line-height: 1.02;
+
+    font-weight: 400;
+
+    letter-spacing: -.035em;
+}
+
+
+.featured-content h2 em {
+
+    color: var(--gold);
+
+    font-style: italic;
+}
+
+
+.featured-content p {
+
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    color: #8e938e;
+
+    font-size: .88rem;
+
+    line-height: 1.9;
+}
+
+
+.read-more {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    width: fit-content;
+
+    margin-top: 35px;
+
+    padding-bottom: 9px;
+
+    border-bottom: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-size: .6rem;
+
+    letter-spacing: .17em;
+
+    text-transform: uppercase;
+
+    transition: gap .3s ease;
+}
+
+
+.read-more:hover {
+
+    gap: 27px;
+}
+
+
+/* =========================================================
+   ACTUALITÉS RÉCENTES
+========================================================= */
+
+.latest {
+
+    padding: 135px 0 150px;
+
+    background: var(--black-soft);
+}
+
+
+.latest-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 50px;
+
+    margin-bottom: 65px;
+}
+
+
+.latest-title {
+
+    margin-top: 22px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(3rem,6vw,6rem);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    letter-spacing: -.05em;
+}
+
+
+.latest-title em {
+
+    color: var(--gold);
+
+    font-style: italic;
+}
+
+
+.latest-description {
+
+    max-width: 420px;
+
+    color: #818681;
+
+    font-size: .85rem;
+
+    line-height: 1.8;
+}
+
+
+.news-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CARTE ARTICLE
+========================================================= */
+
+.news-card {
+
+    background: var(--black-card);
+
+    border: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition:
+
+        transform .5s cubic-bezier(.16,1,.3,1),
+
+        border-color .4s ease;
+}
+
+
+.news-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: rgba(201,164,93,.4);
+}
+
+
+.news-image {
+
+    position: relative;
+
+    height: 275px;
+
+    overflow: hidden;
+
+    background: var(--green);
+}
+
+
+.news-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 60% 45%,
+            rgba(201,164,93,.4),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #285740,
+            #09110d
+        );
+
+    transition: transform .7s ease;
+}
+
+
+.news-card:hover .news-image::before {
+
+    transform: scale(1.08);
+}
+
+
+.news-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(201,164,93,.45);
+}
+
+
+.news-image.two {
+
+    background: #17130c;
+}
+
+
+.news-image.two::before {
+
+    background:
+
+        radial-gradient(
+            circle at 45% 55%,
+            rgba(201,164,93,.42),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #40351c,
+            #0b0d0b
+        );
+}
+
+
+.news-image.three::before {
+
+    background:
+
+        radial-gradient(
+            circle at 35% 45%,
+            rgba(74,135,101,.55),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #173e30,
+            #070908
+        );
+}
+
+
+.news-image.four::before {
+
+    background:
+
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(201,164,93,.32),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3b2a13,
+            #0a0c0a
+        );
+}
+
+
+.news-category {
+
+    position: absolute;
+
+    left: 20px;
+
+    top: 20px;
+
+    z-index: 2;
+
+    padding: 8px 11px;
+
+    background: rgba(7,9,8,.78);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(8px);
+
+    color: var(--gold-light);
+
+    font-size: .5rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+
+.news-number {
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 10px;
+
+    z-index: 2;
+
+    font-family: var(--serif);
+
+    font-size: 4.5rem;
+
+    color: rgba(255,255,255,.07);
+}
+
+
+.news-content {
+
+    padding: 28px 27px 32px;
+}
+
+
+.news-meta {
+
+    color: #727771;
+
+    font-size: .55rem;
+
+    letter-spacing: .13em;
+
+    text-transform: uppercase;
+}
+
+
+.news-content h3 {
+
+    margin-top: 13px;
+
+    font-family: var(--serif);
+
+    font-size: 1.65rem;
+
+    font-weight: 400;
+
+    line-height: 1.15;
+}
+
+
+.news-content p {
+
+    margin-top: 14px;
+
+    color: #7e837e;
+
+    font-size: .78rem;
+
+    line-height: 1.75;
+}
+
+
+.news-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    color: var(--gold);
+
+    font-size: .56rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SECTION "RESTEZ INFORMÉS"
+========================================================= */
+
+.newsletter {
+
+    padding: 120px 0;
+
+    background: var(--green);
+}
+
+
+.newsletter-box {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+.newsletter h2 {
+
+    margin-top: 25px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(3rem,5vw,5.5rem);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    letter-spacing: -.045em;
+}
+
+
+.newsletter h2 em {
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+
+.newsletter-text {
+
+    margin-top: 25px;
+
+    max-width: 570px;
+
+    color: rgba(244,240,230,.65);
+
+    font-size: .86rem;
+
+    line-height: 1.85;
+}
+
+
+.newsletter-form {
+
+    display: flex;
+
+    border-bottom: 1px solid rgba(244,240,230,.45);
+
+    padding-bottom: 12px;
+}
+
+
+.newsletter-form input {
+
+    flex: 1;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--cream);
+
+    font-family: var(--sans);
+
+    font-size: .82rem;
+}
+
+
+.newsletter-form input::placeholder {
+
+    color: rgba(244,240,230,.45);
+}
+
+
+.newsletter-form button {
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--gold-light);
+
+    cursor: pointer;
+
+    font-size: .6rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    background: #050706;
+
+    border-top: 1px solid var(--line);
+
+    padding: 75px 0 30px;
+}
+
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr 1.4fr;
+    gap: 35px;
+    padding-bottom: 65px;
+}
+
+
+.footer-logo {
+
+    font-family: var(--serif);
+
+    font-size: 2rem;
+
+    letter-spacing: .08em;
+}
+
+
+.footer-logo span {
+
+    color: var(--gold);
+}
+
+
+.footer-description {
+
+    max-width: 390px;
+
+    margin-top: 18px;
+
+    color: #707570;
+
+    font-size: .82rem;
+
+    line-height: 1.8;
+}
+
+
+.footer-heading {
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.footer-links a {
+
+    color: #9a9d99;
+
+    font-size: .78rem;
+
+    transition: color .25s ease;
+}
+
+
+.footer-links a:hover {
+
+    color: var(--cream);
+}
+
+
+.footer-bottom {
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #5e625f;
+
+    font-size: .58rem;
+
+    letter-spacing: .08em;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+
+        opacity 1s cubic-bezier(.16,1,.3,1),
+
+        transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:1050px) {
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 94px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 35px 4%;
+
+        background: rgba(7,9,8,.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        transform: translateY(-150%);
+
+        transition: transform .45s ease;
+    }
+
+
+    .nav-links.open {
+
+        transform: translateY(0);
+    }
+
+
+    .menu-button {
+
+        display: block;
+    }
+
+
+    .news-hero-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    .featured-card {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .featured-image {
+
+        min-height: 430px;
+    }
+
+
+    .news-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .newsletter-box {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width:650px) {
+
+    .cursor-dot,
+    .cursor-ring {
+
+        display: none;
+    }
+
+
+    .nav-inner {
+
+        min-height: 78px;
+    }
+
+
+    .nav-links {
+
+        top: 78px;
+    }
+
+
+    .news-hero {
+
+        min-height: 70vh;
+
+        padding: 130px 0 75px;
+    }
+
+
+    .news-hero h1 {
+
+        font-size: clamp(4rem,17vw,6rem);
+    }
+
+
+    .hero-intro {
+
+        font-size: .87rem;
+    }
+
+
+    .filters-inner {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .featured {
+
+        padding: 80px 0;
+    }
+
+
+    .featured-card {
+
+        min-height: auto;
+    }
+
+
+    .featured-image {
+
+        min-height: 350px;
+    }
+
+
+    .featured-image::before {
+
+        width: 270px;
+
+        height: 270px;
+    }
+
+
+    .featured-content {
+
+        padding: 40px 27px 50px;
+    }
+
+
+    .featured-content h2 {
+
+        font-size: 2.5rem;
+    }
+
+
+    .latest {
+
+        padding: 85px 0;
+    }
+
+
+    .latest-header {
+
+        display: block;
+    }
+
+
+    .latest-description {
+
+        margin-top: 25px;
+    }
+
+
+    .news-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .news-image {
+
+        height: 260px;
+    }
+
+
+    .newsletter {
+
+        padding: 85px 0;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+    }
+
+}
+
+.footer-address {
+    gap: 10px;
+}
+
+.footer-address div,
+.footer-address a {
+    line-height: 1.6;
+}
+
+.footer-address strong {
+    color: var(--cream);
+    font-weight: 500;
+    font-size: .72rem;
+    line-height: 1.5;
+    letter-spacing: .02em;
+}
+
+
+/* =========================================================
+   THEME CLAIR / SOMBRE
+========================================================= */
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    transition:
+        background-color .35s ease,
+        color .35s ease;
+}
+
+
+/* =========================================================
+   BOUTON THÈME
+========================================================= */
+
+.theme-toggle {
+
+    flex: 0 0 auto;
+
+    width: 44px;
+    height: 44px;
+
+    margin-left: 18px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    background: var(--black-card);
+
+    color: var(--cream);
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 1.05rem;
+
+    line-height: 1;
+
+    transition: all .3s ease;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+.theme-toggle:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+    transform:
+        rotate(12deg)
+        scale(1.05);
+}
+
+
+.theme-toggle .theme-icon {
+
+    display: block;
+
+    transition:
+        transform .3s ease;
+}
+
+
+
+/* =========================================================
+   THÈME CLAIR
+========================================================= */
+
+html[data-theme="light"] {
+
+    color-scheme: light;
+}
+
+
+html[data-theme="light"] body {
+
+    --black: #f5f2ea;
+
+    --black-soft: #ece8de;
+
+    --black-card: #ffffff;
+
+    --cream: #171a17;
+
+    --cream-soft: #59605a;
+
+    --gold: #9a762d;
+
+    --gold-light: #b28d3c;
+
+    --green: #dce8df;
+
+    --green-light: #bfd5c5;
+
+    --line: rgba(23,26,23,.13);
+
+    background: var(--black);
+
+    color: #171a17;
+}
+
+
+/* =========================================================
+   BOUTON THÈME — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .theme-toggle {
+
+    background: #ffffff;
+
+    color: #171a17;
+
+    border-color: rgba(23,26,23,.18);
+}
+
+/* =========================================================
+   NAVIGATION — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .nav {
+
+    background:
+        rgba(245,242,234,.88);
+
+    border-bottom-color:
+        rgba(23,26,23,.10);
+}
+
+
+html[data-theme="light"] .nav.scrolled {
+
+    background:
+        rgba(245,242,234,.94);
+}
+
+
+html[data-theme="light"] .nav-links {
+
+    background:
+        rgba(245,242,234,.98);
+}
+
+
+html[data-theme="light"] .nav-links a {
+
+    color: #303630;
+}
+
+
+html[data-theme="light"] .nav-links a:hover {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .nav-links .active {
+
+    color: #9a762d !important;
+}
+
+
+html[data-theme="light"] .nav-news {
+
+    color: #9a762d !important;
+}
+
+
+html[data-theme="light"] .nav-cta {
+
+    color: #9a762d !important;
+
+    border-color: #9a762d;
+}
+
+
+html[data-theme="light"] .menu-button {
+
+    color: #171a17;
+}
+
+
+/* =========================================================
+   HERO — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .news-hero {
+
+    background:
+
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(44,96,75,.12),
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(154,118,45,.08),
+            transparent 25%
+        ),
+
+        #f5f2ea;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .news-hero h1 {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .news-hero h1 em {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .hero-intro {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .section-label {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .section-label::before {
+
+    background: #9a762d;
+}
+
+
+/* Grand "NEWS" décoratif */
+
+html[data-theme="light"] .news-hero::before {
+
+    -webkit-text-stroke:
+        1px rgba(23,26,23,.055);
+}
+
+
+/* =========================================================
+   FILTRES — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .filters {
+
+    background: #e8e4da;
+
+    color: #171a17;
+
+    border-bottom-color:
+        rgba(23,26,23,.12);
+}
+
+
+html[data-theme="light"] .filter-title {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .filter {
+
+    background: transparent;
+
+    color: #171a17;
+
+    border-color:
+        rgba(23,26,23,.22);
+}
+
+
+html[data-theme="light"] .filter:hover {
+
+    background: #dce8df;
+
+    color: #171a17;
+
+    border-color:
+        #9bb8a5;
+}
+
+
+html[data-theme="light"] .filter.active {
+
+    background: #183b2e;
+
+    color: #f5f2ea;
+
+    border-color: #183b2e;
+}
+
+
+/* =========================================================
+   ACTUALITÉ À LA UNE — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .featured {
+
+    background: #f5f2ea;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .featured-label {
+
+    color: #183b2e;
+}
+
+
+html[data-theme="light"] .featured-label::before {
+
+    background: #183b2e;
+}
+
+
+/*
+   La partie image reste sombre volontairement
+   afin de conserver le contraste visuel.
+*/
+
+html[data-theme="light"] .featured-card {
+
+    background: #111714;
+
+    color: #f4f0e6;
+}
+
+
+html[data-theme="light"] .featured-content {
+
+    background: #ffffff;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .featured-content h2 {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .featured-content h2 em {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .featured-content p {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .article-meta {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .article-meta span {
+
+    background: #9a762d;
+}
+
+
+html[data-theme="light"] .read-more {
+
+    color: #9a762d;
+
+    border-bottom-color: #9a762d;
+}
+
+
+/* Étiquette sur l'image */
+
+html[data-theme="light"] .featured-image-tag {
+
+    background: #9a762d;
+
+    color: #ffffff;
+}
+
+
+/* Numéro décoratif */
+
+html[data-theme="light"] .featured-image-number {
+
+    color: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   ACTUALITÉS RÉCENTES — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .latest {
+
+    background: #f5f2ea;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .latest-title {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .latest-title em {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .latest-description {
+
+    color: #59605a;
+}
+
+
+/* =========================================================
+   CARTES D'ACTUALITÉS — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .news-card {
+
+    background: #ffffff;
+
+    color: #171a17;
+
+    border-color:
+        rgba(23,26,23,.13);
+}
+
+
+html[data-theme="light"] .news-card:hover {
+
+    border-color:
+        rgba(154,118,45,.45);
+}
+
+
+html[data-theme="light"] .news-content {
+
+    background: #ffffff;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .news-meta {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .news-content h3 {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .news-content p {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .news-link {
+
+    color: #9a762d;
+}
+
+
+/* Les images restent foncées pour garder
+   le contraste avec les badges */
+
+html[data-theme="light"] .news-image {
+
+    filter:
+        brightness(1.06)
+        saturate(.9);
+}
+
+
+html[data-theme="light"] .news-category {
+
+    background:
+        rgba(7,9,8,.82);
+
+    color: #e4c986;
+
+    border-color:
+        rgba(255,255,255,.18);
+}
+
+
+html[data-theme="light"] .news-number {
+
+    color: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   NEWSLETTER — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .newsletter {
+
+    background: #e8e4da;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .newsletter h2 {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .newsletter h2 em {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .newsletter-text {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .newsletter-form {
+
+    border-bottom-color:
+        rgba(23,26,23,.28);
+}
+
+
+html[data-theme="light"] .newsletter-form input {
+
+    background: transparent;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .newsletter-form input::placeholder {
+
+    color: #6a706b;
+}
+
+
+html[data-theme="light"] .newsletter-form button {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] #newsletterMessage {
+
+    color: #9a762d !important;
+}
+
+
+/* =========================================================
+   FOOTER — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .footer {
+
+    background: #e8e4da;
+
+    color: #171a17;
+
+    border-top-color:
+        rgba(23,26,23,.13);
+}
+
+
+html[data-theme="light"] .footer-logo {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .footer-logo span {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .footer-heading {
+
+    color: #9a762d;
+}
+
+
+html[data-theme="light"] .footer-description {
+
+    color: #59605a;
+}
+
+
+html[data-theme="light"] .footer-links a {
+
+    color: #4f554f;
+}
+
+
+html[data-theme="light"] .footer-links a:hover {
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .footer-bottom {
+
+    color: #626860;
+
+    border-top-color:
+        rgba(23,26,23,.13);
+}
+
+
+/* =========================================================
+   AUTRES ÉLÉMENTS — MODE CLAIR
+========================================================= */
+
+html[data-theme="light"] .page-header,
+html[data-theme="light"] .hero,
+html[data-theme="light"] .section,
+html[data-theme="light"] .vision,
+html[data-theme="light"] .timeline-section,
+html[data-theme="light"] .contact {
+
+    background-color: #f5f2ea;
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .preview-card,
+html[data-theme="light"] .value-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .contact-box,
+html[data-theme="light"] .timeline-content {
+
+    background:
+        rgba(255,255,255,.72);
+
+    color: #171a17;
+}
+
+
+html[data-theme="light"] .marquee {
+
+    background: #171a17;
+
+    color: #f5f2ea;
+}
+
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+
+    background: #ffffff;
+
+    color: #171a17;
+
+    border-color:
+        rgba(23,26,23,.18);
+}
+
+
+html[data-theme="light"] .preloader {
+
+    background: #f5f2ea;
+
+    color: #171a17;
+}
+
+/* =========================================================
+   THÈME DANS LE MENU BURGER
+========================================================= */
+
+@media (max-width:1050px) {
+
+    .nav-inner {
+
+        justify-content: space-between;
+    }
+
+
+    .menu-button {
+
+        display: block;
+
+        margin-left: auto;
+
+        position: relative;
+
+        z-index: 30;
+    }
+
+
+    .nav-links.open .theme-toggle {
+
+        display: inline-flex;
+    }
+
+}
+
+
+@media (max-width:600px) {
+
+    .nav-inner {
+
+        width: 94%;
+    }
+
+
+    .menu-button {
+
+        margin-left: auto;
+
+        font-size: 1.45rem;
+    }
+
+
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+        margin-top: 2px;
+    }
+
+}
+
+
+@media (max-width:400px) {
+
+    .nav-links .theme-toggle,
+    .nav-links.open .theme-toggle {
+
+        width: 38px;
+
+        height: 38px;
+    }
+
+}
+
+</style>
+
+<script>
+(function(){
+    const KEY = "moraheyms-theme";
+
+    try {
+        const savedTheme = localStorage.getItem(KEY);
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            savedTheme === "dark" ? "dark" : "light"
+        );
+
+    } catch(e) {
+        document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+        );
+    }
+})();
+</script>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     PRELOADER
+========================================================= -->
+
+<div class="preloader" id="preloader">
+
+<div class="loader">
+
+<div class="loader-logo">
+    MORAHEYM'S
+</div>
+
+<div class="loader-subtitle">
+    News
+</div>
+
+<div class="loader-bar">
+
+    <div
+        class="loader-progress"
+        id="loaderProgress">
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CURSEUR -->
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav" id="nav">
+
+
+<div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="index-en.html" class="logo">
+        <img
+            src="logo-moraheyms.png"
+            alt="GROUPE MORAHEYM'S">
+    </a>
+
+
+    <!-- NAVIGATION -->
+    <nav class="nav-links" id="navLinks">
+
+        <a href="actualites-en.html"
+           class="nav-news"
+           data-i18n="actualites">
+            News
+        </a>
+
+        <a href="groupe-en.html"
+           data-i18n="groupe">
+            The Group
+        </a>
+
+        <a href="expertise-en.html"
+           data-i18n="expertise">
+            Expertise
+        </a>
+
+        <a href="vision-en.html"
+           data-i18n="vision">
+            Vision
+        </a>
+
+        <a href="projets-en.html"
+           data-i18n="projets">
+            Projects
+        </a>
+
+        <a href="contact-en.html"
+           class="nav-cta"
+           data-i18n="contact">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <!-- ACTIONS TOUJOURS À DROITE -->
+    <div class="nav-actions">
+
+        <!-- LANGUE -->
+        <div class="language-switcher">
+
+            <select
+                onchange="window.location.href=this.value"
+                aria-label="Choose language">
+
+                <option
+                    value="actualites-fr.html">
+                    FR
+                </option>
+
+                <option
+                    value="actualites-en.html"
+                    selected>
+                    EN
+                </option>
+
+                <option
+                    value="actualites-ru.html">
+                    RU
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- BOUTON THÈME -->
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Change theme">
+
+            <span
+                class="theme-icon"
+                aria-hidden="true">
+                ☾
+            </span>
+
+        </button>
+
+
+        <!-- BURGER -->
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="news-hero">
+
+<div class="container news-hero-grid">
+
+<div class="reveal">
+
+    <div class="section-label">
+
+        01 — GROUPE MORAHEYM'S
+
+    </div>
+
+
+    <h1>
+
+        Our
+
+        <br>
+
+        <em>news.</em>
+
+    </h1>
+
+</div>
+
+
+<div class="hero-intro reveal">
+
+    <p>
+
+        Follow the latest initiatives,
+        projects and partnerships of GROUPE
+        MORAHEYM'S in real estate,
+        infrastructure, education,
+        research and
+        skills development across Africa.
+
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     FILTRES
+========================================================= -->
+
+<section class="filters">
+
+<div class="container filters-inner">
+
+<div class="filter-title">
+
+    Filter publications
+
+</div>
+
+
+<div class="filter-buttons">
+
+    <button
+        class="filter active"
+        data-filter="all">
+
+        All
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-filter="immobilier">
+
+        Real Estate
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-filter="education">
+
+        Education
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-filter="partenariat">
+
+        Partnerships
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-filter="projet">
+
+        Projects
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     À LA UNE
+========================================================= -->
+
+<section class="featured">
+
+<div class="container">
+
+<div class="section-label featured-label reveal">
+
+    02 — Featured
+
+</div>
+
+
+<article class="featured-card reveal">
+
+
+    <div class="featured-image">
+
+        <div class="featured-image-tag">
+
+            Pan-African Project
+
+        </div>
+
+
+        <div class="featured-image-number">
+
+            01
+
+        </div>
+
+    </div>
+
+
+    <div class="featured-content">
+
+
+        <div class="article-meta">
+
+            MORAHEYMS – AUUI
+
+            <span></span>
+
+            AUGUST 17, 2026
+
+        </div>
+
+
+        <h2>
+
+            A Pan-African project
+            serving
+
+            <em>
+                development.
+            </em>
+
+        </h2>
+
+
+        <p>
+
+            The MORAHEYMS – AUUI project combines
+            real estate development, infrastructure
+            and international education. It reflects
+            the ambition to build bridges between
+            institutions, researchers,
+            students and development stakeholders
+            across Africa.
+
+        </p>
+
+
+        <a
+            href="projets-en.html"
+            class="read-more">
+
+            Discover the project
+
+            <span>→</span>
+
+        </a>
+
+    </div>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     ACTUALITÉS RÉCENTES
+========================================================= -->
+
+<section class="latest">
+
+<div class="container">
+
+<div class="latest-header reveal">
+
+
+    <div>
+
+        <div class="section-label">
+
+            03 — Publications
+
+        </div>
+
+
+        <h2 class="latest-title">
+
+            The latest
+
+            <em>news.</em>
+
+        </h2>
+
+    </div>
+
+
+    <p class="latest-description">
+
+        Discover the main news
+        related to the Group's areas of activity
+        and projects carried out or developed by
+        GROUPE MORAHEYM'S.
+
+    </p>
+
+</div>
+
+
+<div class="news-grid">
+
+
+    <!-- ARTICLE 1 -->
+
+    <article
+        class="news-card reveal"
+        id="article-1"
+        data-category="projet">
+
+
+        <div class="news-image">
+
+            <div class="news-category">
+                Project
+            </div>
+
+            <div class="news-number">
+                01
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                AUGUST 17, 2026
+
+            </div>
+
+
+            <h3>
+
+                MORAHEYMS – AUUI :
+                a Pan-African ambition
+
+            </h3>
+
+
+            <p>
+
+                The MORAHEYMS – AUUI project aims
+                to connect real estate development,
+                infrastructure and international
+                education within a Pan-African
+                dynamic.
+
+            </p>
+
+
+            <a
+                href="projets-en.html"
+                class="news-link">
+
+                Discover → 
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 2 -->
+
+    <article
+        class="news-card reveal"
+        data-category="education">
+
+
+        <div class="news-image two">
+
+            <div class="news-category">
+                Education
+            </div>
+
+            <div class="news-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
+
+            </div>
+
+
+            <h3>
+
+                Supporting students
+                and researchers
+
+            </h3>
+
+
+            <p>
+
+                MORAHEYM'S is developing an approach
+                designed to provide technical
+                and financial support for academic projects,
+                research activities and
+                skills development.
+
+            </p>
+
+
+            <a
+                href="expertise-en.html"
+                class="news-link">
+
+                Our expertise →
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 3 -->
+
+    <article
+        class="news-card reveal"
+        data-category="partenariat">
+
+
+        <div class="news-image three">
+
+            <div class="news-category">
+                Partnerships
+            </div>
+
+            <div class="news-number">
+                03
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
+
+            </div>
+
+
+            <h3>
+
+                Developing partnerships
+                across Africa
+
+            </h3>
+
+
+            <p>
+
+                The Group aims to strengthen
+                cooperation with governments,
+                institutions, universities and other
+                stakeholders committed to the development
+                of the continent.
+
+            </p>
+
+
+            <a
+                href="vision-en.html"
+                class="news-link">
+
+                Our vision →
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 4 -->
+
+    <article
+        class="news-card reveal"
+        data-category="immobilier">
+
+
+        <div class="news-image four">
+
+            <div class="news-category">
+                Real Estate
+            </div>
+
+            <div class="news-number">
+                04
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
+
+            </div>
+
+
+            <h3>
+
+                Real estate at the heart
+                of development
+
+            </h3>
+
+
+            <p>
+
+                Real estate development and
+                construction projects
+                are among the major areas
+                of MORAHEYM'S activities.
+
+            </p>
+
+
+            <a
+                href="expertise-en.html"
+                class="news-link">
+
+                View our expertise →
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 5 -->
+
+    <article
+        class="news-card reveal"
+        data-category="immobilier">
+
+
+        <div class="news-image">
+
+            <div class="news-category">
+                Infrastructure
+            </div>
+
+            <div class="news-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
+
+            </div>
+
+
+            <h3>
+
+                Contributing to the development
+                of infrastructure
+
+            </h3>
+
+
+            <p>
+
+                The Group approaches infrastructure
+                development as part of an approach
+                designed to support economic,
+                social and institutional growth
+                in West Africa.
+
+            </p>
+
+
+            <a
+                href="expertise-en.html"
+                class="news-link">
+
+                Learn more →
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ARTICLE 6 -->
+
+    <article
+        class="news-card reveal"
+        data-category="partenariat">
+
+
+        <div class="news-image three">
+
+            <div class="news-category">
+                Research
+            </div>
+
+            <div class="news-number">
+                06
+            </div>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-meta">
+
+                2026
+
+            </div>
+
+
+            <h3>
+
+                A network of researchers
+                serving projects
+
+            </h3>
+
+
+            <p>
+
+                Through its Pan-African orientation,
+                MORAHEYM'S aims to facilitate exchanges
+                and collaboration between researchers,
+                students and institutions of different
+                nationalities.
+
+            </p>
+
+
+            <a
+                href="projets-en.html"
+                class="news-link">
+
+                Discover → 
+
+            </a>
+
+        </div>
+
+    </article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     NEWSLETTER
+========================================================= -->
+
+<section class="newsletter">
+
+<div class="container newsletter-box">
+
+<div class="reveal">
+
+    <div class="section-label">
+
+        04 — Stay informed
+
+    </div>
+
+
+    <h2>
+
+        Follow our
+
+        <br>
+
+        upcoming
+
+        <em>initiatives.</em>
+
+    </h2>
+
+
+    <p class="newsletter-text">
+
+        Stay informed about the development of
+        GROUPE MORAHEYM'S, its projects,
+        its Pan-African initiatives and
+        its activities in the fields of
+        real estate, infrastructure,
+        education and research.
+
+    </p>
+
+</div>
+
+
+<div class="reveal">
+
+
+    <form
+        class="newsletter-form"
+        id="newsletterForm">
+
+        <input
+            type="email"
+            placeholder="Your email address"
+            required>
+
+        <button type="submit">
+
+            Subscribe →
+
+        </button>
+
+    </form>
+
+
+    <p
+        id="newsletterMessage"
+        style="
+            margin-top:18px;
+            color:var(--gold-light);
+            font-size:.7rem;
+            display:none;
+        ">
+
+        Thank you for subscribing.
+
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+    <!-- IDENTITÉ -->
+    <div>
+        <div class="footer-logo">
+            GROUPE
+            <span>MORAHEYM'S</span>
+        </div>
+
+        <p class="footer-description">
+            MORAHEYM’S develops real estate projects, infrastructure and initiatives in education, research and skills development across Africa.
+        </p>
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <div>
+        <div class="footer-heading">
+            Navigation
+        </div>
+
+        <div class="footer-links">
+            <a href="actualites-en.html">News</a>
+            <a href="groupe-en.html">The Group</a>
+            <a href="expertise-en.html">Expertise</a>
+            <a href="vision-en.html">Vision</a>
+            <a href="projets-en.html">Projects</a>
+        </div>
+    </div>
+
+
+   <!-- DOMAINES -->
+    <div>
+        <div class="footer-heading">
+            Our areas
+        </div>
+
+        <div class="footer-links">
+            <a href="expertise-en.html">
+                REAL ESTATE & CONSTRUCTION
+            </a>
+
+            <a href="expertise-en.html">
+                INFRASTRUCTURE
+            </a>
+
+            <a href="expertise-en.html">
+                EDUCATION & RESEARCH
+            </a>
+
+            <a href="expertise-en.html">
+                SKILLS DEVELOPMENT
+            </a>
+
+            <a href="expertise-en.html">
+                EQUIPMENT
+            </a>
+            
+            <a href="expertise-en.html">
+                PROFESSIONAL TRAINING
+            </a>
+
+            <a href="expertise-en.html">
+                PERSONAL DEVELOPMENT 
+                AND FAMILY LEADERSHIP
+            </a>
+        </div>
+    </div>
+
+
+    <!-- CONTACT -->
+    <div>
+        <div class="footer-heading">
+            Contact
+        </div>
+
+        <div class="footer-links">
+            <a href="contact-en.html">
+                Contact us
+            </a>
+
+            <a href="mailto:moraheyms@gmail.com">
+                moraheyms@gmail.com
+            </a>
+
+            <a href="projets-en.html">
+                Discover our projects
+            </a>
+        </div>
+    </div>
+
+
+    <!-- NOS PARTENAIRES -->
+    <div>
+        <div class="footer-heading">
+           Our partners
+        </div>
+
+        <div class="footer-links">
+
+            <a href="vision-en.html">
+              AFRICAN UNION UNIVERSITY
+              INTERNATIONAL (AUUI)
+            </a>
+
+            <a href="vision-en.html">
+             GROUPE CEB Inc
+              — CLEAN-ENERGY-BUILD
+            </a>
+
+            <a href="vision-en.html">
+              MORAHEYM'S ASSURANCES
+            </a>
+
+            <a href="vision-en.html">
+              GLORY TO GOD BJR
+            </a>
+
+            <a href="vision-en.html">
+              BANKING PARTNERS
+             </a>
+
+        </div>
+    </div>
+
+
+    <!-- ADRESSES -->
+    <div>
+        <div class="footer-heading">
+            CONTACT DETAILS
+        </div>
+
+        <div class="footer-links footer-address">
+
+            <div>
+                <strong>
+                    SOCIETE MORAHEYM’S
+                    CONSULTING AND
+                    CONSTRUCTION SARLU
+                </strong>
+            </div>
+
+            <div>
+                MORAHEYM’S SARLU LIMITED
+                (MC & CS)
+            </div>
+
+            <div>
+                106 Ikorodu-Osusun Road,
+                3nd Floor at the Right,
+                Fadeyi, Lagos
+            </div>
+
+            <a href="mailto:moraheyms@gmail.com">
+                moraheyms@gmail.com
+            </a>
+
+            <div>
+                RCCM : 9312884
+            </div>
+
+            <div>
+                Tel :
+                +225 07 14 92 50 32/  +225 07 07 00 76 45
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- FOOTER BOTTOM -->
+<div class="footer-bottom">
+
+    <span>
+        © 2026 GROUPE MORAHEYM'S —
+        All rights reserved.
+    </span>
+
+    <span>
+        Real Estate · Infrastructure ·
+        Education · Research
+    </span>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+(function () {
+
+    const KEY = "moraheyms-theme";
+
+    const root =
+        document.documentElement;
+
+    const button =
+        document.getElementById(
+            "themeToggle"
+        );
+
+
+    if (!button) return;
+
+
+    /*
+       Charger le thème sauvegardé
+    */
+
+    try {
+
+        const saved =
+            localStorage.getItem(KEY);
+
+        root.setAttribute(
+            "data-theme",
+            saved === "dark"
+                ? "dark"
+                : "light"
+        );
+
+    } catch (e) {
+
+        root.setAttribute(
+            "data-theme",
+            "light"
+        );
+
+    }
+
+
+    /*
+       Mise à jour de l'icône
+    */
+
+    function updateThemeButton() {
+
+        const isLight =
+            root.getAttribute(
+                "data-theme"
+            ) === "light";
+
+
+        button.setAttribute(
+            "aria-label",
+            isLight
+                ? "Enable dark theme"
+                : "Enable light theme"
+        );
+
+
+        button.setAttribute(
+            "title",
+            isLight
+                ? "Dark theme"
+                : "Light theme"
+        );
+
+
+        button.innerHTML =
+            '<span class="theme-icon" aria-hidden="true">' +
+            (isLight ? "☀" : "☾") +
+            '</span>';
+
+    }
+
+
+    /*
+       Changement de thème
+    */
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            const next =
+                root.getAttribute(
+                    "data-theme"
+                ) === "light"
+                    ? "dark"
+                    : "light";
+
+
+            root.setAttribute(
+                "data-theme",
+                next
+            );
+
+
+            try {
+
+                localStorage.setItem(
+                    KEY,
+                    next
+                );
+
+            } catch (e) {}
+
+
+            updateThemeButton();
+
+        }
+    );
+
+
+    updateThemeButton();
+
+})();
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+const preloader =
+    document.getElementById(
+        "preloader"
+    );
+
+
+const progress =
+    document.getElementById(
+        "loaderProgress"
+    );
+
+
+let progressValue = 0;
+
+
+const loadingInterval =
+    setInterval(() => {
+
+        progressValue +=
+            Math.random() * 15;
+
+
+        if (
+            progressValue > 100
+        ) {
+
+            progressValue = 100;
+
+        }
+
+
+        progress.style.width =
+            progressValue + "%";
+
+    },120);
+
+
+window.addEventListener(
+    "load",
+    () => {
+
+        progress.style.width =
+            "100%";
+
+
+        setTimeout(
+            () => {
+
+                clearInterval(
+                    loadingInterval
+                );
+
+                preloader.classList.add(
+                    "hide"
+                );
+
+            },
+            900
+        );
+
+    }
+);
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+const nav =
+    document.getElementById(
+        "nav"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 50
+        ) {
+
+            nav.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            nav.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+const menuButton =
+    document.getElementById(
+        "menuButton"
+    );
+
+
+const navLinks =
+    document.getElementById(
+        "navLinks"
+    );
+
+
+menuButton.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "open"
+        );
+
+
+        menuButton.innerHTML =
+            navLinks.classList.contains(
+                "open"
+            )
+                ? "✕"
+                : "☰";
+
+    }
+);
+
+
+document
+.querySelectorAll(
+    ".nav-links a"
+)
+.forEach(
+    link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove(
+                    "open"
+                );
+
+
+                menuButton.innerHTML =
+                    "☰";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CURSEUR
+========================================================= */
+
+const cursorDot =
+    document.querySelector(
+        ".cursor-dot"
+    );
+
+
+const cursorRing =
+    document.querySelector(
+        ".cursor-ring"
+    );
+
+
+if (
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+) {
+
+    window.addEventListener(
+        "mousemove",
+        e => {
+
+            cursorDot.style.left =
+                e.clientX + "px";
+
+
+            cursorDot.style.top =
+                e.clientY + "px";
+
+
+            cursorRing.animate(
+
+                {
+                    left:
+                        e.clientX + "px",
+
+                    top:
+                        e.clientY + "px"
+                },
+
+                {
+                    duration: 450,
+
+                    fill: "forwards"
+                }
+
+            );
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        "a,button,.news-card,.featured-card"
+    )
+    .forEach(
+        element => {
+
+            element.addEventListener(
+                "mouseenter",
+                () => {
+
+                    cursorRing.classList.add(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+
+                    cursorRing.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: .1
+        }
+
+    );
+
+
+document
+.querySelectorAll(
+    ".reveal"
+)
+.forEach(
+    element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
+
+
+/* =========================================================
+   FILTRES DES ACTUALITÉS
+========================================================= */
+
+const filters =
+    document.querySelectorAll(
+        ".filter"
+    );
+
+
+const cards =
+    document.querySelectorAll(
+        ".news-card"
+    );
+
+
+filters.forEach(
+    filter => {
+
+        filter.addEventListener(
+            "click",
+            () => {
+
+                filters.forEach(
+                    item => {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                filter.classList.add(
+                    "active"
+                );
+
+
+                const selected =
+                    filter.dataset.filter;
+
+
+                cards.forEach(
+                    card => {
+
+                        const category =
+                            card.dataset.category;
+
+
+                        if (
+                            selected === "all" ||
+                            category === selected
+                        ) {
+
+                            card.style.display =
+                                "";
+
+
+                            setTimeout(
+                                () => {
+
+                                    card.style.opacity =
+                                        "1";
+
+                                    card.style.transform =
+                                        "translateY(0)";
+
+                                },
+                                20
+                            );
+
+                        } else {
+
+                            card.style.opacity =
+                                "0";
+
+
+                            card.style.transform =
+                                "translateY(15px)";
+
+
+                            setTimeout(
+                                () => {
+
+                                    card.style.display =
+                                        "none";
+
+                                },
+                                250
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+const newsletterForm =
+    document.getElementById(
+        "newsletterForm"
+    );
+
+
+const newsletterMessage =
+    document.getElementById(
+        "newsletterMessage"
+    );
+
+
+newsletterForm.addEventListener(
+    "submit",
+    event => {
+
+        event.preventDefault();
+
+
+        newsletterMessage.style.display =
+            "block";
+
+
+        newsletterForm.reset();
+
+    }
+);
+
+
+/* =========================================================
+   PARALLAXE HERO
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const hero =
+            document.querySelector(
+                ".news-hero"
+            );
+
+
+        const scroll =
+            window.scrollY;
+
+
+        if (
+            scroll <
+            window.innerHeight
+        ) {
+
+            hero.style.backgroundPosition =
+                `center ${scroll * .15}px`;
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
