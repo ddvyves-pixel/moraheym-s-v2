@@ -269,16 +269,6 @@ body::before {
 }
 
 
-/* ACTUALITÉS ACTIF */
-
-.nav-news {
-
-    color: var(--gold) !important;
-
-    font-weight: 600;
-}
-
-
 .nav-news::before {
 
     content: "";
@@ -1087,53 +1077,6 @@ html[data-theme="light"] .menu-button {
 .nav-links a.active::after {
 
     width: 100%;
-}
-
-
-/* =========================================================
-   ACTUALITÉS
-========================================================= */
-
-.nav-news {
-
-    color: var(--gold) !important;
-
-    font-weight: 600;
-}
-
-.nav-news::before {
-
-    content: "";
-
-    display: inline-block;
-
-    width: 5px;
-    height: 5px;
-
-    margin-right: 8px;
-
-    border-radius: 50%;
-
-    background: var(--gold);
-
-    box-shadow:
-        0 0 10px var(--gold);
-
-    animation:
-        newsPulse 2s ease-in-out infinite;
-}
-
-@keyframes newsPulse {
-
-    0%, 100% {
-        opacity: .35;
-        transform: scale(.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
 }
 
 
@@ -2378,18 +2321,18 @@ html[data-theme="light"] ::selection {
                 aria-label="Choisir la langue">
 
                 <option
-                    value="actualites-fr.html"
+                    value="contact-fr.html"
                     selected>
                     FR
                 </option>
 
                 <option
-                    value="actualites-en.html">
+                    value="contact-en.html">
                     EN
                 </option>
 
                 <option
-                    value="actualites-ru.html">
+                    value="contact-ru.html">
                     RU
                 </option>
 
