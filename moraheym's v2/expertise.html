@@ -4021,5 +4021,99 @@ document
 
 </script>
 
+
+<script>
+(function () {
+    const STORAGE_KEY = "moraheym-language";
+    const select = document.getElementById("languageSelect");
+
+    // Détermine la langue à partir du nom du fichier.
+    function getPageInfo() {
+        const filename = window.location.pathname
+            .split("/")
+            .pop() || "index.html";
+
+        const match = filename.match(/^(.*?)-(en|ru)\.html$/i);
+
+        if (match) {
+            return {
+                base: match[1],
+                language: match[2].toLowerCase()
+            };
+        }
+
+        return {
+            base: filename.replace(/\.html$/i, ""),
+            language: "fr"
+        };
+    }
+
+    function getTargetPage(base, language) {
+        if (language === "fr") {
+            return base + ".html";
+        }
+
+        return base + "-" + language + ".html";
+    }
+
+    function saveLanguage(language) {
+        try {
+            localStorage.setItem(STORAGE_KEY, language);
+        } catch (error) {
+            console.warn("Impossible de mémoriser la langue.", error);
+        }
+    }
+
+    function getSavedLanguage() {
+        try {
+            const language = localStorage.getItem(STORAGE_KEY);
+            return ["fr", "en", "ru"].includes(language)
+                ? language
+                : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    const page = getPageInfo();
+    const savedLanguage = getSavedLanguage();
+
+    // Au chargement, conserve la langue déjà choisie.
+    if (savedLanguage && savedLanguage !== page.language) {
+        window.location.replace(
+            getTargetPage(page.base, savedLanguage)
+        );
+        return;
+    }
+
+    // Affiche la langue correspondant à la page.
+    if (select) {
+        select.value = page.language;
+
+        // Enregistre le choix et ouvre la page équivalente.
+        select.addEventListener("change", function () {
+            const language = this.value;
+
+            if (!["fr", "en", "ru"].includes(language)) {
+                return;
+            }
+
+            saveLanguage(language);
+
+            window.location.href = getTargetPage(
+                page.base,
+                language
+            );
+        });
+    }
+
+    // Enregistre aussi la langue actuelle lors de la première visite.
+    if (!savedLanguage) {
+        saveLanguage(page.language);
+    }
+})();
+</script>
+
+
 </body>
 </html>
