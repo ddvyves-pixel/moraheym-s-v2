@@ -1753,11 +1753,11 @@ html[data-theme="light"] .footer-bottom {
 
 <div class="nav-actions">
 
-    <div class="language-switcher">
-    <select id="languageSelect" aria-label="Choisir la langue">
-       <option value="index.html" selected>FR</option>
-        <option value="index-en.html">EN</option>
-        <option value="index-ru.html">RU</option>
+   <div class="language-switcher">
+    <select id="languageSelect" aria-label="Choose language">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
     </select>
 </div>
 
@@ -1817,14 +1817,14 @@ html[data-theme="light"] .footer-bottom {
     <div class="hero-actions">
 
         <a
-            href="groupe.html"
+            href="groupe-en.html"
             class="button button-primary"
         >
             Discover the Group
         </a>
 
         <a
-            href="contact.html"
+            href="contact-en.html"
             class="button button-outline"
         >
             Get in touch
@@ -2146,11 +2146,11 @@ html[data-theme="light"] .footer-bottom {
             </div>
 
             <div class="footer-links">
-                <a href="actualites.html">News</a>
-                <a href="groupe.html">The Group</a>
-                <a href="expertise.html">Expertise</a>
-                <a href="vision.html">Vision</a>
-                <a href="projets.html">Projects</a>
+                <a href="actualites-en.html">News</a>
+                <a href="groupe-en.html">The Group</a>
+                <a href="expertise-en.html">Expertise</a>
+                <a href="vision-en.html">Vision</a>
+                <a href="projets-en.html">Projects</a>
             </div>
         </div>
 
@@ -2162,31 +2162,31 @@ html[data-theme="light"] .footer-bottom {
             </div>
 
             <div class="footer-links">
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     REAL ESTATE & CONSTRUCTION
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     INFRASTRUCTURE
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     EDUCATION & RESEARCH
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     SKILLS DEVELOPMENT
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     EQUIPMENT
                 </a>
                 
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     PROFESSIONAL TRAINING
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-en.html">
                     DEVELOPPEMENT PERSONNEL 
                     ET LEADERSHIP FAMILIAL
                 </a>
@@ -2201,7 +2201,7 @@ html[data-theme="light"] .footer-bottom {
             </div>
 
             <div class="footer-links">
-                <a href="contact.html">
+                <a href="contact-en.html">
                     Contact us
                 </a>
 
@@ -2209,7 +2209,7 @@ html[data-theme="light"] .footer-bottom {
                     moraheyms@gmail.com
                 </a>
 
-                <a href="projets.html">
+                <a href="projets-en.html">
                     Discover our projects
                 </a>
             </div>
@@ -2224,25 +2224,25 @@ html[data-theme="light"] .footer-bottom {
 
             <div class="footer-links">
 
-                <a href="vision.html">
+                <a href="vision-en.html">
                   AFRICAN UNION UNIVERSITY
                   INTERNATIONAL (AUUI)
                 </a>
 
-                <a href="vision.html">
+                <a href="vision-en.html">
                  GROUPE CEB Inc
                   — CLEAN-ENERGY-BUILD
                 </a>
 
-                <a href="vision.html">
+                <a href="vision-en.html">
                   MORAHEYM'S ASSURANCES
                 </a>
 
-                <a href="vision.html">
+                <a href="vision-en.html">
                   GLORY TO GOD BJR
                 </a>
 
-                <a href="vision.html">
+                <a href="vision-en.html">
                   BANKING PARTNERS
                  </a>
 
@@ -2886,12 +2886,13 @@ document
 (function () {
     const STORAGE_KEY = "moraheym-language";
     const select = document.getElementById("languageSelect");
+
     const supportedLanguages = ["fr", "en", "ru"];
 
-    // Identifie la page et la langue actuellement affichées.
+    // Détermine la page et la langue actuelles.
     function getPageInfo() {
         const filename =
-            window.location.pathname.split("/").pop() || "index-en.html";
+            window.location.pathname.split("/").pop() || "index.html";
 
         const match = filename.match(/^(.*?)-(en|ru)\.html$/i);
 
@@ -2917,35 +2918,29 @@ document
         return base + "-" + language + ".html";
     }
 
+    function saveLanguage(language) {
+        try {
+            localStorage.setItem(STORAGE_KEY, language);
+        } catch (error) {
+            console.warn("Unable to save language preference.", error);
+        }
+    }
+
     function getSavedLanguage() {
         try {
             const language = localStorage.getItem(STORAGE_KEY);
-            return supportedLanguages.includes(language) ? language : null;
+
+            return supportedLanguages.includes(language)
+                ? language
+                : null;
         } catch (error) {
             return null;
         }
     }
 
-    function saveLanguage(language) {
-        try {
-            localStorage.setItem(STORAGE_KEY, language);
-        } catch (error) {
-            console.warn("La langue n'a pas pu être mémorisée.", error);
-        }
-    }
-
     const page = getPageInfo();
-    const savedLanguage = getSavedLanguage();
 
-    // Si une langue a déjà été choisie, conserve-la sur cette page.
-    if (savedLanguage && savedLanguage !== page.language) {
-        window.location.replace(
-            getTargetPage(page.base, savedLanguage)
-        );
-        return;
-    }
-
-    // Affiche la langue de la page actuelle dans le sélecteur.
+    // Affiche la langue correspondant à la page ouverte.
     if (select) {
         select.value = page.language;
 
@@ -2956,18 +2951,18 @@ document
                 return;
             }
 
-            // Mémorise le choix avant de changer de page.
             saveLanguage(language);
 
-            // Ouvre la même page dans la langue sélectionnée.
-            window.location.href = getTargetPage(page.base, language);
+            const target = getTargetPage(page.base, language);
+
+            window.location.href = target;
         });
     }
 
-    // Première visite : mémorise la langue de la page d'arrivée.
-    if (!savedLanguage) {
-        saveLanguage(page.language);
-    }
+    // Mémorise la langue de la page visitée.
+    // Ne redirige pas automatiquement le visiteur.
+    saveLanguage(page.language);
+
 })();
 </script>
 

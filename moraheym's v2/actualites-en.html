@@ -3402,30 +3402,12 @@ html[data-theme="light"] .preloader {
 
         <!-- LANGUE -->
         <div class="language-switcher">
-
-            <select
-                onchange="window.location.href=this.value"
-                aria-label="Choose language">
-
-                <option
-                    value="actualites.html">
-                    FR
-                </option>
-
-                <option
-                    value="actualites-en.html"
-                    selected>
-                    EN
-                </option>
-
-                <option
-                    value="actualites-ru.html">
-                    RU
-                </option>
-
-            </select>
-
-        </div>
+    <select id="languageSelect" aria-label="Choose language">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
+    </select>
+</div>
 
 
         <!-- BOUTON THÈME -->
@@ -4983,11 +4965,12 @@ window.addEventListener(
     const STORAGE_KEY = "moraheym-language";
     const select = document.getElementById("languageSelect");
 
-    // Détermine la langue à partir du nom du fichier.
+    const supportedLanguages = ["fr", "en", "ru"];
+
+    // Détermine la page et la langue actuelles.
     function getPageInfo() {
-        const filename = window.location.pathname
-            .split("/")
-            .pop() || "index.html";
+        const filename =
+            window.location.pathname.split("/").pop() || "index.html";
 
         const match = filename.match(/^(.*?)-(en|ru)\.html$/i);
 
@@ -5004,6 +4987,7 @@ window.addEventListener(
         };
     }
 
+    // Construit le nom de la page dans la langue choisie.
     function getTargetPage(base, language) {
         if (language === "fr") {
             return base + ".html";
@@ -5016,14 +5000,15 @@ window.addEventListener(
         try {
             localStorage.setItem(STORAGE_KEY, language);
         } catch (error) {
-            console.warn("Impossible de mémoriser la langue.", error);
+            console.warn("Unable to save language preference.", error);
         }
     }
 
     function getSavedLanguage() {
         try {
             const language = localStorage.getItem(STORAGE_KEY);
-            return ["fr", "en", "ru"].includes(language)
+
+            return supportedLanguages.includes(language)
                 ? language
                 : null;
         } catch (error) {
@@ -5032,41 +5017,30 @@ window.addEventListener(
     }
 
     const page = getPageInfo();
-    const savedLanguage = getSavedLanguage();
 
-    // Au chargement, conserve la langue déjà choisie.
-    if (savedLanguage && savedLanguage !== page.language) {
-        window.location.replace(
-            getTargetPage(page.base, savedLanguage)
-        );
-        return;
-    }
-
-    // Affiche la langue correspondant à la page.
+    // Affiche la langue correspondant à la page ouverte.
     if (select) {
         select.value = page.language;
 
-        // Enregistre le choix et ouvre la page équivalente.
         select.addEventListener("change", function () {
             const language = this.value;
 
-            if (!["fr", "en", "ru"].includes(language)) {
+            if (!supportedLanguages.includes(language)) {
                 return;
             }
 
             saveLanguage(language);
 
-            window.location.href = getTargetPage(
-                page.base,
-                language
-            );
+            const target = getTargetPage(page.base, language);
+
+            window.location.href = target;
         });
     }
 
-    // Enregistre aussi la langue actuelle lors de la première visite.
-    if (!savedLanguage) {
-        saveLanguage(page.language);
-    }
+    // Mémorise la langue de la page visitée.
+    // Ne redirige pas automatiquement le visiteur.
+    saveLanguage(page.language);
+
 })();
 </script>
 
