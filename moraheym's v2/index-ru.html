@@ -2944,51 +2944,36 @@ document
     const page=getPageInfo();
 
 
+if(select){
 
-    if(select){
-
-        select.value=page.lang;
-
-
-        select.addEventListener(
-            "change",
-            function(){
+    select.value = page.lang;
 
 
-                let chosen=this.value;
+    select.addEventListener(
+        "change",
+        function(){
+
+            let chosen = this.value;
 
 
-                if(!languages.includes(chosen)){
-                    return;
-                }
-
-
-                let target =
-                makePage(
-                    page.base,
-                    chosen
-                );
-
-
-                console.log(
-                    "Page actuelle:",
-                    page
-                );
-
-
-                console.log(
-                    "Redirection vers:",
-                    target
-                );
-
-
-                window.location.href=target;
-
-
+            if(!languages.includes(chosen)){
+                return;
             }
-        );
 
-    }
+
+            let target =
+            makePage(
+                page.base,
+                chosen
+            );
+
+
+            window.location.href = target;
+
+        }
+    );
+
+}
 
 
 })();
