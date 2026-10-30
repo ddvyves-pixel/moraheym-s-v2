@@ -2921,87 +2921,100 @@ document
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-    const langSelect = document.getElementById("language-select");
+    const select = document.getElementById("languageSelect");
 
-    if (!langSelect) return;
+    const languages = ["fr","en","ru"];
 
-    // Détecter la page actuelle
-    const currentPage = window.location.pathname.split("/").pop();
 
-    let currentLang = "fr";
+    function getPageInfo(){
 
-    if (currentPage.includes("-en")) {
-        currentLang = "en";
-    } 
-    else if (currentPage.includes("-ru")) {
-        currentLang = "ru";
+    let file = window.location.pathname
+        .split("/")
+        .pop();
+
+
+    if(!file){
+        file = "index.html";
     }
 
-    // Mettre le bon affichage dans le menu
-    langSelect.value = currentLang;
+
+    let lang = "fr";
 
 
-    // Changement de langue
-    langSelect.addEventListener("change", function () {
+    if(file.toLowerCase().endsWith("-en.html")){
+        lang = "en";
+    }
 
-        const selectedLang = this.value;
+    else if(file.toLowerCase().endsWith("-ru.html")){
+        lang = "ru";
+    }
 
-        let targetPage = "";
 
-        // Page d'accueil
-        if (
-            currentPage === "" ||
-            currentPage === "index.html" ||
-            currentPage === "index-fr.html"
-        ) {
+    let base = file
+        .replace(/\.html$/i,"")
+        .replace(/-(en|ru)$/i,"");
 
-            if (selectedLang === "fr") {
-                targetPage = "index-fr.html";
-            }
 
-            if (selectedLang === "en") {
-                targetPage = "index-en.html";
-            }
+    return {
+        base: base,
+        lang: lang
+    };
 
-            if (selectedLang === "ru") {
-                targetPage = "index-ru.html";
-            }
+}
 
-        } 
-        
-        // Si on est déjà sur une page traduite
-        else {
 
-            let baseName = currentPage
-                .replace("-en", "")
-                .replace("-ru", "")
-                .replace("-fr", "");
 
-            let extension = ".html";
+    function makePage(base,lang){
 
-            if (selectedLang === "fr") {
-                targetPage = baseName.replace(".html","") + "-fr" + extension;
-            }
-
-            if (selectedLang === "en") {
-                targetPage = baseName.replace(".html","") + "-en" + extension;
-            }
-
-            if (selectedLang === "ru") {
-                targetPage = baseName.replace(".html","") + "-ru" + extension;
-            }
+        if(lang==="fr"){
+            return base+".html";
         }
 
 
-        if(targetPage !== currentPage){
-            window.location.href = targetPage;
+        return base+"-"+lang+".html";
+
+    }
+
+
+
+    const page=getPageInfo();
+
+
+if(select){
+
+    select.value = page.lang;
+
+
+    select.addEventListener(
+        "change",
+        function(){
+
+            let chosen = this.value;
+
+
+            if(!languages.includes(chosen)){
+                return;
+            }
+
+
+            let target =
+            makePage(
+                page.base,
+                chosen
+            );
+
+
+            window.location.href = target;
+
         }
+    );
 
-    });
+}
 
-});
+
+})();
 </script>
 
 </body>
