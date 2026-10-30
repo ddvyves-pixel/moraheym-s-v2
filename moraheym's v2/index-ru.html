@@ -2884,84 +2884,107 @@ document
 
 <script>
 (function () {
+
     const STORAGE_KEY = "moraheym-language";
     const select = document.getElementById("languageSelect");
 
     const supportedLanguages = ["fr", "en", "ru"];
 
-    // Détermine la page et la langue actuelles.
+
     function getPageInfo() {
-        const filename =
-            window.location.pathname.split("/").pop() || "index.html";
 
-        const match = filename.match(/^(.*?)-(en|ru)\.html$/i);
+        let filename =
+            window.location.pathname.split("/").pop();
 
-        if (match) {
-            return {
-                base: match[1],
-                language: match[2].toLowerCase()
-            };
+
+        if (!filename || filename === "") {
+            filename = "index.html";
         }
+
+
+        // Retire le suffixe -en ou -ru
+        let base = filename
+            .replace(/-(en|ru)\.html$/i, "")
+            .replace(/\.html$/i, "");
+
+
+        let language = "fr";
+
+
+        if (filename.match(/-en\.html$/i)) {
+            language = "en";
+        }
+
+
+        if (filename.match(/-ru\.html$/i)) {
+            language = "ru";
+        }
+
 
         return {
-            base: filename.replace(/\.html$/i, ""),
-            language: "fr"
+            base: base,
+            language: language
         };
+
     }
 
-    // Construit le nom de la page dans la langue choisie.
+
+
     function getTargetPage(base, language) {
+
+
         if (language === "fr") {
+
             return base + ".html";
+
         }
+
 
         return base + "-" + language + ".html";
+
     }
 
-    function saveLanguage(language) {
-        try {
-            localStorage.setItem(STORAGE_KEY, language);
-        } catch (error) {
-            console.warn("Unable to save language preference.", error);
-        }
-    }
 
-    function getSavedLanguage() {
-        try {
-            const language = localStorage.getItem(STORAGE_KEY);
-
-            return supportedLanguages.includes(language)
-                ? language
-                : null;
-        } catch (error) {
-            return null;
-        }
-    }
 
     const page = getPageInfo();
 
-    // Affiche la langue correspondant à la page ouverte.
-    if (select) {
+
+
+    if(select){
+
         select.value = page.language;
 
-        select.addEventListener("change", function () {
-            const language = this.value;
 
-            if (!supportedLanguages.includes(language)) {
-                return;
+        select.addEventListener(
+            "change",
+            function(){
+
+                const language = this.value;
+
+
+                if(!supportedLanguages.includes(language)){
+                    return;
+                }
+
+
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    language
+                );
+
+
+                window.location.href =
+                    getTargetPage(
+                        page.base,
+                        language
+                    );
+
+
             }
+        );
 
-            saveLanguage(language);
-
-            const target = getTargetPage(page.base, language);
-
-            window.location.href = target;
-        });
     }
 
-    // Mémorise la langue de la page visitée.
-    // Ne redirige pas automatiquement le visiteur.
-    saveLanguage(page.language);
 
 })();
 </script>
