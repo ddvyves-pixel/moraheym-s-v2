@@ -2930,46 +2930,39 @@ document
 
     function getPageInfo(){
 
-        let file =
-        window.location.pathname
+    let file = window.location.pathname
         .split("/")
         .pop();
 
 
-        if(!file){
-            file="index.html";
-        }
-
-
-        let base=file;
-
-
-        // retire html
-        base=base.replace(".html","");
-
-
-        // retire obligatoirement -en ou -ru
-        base=base.replace(/-(en|ru)$/i,"");
-
-
-        let lang="fr";
-
-
-        if(file.endsWith("-en.html")){
-            lang="en";
-        }
-
-        else if(file.endsWith("-ru.html")){
-            lang="ru";
-        }
-
-
-        return {
-            base:base,
-            lang:lang
-        };
-
+    if(!file){
+        file = "index.html";
     }
+
+
+    let lang = "fr";
+
+
+    if(file.toLowerCase().endsWith("-en.html")){
+        lang = "en";
+    }
+
+    else if(file.toLowerCase().endsWith("-ru.html")){
+        lang = "ru";
+    }
+
+
+    let base = file
+        .replace(/\.html$/i,"")
+        .replace(/-(en|ru)$/i,"");
+
+
+    return {
+        base: base,
+        lang: lang
+    };
+
+}
 
 
 
