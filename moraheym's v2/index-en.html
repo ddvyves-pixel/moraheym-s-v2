@@ -2880,7 +2880,73 @@ document
 
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const select = document.getElementById("languageSelect");
+
+    if (!select) return;
+
+
+    const file = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+
+    let currentLanguage = "fr";
+
+
+    if (file.includes("-en.html")) {
+        currentLanguage = "en";
+    }
+
+    else if (file.includes("-ru.html")) {
+        currentLanguage = "ru";
+    }
+
+
+    // Met à jour le bouton affiché
+    select.value = currentLanguage;
+
+
+
+    select.addEventListener("change", function () {
+
+
+        const language = this.value;
+
+
+        let base = file
+            .replace(".html", "")
+            .replace("-en", "")
+            .replace("-ru", "");
+
+
+        let destination;
+
+
+        if (language === "fr") {
+
+            destination = base + ".html";
+
+        }
+
+        else {
+
+            destination = base + "-" + language + ".html";
+
+        }
+
+
+        window.location.href = destination;
+
+
+    });
+
+
+});
+</script>
 
 <script>
 (function () {
