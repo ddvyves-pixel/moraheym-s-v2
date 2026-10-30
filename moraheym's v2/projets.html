@@ -3315,93 +3315,118 @@ document
 
 <script>
 (function () {
-    const STORAGE_KEY = "moraheym-language";
+
     const select = document.getElementById("languageSelect");
 
-    // Détermine la langue à partir du nom du fichier.
+    const languages = ["fr", "en", "ru"];
+
+
     function getPageInfo() {
-        const filename = window.location.pathname
+
+        let file = window.location.pathname
             .split("/")
-            .pop() || "index.html";
+            .pop()
+            .toLowerCase();
 
-        const match = filename.match(/^(.*?)-(en|ru)\.html$/i);
 
-        if (match) {
-            return {
-                base: match[1],
-                language: match[2].toLowerCase()
-            };
+        if (!file) {
+            file = "index.html";
         }
+
+
+        let currentLanguage = "fr";
+
+
+        if (file.endsWith("-en.html")) {
+
+            currentLanguage = "en";
+
+        } 
+        else if (file.endsWith("-ru.html")) {
+
+            currentLanguage = "ru";
+
+        }
+
+
+        let base = file
+            .replace(".html", "")
+            .replace("-en", "")
+            .replace("-ru", "");
+
 
         return {
-            base: filename.replace(/\.html$/i, ""),
-            language: "fr"
+
+            base: base,
+            lang: currentLanguage
+
         };
+
     }
 
-    function getTargetPage(base, language) {
-        if (language === "fr") {
+
+
+    function makePage(base, lang) {
+
+
+        if (lang === "fr") {
+
             return base + ".html";
+
+        } 
+        else {
+
+            return base + "-" + lang + ".html";
+
         }
 
-        return base + "-" + language + ".html";
     }
 
-    function saveLanguage(language) {
-        try {
-            localStorage.setItem(STORAGE_KEY, language);
-        } catch (error) {
-            console.warn("Impossible de mémoriser la langue.", error);
-        }
-    }
 
-    function getSavedLanguage() {
-        try {
-            const language = localStorage.getItem(STORAGE_KEY);
-            return ["fr", "en", "ru"].includes(language)
-                ? language
-                : null;
-        } catch (error) {
-            return null;
-        }
-    }
 
     const page = getPageInfo();
-    const savedLanguage = getSavedLanguage();
 
-    // Au chargement, conserve la langue déjà choisie.
-    if (savedLanguage && savedLanguage !== page.language) {
-        window.location.replace(
-            getTargetPage(page.base, savedLanguage)
-        );
-        return;
-    }
 
-    // Affiche la langue correspondant à la page.
+
     if (select) {
-        select.value = page.language;
 
-        // Enregistre le choix et ouvre la page équivalente.
+
+        // affiche la langue actuelle
+        select.value = page.lang;
+
+
+
         select.addEventListener("change", function () {
-            const language = this.value;
 
-            if (!["fr", "en", "ru"].includes(language)) {
+
+            const chosen = this.value;
+
+
+
+            if (!languages.includes(chosen)) {
+
                 return;
+
             }
 
-            saveLanguage(language);
 
-            window.location.href = getTargetPage(
+
+            const target = makePage(
                 page.base,
-                language
+                chosen
             );
+
+
+
+            window.location.href = target;
+
+
         });
+
+
     }
 
-    // Enregistre aussi la langue actuelle lors de la première visite.
-    if (!savedLanguage) {
-        saveLanguage(page.language);
-    }
+
 })();
 </script>
 
