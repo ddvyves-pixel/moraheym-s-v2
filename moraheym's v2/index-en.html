@@ -2883,100 +2883,71 @@ document
 
 
 <script>
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
     const select = document.getElementById("languageSelect");
 
-    const languages = ["fr","en","ru"];
+    if (!select) return;
 
 
-   function getPageInfo(){
-
-    let file = window.location.pathname
+    const file = window.location.pathname
         .split("/")
-        .pop();
+        .pop()
+        .toLowerCase();
 
 
-    if(!file){
-        file = "index.html";
+    let currentLanguage = "fr";
+
+
+    if (file.includes("-en.html")) {
+        currentLanguage = "en";
+    }
+
+    else if (file.includes("-ru.html")) {
+        currentLanguage = "ru";
     }
 
 
-    let lang = "fr";
-
-
-    if(file.toLowerCase().endsWith("-en.html")){
-        lang = "en";
-    }
-
-    else if(file.toLowerCase().endsWith("-ru.html")){
-        lang = "ru";
-    }
-
-
-    let base = file
-        .replace(/\.html$/i,"")
-        .replace(/-(en|ru)$/i,"");
-
-
-    return {
-        base: base,
-        lang: lang
-    };
-
-}
+    // Met à jour le bouton affiché
+    select.value = currentLanguage;
 
 
 
-    function makePage(base,lang){
+    select.addEventListener("change", function () {
 
-        if(lang==="fr"){
-            return base+".html";
+
+        const language = this.value;
+
+
+        let base = file
+            .replace(".html", "")
+            .replace("-en", "")
+            .replace("-ru", "");
+
+
+        let destination;
+
+
+        if (language === "fr") {
+
+            destination = base + ".html";
+
+        }
+
+        else {
+
+            destination = base + "-" + language + ".html";
+
         }
 
 
-        return base+"-"+lang+".html";
-
-    }
+        window.location.href = destination;
 
 
-
-    const page=getPageInfo();
-
-
-if(select){
-
-    select.value = page.lang;
+    });
 
 
-    select.addEventListener(
-        "change",
-        function(){
-
-            let chosen = this.value;
-
-
-            if(!languages.includes(chosen)){
-                return;
-            }
-
-
-            let target =
-            makePage(
-                page.base,
-                chosen
-            );
-
-
-            window.location.href = target;
-
-        }
-    );
-
-}
-
-
-})();
+});
 </script>
 
 
