@@ -2885,99 +2885,111 @@ document
 <script>
 (function () {
 
-    const STORAGE_KEY = "moraheym-language";
     const select = document.getElementById("languageSelect");
 
-    const supportedLanguages = ["fr", "en", "ru"];
+    const languages = ["fr","en","ru"];
 
 
-    function getPageInfo() {
+    function getPageInfo(){
 
-        let filename =
-            window.location.pathname.split("/").pop();
+        let file =
+        window.location.pathname
+        .split("/")
+        .pop();
 
 
-        if (!filename || filename === "") {
-            filename = "index.html";
+        if(!file){
+            file="index.html";
         }
 
 
-        // Retire le suffixe -en ou -ru
-        let base = filename
-            .replace(/-(en|ru)\.html$/i, "")
-            .replace(/\.html$/i, "");
+        let base=file;
 
 
-        let language = "fr";
+        // retire html
+        base=base.replace(".html","");
 
 
-        if (filename.match(/-en\.html$/i)) {
-            language = "en";
+        // retire obligatoirement -en ou -ru
+        base=base.replace(/-(en|ru)$/i,"");
+
+
+        let lang="fr";
+
+
+        if(file.endsWith("-en.html")){
+            lang="en";
         }
 
-
-        if (filename.match(/-ru\.html$/i)) {
-            language = "ru";
+        else if(file.endsWith("-ru.html")){
+            lang="ru";
         }
 
 
         return {
-            base: base,
-            language: language
+            base:base,
+            lang:lang
         };
 
     }
 
 
 
-    function getTargetPage(base, language) {
+    function makePage(base,lang){
 
-
-        if (language === "fr") {
-
-            return base + ".html";
-
+        if(lang==="fr"){
+            return base+".html";
         }
 
 
-        return base + "-" + language + ".html";
+        return base+"-"+lang+".html";
 
     }
 
 
 
-    const page = getPageInfo();
+    const page=getPageInfo();
 
 
 
     if(select){
 
-        select.value = page.language;
+        select.value=page.lang;
 
 
         select.addEventListener(
             "change",
             function(){
 
-                const language = this.value;
+
+                let chosen=this.value;
 
 
-                if(!supportedLanguages.includes(language)){
+                if(!languages.includes(chosen)){
                     return;
                 }
 
 
-                localStorage.setItem(
-                    STORAGE_KEY,
-                    language
+                let target =
+                makePage(
+                    page.base,
+                    chosen
                 );
 
 
-                window.location.href =
-                    getTargetPage(
-                        page.base,
-                        language
-                    );
+                console.log(
+                    "Page actuelle:",
+                    page
+                );
+
+
+                console.log(
+                    "Redirection vers:",
+                    target
+                );
+
+
+                window.location.href=target;
 
 
             }
