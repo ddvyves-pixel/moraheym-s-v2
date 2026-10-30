@@ -2880,6 +2880,7 @@ document
 
 </script>
 
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -2943,54 +2944,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     });
-
-
-});
-</script>
-
-<script>
-(function () {
-
-    const select = document.getElementById("languageSelect");
-
-    const languages = ["fr","en","ru"];
-
-
-   function getPageInfo(){
-
-    let file = window.location.pathname
-        .split("/")
-        .pop();
-
-
-    if(!file){
-        file = "index.html";
-    }
-
-
-    let lang = "fr";
-
-
-    if(file.toLowerCase().endsWith("-en.html")){
-        lang = "en";
-    }
-
-    else if(file.toLowerCase().endsWith("-ru.html")){
-        lang = "ru";
-    }
-
-
-    let base = file
-        .replace(/\.html$/i,"")
-        .replace(/-(en|ru)$/i,"");
-
-
-    return {
-        base: base,
-        lang: lang
-    };
-
-}
 
 
 
