@@ -2886,8 +2886,10 @@ document
 (function () {
     const STORAGE_KEY = "moraheym-language";
     const select = document.getElementById("languageSelect");
+
     const supportedLanguages = ["fr", "en", "ru"];
 
+    // Détermine la page et la langue actuelles.
     function getPageInfo() {
         const filename =
             window.location.pathname.split("/").pop() || "index.html";
@@ -2907,6 +2909,7 @@ document
         };
     }
 
+    // Construit le nom de la page dans la langue choisie.
     function getTargetPage(base, language) {
         if (language === "fr") {
             return base + ".html";
@@ -2915,8 +2918,29 @@ document
         return base + "-" + language + ".html";
     }
 
+    function saveLanguage(language) {
+        try {
+            localStorage.setItem(STORAGE_KEY, language);
+        } catch (error) {
+            console.warn("Unable to save language preference.", error);
+        }
+    }
+
+    function getSavedLanguage() {
+        try {
+            const language = localStorage.getItem(STORAGE_KEY);
+
+            return supportedLanguages.includes(language)
+                ? language
+                : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
     const page = getPageInfo();
 
+    // Affiche la langue correspondant à la page ouverte.
     if (select) {
         select.value = page.language;
 
@@ -2927,22 +2951,18 @@ document
                 return;
             }
 
-            try {
-                localStorage.setItem(STORAGE_KEY, language);
-            } catch (error) {
-                console.warn("Impossible de mémoriser la langue.", error);
-            }
+            saveLanguage(language);
 
             const target = getTargetPage(page.base, language);
+
             window.location.href = target;
         });
     }
 
-    try {
-        localStorage.setItem(STORAGE_KEY, page.language);
-    } catch (error) {
-        console.warn("Impossible de mémoriser la langue.", error);
-    }
+    // Mémorise la langue de la page visitée.
+    // Ne redirige pas automatiquement le visiteur.
+    saveLanguage(page.language);
+
 })();
 </script>
 
