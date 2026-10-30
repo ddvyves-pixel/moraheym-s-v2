@@ -2652,30 +2652,12 @@ html[data-theme="light"] ::selection {
     <div class="nav-actions">
 
         <div class="language-switcher">
-
-            <select
-                onchange="window.location.href=this.value"
-                aria-label="Выберите язык">
-
-                <option
-                    value="groupe.html">
-                    FR
-                </option>
-
-                <option
-                    value="groupe-en.html">
-                    EN
-                </option>
-
-                <option
-                    value="groupe-ru.html"
-                    selected>
-                    RU
-                </option>
-
-            </select>
-
-        </div>
+    <select id="languageSelect" aria-label="Choisir la langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
+    </select>
+</div>
 
         <button
             class="theme-toggle"
