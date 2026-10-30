@@ -1692,7 +1692,7 @@ html[data-theme="light"] .footer-bottom {
 <div class="nav-inner">
 
 <a
-    href="index.html"
+    href="index-ru.html"
     class="brand-logo"
 >
 
@@ -1719,30 +1719,30 @@ html[data-theme="light"] .footer-bottom {
 >
 
     <a
-        href="actualites.html"
+        href="actualites-ru.html"
         class="nav-news"
     >
         Новости
     </a>
 
-    <a href="groupe.html">
+    <a href="groupe-ru.html">
         О группе
     </a>
 
-    <a href="expertise.html">
+    <a href="expertise-ru.html">
         Экспертиза
     </a>
 
-    <a href="видением.html">
+    <a href="видением-ru.html">
         Видение
     </a>
 
-    <a href="projets.html">
+    <a href="projets-ru.html">
         Проекты
     </a>
 
     <a
-        href="contact.html"
+        href="contact-ru.html"
         class="nav-cta"
     >
         Контакты
@@ -1755,9 +1755,9 @@ html[data-theme="light"] .footer-bottom {
 
     <div class="language-switcher">
     <select id="languageSelect" aria-label="Choisir la langue">
-        <option value="index.html" selected>FR</option>
-        <option value="index-en.html">EN</option>
-        <option value="index-ru.html">RU</option>
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
     </select>
 </div>
 
@@ -1817,14 +1817,14 @@ html[data-theme="light"] .footer-bottom {
     <div class="hero-actions">
 
         <a
-            href="groupe.html"
+            href="groupe-ru.html"
             class="button button-primary"
         >
             Узнать о группе
         </a>
 
         <a
-            href="contact.html"
+            href="contact-ru.html"
             class="button button-outline"
         >
             Связаться с нами
@@ -2146,11 +2146,11 @@ html[data-theme="light"] .footer-bottom {
             </div>
 
             <div class="footer-links">
-                <a href="actualites.html">Новости</a>
-                <a href="groupe.html">О группе</a>
-                <a href="expertise.html">Экспертиза</a>
-                <a href="видением.html">Видение</a>
-                <a href="projets.html">Проекты</a>
+                <a href="actualites-ru.html">Новости</a>
+                <a href="groupe-ru.html">О группе</a>
+                <a href="expertise-ru.html">Экспертиза</a>
+                <a href="vision-ru.html">Видение</a>
+                <a href="projets-ru.html">Проекты</a>
             </div>
         </div>
 
@@ -2162,31 +2162,31 @@ html[data-theme="light"] .footer-bottom {
             </div>
 
             <div class="footer-links">
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     НЕДВИЖИМОСТЬ И СТРОИТЕЛЬСТВО
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     ИНФРАСТРУКТУРА
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     ОБРАЗОВАНИЕ И ИССЛЕДОВАНИЯ
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     РАЗВИТИЕ КОМПЕТЕНЦИЙ
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     ОБОРУДОВАНИЕ
                 </a>
                 
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     ПРОФЕССИОНАЛЬНОЕ ОБУЧЕНИЕ
                 </a>
 
-                <a href="expertise.html">
+                <a href="expertise-ru.html">
                     DEVELOPPEMENT PERSONNEL 
                     ET LEADERSHIP FAMILIAL
                 </a>
@@ -2201,7 +2201,7 @@ html[data-theme="light"] .footer-bottom {
             </div>
 
             <div class="footer-links">
-                <a href="contact.html">
+                <a href="contact-ru.html">
                     Связаться с нами
                 </a>
 
@@ -2209,7 +2209,7 @@ html[data-theme="light"] .footer-bottom {
                     moraheyms@gmail.com
                 </a>
 
-                <a href="projets.html">
+                <a href="projets-ru.html">
                     Ознакомиться с нашими проектами
                 </a>
             </div>
@@ -2224,25 +2224,25 @@ html[data-theme="light"] .footer-bottom {
 
             <div class="footer-links">
 
-                <a href="видением.html">
+                <a href="vision-ru.html">
                   AFRICAN UNION UNIVERSITY
                   INTERNATIONAL (AUUI)
                 </a>
 
-                <a href="видением.html">
+                <a href="vision-ru.html">
                  GROUPE CEB Inc
                   — CLEAN-ENERGY-BUILD
                 </a>
 
-                <a href="видением.html">
+                <a href="vision-ru.html">
                   MORAHEYM'S ASSURANCES
                 </a>
 
-                <a href="видением.html">
+                <a href="vision-ru.html">
                   GLORY TO GOD BJR
                 </a>
 
-                <a href="видением.html">
+                <a href="vision-ru.html">
                   БАНКОВСКИЕ ПАРТНЁРЫ
                  </a>
 
@@ -2389,7 +2389,7 @@ root.setAttribute(
         const contactLink =
             navLinks
                 ? navLinks.querySelector(
-                    'a[href="contact.html"]'
+                    'a[href="contact-ru.html"]'
                 )
                 : null;
 
@@ -2492,7 +2492,7 @@ root.setAttribute(
 
                 const contactLink =
                     navLinks.querySelector(
-                        'a[href="contact.html"]'
+                        'a[href="contact-ru.html"]'
                     );
 
 
@@ -2888,7 +2888,6 @@ document
     const select = document.getElementById("languageSelect");
     const supportedLanguages = ["fr", "en", "ru"];
 
-    // Identifie la page et la langue actuellement affichées.
     function getPageInfo() {
         const filename =
             window.location.pathname.split("/").pop() || "index.html";
@@ -2908,7 +2907,6 @@ document
         };
     }
 
-    // Construit le nom de la page dans la langue choisie.
     function getTargetPage(base, language) {
         if (language === "fr") {
             return base + ".html";
@@ -2917,35 +2915,8 @@ document
         return base + "-" + language + ".html";
     }
 
-    function getSavedLanguage() {
-        try {
-            const language = localStorage.getItem(STORAGE_KEY);
-            return supportedLanguages.includes(language) ? language : null;
-        } catch (error) {
-            return null;
-        }
-    }
-
-    function saveLanguage(language) {
-        try {
-            localStorage.setItem(STORAGE_KEY, language);
-        } catch (error) {
-            console.warn("La langue n'a pas pu être mémorisée.", error);
-        }
-    }
-
     const page = getPageInfo();
-    const savedLanguage = getSavedLanguage();
 
-    // Si une langue a déjà été choisie, conserve-la sur cette page.
-    if (savedLanguage && savedLanguage !== page.language) {
-        window.location.replace(
-            getTargetPage(page.base, savedLanguage)
-        );
-        return;
-    }
-
-    // Affiche la langue de la page actuelle dans le sélecteur.
     if (select) {
         select.value = page.language;
 
@@ -2956,17 +2927,21 @@ document
                 return;
             }
 
-            // Mémorise le choix avant de changer de page.
-            saveLanguage(language);
+            try {
+                localStorage.setItem(STORAGE_KEY, language);
+            } catch (error) {
+                console.warn("Impossible de mémoriser la langue.", error);
+            }
 
-            // Ouvre la même page dans la langue sélectionnée.
-            window.location.href = getTargetPage(page.base, language);
+            const target = getTargetPage(page.base, language);
+            window.location.href = target;
         });
     }
 
-    // Première visite : mémorise la langue de la page d'arrivée.
-    if (!savedLanguage) {
-        saveLanguage(page.language);
+    try {
+        localStorage.setItem(STORAGE_KEY, page.language);
+    } catch (error) {
+        console.warn("Impossible de mémoriser la langue.", error);
     }
 })();
 </script>
