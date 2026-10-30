@@ -2883,40 +2883,39 @@ document
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
     const select = document.getElementById("languageSelect");
 
-    if (!select) return;
+    const languages = ["fr", "en", "ru"];
 
 
-    const file = window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
+    function getPageInfo() {
+
+        let file = window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
 
 
-    let currentLanguage = "fr";
+        if (!file) {
+            file = "index.html";
+        }
 
 
-    if (file.includes("-en.html")) {
-        currentLanguage = "en";
-    }
-
-    else if (file.includes("-ru.html")) {
-        currentLanguage = "ru";
-    }
+        let currentLanguage = "fr";
 
 
-    // Met à jour le bouton affiché
-    select.value = currentLanguage;
+        if (file.endsWith("-en.html")) {
 
+            currentLanguage = "en";
 
+        } 
+        else if (file.endsWith("-ru.html")) {
 
-    select.addEventListener("change", function () {
+            currentLanguage = "ru";
 
-
-        const language = this.value;
+        }
 
 
         let base = file
@@ -2925,63 +2924,76 @@ document.addEventListener("DOMContentLoaded", function () {
             .replace("-ru", "");
 
 
-        let destination;
+        return {
+
+            base: base,
+            lang: currentLanguage
+
+        };
+
+    }
 
 
-        if (language === "fr") {
 
-            destination = base + ".html";
+    function makePage(base, lang) {
 
-        }
 
+        if (lang === "fr") {
+
+            return base + ".html";
+
+        } 
         else {
 
-            destination = base + "-" + language + ".html";
+            return base + "-" + lang + ".html";
 
         }
 
-
-        window.location.href = destination;
-
-
-    });
+    }
 
 
 
-
-    const page=getPageInfo();
-
-
-if(select){
-
-    select.value = page.lang;
+    const page = getPageInfo();
 
 
-    select.addEventListener(
-        "change",
-        function(){
 
-            let chosen = this.value;
+    if (select) {
 
 
-            if(!languages.includes(chosen)){
+        // affiche la langue actuelle
+        select.value = page.lang;
+
+
+
+        select.addEventListener("change", function () {
+
+
+            const chosen = this.value;
+
+
+
+            if (!languages.includes(chosen)) {
+
                 return;
+
             }
 
 
-            let target =
-            makePage(
+
+            const target = makePage(
                 page.base,
                 chosen
             );
 
 
+
             window.location.href = target;
 
-        }
-    );
 
-}
+        });
+
+
+    }
 
 
 })();
